@@ -1,7 +1,7 @@
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import React from 'react';
-import './App.css';
+import './App.scss';
 import config from './services/config';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     new MapView({ map, container: 'mapDiv', ...config.DEFAULT_EXTENT });
   }, []);
 
-  return <div id="mapDiv"></div>;
+  return <div id="mapDiv" className="w-100 h-100"></div>;
 }
 
 export default App;
