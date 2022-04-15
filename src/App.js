@@ -1,5 +1,6 @@
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
+import Home from '@arcgis/core/widgets/Home';
 import React from 'react';
 import 'typeface-montserrat';
 import './App.scss';
@@ -13,7 +14,10 @@ function App() {
     const map = new Map({
       basemap: 'streets-vector',
     });
-    setMapView(new MapView({ map, container: 'mapDiv', ...config.DEFAULT_EXTENT }));
+    const view = new MapView({ map, container: 'mapDiv', ...config.DEFAULT_EXTENT });
+    view.ui.add(new Home({ view }), 'top-left');
+
+    setMapView(view);
   }, []);
 
   return (
