@@ -1,20 +1,18 @@
+import Map from '@arcgis/core/Map';
+import MapView from '@arcgis/core/views/MapView';
+import React from 'react';
 import './App.css';
-import logo from './logo.svg';
+import config from './services/config';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  React.useEffect(() => {
+    const map = new Map({
+      basemap: 'streets-vector',
+    });
+    new MapView({ map, container: 'mapDiv', ...config.DEFAULT_EXTENT });
+  }, []);
+
+  return <div id="mapDiv"></div>;
 }
 
 export default App;
