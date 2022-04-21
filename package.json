@@ -27,8 +27,15 @@
     "eject": "react-scripts eject",
     "format": "prettier . -w",
     "lint": "eslint .",
+    "release": "standard-version --sign --commit-all",
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "zip": "bestzip build_$npm_package_version.zip build/*"
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "CI=true npm test && CI=true npm run build && npm run zip && git add build_$npm_package_version.zip"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -54,8 +61,10 @@
     "printWidth": 120
   },
   "devDependencies": {
+    "bestzip": "^2.2.1",
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.6.2",
-    "prettier-plugin-organize-imports": "^2.3.4"
+    "prettier-plugin-organize-imports": "^2.3.4",
+    "standard-version": "^9.3.2"
   }
 }
