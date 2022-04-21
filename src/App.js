@@ -1,6 +1,6 @@
 import * as watchUtils from '@arcgis/core/core/watchUtils';
-import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
+import WebMap from '@arcgis/core/WebMap';
 import Home from '@arcgis/core/widgets/Home';
 import React from 'react';
 import 'typeface-montserrat';
@@ -14,10 +14,10 @@ function App() {
   const [zoomToGraphic, setZoomToGraphic] = React.useState(null);
 
   React.useEffect(() => {
-    const map = new Map({
-      basemap: 'streets-vector',
+    const map = new WebMap({
+      portalItem: { id: '64597762025546ca993bea496f51d302' },
     });
-    const view = new MapView({ map, container: 'mapDiv', ...config.DEFAULT_EXTENT });
+    const view = new MapView({ map, container: 'mapDiv' });
     view.ui.add(new Home({ view }), 'top-left');
 
     setMapView(view);
