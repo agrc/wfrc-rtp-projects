@@ -4,6 +4,8 @@ Standalone RTP Project Web App
 
 [Mockups](https://docs.google.com/presentation/d/1vpFzqsd6YIKYdstyn_iv_RSU6NXplRN7XhM8X-Su_Qo/edit#slide=id.p)
 
+[Web Map and Filter Specs](https://docs.google.com/spreadsheets/d/1zrcI_XNdhlxNlj703HnaKOio7d9U1pWhzghnR-izdIY/edit#gid=0)
+
 This project was bootstrapped with [create-react-app](https://www.npmjs.com/search?q=create-react-app).
 
 ## Releases
