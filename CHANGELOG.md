@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.0...v0.1.1) (2022-04-21)
+
+
+### Features
+
+* **tooling:** implement github action for releases ([4929703](https://github.com/agrc/wfrc-rtp-projects/commit/4929703019c5d27913eebdefc7df62c723ca297f)), closes [#1](https://github.com/agrc/wfrc-rtp-projects/issues/1)
+
 ## 0.1.0 (2022-04-21)
 
 
