@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.2...v0.1.3) (2022-04-21)
+
+
+### Bug Fixes
+
+* **tooling:** release body param ([12444ae](https://github.com/agrc/wfrc-rtp-projects/commit/12444ae69cd3d4ac94f787ac417bba12caeca69f))
+
 ### [0.1.2](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.1...v0.1.2) (2022-04-21)
 
 
