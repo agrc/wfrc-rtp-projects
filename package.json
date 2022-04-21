@@ -30,12 +30,7 @@
     "release": "standard-version --sign --commit-all",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "zip": "bestzip build_$npm_package_version.zip build/*"
-  },
-  "standard-version": {
-    "scripts": {
-      "postbump": "CI=true npm test && CI=true npm run build && npm run zip && git add build_$npm_package_version.zip"
-    }
+    "zip": "bestzip build.zip build/*"
   },
   "eslintConfig": {
     "extends": [

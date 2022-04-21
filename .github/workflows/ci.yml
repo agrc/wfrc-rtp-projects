@@ -1,0 +1,59 @@
+name: Test and Cut Release
+
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: 📥 Download dependencies
+        run: npm ci
+        working-directory: ./function
+
+      - name: 🧹 Lint
+        run: npm run lint
+
+      - name: 🧪 Run tests
+        run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: npm
+
+      - name: 📥 Download dependencies
+        run: npm ci
+        working-directory: ./function
+
+      - name: 🏗 Run build
+        run: npm run build
+
+      - name: 🗜 Compress
+        run: npm run zip
+
+      - name: 🚀 Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: "[Change Log](https://github.com/agrc/wfrc-rtp-projects/blob/${{ github.ref_name}}/CHANGELOG.md)"
+          files: build.zip
