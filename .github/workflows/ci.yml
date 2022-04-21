@@ -53,5 +53,5 @@ jobs:
       - name: 🚀 Create release
         uses: softprops/action-gh-release@v1
         with:
-          body_path: "[Change Log](https://github.com/agrc/wfrc-rtp-projects/blob/${{ github.ref_name}}/CHANGELOG.md)"
+          body: "[Change Log](https://github.com/agrc/wfrc-rtp-projects/blob/${{ github.ref_name}}/CHANGELOG.md)"
           files: build.zip
