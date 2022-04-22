@@ -7,6 +7,7 @@ import Downshift from 'downshift';
 import escapeRegExp from 'lodash.escaperegexp';
 import sortBy from 'lodash.sortby';
 import uniqWith from 'lodash.uniqwith';
+import propTypes from 'prop-types';
 import React from 'react';
 import { Button, Input, InputGroup } from 'reactstrap';
 import './Sherlock.scss';
@@ -115,6 +116,7 @@ export function Sherlock({
                       }
 
                       let items = data.map((item, index) => (
+                        // eslint-disable-next-line react/jsx-key
                         <li
                           {...getItemProps({
                             key: index,
@@ -153,6 +155,14 @@ export function Sherlock({
     </Downshift>
   );
 }
+Sherlock.propTypes = {
+  symbols: propTypes.object,
+  provider: propTypes.object,
+  onSherlockMatch: propTypes.func,
+  label: propTypes.string,
+  placeHolder: propTypes.string,
+  maxResultsToDisplay: propTypes.number,
+};
 
 function Clue({ clue, provider, maxResults, children }) {
   const [state, setState] = React.useState({
@@ -396,6 +406,10 @@ const Highlighted = ({ text = '', highlight = '' }) => {
         .map((part, i) => (regex.test(part) ? <mark key={i}>{part}</mark> : <span key={i}>{part}</span>))}
     </div>
   );
+};
+Highlighted.propTypes = {
+  text: propTypes.string,
+  highlight: propTypes.string,
 };
 
 class WebApi {
