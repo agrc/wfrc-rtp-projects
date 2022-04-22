@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import propTypes from 'prop-types';
 import React from 'react';
-import { Button, Card, CardBody, CardHeader, Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Alert, Button, Card, CardBody, CardHeader, Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
 import { useImmerReducer } from 'use-immer';
 import config from '../services/config';
 import './Filter.scss';
@@ -25,6 +26,13 @@ const MODE = 'mode';
 const PHASE = 'phase';
 const initialState = {
   display: MODE,
+};
+
+function ErrorFallback({ error }) {
+  return <Alert color="danger">{error.message}</Alert>;
+}
+ErrorFallback.propTypes = {
+  error: propTypes.object.isRequired,
 };
 
 export default function Filter({ mapView }) {
@@ -69,6 +77,7 @@ export default function Filter({ mapView }) {
           </div>
         </CardHeader>
         <CardBody>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
           <h5>Display FTP Projects by:</h5>
           <FormGroup check inline>
             <Input
@@ -144,6 +153,7 @@ export default function Filter({ mapView }) {
               <Col>swatch</Col>
             </Row>
           </Container>
+          </ErrorBoundary>
         </CardBody>
       </Card>
     </>
