@@ -78,81 +78,89 @@ export default function Filter({ mapView }) {
         </CardHeader>
         <CardBody>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <h5>Display FTP Projects by:</h5>
-          <FormGroup check inline>
-            <Input
-              name="radio-type"
-              id="transportation"
-              type="radio"
-              checked={state.display === MODE}
-              onChange={() => dispatch({ type: 'display', payload: MODE })}
-            />{' '}
-            <Label check for="transportation">
-              Transportation Mode
-            </Label>
-          </FormGroup>
-          <FormGroup check inline>
-            <Input
-              name="radio-type"
-              id="phase"
-              type="radio"
-              checked={state.display === PHASE}
-              onChange={() => dispatch({ type: 'display', payload: PHASE })}
-            />{' '}
-            <Label check for="phase">
-              Phase Years
-            </Label>
-          </FormGroup>
-          <Container fluid className="p-0">
-            <Row>
-              <Col xs={firstColWidth}></Col>
-              <Col>Linear</Col>
-              <Col>Point</Col>
-            </Row>
-            <Row>
-              <Col xs={firstColWidth}>
-                <FormGroup check inline>
-                  <Input id="road" type="checkbox" checked />{' '}
-                  <Label check for="road">
-                    {' '}
-                    Road
-                  </Label>
-                </FormGroup>
-              </Col>
-              <Col>
-                <Swatch layer={layers?.modeLines} value={'Roadway'} />
-              </Col>
-              <Col>
-                <Swatch layer={layers?.modePoints} value={'Roadway'} />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={firstColWidth}>
-                <FormGroup check inline>
-                  <Input id="transit" type="checkbox" checked />{' '}
-                  <Label check for="transit">
-                    {' '}
-                    Transit
-                  </Label>
-                </FormGroup>
-              </Col>
-              <Col>swatch</Col>
-              <Col>swatch</Col>
-            </Row>
-            <Row>
-              <Col xs={firstColWidth}>
-                <FormGroup check inline>
-                  <Input id="active-transportation" type="checkbox" checked />{' '}
-                  <Label check for="active-transportation">
-                    {' '}
-                    Active Transportation
-                  </Label>
-                </FormGroup>
-              </Col>
-              <Col>swatch</Col>
-              <Col>swatch</Col>
-            </Row>
-          </Container>
+            <h5>Display FTP Projects by:</h5>
+            <FormGroup check inline>
+              <Input
+                name="radio-type"
+                id="transportation"
+                type="radio"
+                checked={state.display === MODE}
+                onChange={() => dispatch({ type: 'display', payload: MODE })}
+              />{' '}
+              <Label check for="transportation">
+                Transportation Mode
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Input
+                name="radio-type"
+                id="phase"
+                type="radio"
+                checked={state.display === PHASE}
+                onChange={() => dispatch({ type: 'display', payload: PHASE })}
+              />{' '}
+              <Label check for="phase">
+                Phase Years
+              </Label>
+            </FormGroup>
+            <Container fluid className="p-0">
+              <Row>
+                <Col xs={firstColWidth}></Col>
+                <Col className="text-center">Linear</Col>
+                <Col className="text-center">Point</Col>
+              </Row>
+              <Row>
+                <Col xs={firstColWidth}>
+                  <FormGroup check inline>
+                    <Input id="road" type="checkbox" checked />{' '}
+                    <Label check for="road">
+                      {' '}
+                      Road
+                    </Label>
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <Swatch layer={layers?.modeLines} value={config.symbolValues.mode.road} />
+                </Col>
+                <Col>
+                  <Swatch layer={layers?.modePoints} value={config.symbolValues.mode.road} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={firstColWidth}>
+                  <FormGroup check inline>
+                    <Input id="transit" type="checkbox" checked />{' '}
+                    <Label check for="transit">
+                      {' '}
+                      Transit
+                    </Label>
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <Swatch layer={layers?.modeLines} value={config.symbolValues.mode.transit} />
+                </Col>
+                <Col>
+                  <Swatch layer={layers?.modePoints} value={config.symbolValues.mode.transit} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={firstColWidth}>
+                  <FormGroup check inline>
+                    <Input id="active-transportation" type="checkbox" checked />{' '}
+                    <Label check for="active-transportation">
+                      {' '}
+                      Active Transportation
+                    </Label>
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <Swatch layer={layers?.modeLines} value={config.symbolValues.mode.activeTransportation} />
+                </Col>
+                <Col>
+                  <Swatch layer={layers?.modePoints} value={config.symbolValues.mode.activeTransportation} />
+                </Col>
+              </Row>
+            </Container>
           </ErrorBoundary>
         </CardBody>
       </Card>
