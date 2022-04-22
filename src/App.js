@@ -83,7 +83,7 @@ function App() {
   };
 
   const sherlockConfig = {
-    provider: new MapServiceProvider(config.SHERLOCK.serviceUrl, config.SHERLOCK.searchField),
+    provider: new MapServiceProvider(config.sherlock.serviceUrl, config.sherlock.searchField),
     placeHolder: 'Search...',
     onSherlockMatch,
   };
