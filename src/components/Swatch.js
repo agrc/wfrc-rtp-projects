@@ -1,5 +1,5 @@
 import { renderPreviewHTML } from '@arcgis/core/symbols/support/symbolUtils';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Spinner } from 'reactstrap';
 
@@ -10,14 +10,15 @@ export default function Swatch({ layer, value }) {
     if (layer && !legend) {
       for (const info of layer.renderer.uniqueValueInfos) {
         if (info.value === value) {
-          console.log('info', info);
           renderPreviewHTML(info.symbol).then(setLegend);
 
           return;
         }
       }
 
-      throw new Error(`Could not find symbol for value: ${value}`);
+      throw new Error(
+        `Could not find symbol in layer: "${layer.title}" for value: "${value}" in field: "${layer.renderer.field}"!`
+      );
     }
   }, [layer, legend, value]);
 
@@ -34,6 +35,6 @@ export default function Swatch({ layer, value }) {
 }
 
 Swatch.propTypes = {
-  layer: propTypes.object,
-  value: propTypes.string.isRequired,
+  layer: PropTypes.object,
+  value: PropTypes.string.isRequired,
 };

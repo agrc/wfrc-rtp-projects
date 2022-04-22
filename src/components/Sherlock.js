@@ -7,7 +7,7 @@ import Downshift from 'downshift';
 import escapeRegExp from 'lodash.escaperegexp';
 import sortBy from 'lodash.sortby';
 import uniqWith from 'lodash.uniqwith';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Input, InputGroup } from 'reactstrap';
 import './Sherlock.scss';
@@ -156,12 +156,12 @@ export function Sherlock({
   );
 }
 Sherlock.propTypes = {
-  symbols: propTypes.object,
-  provider: propTypes.object,
-  onSherlockMatch: propTypes.func,
-  label: propTypes.string,
-  placeHolder: propTypes.string,
-  maxResultsToDisplay: propTypes.number,
+  symbols: PropTypes.object,
+  provider: PropTypes.object,
+  onSherlockMatch: PropTypes.func,
+  label: PropTypes.string,
+  placeHolder: PropTypes.string,
+  maxResultsToDisplay: PropTypes.number,
 };
 
 function Clue({ clue, provider, maxResults, children }) {
@@ -408,8 +408,8 @@ const Highlighted = ({ text = '', highlight = '' }) => {
   );
 };
 Highlighted.propTypes = {
-  text: propTypes.string,
-  highlight: propTypes.string,
+  text: PropTypes.string,
+  highlight: PropTypes.string,
 };
 
 class WebApi {

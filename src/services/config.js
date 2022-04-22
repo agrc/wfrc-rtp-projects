@@ -16,11 +16,15 @@ const config = {
       activeTransportation: 'Active Transportation',
     },
     phase: {
-      1: 'Phase 1 (2023-2030)',
-      2: 'Phase 2 (2031-2040)',
-      3: 'Phase 3 (2041-2050)',
-      unfunded: 'Unfunded',
+      one: '1',
+      two: '2',
+      three: '3',
+      unfunded: '4',
     },
+  },
+  fieldNames: {
+    phase: 'Phase',
+    mode: 'Mode',
   },
 };
 

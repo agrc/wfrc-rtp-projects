@@ -1,20 +1,28 @@
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Alert, Button, Card, CardBody, CardHeader, Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Alert, Button, Card, CardBody, CardHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { useImmerReducer } from 'use-immer';
 import config from '../services/config';
 import './Filter.scss';
-import Swatch from './Swatch';
+import SimpleControls from './SimpleControls';
 import { useMapLayers } from './utils';
 
 function reducer(draft, action) {
   switch (action.type) {
     case 'display':
       draft.display = action.payload;
+      break;
+
+    case 'simple':
+      if (draft[action.meta].includes(action.payload)) {
+        draft[action.meta] = draft[action.meta].filter((mode) => mode !== action.payload);
+      } else {
+        draft[action.meta].push(action.payload);
+      }
       break;
 
     default:
@@ -26,13 +34,15 @@ const MODE = 'mode';
 const PHASE = 'phase';
 const initialState = {
   display: MODE,
+  mode: Object.values(config.symbolValues.mode),
+  phase: Object.values(config.symbolValues.phase),
 };
 
 function ErrorFallback({ error }) {
   return <Alert color="danger">{error.message}</Alert>;
 }
 ErrorFallback.propTypes = {
-  error: propTypes.object.isRequired,
+  error: PropTypes.object.isRequired,
 };
 
 export default function Filter({ mapView }) {
@@ -50,6 +60,7 @@ export default function Filter({ mapView }) {
     }
   }, [mapView, buttonDiv]);
 
+  // toggle layers
   React.useEffect(() => {
     if (layers) {
       layers.modePoints.visible = state.display === MODE;
@@ -59,7 +70,21 @@ export default function Filter({ mapView }) {
     }
   }, [layers, state.display]);
 
-  const firstColWidth = 7;
+  // update definition queries
+  React.useEffect(() => {
+    if (layers) {
+      const query = `${config.fieldNames.phase} IN ('${state.phase.join("','")}')`;
+      layers.phasePoints.definitionExpression = query;
+      layers.phaseLines.definitionExpression = query;
+    }
+  }, [layers, state.phase]);
+  React.useEffect(() => {
+    if (layers) {
+      const query = `${config.fieldNames.mode} IN ('${state.mode.join("','")}')`;
+      layers.modePoints.definitionExpression = query;
+      layers.modeLines.definitionExpression = query;
+    }
+  }, [layers, state.mode]);
 
   return (
     <>
@@ -78,89 +103,89 @@ export default function Filter({ mapView }) {
         </CardHeader>
         <CardBody>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <h5>Display FTP Projects by:</h5>
-            <FormGroup check inline>
-              <Input
-                name="radio-type"
-                id="transportation"
-                type="radio"
-                checked={state.display === MODE}
-                onChange={() => dispatch({ type: 'display', payload: MODE })}
-              />{' '}
-              <Label check for="transportation">
-                Transportation Mode
-              </Label>
-            </FormGroup>
-            <FormGroup check inline>
-              <Input
-                name="radio-type"
-                id="phase"
-                type="radio"
-                checked={state.display === PHASE}
-                onChange={() => dispatch({ type: 'display', payload: PHASE })}
-              />{' '}
-              <Label check for="phase">
-                Phase Years
-              </Label>
-            </FormGroup>
-            <Container fluid className="p-0">
-              <Row>
-                <Col xs={firstColWidth}></Col>
-                <Col className="text-center">Linear</Col>
-                <Col className="text-center">Point</Col>
-              </Row>
-              <Row>
-                <Col xs={firstColWidth}>
-                  <FormGroup check inline>
-                    <Input id="road" type="checkbox" checked />{' '}
-                    <Label check for="road">
-                      {' '}
-                      Road
-                    </Label>
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <Swatch layer={layers?.modeLines} value={config.symbolValues.mode.road} />
-                </Col>
-                <Col>
-                  <Swatch layer={layers?.modePoints} value={config.symbolValues.mode.road} />
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={firstColWidth}>
-                  <FormGroup check inline>
-                    <Input id="transit" type="checkbox" checked />{' '}
-                    <Label check for="transit">
-                      {' '}
-                      Transit
-                    </Label>
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <Swatch layer={layers?.modeLines} value={config.symbolValues.mode.transit} />
-                </Col>
-                <Col>
-                  <Swatch layer={layers?.modePoints} value={config.symbolValues.mode.transit} />
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={firstColWidth}>
-                  <FormGroup check inline>
-                    <Input id="active-transportation" type="checkbox" checked />{' '}
-                    <Label check for="active-transportation">
-                      {' '}
-                      Active Transportation
-                    </Label>
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <Swatch layer={layers?.modeLines} value={config.symbolValues.mode.activeTransportation} />
-                </Col>
-                <Col>
-                  <Swatch layer={layers?.modePoints} value={config.symbolValues.mode.activeTransportation} />
-                </Col>
-              </Row>
-            </Container>
+            <h5>Display FTP Projects by</h5>
+            <Nav tabs>
+              <NavItem>
+                <NavLink
+                  active={state.display === MODE}
+                  href="#"
+                  onClick={() => dispatch({ type: 'display', payload: MODE })}
+                >
+                  Transportation Mode
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  active={state.display === PHASE}
+                  href="#"
+                  onClick={() => dispatch({ type: 'display', payload: PHASE })}
+                >
+                  Phase Years
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <TabContent activeTab={state.display} className="mt-2">
+              <TabPane tabId={MODE}>
+                <SimpleControls
+                  type={MODE}
+                  state={state}
+                  dispatch={dispatch}
+                  groups={[
+                    {
+                      linear: layers?.modeLines,
+                      point: layers?.modePoints,
+                      value: config.symbolValues.mode.road,
+                      label: 'Road',
+                    },
+                    {
+                      linear: layers?.modeLines,
+                      point: layers?.modePoints,
+                      value: config.symbolValues.mode.transit,
+                      label: 'Transit',
+                    },
+                    {
+                      linear: layers?.modeLines,
+                      point: layers?.modePoints,
+                      value: config.symbolValues.mode.activeTransportation,
+                      label: 'Active Transportation',
+                    },
+                  ]}
+                />
+              </TabPane>
+              <TabPane tabId={PHASE}>
+                <SimpleControls
+                  type={PHASE}
+                  state={state}
+                  dispatch={dispatch}
+                  groups={[
+                    {
+                      linear: layers?.phaseLines,
+                      point: layers?.phasePoints,
+                      value: config.symbolValues.phase.one,
+                      label: 'Phase 1 (2023-2030)',
+                    },
+                    {
+                      linear: layers?.phaseLines,
+                      point: layers?.phasePoints,
+                      value: config.symbolValues.phase.two,
+                      label: 'Phase 2 (2031-2040)',
+                    },
+                    {
+                      linear: layers?.phaseLines,
+                      point: layers?.phasePoints,
+                      value: config.symbolValues.phase.three,
+                      label: 'Phase 3 (2041-2050)',
+                    },
+                    {
+                      linear: layers?.phaseLines,
+                      point: layers?.phasePoints,
+                      value: config.symbolValues.phase.unfunded,
+                      label: 'Unfunded',
+                    },
+                  ]}
+                />
+              </TabPane>
+            </TabContent>
           </ErrorBoundary>
         </CardBody>
       </Card>
@@ -169,5 +194,5 @@ export default function Filter({ mapView }) {
 }
 
 Filter.propTypes = {
-  mapView: propTypes.object,
+  mapView: PropTypes.object,
 };
