@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.3...v0.1.4) (2022-04-22)
+
+
+### Features
+
+* add error boundary to filter ([e25addd](https://github.com/agrc/wfrc-rtp-projects/commit/e25addd4935313e1b6bf609b9612423c84782c57))
+* begin to flesh out simple filter layout and framework ([1b1bd0f](https://github.com/agrc/wfrc-rtp-projects/commit/1b1bd0f5c5a47d3524fa9f315e28010c7de29b8b)), closes [#5](https://github.com/agrc/wfrc-rtp-projects/issues/5)
+* show symbols from feature layers ([45980a7](https://github.com/agrc/wfrc-rtp-projects/commit/45980a7ca7b69e3a64afdb2a69d11e89f9385d41)), closes [#5](https://github.com/agrc/wfrc-rtp-projects/issues/5)
+* **tooling:** add react eslint configs ([2d2d9c6](https://github.com/agrc/wfrc-rtp-projects/commit/2d2d9c6ad5dac522f29b7c4f48683b3b852c561b))
+* wire up simple filter checkboxes ([5e351e2](https://github.com/agrc/wfrc-rtp-projects/commit/5e351e26e34c106390b4d482655cc48eacb4588b)), closes [#5](https://github.com/agrc/wfrc-rtp-projects/issues/5)
+
+
+### Bug Fixes
+
+* fix filter toggle ([df4c43c](https://github.com/agrc/wfrc-rtp-projects/commit/df4c43c73d6a96d43b9ae6ae01a5a7a40f5c08bc))
+* increase symbol size ([9d5caf7](https://github.com/agrc/wfrc-rtp-projects/commit/9d5caf782a3baf090e2ad4e9c38cd1550f127fba))
+
 ### [0.1.3](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.2...v0.1.3) (2022-04-21)
 
 
