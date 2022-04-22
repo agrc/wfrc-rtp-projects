@@ -10,7 +10,7 @@ export default function Swatch({ layer, value }) {
     if (layer && !legend) {
       for (const info of layer.renderer.uniqueValueInfos) {
         if (info.value === value) {
-          renderPreviewHTML(info.symbol).then(setLegend);
+          renderPreviewHTML(info.symbol, { size: 8 }).then(setLegend);
 
           return;
         }
