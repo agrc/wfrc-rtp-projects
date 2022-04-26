@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.4...v0.1.5) (2022-04-26)
+
+
+### Bug Fixes
+
+* add config to support non-root level deployment ([9765f7b](https://github.com/agrc/wfrc-rtp-projects/commit/9765f7b4f25302a023ceb42099343d48b759d2b3))
+
 ### [0.1.4](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.3...v0.1.4) (2022-04-22)
 
 

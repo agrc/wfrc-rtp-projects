@@ -1,6 +1,6 @@
 {
   "name": "wfrc-rtp-projects",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": ".",
   "private": true,
   "dependencies": {
