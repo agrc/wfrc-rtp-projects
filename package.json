@@ -1,6 +1,7 @@
 {
   "name": "wfrc-rtp-projects",
   "version": "0.1.4",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@arcgis/core": "^4.23.7",
