@@ -3,24 +3,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Spinner } from 'reactstrap';
 
-export default function Swatch({ layer, value }) {
+export default function Swatch({ symbol }) {
   const [legend, setLegend] = React.useState(null);
 
   React.useEffect(() => {
-    if (layer && !legend) {
-      for (const info of layer.renderer.uniqueValueInfos) {
-        if (info.value === value) {
-          renderPreviewHTML(info.symbol, { size: 8 }).then(setLegend);
-
-          return;
-        }
-      }
-
-      throw new Error(
-        `Could not find symbol in layer: "${layer.title}" for value: "${value}" in field: "${layer.renderer.field}"!`
-      );
+    if (symbol && !legend) {
+      renderPreviewHTML(symbol, { size: 8 }).then(setLegend);
     }
-  }, [layer, legend, value]);
+  }, [legend, symbol]);
 
   return legend ? (
     <div
@@ -35,6 +25,5 @@ export default function Swatch({ layer, value }) {
 }
 
 Swatch.propTypes = {
-  layer: PropTypes.object,
-  value: PropTypes.string.isRequired,
+  symbol: PropTypes.object,
 };
