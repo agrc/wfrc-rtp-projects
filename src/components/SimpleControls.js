@@ -8,7 +8,7 @@ const firstColWidth = 7;
 
 export default function SimpleControls({ type, state, dispatch, groups, disabled }) {
   const toggle = (value) => {
-    dispatch({ type: 'simple', payload: value });
+    dispatch({ type: 'simple', payload: value, meta: type });
   };
 
   return (

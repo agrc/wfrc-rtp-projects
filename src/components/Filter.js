@@ -14,14 +14,12 @@ import SimpleControls from './SimpleControls';
 import { addOrRemove, getLabelColor, useMapLayers } from './utils';
 
 export function getQuery(draft, geometryType) {
-  let simpleQuery;
-  if (draft.display === PHASE) {
-    // phase is a numeric field
-    simpleQuery = `${config.fieldNames[draft.display]} IN (${draft[draft.display].join(',')})`;
-  } else {
-    // mode is a text field
-    simpleQuery = `${config.fieldNames[draft.display]} IN ('${draft[draft.display].join("','")}')`;
-  }
+  // phase is a numeric field
+  const phaseQuery = `${config.fieldNames.phase} IN (${draft.phase.join(',')})`;
+  // mode is a text field
+  const modeQuery = `${config.fieldNames.mode} IN ('${draft.mode.join("','")}')`;
+
+  const simpleQuery = `(${phaseQuery} AND ${modeQuery})`;
 
   const { road, transit, activeTransportation } = draft.projectTypes;
   const roadInfos = road.map((name) => config.projectTypes.road[name]);
@@ -60,7 +58,8 @@ function reducer(draft, action) {
       break;
 
     case 'simple':
-      draft[draft.display] = addOrRemove(draft[draft.display], action.payload);
+      console.log('action', action);
+      draft[action.meta] = addOrRemove(draft[action.meta], action.payload);
 
       updateLayerDefinitions();
 
@@ -120,7 +119,7 @@ export default function Filter({ mapView }) {
   const [isOpen, setIsOpen] = React.useState(true);
   const buttonDiv = React.useRef(null);
   const [state, dispatch] = useImmerReducer(reducer, initialState);
-  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
+  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(true);
   const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
 
   const layers = useMapLayers(mapView, config.layerNames);
@@ -232,6 +231,7 @@ export default function Filter({ mapView }) {
                   disabled={!layers}
                   isOpen={isAdvancedOpen}
                   toggle={toggleAdvanced}
+                  phases={state.phase}
                 />
               </TabPane>
               <TabPane tabId={PHASE}>
