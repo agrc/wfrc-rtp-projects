@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/agrc/wfrc-rtp-projects/compare/v0.2.0...v0.2.1) (2022-06-15)
+
+
+### Bug Fixes
+
+* **build:** remove autoprefixer warning that is failing build in ci ([577b77c](https://github.com/agrc/wfrc-rtp-projects/commit/577b77ccb547263449b17b63c9e6cc3d1e0c1461))
+
 ## [0.2.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.5...v0.2.0) (2022-06-15)
 
 
