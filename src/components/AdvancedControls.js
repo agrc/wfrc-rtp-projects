@@ -1,7 +1,7 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { Button, Col, Collapse, Container, Row } from 'reactstrap';
+import { Button, Col, Collapse, Container, FormGroup, Input, Label, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
 
@@ -20,6 +20,7 @@ export default function AdvancedControls({
   showProjectTypeHeaders = false,
   isOpen,
   toggle,
+  phases,
 }) {
   const getHeaderChecked = (mode) => {
     const selectedTypesForMode = selectedProjectTypes[mode];
@@ -147,6 +148,51 @@ export default function AdvancedControls({
                 ))}
             </Col>
           </Row>
+          {phases ? (
+            <>
+              <Row className="mt-2">
+                <Col>
+                  <b>Filter By Phase Years:</b>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Checkbox
+                    uniqueId="phase-1"
+                    label="Phase 1 (2023-2032)"
+                    checked={phases.includes(config.symbolValues.phase.one)}
+                    onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.one, meta: 'phase' })}
+                    disabled={disabled}
+                  />
+                  <Checkbox
+                    uniqueId="phase-2"
+                    label="Phase 2 (2033-2042)"
+                    checked={phases.includes(config.symbolValues.phase.two)}
+                    onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.two, meta: 'phase' })}
+                    disabled={disabled}
+                  />
+                  <Checkbox
+                    uniqueId="phase-3"
+                    label="Phase 3 (2043-2050)"
+                    checked={phases.includes(config.symbolValues.phase.three)}
+                    onChange={() =>
+                      dispatch({ type: 'simple', payload: config.symbolValues.phase.three, meta: 'phase' })
+                    }
+                    disabled={disabled}
+                  />
+                  <Checkbox
+                    uniqueId="phase-4"
+                    label="Unfunded"
+                    checked={phases.includes(config.symbolValues.phase.unfunded)}
+                    onChange={() =>
+                      dispatch({ type: 'simple', payload: config.symbolValues.phase.unfunded, meta: 'phase' })
+                    }
+                    disabled={disabled}
+                  />
+                </Col>
+              </Row>
+            </>
+          ) : null}
         </Container>
       </Collapse>
     </>
@@ -162,4 +208,5 @@ AdvancedControls.propTypes = {
   showProjectTypeHeaders: PropTypes.bool,
   isOpen: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,
+  phases: PropTypes.array,
 };
