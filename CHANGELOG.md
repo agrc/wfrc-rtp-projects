@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/agrc/wfrc-rtp-projects/compare/v0.2.1...v0.2.2) (2022-06-15)
+
+
+### Features
+
+* auto-cancel builds ([e771959](https://github.com/agrc/wfrc-rtp-projects/commit/e771959c3fcf4f86632d739ecf408aedc1e68bbc))
+
+
+### Bug Fixes
+
+* hide advanced filter on load ([c3adaee](https://github.com/agrc/wfrc-rtp-projects/commit/c3adaee52da4ddaf6a5272633bb58ef950bb869f))
+
 ### [0.2.1](https://github.com/agrc/wfrc-rtp-projects/compare/v0.2.0...v0.2.1) (2022-06-15)
 
 
