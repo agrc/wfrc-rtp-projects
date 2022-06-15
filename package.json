@@ -1,40 +1,36 @@
 {
   "name": "wfrc-rtp-projects",
   "version": "0.2.2",
-  "homepage": ".",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@arcgis/core": "^4.23.7",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.2.0",
     "bootstrap": "^5.2.0-beta1",
     "clsx": "^1.1.1",
     "downshift": "^6.1.7",
     "lodash.debounce": "^4.0.8",
     "lodash.escaperegexp": "^4.1.2",
+    "lodash.sortby": "^4.7.0",
     "lodash.uniqwith": "^4.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^3.1.4",
-    "react-scripts": "5.0.1",
     "reactstrap": "^9.1.1",
     "sass": "^1.52.3",
     "typeface-montserrat": "^1.1.13",
-    "use-immer": "^0.7.0",
-    "web-vitals": "^2.1.4"
+    "use-immer": "^0.7.0"
   },
   "scripts": {
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
+    "build": "vite build",
     "format": "prettier . -w",
     "lint": "eslint .",
+    "preview": "vite preview",
     "release": "standard-version --sign --commit-all",
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "zip": "bestzip build.zip build/*"
+    "start": "vite",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "zip": "bestzip build.zip dist/*"
   },
   "eslintConfig": {
     "extends": [
@@ -70,11 +66,14 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^1.3.2",
     "bestzip": "^2.2.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.29.4",
+    "jest": "^28.1.1",
     "prettier": "^2.7.0",
     "prettier-plugin-organize-imports": "^2.3.4",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "vite": "^2.9.12"
   }
 }
