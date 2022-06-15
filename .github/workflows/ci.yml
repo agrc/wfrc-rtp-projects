@@ -29,7 +29,7 @@ jobs:
         run: npm run lint
 
       - name: 🧪 Run tests
-        run: npm test
+        run: npm run test:ci
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,5 +57,5 @@ jobs:
       - name: 🚀 Create release
         uses: softprops/action-gh-release@v1
         with:
-          body: "[Change Log](https://github.com/agrc/wfrc-rtp-projects/blob/${{ github.ref_name}}/CHANGELOG.md)"
+          body: '[Change Log](https://github.com/agrc/wfrc-rtp-projects/blob/${{ github.ref_name}}/CHANGELOG.md)'
           files: build.zip
