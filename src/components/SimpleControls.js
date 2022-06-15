@@ -16,8 +16,12 @@ export default function SimpleControls({ type, state, dispatch, groups, disabled
     <Container fluid className="p-0">
       <Row>
         <Col xs={firstColWidth}></Col>
-        <Col className="text-center">Linear</Col>
-        <Col className="text-center">Point</Col>
+        <Col className="text-center">
+          <b>Linear</b>
+        </Col>
+        <Col className="text-center">
+          <b>Point</b>
+        </Col>
       </Row>
       {groups.map((group) => {
         const pointSymbol = getSymbol(group.point, group.value);
