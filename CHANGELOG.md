@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.5...v0.2.0) (2022-06-15)
+
+
+### Features
+
+* implement cost filters ([4a02f23](https://github.com/agrc/wfrc-rtp-projects/commit/4a02f2352273b7af388a0e79a1c588f687604ad0)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* implement phase year filters in advanced ([5fdc43b](https://github.com/agrc/wfrc-rtp-projects/commit/5fdc43bd02da8d81f535503c38650bbb9326efec)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* implement project type header in phase tab ([999fd2e](https://github.com/agrc/wfrc-rtp-projects/commit/999fd2e51774e061f3c59a18ccedb9f90d3dbdde)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* implement use phasing radio buttons ([8e85933](https://github.com/agrc/wfrc-rtp-projects/commit/8e8593389d260fd5dc6c61bca8687e19e3b21daf)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6) [#5](https://github.com/agrc/wfrc-rtp-projects/issues/5)
+* initial filter by project type implementation ([640a0ab](https://github.com/agrc/wfrc-rtp-projects/commit/640a0ab89cf04f0bea06481e5a40272f02f8770f)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* sync advanced toggle state between tabs ([3331a7e](https://github.com/agrc/wfrc-rtp-projects/commit/3331a7e8f3263a24c24f7def96e4ea3fb8c6859a)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* sync project types between mode/phase tabs ([9e26709](https://github.com/agrc/wfrc-rtp-projects/commit/9e2670977ccd29d7b9acaab9362bd8202b5961dc)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+
+
+### Bug Fixes
+
+* balance geometry type labels with others ([5c58656](https://github.com/agrc/wfrc-rtp-projects/commit/5c58656a6521b31823e955ec7141b9a21d141ef8))
+* give the labels a little more breathing room ([83657a8](https://github.com/agrc/wfrc-rtp-projects/commit/83657a8ebba09bb33221f8b7673ac5fc656fdf55))
+* make heading stand out more visually ([30625a5](https://github.com/agrc/wfrc-rtp-projects/commit/30625a5e48f90234aa6c30b734a57d811791ca67))
+* match labels colors to legend swatches ([1133635](https://github.com/agrc/wfrc-rtp-projects/commit/1133635c31c7ff7ebe90cc46ed77a283116960e3)), closes [#16](https://github.com/agrc/wfrc-rtp-projects/issues/16)
+* update layer defs on use phasing change ([75e882e](https://github.com/agrc/wfrc-rtp-projects/commit/75e882e60eb957a2a39d9276e37c46a157f33288)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+
 ### [0.1.5](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.4...v0.1.5) (2022-04-26)
 
 
