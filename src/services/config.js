@@ -26,6 +26,7 @@ const config = {
     phase: 'phase',
     phaseNeeded: 'phase_needed',
     mode: 'mode',
+    cost: 'cost',
   },
   labels: {
     phase: {

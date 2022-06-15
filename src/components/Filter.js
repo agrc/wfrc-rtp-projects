@@ -14,13 +14,16 @@ import SimpleControls from './SimpleControls';
 import { addOrRemove, getLabelColor, useMapLayers } from './utils';
 
 export function getQuery(draft, geometryType) {
+  // TODO: write some tests for this function
+
   // phase is a numeric field
   const phaseQuery = `${draft.phaseField} IN (${draft.phase.join(',')})`;
   // mode is a text field
   const modeQuery = `${config.fieldNames.mode} IN ('${draft.mode.join("','")}')`;
 
-  const simpleQuery = `(${phaseQuery} AND ${modeQuery})`;
+  let query = `(${phaseQuery} AND ${modeQuery})`;
 
+  // project type queries
   const { road, transit, activeTransportation } = draft.projectTypes;
   const roadInfos = road.map((name) => config.projectTypes.road[name]);
   const transitInfos = transit.map((name) => config.projectTypes.transit[name]);
@@ -35,10 +38,23 @@ export function getQuery(draft, geometryType) {
   }
 
   if (projectTypeQueries.length > 0) {
-    return `${simpleQuery} AND ((${projectTypeQueries.join(') OR (')}))`;
+    query += ` AND ((${projectTypeQueries.join(') OR (')}))`;
   }
 
-  return simpleQuery;
+  // cost queries
+  const costQueries = [];
+  if (draft.cost?.min > 0) {
+    costQueries.push(`${config.fieldNames.cost} >= ${draft.cost.min}`);
+  }
+  if (draft.cost?.max > 0) {
+    costQueries.push(`${config.fieldNames.cost} <= ${draft.cost.max}`);
+  }
+
+  if (costQueries.length > 0) {
+    query += ` AND ${costQueries.join(' AND ')}`;
+  }
+
+  return query;
 }
 
 function reducer(draft, action) {
@@ -91,6 +107,13 @@ function reducer(draft, action) {
 
       break;
 
+    case 'cost':
+      draft.cost[action.meta] = action.payload;
+
+      updateLayerDefinitions();
+
+      break;
+
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -114,6 +137,10 @@ const initialState = {
     phaseLines: null,
   },
   phaseField: config.fieldNames.phase,
+  cost: {
+    min: null,
+    max: null,
+  },
 };
 
 function ErrorFallback({ error }) {
@@ -250,6 +277,7 @@ export default function Filter({ mapView }) {
                   toggle={toggleAdvanced}
                   phases={state.phase}
                   phaseField={state.phaseField}
+                  cost={state.cost}
                 />
               </TabPane>
               <TabPane tabId={PHASE}>
@@ -295,6 +323,7 @@ export default function Filter({ mapView }) {
                   showProjectTypeHeaders={true}
                   isOpen={isAdvancedOpen}
                   toggle={toggleAdvanced}
+                  cost={state.cost}
                 />
               </TabPane>
             </TabContent>

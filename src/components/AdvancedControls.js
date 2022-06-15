@@ -1,7 +1,7 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { Button, Col, Collapse, Container, Row } from 'reactstrap';
+import { Button, Col, Collapse, Container, Input, Label, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
 import UsePhasing from './UsePhasing';
@@ -23,6 +23,7 @@ export default function AdvancedControls({
   toggle,
   phases,
   phaseField,
+  cost,
 }) {
   const getHeaderChecked = (mode) => {
     const selectedTypesForMode = selectedProjectTypes[mode];
@@ -41,6 +42,9 @@ export default function AdvancedControls({
 
     dispatch({ type: 'projectTypeHeader', payload: !checked, meta: mode });
   };
+
+  const getHandleCostChange = (costType) => (event) =>
+    dispatch({ type: 'cost', payload: event.target.value, meta: costType });
 
   return (
     <>
@@ -200,6 +204,23 @@ export default function AdvancedControls({
               </Row>
             </>
           ) : null}
+          <Row className="mt-2">
+            <Col>
+              <div>
+                <b>Filter By Project Cost (in millions, 2023 dollars):</b>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Label>Minimum</Label>
+              <Input type="number" min="0" value={cost.min ?? ''} onChange={getHandleCostChange('min')} />
+            </Col>
+            <Col>
+              <Label>Maximum</Label>
+              <Input type="number" min="0" value={cost.max ?? ''} onChange={getHandleCostChange('max')} />
+            </Col>
+          </Row>
         </Container>
       </Collapse>
     </>
@@ -217,4 +238,5 @@ AdvancedControls.propTypes = {
   toggle: PropTypes.func.isRequired,
   phases: PropTypes.array,
   phaseField: PropTypes.string,
+  cost: PropTypes.object.isRequired,
 };
