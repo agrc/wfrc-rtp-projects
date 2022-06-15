@@ -50,7 +50,7 @@ export default function AdvancedControls({
       </div>
       <Collapse isOpen={isOpen}>
         <Container fluid className="p-0">
-          <div>Filter By Project Type:</div>
+          <b>Filter By Project Type:</b>
           <Row className="mb-2">
             <Col>
               {showProjectTypeHeaders ? (
