@@ -1,7 +1,6 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { Button, Col, Collapse, Container, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
@@ -19,10 +18,9 @@ export default function AdvancedControls({
   selectedProjectTypes,
   disabled,
   showProjectTypeHeaders = false,
+  isOpen,
+  toggle,
 }) {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const toggle = () => setIsOpen((current) => !current);
-
   const getHeaderChecked = (mode) => {
     const selectedTypesForMode = selectedProjectTypes[mode];
 
@@ -162,4 +160,6 @@ AdvancedControls.propTypes = {
   dispatch: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
   showProjectTypeHeaders: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
+  toggle: PropTypes.func.isRequired,
 };
