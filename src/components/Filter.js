@@ -73,6 +73,18 @@ function reducer(draft, action) {
 
       break;
 
+    case 'projectTypeHeader':
+      if (action.payload) {
+        // toggle all sub project types on
+        draft.projectTypes[action.meta] = Object.keys(config.projectTypes[action.meta]);
+      } else {
+        draft.projectTypes[action.meta] = [];
+      }
+
+      updateLayerDefinitions();
+
+      break;
+
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -257,6 +269,7 @@ export default function Filter({ mapView }) {
                   state={state}
                   dispatch={dispatch}
                   disabled={!layers}
+                  showProjectTypeHeaders={true}
                 />
               </TabPane>
             </TabContent>
