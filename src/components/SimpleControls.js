@@ -1,28 +1,14 @@
 import PropTypes from 'prop-types';
-import { Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
+import Checkbox from './Checkbox';
 import Swatch from './Swatch';
+import { getSymbol } from './utils';
 
 const firstColWidth = 7;
 
-export default function SimpleControls({ type, state, dispatch, groups }) {
+export default function SimpleControls({ type, state, dispatch, groups, disabled }) {
   const toggle = (value) => {
-    dispatch({ type: 'simple', meta: type, payload: value });
-  };
-
-  const getSymbol = (layer, value) => {
-    if (!layer) {
-      return null;
-    }
-
-    for (const info of layer.renderer.uniqueValueInfos) {
-      if (info.value === value) {
-        return info.symbol;
-      }
-    }
-
-    throw new Error(
-      `Could not find symbol in layer: "${layer.title}" for value: "${value}" in field: "${layer.renderer.field}"!`
-    );
+    dispatch({ type: 'simple', payload: value });
   };
 
   return (
@@ -39,18 +25,13 @@ export default function SimpleControls({ type, state, dispatch, groups }) {
         return (
           <Row key={group.value}>
             <Col xs={firstColWidth}>
-              <FormGroup check inline>
-                <Input
-                  id={group.value}
-                  type="checkbox"
-                  checked={state[type].includes(group.value)}
-                  onChange={() => toggle(group.value)}
-                  style={{ color: labelColor }}
-                />{' '}
-                <Label check for={group.value} style={{ color: labelColor, marginBottom: 0 }}>
-                  {` ${group.label}`}
-                </Label>
-              </FormGroup>
+              <Checkbox
+                label={group.label}
+                checked={state[type].includes(group.value)}
+                onChange={() => toggle(group.value)}
+                color={labelColor}
+                disabled={disabled}
+              />
             </Col>
             <Col>
               <Swatch symbol={getSymbol(group.linear, group.value)} />
@@ -76,4 +57,5 @@ SimpleControls.propTypes = {
     })
   ),
   dispatch: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };

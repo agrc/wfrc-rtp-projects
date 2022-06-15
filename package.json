@@ -64,6 +64,11 @@
     "singleQuote": true,
     "printWidth": 120
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!@arcgis)/"
+    ]
+  },
   "devDependencies": {
     "bestzip": "^2.2.1",
     "eslint-config-prettier": "^8.5.0",

@@ -1,3 +1,4 @@
+import FeatureFilter from '@arcgis/core/layers/support/FeatureFilter';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
@@ -7,22 +8,68 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { Alert, Button, Card, CardBody, CardHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { useImmerReducer } from 'use-immer';
 import config from '../services/config';
+import AdvancedControls from './AdvancedControls';
 import './Filter.scss';
 import SimpleControls from './SimpleControls';
-import { useMapLayers } from './utils';
+import { addOrRemove, getLabelColor, useMapLayers } from './utils';
+
+export function getQuery(draft, geometryType) {
+  let simpleQuery;
+  if (draft.display === PHASE) {
+    // phase is a numeric field
+    simpleQuery = `${config.fieldNames[draft.display]} IN (${draft[draft.display].join(',')})`;
+  } else {
+    // mode is a text field
+    simpleQuery = `${config.fieldNames[draft.display]} IN ('${draft[draft.display].join("','")}')`;
+  }
+
+  const { road, transit, activeTransportation } = draft.projectTypes[draft.display];
+  const roadInfos = road.map((name) => config.projectTypes.road[name]);
+  const transitInfos = transit.map((name) => config.projectTypes.transit[name]);
+  const activeTransportationInfos = activeTransportation.map((name) => config.projectTypes.activeTransportation[name]);
+  const selectedProjectTypeInfos = [...roadInfos, ...transitInfos, ...activeTransportationInfos];
+
+  const projectTypeQueries = [];
+  for (const info of selectedProjectTypeInfos) {
+    if (info[geometryType]) {
+      projectTypeQueries.push(info[geometryType]);
+    }
+  }
+
+  if (projectTypeQueries.length > 0) {
+    return `${simpleQuery} AND ((${projectTypeQueries.join(') OR (')}))`;
+  }
+
+  return simpleQuery;
+}
 
 function reducer(draft, action) {
+  const updateLayerDefinitions = () => {
+    draft.layerDefinitions[`${draft.display}Points`] = getQuery(draft, 'points');
+    draft.layerDefinitions[`${draft.display}Lines`] = getQuery(draft, 'lines');
+  };
+
   switch (action.type) {
     case 'display':
       draft.display = action.payload;
+
       break;
 
     case 'simple':
-      if (draft[action.meta].includes(action.payload)) {
-        draft[action.meta] = draft[action.meta].filter((mode) => mode !== action.payload);
-      } else {
-        draft[action.meta].push(action.payload);
-      }
+      draft[draft.display] = addOrRemove(draft[draft.display], action.payload);
+
+      updateLayerDefinitions();
+
+      break;
+
+    case 'projectType':
+      draft.projectTypes[draft.display][action.meta] = addOrRemove(
+        draft.projectTypes[draft.display][action.meta],
+        action.payload
+      );
+
+      updateLayerDefinitions();
+
       break;
 
     default:
@@ -36,6 +83,24 @@ const initialState = {
   display: MODE,
   mode: Object.values(config.symbolValues.mode),
   phase: Object.values(config.symbolValues.phase),
+  projectTypes: {
+    [MODE]: {
+      road: Object.keys(config.projectTypes.road),
+      transit: Object.keys(config.projectTypes.transit),
+      activeTransportation: Object.keys(config.projectTypes.activeTransportation),
+    },
+    [PHASE]: {
+      road: Object.keys(config.projectTypes.road),
+      transit: Object.keys(config.projectTypes.transit),
+      activeTransportation: Object.keys(config.projectTypes.activeTransportation),
+    },
+  },
+  layerDefinitions: {
+    modePoints: null,
+    modeLines: null,
+    phasePoints: null,
+    phaseLines: null,
+  },
 };
 
 function ErrorFallback({ error }) {
@@ -70,21 +135,16 @@ export default function Filter({ mapView }) {
     }
   }, [layers, state.display]);
 
-  // update definition queries
   React.useEffect(() => {
     if (layers) {
-      const query = `${config.fieldNames.phase} IN ('${state.phase.join("','")}')`;
-      layers.phasePoints.definitionExpression = query;
-      layers.phaseLines.definitionExpression = query;
+      for (const layerKey of Object.keys(layers)) {
+        layers[layerKey].filter = new FeatureFilter({
+          where: state.layerDefinitions[layerKey],
+        });
+        console.log(`${layers[layerKey].layer.title} filter updated to: \n${state.layerDefinitions[layerKey]}`);
+      }
     }
-  }, [layers, state.phase]);
-  React.useEffect(() => {
-    if (layers) {
-      const query = `${config.fieldNames.mode} IN ('${state.mode.join("','")}')`;
-      layers.modePoints.definitionExpression = query;
-      layers.modeLines.definitionExpression = query;
-    }
-  }, [layers, state.mode]);
+  }, [layers, state.layerDefinitions]);
 
   return (
     <>
@@ -150,6 +210,18 @@ export default function Filter({ mapView }) {
                       label: 'Active Transportation',
                     },
                   ]}
+                  disabled={!layers}
+                />
+                <AdvancedControls
+                  projectTypes={config.projectTypes}
+                  selectedProjectTypes={state.projectTypes.mode}
+                  dispatch={dispatch}
+                  labelColors={{
+                    road: getLabelColor('road', layers?.modePoints),
+                    transit: getLabelColor('transit', layers?.modePoints),
+                    activeTransportation: getLabelColor('activeTransportation', layers?.modePoints),
+                  }}
+                  disabled={!layers}
                 />
               </TabPane>
               <TabPane tabId={PHASE}>
@@ -183,6 +255,14 @@ export default function Filter({ mapView }) {
                       label: 'Unfunded',
                     },
                   ]}
+                  disabled={!layers}
+                />
+                <AdvancedControls
+                  projectTypes={config.projectTypes}
+                  selectedProjectTypes={state.projectTypes.phase}
+                  state={state}
+                  dispatch={dispatch}
+                  disabled={!layers}
                 />
               </TabPane>
             </TabContent>
