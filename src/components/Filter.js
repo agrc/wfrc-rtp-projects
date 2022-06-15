@@ -23,7 +23,7 @@ export function getQuery(draft, geometryType) {
     simpleQuery = `${config.fieldNames[draft.display]} IN ('${draft[draft.display].join("','")}')`;
   }
 
-  const { road, transit, activeTransportation } = draft.projectTypes[draft.display];
+  const { road, transit, activeTransportation } = draft.projectTypes;
   const roadInfos = road.map((name) => config.projectTypes.road[name]);
   const transitInfos = transit.map((name) => config.projectTypes.transit[name]);
   const activeTransportationInfos = activeTransportation.map((name) => config.projectTypes.activeTransportation[name]);
@@ -45,8 +45,12 @@ export function getQuery(draft, geometryType) {
 
 function reducer(draft, action) {
   const updateLayerDefinitions = () => {
-    draft.layerDefinitions[`${draft.display}Points`] = getQuery(draft, 'points');
-    draft.layerDefinitions[`${draft.display}Lines`] = getQuery(draft, 'lines');
+    const pointsQuery = getQuery(draft, 'points');
+    const linesQuery = getQuery(draft, 'lines');
+    draft.layerDefinitions.modePoints = pointsQuery;
+    draft.layerDefinitions.modeLines = linesQuery;
+    draft.layerDefinitions.phasePoints = pointsQuery;
+    draft.layerDefinitions.phaseLines = linesQuery;
   };
 
   switch (action.type) {
@@ -63,10 +67,7 @@ function reducer(draft, action) {
       break;
 
     case 'projectType':
-      draft.projectTypes[draft.display][action.meta] = addOrRemove(
-        draft.projectTypes[draft.display][action.meta],
-        action.payload
-      );
+      draft.projectTypes[action.meta] = addOrRemove(draft.projectTypes[action.meta], action.payload);
 
       updateLayerDefinitions();
 
@@ -84,16 +85,9 @@ const initialState = {
   mode: Object.values(config.symbolValues.mode),
   phase: Object.values(config.symbolValues.phase),
   projectTypes: {
-    [MODE]: {
-      road: Object.keys(config.projectTypes.road),
-      transit: Object.keys(config.projectTypes.transit),
-      activeTransportation: Object.keys(config.projectTypes.activeTransportation),
-    },
-    [PHASE]: {
-      road: Object.keys(config.projectTypes.road),
-      transit: Object.keys(config.projectTypes.transit),
-      activeTransportation: Object.keys(config.projectTypes.activeTransportation),
-    },
+    road: Object.keys(config.projectTypes.road),
+    transit: Object.keys(config.projectTypes.transit),
+    activeTransportation: Object.keys(config.projectTypes.activeTransportation),
   },
   layerDefinitions: {
     modePoints: null,
@@ -214,7 +208,7 @@ export default function Filter({ mapView }) {
                 />
                 <AdvancedControls
                   projectTypes={config.projectTypes}
-                  selectedProjectTypes={state.projectTypes.mode}
+                  selectedProjectTypes={state.projectTypes}
                   dispatch={dispatch}
                   labelColors={{
                     road: getLabelColor('road', layers?.modePoints),
@@ -259,7 +253,7 @@ export default function Filter({ mapView }) {
                 />
                 <AdvancedControls
                   projectTypes={config.projectTypes}
-                  selectedProjectTypes={state.projectTypes.phase}
+                  selectedProjectTypes={state.projectTypes}
                   state={state}
                   dispatch={dispatch}
                   disabled={!layers}
