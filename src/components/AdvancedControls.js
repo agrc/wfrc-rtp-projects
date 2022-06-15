@@ -20,7 +20,7 @@ export default function AdvancedControls({
   disabled,
   showProjectTypeHeaders = false,
 }) {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen((current) => !current);
 
   const getHeaderChecked = (mode) => {
