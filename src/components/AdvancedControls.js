@@ -3,11 +3,43 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Col, Collapse, Container, Row } from 'reactstrap';
+import config from '../services/config';
 import Checkbox from './Checkbox';
 
-export default function AdvancedControls({ projectTypes, labelColors, dispatch, selectedProjectTypes, disabled }) {
+const numPossibleProjectTypes = {
+  road: Object.keys(config.projectTypes.road).length,
+  transit: Object.keys(config.projectTypes.transit).length,
+  activeTransportation: Object.keys(config.projectTypes.activeTransportation).length,
+};
+
+export default function AdvancedControls({
+  projectTypes,
+  labelColors,
+  dispatch,
+  selectedProjectTypes,
+  disabled,
+  showProjectTypeHeaders = false,
+}) {
   const [isOpen, setIsOpen] = React.useState(true);
   const toggle = () => setIsOpen((current) => !current);
+
+  const getHeaderChecked = (mode) => {
+    const selectedTypesForMode = selectedProjectTypes[mode];
+
+    if (selectedTypesForMode.length === numPossibleProjectTypes[mode]) {
+      return true;
+    } else if (selectedTypesForMode.length === 0) {
+      return false;
+    }
+
+    return null;
+  };
+
+  const onHeaderClick = (mode) => {
+    const checked = getHeaderChecked(mode);
+
+    dispatch({ type: 'projectTypeHeader', payload: !checked, meta: mode });
+  };
 
   return (
     <>
@@ -19,8 +51,18 @@ export default function AdvancedControls({ projectTypes, labelColors, dispatch, 
       <Collapse isOpen={isOpen}>
         <Container fluid className="p-0">
           <div>Filter By Project Type:</div>
-          <Row>
+          <Row className="mb-2">
             <Col>
+              {showProjectTypeHeaders ? (
+                <Checkbox
+                  uniqueId="road-header"
+                  label="Road"
+                  disabled={disabled}
+                  checked={getHeaderChecked('road')}
+                  color={labelColors?.road}
+                  onChange={() => onHeaderClick('road')}
+                />
+              ) : null}
               {Object.keys(projectTypes.road).map((name) => (
                 <Checkbox
                   key={name}
@@ -30,10 +72,21 @@ export default function AdvancedControls({ projectTypes, labelColors, dispatch, 
                   color={labelColors?.road}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'road' })}
                   disabled={disabled}
+                  indent={showProjectTypeHeaders}
                 />
               ))}
             </Col>
             <Col>
+              {showProjectTypeHeaders ? (
+                <Checkbox
+                  uniqueId="transit-header"
+                  label="Transit"
+                  disabled={disabled}
+                  checked={getHeaderChecked('transit')}
+                  color={labelColors?.transit}
+                  onChange={() => onHeaderClick('transit')}
+                />
+              ) : null}
               {Object.keys(projectTypes.transit).map((name) => (
                 <Checkbox
                   key={name}
@@ -43,11 +96,26 @@ export default function AdvancedControls({ projectTypes, labelColors, dispatch, 
                   color={labelColors?.transit}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'transit' })}
                   disabled={disabled}
+                  indent={showProjectTypeHeaders}
                 />
               ))}
             </Col>
           </Row>
-          <Row className="mt-2">
+          {showProjectTypeHeaders ? (
+            <Row>
+              <Col>
+                <Checkbox
+                  uniqueId="activateTransportation-header"
+                  label="Active Transportation"
+                  disabled={disabled}
+                  checked={getHeaderChecked('activeTransportation')}
+                  color={labelColors?.activeTransportation}
+                  onChange={() => onHeaderClick('activeTransportation')}
+                />
+              </Col>
+            </Row>
+          ) : null}
+          <Row>
             <Col>
               {Object.keys(projectTypes.activeTransportation)
                 .slice(0, Object.keys(projectTypes.activeTransportation).length / 2)
@@ -60,6 +128,7 @@ export default function AdvancedControls({ projectTypes, labelColors, dispatch, 
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled}
+                    indent={showProjectTypeHeaders}
                   />
                 ))}
             </Col>
@@ -75,6 +144,7 @@ export default function AdvancedControls({ projectTypes, labelColors, dispatch, 
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled}
+                    indent={showProjectTypeHeaders}
                   />
                 ))}
             </Col>
@@ -91,4 +161,5 @@ AdvancedControls.propTypes = {
   selectedProjectTypes: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
+  showProjectTypeHeaders: PropTypes.bool,
 };
