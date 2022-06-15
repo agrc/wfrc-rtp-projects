@@ -24,7 +24,21 @@ const config = {
   },
   fieldNames: {
     phase: 'phase',
+    phaseNeeded: 'phase_needed',
     mode: 'mode',
+  },
+  labels: {
+    phase: {
+      one: 'Phase 1 (2023-2032)',
+      two: 'Phase 2 (2033-2042)',
+      three: 'Phase 3 (2043-2050)',
+      unfunded: 'Unfunded',
+    },
+    mode: {
+      road: 'Road',
+      transit: 'Transit',
+      activeTransportation: 'Active Transportation',
+    },
   },
   outFields: ['OBJECTID', 'phase', 'mode', 'improvement_type', 'plan_id', 'breakout', 'bike_type_text'],
   projectTypes: {

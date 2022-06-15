@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import { Col, Container, Row } from 'reactstrap';
 import Checkbox from './Checkbox';
 import Swatch from './Swatch';
+import UsePhasing from './UsePhasing';
 import { getSymbol } from './utils';
 
 const firstColWidth = 7;
 
-export default function SimpleControls({ type, state, dispatch, groups, disabled }) {
+export default function SimpleControls({ type, state, dispatch, groups, disabled, phaseField }) {
   const toggle = (value) => {
     dispatch({ type: 'simple', payload: value, meta: type });
   };
@@ -42,6 +43,13 @@ export default function SimpleControls({ type, state, dispatch, groups, disabled
           </Row>
         );
       })}
+      {phaseField ? (
+        <Row>
+          <Col>
+            <UsePhasing phaseField={phaseField} disabled={disabled} inline dispatch={dispatch} />
+          </Col>
+        </Row>
+      ) : null}
     </Container>
   );
 }
@@ -58,4 +66,5 @@ SimpleControls.propTypes = {
   ),
   dispatch: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
+  phaseField: PropTypes.string,
 };
