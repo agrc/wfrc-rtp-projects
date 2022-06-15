@@ -87,6 +87,8 @@ function reducer(draft, action) {
     case 'usePhasing':
       draft.phaseField = action.payload;
 
+      updateLayerDefinitions();
+
       break;
 
     default:
