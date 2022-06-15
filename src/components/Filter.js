@@ -120,6 +120,8 @@ export default function Filter({ mapView }) {
   const [isOpen, setIsOpen] = React.useState(true);
   const buttonDiv = React.useRef(null);
   const [state, dispatch] = useImmerReducer(reducer, initialState);
+  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
+  const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
 
   const layers = useMapLayers(mapView, config.layerNames);
 
@@ -228,6 +230,8 @@ export default function Filter({ mapView }) {
                     activeTransportation: getLabelColor('activeTransportation', layers?.modePoints),
                   }}
                   disabled={!layers}
+                  isOpen={isAdvancedOpen}
+                  toggle={toggleAdvanced}
                 />
               </TabPane>
               <TabPane tabId={PHASE}>
@@ -270,6 +274,8 @@ export default function Filter({ mapView }) {
                   dispatch={dispatch}
                   disabled={!layers}
                   showProjectTypeHeaders={true}
+                  isOpen={isAdvancedOpen}
+                  toggle={toggleAdvanced}
                 />
               </TabPane>
             </TabContent>
