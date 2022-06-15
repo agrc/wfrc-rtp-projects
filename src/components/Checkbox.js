@@ -5,7 +5,6 @@ import { FormGroup, Input, Label } from 'reactstrap';
 export default function Checkbox({ label, checked, color, onChange, uniqueId, disabled, indent = false }) {
   const setIndeterminate = (ref) => {
     if (ref) {
-      console.log('checked', checked);
       ref.indeterminate = checked === null;
     }
   };
