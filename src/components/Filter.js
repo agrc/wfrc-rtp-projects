@@ -15,7 +15,7 @@ import { addOrRemove, getLabelColor, useMapLayers } from './utils';
 
 export function getQuery(draft, geometryType) {
   // phase is a numeric field
-  const phaseQuery = `${config.fieldNames.phase} IN (${draft.phase.join(',')})`;
+  const phaseQuery = `${draft.phaseField} IN (${draft.phase.join(',')})`;
   // mode is a text field
   const modeQuery = `${config.fieldNames.mode} IN ('${draft.mode.join("','")}')`;
 
@@ -84,6 +84,11 @@ function reducer(draft, action) {
 
       break;
 
+    case 'usePhasing':
+      draft.phaseField = action.payload;
+
+      break;
+
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -106,6 +111,7 @@ const initialState = {
     phasePoints: null,
     phaseLines: null,
   },
+  phaseField: config.fieldNames.phase,
 };
 
 function ErrorFallback({ error }) {
@@ -142,6 +148,7 @@ export default function Filter({ mapView }) {
     }
   }, [layers, state.display]);
 
+  // filter layers
   React.useEffect(() => {
     if (layers) {
       for (const layerKey of Object.keys(layers)) {
@@ -152,6 +159,14 @@ export default function Filter({ mapView }) {
       }
     }
   }, [layers, state.layerDefinitions]);
+
+  // update phasing layers renderer
+  React.useEffect(() => {
+    if (layers) {
+      layers.phasePoints.layer.renderer.field = state.phaseField;
+      layers.phaseLines.layer.renderer.field = state.phaseField;
+    }
+  }, [layers, state.phaseField]);
 
   return (
     <>
@@ -202,19 +217,19 @@ export default function Filter({ mapView }) {
                       linear: layers?.modeLines,
                       point: layers?.modePoints,
                       value: config.symbolValues.mode.road,
-                      label: 'Road',
+                      label: config.labels.mode.road,
                     },
                     {
                       linear: layers?.modeLines,
                       point: layers?.modePoints,
                       value: config.symbolValues.mode.transit,
-                      label: 'Transit',
+                      label: config.labels.mode.transit,
                     },
                     {
                       linear: layers?.modeLines,
                       point: layers?.modePoints,
                       value: config.symbolValues.mode.activeTransportation,
-                      label: 'Active Transportation',
+                      label: config.labels.mode.activeTransportation,
                     },
                   ]}
                   disabled={!layers}
@@ -232,6 +247,7 @@ export default function Filter({ mapView }) {
                   isOpen={isAdvancedOpen}
                   toggle={toggleAdvanced}
                   phases={state.phase}
+                  phaseField={state.phaseField}
                 />
               </TabPane>
               <TabPane tabId={PHASE}>
@@ -244,28 +260,29 @@ export default function Filter({ mapView }) {
                       linear: layers?.phaseLines,
                       point: layers?.phasePoints,
                       value: config.symbolValues.phase.one,
-                      label: 'Phase 1 (2023-2030)',
+                      label: config.labels.phase.one,
                     },
                     {
                       linear: layers?.phaseLines,
                       point: layers?.phasePoints,
                       value: config.symbolValues.phase.two,
-                      label: 'Phase 2 (2031-2040)',
+                      label: config.labels.phase.two,
                     },
                     {
                       linear: layers?.phaseLines,
                       point: layers?.phasePoints,
                       value: config.symbolValues.phase.three,
-                      label: 'Phase 3 (2041-2050)',
+                      label: config.labels.phase.three,
                     },
                     {
                       linear: layers?.phaseLines,
                       point: layers?.phasePoints,
                       value: config.symbolValues.phase.unfunded,
-                      label: 'Unfunded',
+                      label: config.labels.phase.unfunded,
                     },
                   ]}
                   disabled={!layers}
+                  phaseField={state.phaseField}
                 />
                 <AdvancedControls
                   projectTypes={config.projectTypes}

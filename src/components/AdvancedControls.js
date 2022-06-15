@@ -1,9 +1,10 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { Button, Col, Collapse, Container, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Button, Col, Collapse, Container, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
+import UsePhasing from './UsePhasing';
 
 const numPossibleProjectTypes = {
   road: Object.keys(config.projectTypes.road).length,
@@ -21,6 +22,7 @@ export default function AdvancedControls({
   isOpen,
   toggle,
   phases,
+  phaseField,
 }) {
   const getHeaderChecked = (mode) => {
     const selectedTypesForMode = selectedProjectTypes[mode];
@@ -42,12 +44,12 @@ export default function AdvancedControls({
 
   return (
     <>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mt-2">
         <Button onClick={toggle} size="sm" outline title="Advanced Filter" className="py-0">
           <FontAwesomeIcon icon={isOpen ? faChevronDown : faChevronUp} />
         </Button>
       </div>
-      <Collapse isOpen={isOpen}>
+      <Collapse isOpen={isOpen} className="mt-2">
         <Container fluid className="p-0">
           <b>Filter By Project Type:</b>
           <Row className="mb-2">
@@ -159,21 +161,21 @@ export default function AdvancedControls({
                 <Col>
                   <Checkbox
                     uniqueId="phase-1"
-                    label="Phase 1 (2023-2032)"
+                    label={config.labels.phase.one}
                     checked={phases.includes(config.symbolValues.phase.one)}
                     onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.one, meta: 'phase' })}
                     disabled={disabled}
                   />
                   <Checkbox
                     uniqueId="phase-2"
-                    label="Phase 2 (2033-2042)"
+                    label={config.labels.phase.two}
                     checked={phases.includes(config.symbolValues.phase.two)}
                     onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.two, meta: 'phase' })}
                     disabled={disabled}
                   />
                   <Checkbox
                     uniqueId="phase-3"
-                    label="Phase 3 (2043-2050)"
+                    label={config.labels.phase.three}
                     checked={phases.includes(config.symbolValues.phase.three)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.symbolValues.phase.three, meta: 'phase' })
@@ -182,7 +184,7 @@ export default function AdvancedControls({
                   />
                   <Checkbox
                     uniqueId="phase-4"
-                    label="Unfunded"
+                    label={config.labels.phase.unfunded}
                     checked={phases.includes(config.symbolValues.phase.unfunded)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.symbolValues.phase.unfunded, meta: 'phase' })
@@ -190,6 +192,11 @@ export default function AdvancedControls({
                     disabled={disabled}
                   />
                 </Col>
+                {phaseField ? (
+                  <Col>
+                    <UsePhasing phaseField={phaseField} disabled={disabled} dispatch={dispatch} />
+                  </Col>
+                ) : null}
               </Row>
             </>
           ) : null}
@@ -209,4 +216,5 @@ AdvancedControls.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,
   phases: PropTypes.array,
+  phaseField: PropTypes.string,
 };
