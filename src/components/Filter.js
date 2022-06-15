@@ -154,7 +154,7 @@ export default function Filter({ mapView }) {
   const [isOpen, setIsOpen] = React.useState(true);
   const buttonDiv = React.useRef(null);
   const [state, dispatch] = useImmerReducer(reducer, initialState);
-  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(true);
+  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
   const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
 
   const layers = useMapLayers(mapView, config.layerNames);
