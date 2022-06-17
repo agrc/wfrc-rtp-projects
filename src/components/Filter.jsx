@@ -216,7 +216,7 @@ export default function Filter({ mapView }) {
         </CardHeader>
         <CardBody>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <h5>Display FTP Projects by</h5>
+            <h5>Display RTP Projects by</h5>
             <Nav tabs>
               <NavItem>
                 <NavLink
