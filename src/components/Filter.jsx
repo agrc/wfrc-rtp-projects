@@ -202,7 +202,9 @@ export default function Filter({ mapView }) {
       <div className="esri-widget--button" ref={buttonDiv} onClick={toggle} title="Toggle Filter">
         <FontAwesomeIcon icon={faList} />
       </div>
-      <Card className={clsx('position-absolute', 'top-0', 'end-0', 'filter-card', 'me-3 mt-3', !isOpen && 'invisible')}>
+      <Card
+        className={clsx('position-absolute', 'top-0', 'end-0', 'filter-card', 'me-3', 'mt-3', !isOpen && 'invisible')}
+      >
         <CardHeader className="d-flex justify-content-between align-items-center">
           Filter
           <div className="d-flex align-items-center">

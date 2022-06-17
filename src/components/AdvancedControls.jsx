@@ -48,12 +48,12 @@ export default function AdvancedControls({
 
   return (
     <>
-      <div className="d-flex justify-content-center mt-2">
+      <div className="d-flex justify-content-center mt-2 mb-1">
         <Button onClick={toggle} size="sm" outline title="Advanced Filter" className="py-0">
           <FontAwesomeIcon icon={isOpen ? faChevronDown : faChevronUp} />
         </Button>
       </div>
-      <Collapse isOpen={isOpen} className="mt-2">
+      <Collapse isOpen={isOpen}>
         <Container fluid className="p-0">
           <b>Filter By Project Type:</b>
           <Row className="mb-2">
