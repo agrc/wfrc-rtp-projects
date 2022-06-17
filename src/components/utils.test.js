@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { getSymbol } from './utils';
 
 describe('getSymbol', () => {
