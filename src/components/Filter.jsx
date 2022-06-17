@@ -237,7 +237,7 @@ export default function Filter({ mapView }) {
                 </NavLink>
               </NavItem>
             </Nav>
-            <TabContent activeTab={state.display} className="mt-2">
+            <TabContent activeTab={state.display} className="mt-2 px-1">
               <TabPane tabId={MODE}>
                 <SimpleControls
                   type={MODE}
