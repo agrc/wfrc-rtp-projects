@@ -114,6 +114,9 @@ function reducer(draft, action) {
 
       break;
 
+    case 'reset':
+      return initialState;
+
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -208,7 +211,11 @@ export default function Filter({ mapView }) {
         <CardHeader className="d-flex justify-content-between align-items-center">
           Filter
           <div className="d-flex align-items-center">
-            <Button className="reset-button text-decoration-none" color="link" onClick={() => {}}>
+            <Button
+              className="reset-button text-decoration-none"
+              color="link"
+              onClick={() => dispatch({ type: 'reset' })}
+            >
               <small>reset</small>
             </Button>
             <Button close onClick={toggle} />
