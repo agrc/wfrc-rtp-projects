@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, Col, Collapse, Container, Input, Label, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
+import ProjectTypeHeader from './ProjectTypeHeader';
 import UsePhasing from './UsePhasing';
 
 const numPossibleProjectTypes = {
@@ -12,35 +13,15 @@ const numPossibleProjectTypes = {
   activeTransportation: Object.keys(config.projectTypes.activeTransportation).length,
 };
 
-export default function AdvancedControls({
-  projectTypes,
-  labelColors,
-  dispatch,
-  selectedProjectTypes,
-  disabled,
-  showProjectTypeHeaders = false,
-  isOpen,
-  toggle,
-  phases,
-  phaseField,
-  cost,
-}) {
-  const getHeaderChecked = (mode) => {
-    const selectedTypesForMode = selectedProjectTypes[mode];
-
-    if (selectedTypesForMode.length === numPossibleProjectTypes[mode]) {
-      return true;
-    } else if (selectedTypesForMode.length === 0) {
-      return false;
-    }
-
-    return null;
+const SELECT_ALL = 'select all';
+const UNSELECT_ALL = 'unselect all';
+export default function AdvancedControls({ disabled, dispatch, isOpen, labelColors, showPhaseFilter, state, toggle }) {
+  const getHeaderOperationLabel = (mode) => {
+    return state.projectTypes[mode].length === numPossibleProjectTypes[mode] ? UNSELECT_ALL : SELECT_ALL;
   };
 
   const onHeaderClick = (mode) => {
-    const checked = getHeaderChecked(mode);
-
-    dispatch({ type: 'projectTypeHeader', payload: !checked, meta: mode });
+    dispatch({ type: 'projectTypeHeader', payload: getHeaderOperationLabel(mode) === SELECT_ALL, meta: mode });
   };
 
   const getHandleCostChange = (costType) => (event) =>
@@ -58,103 +39,94 @@ export default function AdvancedControls({
           <b>Filter By Project Type:</b>
           <Row className="mb-2">
             <Col>
-              {showProjectTypeHeaders ? (
-                <Checkbox
-                  uniqueId="road-header"
-                  label="Road"
-                  disabled={disabled}
-                  checked={getHeaderChecked('road')}
-                  color={labelColors?.road}
-                  onChange={() => onHeaderClick('road')}
-                />
-              ) : null}
-              {Object.keys(projectTypes.road).map((name) => (
+              <ProjectTypeHeader
+                onClick={() => onHeaderClick('road')}
+                color={labelColors?.road}
+                operationLabel={getHeaderOperationLabel('road')}
+              >
+                Road
+              </ProjectTypeHeader>
+              {Object.keys(config.projectTypes.road).map((name) => (
                 <Checkbox
                   key={name}
                   uniqueId={`${name}-road`}
                   label={name}
-                  checked={selectedProjectTypes.road.includes(name)}
+                  checked={state.projectTypes.road.includes(name)}
                   color={labelColors?.road}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'road' })}
-                  disabled={disabled}
-                  indent={showProjectTypeHeaders}
+                  disabled={disabled || !state.mode.includes(config.symbolValues.mode.road)}
+                  indent
                 />
               ))}
             </Col>
             <Col>
-              {showProjectTypeHeaders ? (
-                <Checkbox
-                  uniqueId="transit-header"
-                  label="Transit"
-                  disabled={disabled}
-                  checked={getHeaderChecked('transit')}
-                  color={labelColors?.transit}
-                  onChange={() => onHeaderClick('transit')}
-                />
-              ) : null}
-              {Object.keys(projectTypes.transit).map((name) => (
+              <ProjectTypeHeader
+                onClick={() => onHeaderClick('transit')}
+                color={labelColors?.transit}
+                operationLabel={getHeaderOperationLabel('transit')}
+              >
+                Transit
+              </ProjectTypeHeader>
+              {Object.keys(config.projectTypes.transit).map((name) => (
                 <Checkbox
                   key={name}
                   uniqueId={`${name}-transit`}
                   label={name}
-                  checked={selectedProjectTypes.transit.includes(name)}
+                  checked={state.projectTypes.transit.includes(name)}
                   color={labelColors?.transit}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'transit' })}
-                  disabled={disabled}
-                  indent={showProjectTypeHeaders}
+                  disabled={disabled || !state.mode.includes(config.symbolValues.mode.transit)}
+                  indent
                 />
               ))}
             </Col>
           </Row>
-          {showProjectTypeHeaders ? (
-            <Row>
-              <Col>
-                <Checkbox
-                  uniqueId="activateTransportation-header"
-                  label="Active Transportation"
-                  disabled={disabled}
-                  checked={getHeaderChecked('activeTransportation')}
-                  color={labelColors?.activeTransportation}
-                  onChange={() => onHeaderClick('activeTransportation')}
-                />
-              </Col>
-            </Row>
-          ) : null}
           <Row>
             <Col>
-              {Object.keys(projectTypes.activeTransportation)
-                .slice(0, Object.keys(projectTypes.activeTransportation).length / 2)
+              <ProjectTypeHeader
+                onClick={() => onHeaderClick('activeTransportation')}
+                color={labelColors?.activeTransportation}
+                operationLabel={getHeaderOperationLabel('activeTransportation')}
+              >
+                Active Transportation
+              </ProjectTypeHeader>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              {Object.keys(config.projectTypes.activeTransportation)
+                .slice(0, Object.keys(config.projectTypes.activeTransportation).length / 2)
                 .map((name) => (
                   <Checkbox
                     key={name}
                     uniqueId={`${name}-activeTransportation`}
                     label={name}
-                    checked={selectedProjectTypes.activeTransportation.includes(name)}
+                    checked={state.projectTypes.activeTransportation.includes(name)}
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
-                    disabled={disabled}
-                    indent={showProjectTypeHeaders}
+                    disabled={disabled || !state.mode.includes(config.symbolValues.mode.activeTransportation)}
+                    indent
                   />
                 ))}
             </Col>
             <Col>
-              {Object.keys(projectTypes.activeTransportation)
-                .slice(Object.keys(projectTypes.activeTransportation).length / 2)
+              {Object.keys(config.projectTypes.activeTransportation)
+                .slice(Object.keys(config.projectTypes.activeTransportation).length / 2)
                 .map((name) => (
                   <Checkbox
                     key={name}
                     uniqueId={`${name}-activeTransportation`}
                     label={name}
-                    checked={selectedProjectTypes.activeTransportation.includes(name)}
+                    checked={state.projectTypes.activeTransportation.includes(name)}
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
-                    disabled={disabled}
-                    indent={showProjectTypeHeaders}
+                    disabled={disabled || !state.mode.includes(config.symbolValues.mode.activeTransportation)}
+                    indent
                   />
                 ))}
             </Col>
           </Row>
-          {phases ? (
+          {showPhaseFilter ? (
             <>
               <Row className="mt-2">
                 <Col>
@@ -166,21 +138,21 @@ export default function AdvancedControls({
                   <Checkbox
                     uniqueId="phase-1"
                     label={config.labels.phase.one}
-                    checked={phases.includes(config.symbolValues.phase.one)}
+                    checked={state.phase.includes(config.symbolValues.phase.one)}
                     onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.one, meta: 'phase' })}
                     disabled={disabled}
                   />
                   <Checkbox
                     uniqueId="phase-2"
                     label={config.labels.phase.two}
-                    checked={phases.includes(config.symbolValues.phase.two)}
+                    checked={state.phase.includes(config.symbolValues.phase.two)}
                     onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.two, meta: 'phase' })}
                     disabled={disabled}
                   />
                   <Checkbox
                     uniqueId="phase-3"
                     label={config.labels.phase.three}
-                    checked={phases.includes(config.symbolValues.phase.three)}
+                    checked={state.phase.includes(config.symbolValues.phase.three)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.symbolValues.phase.three, meta: 'phase' })
                     }
@@ -189,16 +161,16 @@ export default function AdvancedControls({
                   <Checkbox
                     uniqueId="phase-4"
                     label={config.labels.phase.unfunded}
-                    checked={phases.includes(config.symbolValues.phase.unfunded)}
+                    checked={state.phase.includes(config.symbolValues.phase.unfunded)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.symbolValues.phase.unfunded, meta: 'phase' })
                     }
                     disabled={disabled}
                   />
                 </Col>
-                {phaseField ? (
+                {showPhaseFilter ? (
                   <Col>
-                    <UsePhasing phaseField={phaseField} disabled={disabled} dispatch={dispatch} />
+                    <UsePhasing phaseField={state.phaseField} disabled={disabled} dispatch={dispatch} />
                   </Col>
                 ) : null}
               </Row>
@@ -214,11 +186,11 @@ export default function AdvancedControls({
           <Row>
             <Col>
               <Label>Minimum</Label>
-              <Input type="number" min="0" value={cost.min ?? ''} onChange={getHandleCostChange('min')} />
+              <Input type="number" min="0" value={state.cost.min ?? ''} onChange={getHandleCostChange('min')} />
             </Col>
             <Col>
               <Label>Maximum</Label>
-              <Input type="number" min="0" value={cost.max ?? ''} onChange={getHandleCostChange('max')} />
+              <Input type="number" min="0" value={state.cost.max ?? ''} onChange={getHandleCostChange('max')} />
             </Col>
           </Row>
         </Container>
@@ -228,15 +200,11 @@ export default function AdvancedControls({
 }
 
 AdvancedControls.propTypes = {
-  projectTypes: PropTypes.object.isRequired,
-  labelColors: PropTypes.object,
-  selectedProjectTypes: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
-  showProjectTypeHeaders: PropTypes.bool,
+  dispatch: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  labelColors: PropTypes.object,
+  showPhaseFilter: PropTypes.bool,
+  state: PropTypes.object.isRequired,
   toggle: PropTypes.func.isRequired,
-  phases: PropTypes.array,
-  phaseField: PropTypes.string,
-  cost: PropTypes.object.isRequired,
 };

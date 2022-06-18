@@ -10,7 +10,7 @@ export default function Checkbox({ label, checked, color, onChange, uniqueId, di
   };
 
   return (
-    <FormGroup check inline className={clsx(indent && 'ms-3')}>
+    <FormGroup check inline className={clsx(indent && 'ms-2')}>
       <Input
         innerRef={setIndeterminate}
         id={uniqueId ?? label}

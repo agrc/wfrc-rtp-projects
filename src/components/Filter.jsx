@@ -25,10 +25,20 @@ export function getQuery(draft, geometryType) {
 
   // project type queries
   const { road, transit, activeTransportation } = draft.projectTypes;
-  const roadInfos = road.map((name) => config.projectTypes.road[name]);
-  const transitInfos = transit.map((name) => config.projectTypes.transit[name]);
-  const activeTransportationInfos = activeTransportation.map((name) => config.projectTypes.activeTransportation[name]);
-  const selectedProjectTypeInfos = [...roadInfos, ...transitInfos, ...activeTransportationInfos];
+  let selectedProjectTypeInfos = [];
+
+  // only add project type queries if the corresponding project type is selected
+  if (draft.mode.includes(config.symbolValues.mode.road)) {
+    selectedProjectTypeInfos.push(...road.map((name) => config.projectTypes.road[name]));
+  }
+  if (draft.mode.includes(config.symbolValues.mode.transit)) {
+    selectedProjectTypeInfos.push(...transit.map((name) => config.projectTypes.transit[name]));
+  }
+  if (draft.mode.includes(config.symbolValues.mode.activeTransportation)) {
+    selectedProjectTypeInfos.push(
+      ...activeTransportation.map((name) => config.projectTypes.activeTransportation[name])
+    );
+  }
 
   const projectTypeQueries = [];
   for (const info of selectedProjectTypeInfos) {
@@ -157,7 +167,7 @@ export default function Filter({ mapView }) {
   const [isOpen, setIsOpen] = React.useState(true);
   const buttonDiv = React.useRef(null);
   const [state, dispatch] = useImmerReducer(reducer, initialState);
-  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
+  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(true);
   const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
 
   const layers = useMapLayers(mapView, config.layerNames);
@@ -273,20 +283,17 @@ export default function Filter({ mapView }) {
                   disabled={!layers}
                 />
                 <AdvancedControls
-                  projectTypes={config.projectTypes}
-                  selectedProjectTypes={state.projectTypes}
+                  disabled={!layers}
                   dispatch={dispatch}
+                  isOpen={isAdvancedOpen}
                   labelColors={{
                     road: getLabelColor('road', layers?.modePoints),
                     transit: getLabelColor('transit', layers?.modePoints),
                     activeTransportation: getLabelColor('activeTransportation', layers?.modePoints),
                   }}
-                  disabled={!layers}
-                  isOpen={isAdvancedOpen}
+                  showPhaseFilter
+                  state={state}
                   toggle={toggleAdvanced}
-                  phases={state.phase}
-                  phaseField={state.phaseField}
-                  cost={state.cost}
                 />
               </TabPane>
               <TabPane tabId={PHASE}>
@@ -324,15 +331,11 @@ export default function Filter({ mapView }) {
                   phaseField={state.phaseField}
                 />
                 <AdvancedControls
-                  projectTypes={config.projectTypes}
-                  selectedProjectTypes={state.projectTypes}
-                  state={state}
-                  dispatch={dispatch}
                   disabled={!layers}
-                  showProjectTypeHeaders={true}
+                  dispatch={dispatch}
                   isOpen={isAdvancedOpen}
+                  state={state}
                   toggle={toggleAdvanced}
-                  cost={state.cost}
                 />
               </TabPane>
             </TabContent>
