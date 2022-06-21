@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.5...v0.3.0) (2022-06-21)
+
+
+### Features
+
+* add (un)select all header links ([b82af26](https://github.com/agrc/wfrc-rtp-projects/commit/b82af26b319c96488c77326260a8693f6c23014a)), closes [#26](https://github.com/agrc/wfrc-rtp-projects/issues/26)
+* add link to wfrc favicon ([8b4e051](https://github.com/agrc/wfrc-rtp-projects/commit/8b4e051da7f06ffb0950ff68b045c72733dde9d3)), closes [#29](https://github.com/agrc/wfrc-rtp-projects/issues/29)
+* auto-cancel builds ([6085cf3](https://github.com/agrc/wfrc-rtp-projects/commit/6085cf38cb6c66278666c67c10795133e632f370))
+* implement cost filters ([e123e04](https://github.com/agrc/wfrc-rtp-projects/commit/e123e0460387db045d808baf219193c500962593)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* implement info popup ([e9ac26a](https://github.com/agrc/wfrc-rtp-projects/commit/e9ac26ae3aa2fd80e6362d431d6a871d85b202da)), closes [#7](https://github.com/agrc/wfrc-rtp-projects/issues/7) [#9](https://github.com/agrc/wfrc-rtp-projects/issues/9)
+* implement phase year filters in advanced ([b140956](https://github.com/agrc/wfrc-rtp-projects/commit/b14095633cf2a6916758c36ccfa03f30da1cd660)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* implement project type header in phase tab ([9d51933](https://github.com/agrc/wfrc-rtp-projects/commit/9d51933a2ab387f55c4457f7ae994b4f4852fc60)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* implement reset filter button ([e52b0c3](https://github.com/agrc/wfrc-rtp-projects/commit/e52b0c302361b5bdd12d7339286e6dfc1a81b4c8)), closes [#12](https://github.com/agrc/wfrc-rtp-projects/issues/12)
+* implement use phasing radio buttons ([abd980f](https://github.com/agrc/wfrc-rtp-projects/commit/abd980fe6e7b0aae4542b58ae8fe5ef186cf07b0)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6) [#5](https://github.com/agrc/wfrc-rtp-projects/issues/5)
+* initial filter by project type implementation ([f5007cd](https://github.com/agrc/wfrc-rtp-projects/commit/f5007cdf7eb9fd59d9afc88e73424477f002a004)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* sync advanced toggle state between tabs ([a567678](https://github.com/agrc/wfrc-rtp-projects/commit/a567678bd65a962d6b4dcf88ca397279c098f5ee)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+* sync project types between mode/phase tabs ([01fe1f3](https://github.com/agrc/wfrc-rtp-projects/commit/01fe1f3ca21f46467a65e62f06ce7cb5ce7d91f6)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+
+
+### Bug Fixes
+
+* balance geometry type labels with others ([3c9c8d4](https://github.com/agrc/wfrc-rtp-projects/commit/3c9c8d42e36bfc8b058008b026cdb42dc7a6d13e))
+* **build:** jest tests on ci ([f99196d](https://github.com/agrc/wfrc-rtp-projects/commit/f99196da2fea36725c9ffc14789618b1adccf195))
+* **build:** linting ([7b2e7a2](https://github.com/agrc/wfrc-rtp-projects/commit/7b2e7a2197371747bab94b4cc2d287d51c8b8650))
+* **build:** remove autoprefixer warning that is failing build in ci ([355e082](https://github.com/agrc/wfrc-rtp-projects/commit/355e0827ac58647b500c6fdb6ef502232bad2565))
+* fix active/focus outline overlap ([42eccc9](https://github.com/agrc/wfrc-rtp-projects/commit/42eccc9167c74c0f6edfdab4756380793b4b7a9f))
+* formatting ([5a308b2](https://github.com/agrc/wfrc-rtp-projects/commit/5a308b292602500e2a065c177f326fb334823536))
+* ftp -> rtp typo ([2f54527](https://github.com/agrc/wfrc-rtp-projects/commit/2f545271d757eb13e46e4888ccd7a36b3c193eec))
+* give the labels a little more breathing room ([164c1ed](https://github.com/agrc/wfrc-rtp-projects/commit/164c1ed853e2bad0fa8f46d3f408f062b2f8ff32))
+* handle vertical scrolling issue ([0a8fb07](https://github.com/agrc/wfrc-rtp-projects/commit/0a8fb07789cb76634cb8acd7f00892b55d1a2131)), closes [#28](https://github.com/agrc/wfrc-rtp-projects/issues/28)
+* hide advanced filter on load ([881d6f1](https://github.com/agrc/wfrc-rtp-projects/commit/881d6f1c727feaef667560fe470198cce61c33af))
+* make heading stand out more visually ([4f3b7f3](https://github.com/agrc/wfrc-rtp-projects/commit/4f3b7f35a6031ba8efd2a1440c9cf97be14825c7))
+* match labels colors to legend swatches ([86188ef](https://github.com/agrc/wfrc-rtp-projects/commit/86188eff2b728139882bbf75aa0a167d51688e06)), closes [#16](https://github.com/agrc/wfrc-rtp-projects/issues/16)
+* switch active/inactive tab colors ([4ae9737](https://github.com/agrc/wfrc-rtp-projects/commit/4ae97378baa982e187f53b75c3b94a602961bcdc)), closes [#30](https://github.com/agrc/wfrc-rtp-projects/issues/30)
+* update layer defs on use phasing change ([d8b4294](https://github.com/agrc/wfrc-rtp-projects/commit/d8b429406059e7ba4b417d750861de202c3c989f)), closes [#6](https://github.com/agrc/wfrc-rtp-projects/issues/6)
+
 ### [0.2.2](https://github.com/agrc/wfrc-rtp-projects/compare/v0.2.1...v0.2.2) (2022-06-15)
 
 
