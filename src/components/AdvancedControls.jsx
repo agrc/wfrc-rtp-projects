@@ -63,7 +63,6 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.road}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'road' })}
                   disabled={disabled || !state.mode.includes(config.symbolValues.mode.road)}
-                  indent
                 />
               ))}
             </Col>
@@ -84,7 +83,6 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.transit}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'transit' })}
                   disabled={disabled || !state.mode.includes(config.symbolValues.mode.transit)}
-                  indent
                 />
               ))}
             </Col>
@@ -113,7 +111,6 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.symbolValues.mode.activeTransportation)}
-                    indent
                   />
                 ))}
             </Col>
@@ -129,7 +126,6 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.symbolValues.mode.activeTransportation)}
-                    indent
                   />
                 ))}
             </Col>
