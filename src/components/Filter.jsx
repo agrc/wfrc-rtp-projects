@@ -10,6 +10,7 @@ import { useImmerReducer } from 'use-immer';
 import config from '../services/config';
 import AdvancedControls from './AdvancedControls';
 import './Filter.scss';
+import InfoPopup from './InfoPopup';
 import SimpleControls from './SimpleControls';
 import { addOrRemove, getLabelColor, useMapLayers } from './utils';
 
@@ -234,26 +235,32 @@ export default function Filter({ mapView }) {
         <CardBody>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <h5>Display RTP Projects by</h5>
-            <Nav tabs>
-              <NavItem>
-                <NavLink
-                  active={state.display === MODE}
-                  href="#"
-                  onClick={() => dispatch({ type: 'display', payload: MODE })}
-                >
-                  Transportation Mode
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  active={state.display === PHASE}
-                  href="#"
-                  onClick={() => dispatch({ type: 'display', payload: PHASE })}
-                >
-                  Phase Years
-                </NavLink>
-              </NavItem>
-            </Nav>
+            <div className="d-flex justify-content-between align-items-center position-relative">
+              <Nav tabs>
+                <NavItem>
+                  <NavLink
+                    active={state.display === MODE}
+                    href="#"
+                    onClick={() => dispatch({ type: 'display', payload: MODE })}
+                  >
+                    Transportation Mode
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    active={state.display === PHASE}
+                    href="#"
+                    onClick={() => dispatch({ type: 'display', payload: PHASE })}
+                  >
+                    Phase Years
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              <InfoPopup
+                content={state.display === MODE ? config.infoText.simpleMode : config.infoText.simplePhase}
+                className="position-inherit"
+              />
+            </div>
             <TabContent activeTab={state.display} className="mt-2 px-1">
               <TabPane tabId={MODE}>
                 <SimpleControls

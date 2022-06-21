@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, Col, Collapse, Container, Input, Label, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
+import InfoPopup from './InfoPopup';
 import ProjectTypeHeader from './ProjectTypeHeader';
 import UsePhasing from './UsePhasing';
 
@@ -35,8 +36,15 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
         </Button>
       </div>
       <Collapse isOpen={isOpen}>
-        <Container fluid className="p-0">
-          <b>Filter By Project Type:</b>
+        <Container fluid className="px-0">
+          <Row className="position-relative">
+            <Col>
+              <b>Filter By Project Type:</b>
+            </Col>
+            <Col>
+              <InfoPopup content={config.infoText.projectType} className="me-2 position-absolute top-0 end-0" />
+            </Col>
+          </Row>
           <Row className="mb-2">
             <Col>
               <ProjectTypeHeader
@@ -128,9 +136,12 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
           </Row>
           {showPhaseFilter ? (
             <>
-              <Row className="mt-2">
+              <Row className="mt-2 position-relative">
                 <Col>
                   <b>Filter By Phase Years:</b>
+                </Col>
+                <Col>
+                  <InfoPopup content={config.infoText.phaseYears} className="me-2 position-absolute top-0 end-0" />
                 </Col>
               </Row>
               <Row>
@@ -176,11 +187,12 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
               </Row>
             </>
           ) : null}
-          <Row className="mt-2">
+          <Row className="mt-2 position-relative">
             <Col>
-              <div>
-                <b>Filter By Project Cost (in millions, 2023 dollars):</b>
-              </div>
+              <b>Filter By Project Cost (in millions, 2023 dollars):</b>
+            </Col>
+            <Col>
+              <InfoPopup content={config.infoText.cost} className="me-2 position-absolute top-0 end-0" />
             </Col>
           </Row>
           <Row>

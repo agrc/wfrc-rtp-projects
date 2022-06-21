@@ -1,0 +1,38 @@
+{
+  "$id": "https://wfrc.org/??/config.schema.json",
+  "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "title": "WFRC RTP Projects",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "infoText": {
+      "title": "Info Popup Content",
+      "description": "An object that contains the content that will show up in the info popups",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["simpleMode", "simplePhase", "projectType", "phaseYears", "cost"],
+      "properties": {
+        "simpleMode": {
+          "title": "Simple Filter - Mode Tab",
+          "type": "string"
+        },
+        "simplePhase": {
+          "title": "Simple Filter - Phase Tab",
+          "type": "string"
+        },
+        "projectType": {
+          "title": "Advanced Filter - Project Types",
+          "type": "string"
+        },
+        "phaseYears": {
+          "title": "Advanced Filter - Phase Years",
+          "type": "string"
+        },
+        "cost": {
+          "title": "Advanced Filter - Cost",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

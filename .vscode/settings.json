@@ -1,4 +1,15 @@
 {
   "editor.formatOnSave": true,
-  "cSpell.words": ["bestzip", "fontawesome", "fortawesome", "immer", "postbump", "softprops", "TSQL"]
+  "cSpell.words": [
+    "bestzip",
+    "fontawesome",
+    "fortawesome",
+    "immer",
+    "offcanvas",
+    "pluginutils",
+    "postbump",
+    "Sharrow",
+    "softprops",
+    "TSQL"
+  ]
 }
