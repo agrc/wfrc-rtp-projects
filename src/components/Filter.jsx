@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Alert, Button, Card, CardBody, CardHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { format } from 'sql-formatter';
 import { useImmerReducer } from 'use-immer';
 import config from '../services/config';
 import AdvancedControls from './AdvancedControls';
@@ -195,10 +196,11 @@ export default function Filter({ mapView }) {
   React.useEffect(() => {
     if (layers) {
       for (const layerKey of Object.keys(layers)) {
+        const where = state.layerDefinitions[layerKey];
         layers[layerKey].filter = new FeatureFilter({
-          where: state.layerDefinitions[layerKey],
+          where,
         });
-        console.log(`${layers[layerKey].layer.title} filter updated to: \n${state.layerDefinitions[layerKey]}`);
+        console.log(`${layers[layerKey].layer.title} filter updated to: \n${where ? format(where) : where}`);
       }
     }
   }, [layers, state.layerDefinitions]);
