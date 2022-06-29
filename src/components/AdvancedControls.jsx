@@ -1,6 +1,7 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
+import NumberFormat from 'react-number-format';
 import { Button, Col, Collapse, Container, Input, Label, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
@@ -25,8 +26,10 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
     dispatch({ type: 'projectTypeHeader', payload: getHeaderOperationLabel(mode) === SELECT_ALL, meta: mode });
   };
 
-  const getHandleCostChange = (costType) => (event) =>
-    dispatch({ type: 'cost', payload: event.target.value, meta: costType });
+  const getHandleCostChange =
+    (costType) =>
+    ({ value }) =>
+      dispatch({ type: 'cost', payload: value, meta: costType });
 
   return (
     <>
@@ -186,19 +189,35 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
           <Row className="mt-2 position-relative">
             <Col>
               <b>Filter By Project Cost (in millions, 2023 dollars):</b>
-            </Col>
-            <Col>
               <InfoPopup content={config.infoText.cost} className="me-2 position-absolute top-0 end-0" />
             </Col>
           </Row>
           <Row>
             <Col>
               <Label>Minimum</Label>
-              <Input type="number" min="0" value={state.cost.min ?? ''} onChange={getHandleCostChange('min')} />
+              <NumberFormat
+                min="0"
+                value={state.cost.min}
+                displayType="input"
+                customInput={Input}
+                thousandSeparator
+                prefix="$"
+                className="mb-1"
+                onValueChange={getHandleCostChange('min')}
+              />
             </Col>
             <Col>
               <Label>Maximum</Label>
-              <Input type="number" min="0" value={state.cost.max ?? ''} onChange={getHandleCostChange('max')} />
+              <NumberFormat
+                min="0"
+                value={state.cost.max}
+                displayType="input"
+                customInput={Input}
+                thousandSeparator
+                prefix="$"
+                className="mb-1"
+                onValueChange={getHandleCostChange('max')}
+              />
             </Col>
           </Row>
         </Container>
