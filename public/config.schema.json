@@ -1,6 +1,26 @@
 {
   "$id": "https://wfrc.org/??/config.schema.json",
   "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "definitions": {
+    "projectType": {
+      "title": "Project Type",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["points", "lines"],
+      "properties": {
+        "points": {
+          "title": "Points Query",
+          "description": "The query that will be applied to the point layers",
+          "type": ["string", "null"]
+        },
+        "lines": {
+          "title": "Lines Query",
+          "description": "The query that will be applied to the line layers",
+          "type": ["string", "null"]
+        }
+      }
+    }
+  },
   "title": "WFRC RTP Projects",
   "type": "object",
   "additionalProperties": false,
@@ -31,6 +51,36 @@
         "cost": {
           "title": "Advanced Filter - Cost",
           "type": "string"
+        }
+      }
+    },
+    "projectTypes": {
+      "title": "Project Types",
+      "description": "An array of project types",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["road", "transit", "activeTransportation"],
+      "properties": {
+        "road": {
+          "title": "Road",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/projectType"
+          }
+        },
+        "transit": {
+          "title": "Transit",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/projectType"
+          }
+        },
+        "activeTransportation": {
+          "title": "Active Transportation",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/projectType"
+          }
         }
       }
     }
