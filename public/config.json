@@ -36,17 +36,11 @@
         "points": null,
         "lines": "improvement_type = 'Corridor Preservation' AND mode = 'Highway'"
       },
-      "UDOT Owned Facility": {
-        "points": "breakout = 'State'",
-        "lines": "breakout = 'State'"
-      },
-      "Local Owned Facility": {
-        "points": "breakout = 'Local'",
-        "lines": "breakout = 'Local'"
-      },
-      "Mixed Ownership": {
-        "points": "breakout = 'State/Local'",
-        "lines": "breakout = 'State/Local'"
+      "Limit to UDOT Facilities": {
+        "points": "breakout IN ('State', 'State/Local')",
+        "lines": "breakout IN ('State', 'State/Local')",
+        "offByDefault": true,
+        "useAnd": true
       }
     },
     "transit": {
@@ -111,6 +105,12 @@
       "At-Grade Crossing": {
         "points": "bike_type_text = 'At-Grade Crossing' OR bike_type_text = 'Crossing'",
         "lines": null
+      },
+      "Limit to UDOT Facilities": {
+        "points": "breakout IN ('State', 'State/Local')",
+        "lines": "breakout IN ('State', 'State/Local')",
+        "offByDefault": true,
+        "useAnd": true
       }
     }
   }

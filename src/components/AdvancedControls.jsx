@@ -104,7 +104,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
           <Row>
             <Col>
               {Object.keys(config.projectTypes.activeTransportation)
-                .slice(0, Object.keys(config.projectTypes.activeTransportation).length / 2)
+                .slice(0, Math.ceil(Object.keys(config.projectTypes.activeTransportation).length / 2))
                 .map((name) => (
                   <Checkbox
                     key={name}
@@ -119,7 +119,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
             </Col>
             <Col>
               {Object.keys(config.projectTypes.activeTransportation)
-                .slice(Object.keys(config.projectTypes.activeTransportation).length / 2)
+                .slice(Math.ceil(Object.keys(config.projectTypes.activeTransportation).length / 2))
                 .map((name) => (
                   <Checkbox
                     key={name}

@@ -15,51 +15,59 @@ import InfoPopup from './InfoPopup';
 import SimpleControls from './SimpleControls';
 import { addOrRemove, getLabelColor, useMapLayers } from './utils';
 
-export function getQuery(draft, geometryType) {
+export function getQuery(state, geometryType, projectConfig) {
   // TODO: write some tests for this function
 
   // phase is a numeric field
-  const phaseQuery = `${draft.phaseField} IN (${draft.phase.join(',')})`;
+  const phaseQuery = `${state.phaseField} IN (${state.phase.join(',')})`;
   // mode is a text field
-  const modeQuery = `${config.fieldNames.mode} IN ('${draft.mode.join("','")}')`;
+  const modeQuery = `${projectConfig.fieldNames.mode} IN ('${state.mode.join("','")}')`;
 
-  let query = `(${phaseQuery} AND ${modeQuery})`;
+  let query = `${phaseQuery} AND ${modeQuery}`;
 
   // project type queries
-  const { road, transit, activeTransportation } = draft.projectTypes;
+  const { road, transit, activeTransportation } = state.projectTypes;
   let selectedProjectTypeInfos = [];
 
   // only add project type queries if the corresponding project type is selected
-  if (draft.mode.includes(config.symbolValues.mode.road)) {
-    selectedProjectTypeInfos.push(...road.map((name) => config.projectTypes.road[name]));
+  if (state.mode.includes(projectConfig.symbolValues.mode.road)) {
+    selectedProjectTypeInfos.push(...road.map((name) => projectConfig.projectTypes.road[name]));
   }
-  if (draft.mode.includes(config.symbolValues.mode.transit)) {
-    selectedProjectTypeInfos.push(...transit.map((name) => config.projectTypes.transit[name]));
+  if (state.mode.includes(projectConfig.symbolValues.mode.transit)) {
+    selectedProjectTypeInfos.push(...transit.map((name) => projectConfig.projectTypes.transit[name]));
   }
-  if (draft.mode.includes(config.symbolValues.mode.activeTransportation)) {
+  if (state.mode.includes(projectConfig.symbolValues.mode.activeTransportation)) {
     selectedProjectTypeInfos.push(
-      ...activeTransportation.map((name) => config.projectTypes.activeTransportation[name])
+      ...activeTransportation.map((name) => projectConfig.projectTypes.activeTransportation[name])
     );
   }
 
-  const projectTypeQueries = [];
+  const projectTypeOrQueries = [];
+  const projectTypeAndQueries = [];
   for (const info of selectedProjectTypeInfos) {
     if (info[geometryType]) {
-      projectTypeQueries.push(info[geometryType]);
+      if (info.useAnd) {
+        projectTypeAndQueries.push(info[geometryType]);
+      } else {
+        projectTypeOrQueries.push(info[geometryType]);
+      }
     }
   }
 
-  if (projectTypeQueries.length > 0) {
-    query += ` AND ((${projectTypeQueries.join(') OR (')}))`;
+  if (projectTypeOrQueries.length > 0) {
+    query += ` AND ((${projectTypeOrQueries.join(') OR (')}))`;
+  }
+  if (projectTypeAndQueries.length > 0) {
+    query += ` AND (${projectTypeAndQueries.join(') AND (')})`;
   }
 
   // cost queries
   const costQueries = [];
-  if (draft.cost?.min > 0) {
-    costQueries.push(`${config.fieldNames.cost} >= ${draft.cost.min}`);
+  if (state.cost?.min > 0) {
+    costQueries.push(`${projectConfig.fieldNames.cost} >= ${state.cost.min}`);
   }
-  if (draft.cost?.max > 0) {
-    costQueries.push(`${config.fieldNames.cost} <= ${draft.cost.max}`);
+  if (state.cost?.max > 0) {
+    costQueries.push(`${projectConfig.fieldNames.cost} <= ${state.cost.max}`);
   }
 
   if (costQueries.length > 0) {
@@ -71,8 +79,8 @@ export function getQuery(draft, geometryType) {
 
 function reducer(draft, action) {
   const updateLayerDefinitions = () => {
-    const pointsQuery = getQuery(draft, 'points');
-    const linesQuery = getQuery(draft, 'lines');
+    const pointsQuery = getQuery(draft, 'points', config);
+    const linesQuery = getQuery(draft, 'lines', config);
     draft.layerDefinitions.modePoints = pointsQuery;
     draft.layerDefinitions.modeLines = linesQuery;
     draft.layerDefinitions.phasePoints = pointsQuery;
@@ -136,14 +144,16 @@ function reducer(draft, action) {
 
 const MODE = 'mode';
 const PHASE = 'phase';
-const initialState = {
+export const initialState = {
   display: MODE,
   mode: Object.values(config.symbolValues.mode),
   phase: Object.values(config.symbolValues.phase),
   projectTypes: {
-    road: Object.keys(config.projectTypes.road),
-    transit: Object.keys(config.projectTypes.transit),
-    activeTransportation: Object.keys(config.projectTypes.activeTransportation),
+    road: Object.keys(config.projectTypes.road).filter((key) => !config.projectTypes.road[key].offByDefault),
+    transit: Object.keys(config.projectTypes.transit).filter((key) => !config.projectTypes.transit[key].offByDefault),
+    activeTransportation: Object.keys(config.projectTypes.activeTransportation).filter(
+      (key) => !config.projectTypes.activeTransportation[key].offByDefault
+    ),
   },
   layerDefinitions: {
     modePoints: null,

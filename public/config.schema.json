@@ -17,6 +17,16 @@
           "title": "Lines Query",
           "description": "The query that will be applied to the line layers",
           "type": ["string", "null"]
+        },
+        "offByDefault": {
+          "title": "Off By Default",
+          "description": "Whether the associated checkbox is off on app load",
+          "type": "boolean"
+        },
+        "useAnd": {
+          "title": "Use AND",
+          "description": "Whether the query should use AND or OR",
+          "type": "boolean"
         }
       }
     }
