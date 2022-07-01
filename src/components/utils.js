@@ -1,4 +1,4 @@
-import { whenOnce } from '@arcgis/core/core/watchUtils';
+import { whenOnce } from '@arcgis/core/core/reactiveUtils';
 import { useEffect, useState } from 'react';
 import config from '../services/config';
 
@@ -68,7 +68,7 @@ export const useMapLayers = (mapView, layerNames) => {
   useEffect(() => {
     const getLayersForNewMap = async () => {
       console.log('getLayersForNewMap');
-      await whenOnce(mapView, 'ready');
+      await whenOnce(() => mapView.ready);
 
       const layers = await getLayers(layerNames, mapView);
       setLayers(layers);

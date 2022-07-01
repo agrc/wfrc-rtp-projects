@@ -9,15 +9,14 @@ import InfoPopup from './InfoPopup';
 import ProjectTypeHeader from './ProjectTypeHeader';
 import UsePhasing from './UsePhasing';
 
-const numPossibleProjectTypes = {
-  road: Object.keys(config.projectTypes.road).length,
-  transit: Object.keys(config.projectTypes.transit).length,
-  activeTransportation: Object.keys(config.projectTypes.activeTransportation).length,
-};
-
 const SELECT_ALL = 'select all';
 const UNSELECT_ALL = 'unselect all';
 export default function AdvancedControls({ disabled, dispatch, isOpen, labelColors, showPhaseFilter, state, toggle }) {
+  const numPossibleProjectTypes = {
+    road: Object.keys(config.projectTypes.road).length,
+    transit: Object.keys(config.projectTypes.transit).length,
+    activeTransportation: Object.keys(config.projectTypes.activeTransportation).length,
+  };
   const getHeaderOperationLabel = (mode) => {
     return state.projectTypes[mode].length === numPossibleProjectTypes[mode] ? UNSELECT_ALL : SELECT_ALL;
   };
