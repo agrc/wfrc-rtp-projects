@@ -113,5 +113,46 @@
         "useAnd": true
       }
     }
+  },
+  "sherlock": {
+    "placeHolder": "trans:searchPlaceholder",
+    "serviceUrl": "https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/1",
+    "searchField": "NAME"
+  },
+  "openOnLoad": {
+    "projectInfo": true,
+    "filter": true
+  },
+  "translations": {
+    "en": {
+      "translation": {
+        "searchPlaceholder": "Search...",
+        "filter": "Filter",
+        "reset": "reset",
+        "filterByPhasing": "filter by phasing",
+        "transFilter": {
+          "transportation": "Transportation",
+          "roads": "Roads"
+        },
+        "projectInformation": "Project Information",
+        "projectInformationPrompt": "Click on a feature for more information",
+        "transportation": "Transportation"
+      }
+    },
+    "es": {
+      "translation": {
+        "searchPlaceholder": "Buscar...",
+        "filter": "Filtrar",
+        "reset": "reiniciar",
+        "filterByPhasing": "filtrar por fases",
+        "transFilter": {
+          "transportation": "Transporte",
+          "roads": "Carreteras"
+        },
+        "projectInformation": "Información del Proyecto",
+        "projectInformationPrompt": "Haga clic en una función para obtener más información",
+        "transportation": "Transporte"
+      }
+    }
   }
 }

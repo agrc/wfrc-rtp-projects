@@ -1,0 +1,42 @@
+.map-widget-button {
+  button {
+    padding: 4px 0;
+    width: 33px;
+    border: none;
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.map-widget-card {
+  position: absolute;
+  right: 15px;
+  z-index: 5;
+  width: 500px;
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+    right: 0;
+    height: 65%;
+    top: 0;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .buttons-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .reset-button {
+        padding: 0 10px;
+      }
+    }
+  }
+
+  .card-body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+}

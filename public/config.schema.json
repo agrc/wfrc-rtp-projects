@@ -29,11 +29,35 @@
           "type": "boolean"
         }
       }
+    },
+    "translation": {
+      "title": "Translation",
+      "type": "object",
+      "properties": {
+        "mapTabsDialog": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "required": ["title", "availableHeader", "selectedHeader", "maxMessage"]
+        }
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
     }
   },
   "title": "WFRC RTP Projects",
   "type": "object",
   "additionalProperties": false,
+  "required": ["infoText", "projectTypes", "sherlock", "openOnLoad", "translations"],
   "properties": {
     "infoText": {
       "title": "Info Popup Content",
@@ -93,6 +117,78 @@
           }
         }
       }
+    },
+    "sherlock": {
+      "description": "Configuration options for the map search widget",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceUrl": {
+          "description": "The URL to the service that you would like to search features on.",
+          "type": "string"
+        },
+        "searchField": {
+          "description": "The name of the field that you would like the search to be applied to.",
+          "type": "string"
+        },
+        "placeHolder": {
+          "description": "The place holder text that shows up in the text box before a user starts typing.",
+          "type": "string"
+        }
+      },
+      "required": ["serviceUrl", "searchField"]
+    },
+    "openOnLoad": {
+      "description": "Controls whether specific map widgets default to be open on page load",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "projectInfo": {
+          "type": "boolean"
+        },
+        "filter": {
+          "type": "boolean"
+        }
+      }
+    },
+    "translations": {
+      "description": "Contains the translated strings used in the app. Falls back to `en` if there is no other translation. Most strings in the other configs can be translated by using this format: `trans:<key>`. For example: `trans:visionMapTitle`.",
+      "title": "Translations",
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "object",
+          "properties": {
+            "translation": {
+              "$ref": "#/definitions/translation",
+              "required": [
+                "appTitle",
+                "tagLine",
+                "mapTabsDialog",
+                "searchPlaceholder",
+                "filter",
+                "filterByPhasing",
+                "reset",
+                "projectInformation",
+                "projectInformationPrompt"
+              ]
+            }
+          },
+          "required": ["translation"],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "translation": {
+            "$ref": "#/definitions/translation"
+          }
+        },
+        "required": ["translation"],
+        "additionalProperties": false
+      },
+      "required": ["en"]
     }
   }
 }

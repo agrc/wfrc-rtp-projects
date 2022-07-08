@@ -5,11 +5,14 @@
     "fontawesome",
     "fortawesome",
     "immer",
+    "languagedetector",
     "offcanvas",
     "pluginutils",
     "postbump",
     "Sharrow",
+    "sherlock",
     "softprops",
     "TSQL"
-  ]
+  ],
+  "cSpell.language": "en,es-ES"
 }

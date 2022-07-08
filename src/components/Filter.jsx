@@ -1,11 +1,8 @@
 import FeatureFilter from '@arcgis/core/layers/support/FeatureFilter';
-import { faList } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Alert, Button, Card, CardBody, CardHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { Alert, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { format } from 'sql-formatter';
 import { useImmerReducer } from 'use-immer';
 import config from '../services/config';
@@ -16,8 +13,6 @@ import SimpleControls from './SimpleControls';
 import { addOrRemove, getLabelColor, useMapLayers } from './utils';
 
 export function getQuery(state, geometryType, projectConfig) {
-  // TODO: write some tests for this function
-
   // phase is a numeric field
   const phaseQuery = `${state.phaseField} IN (${state.phase.join(',')})`;
   // mode is a text field
@@ -176,21 +171,11 @@ ErrorFallback.propTypes = {
 };
 
 export default function Filter({ mapView }) {
-  const [isOpen, setIsOpen] = React.useState(true);
-  const buttonDiv = React.useRef(null);
   const [state, dispatch] = useImmerReducer(reducer, initialState);
-  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(true);
+  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
   const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
 
   const layers = useMapLayers(mapView, config.layerNames);
-
-  const toggle = () => setIsOpen((current) => !current);
-
-  React.useEffect(() => {
-    if (mapView && buttonDiv.current) {
-      mapView.ui.add(buttonDiv.current, 'top-left');
-    }
-  }, [mapView, buttonDiv]);
 
   // toggle layers
   React.useEffect(() => {
@@ -225,142 +210,120 @@ export default function Filter({ mapView }) {
 
   return (
     <>
-      <div className="esri-widget--button" ref={buttonDiv} onClick={toggle} title="Toggle Filter">
-        <FontAwesomeIcon icon={faList} />
-      </div>
-      <Card
-        className={clsx('position-absolute', 'top-0', 'end-0', 'filter-card', 'me-3', 'mt-3', !isOpen && 'invisible')}
-      >
-        <CardHeader className="d-flex justify-content-between align-items-center">
-          Filter
-          <div className="d-flex align-items-center">
-            <Button
-              className="reset-button text-decoration-none"
-              color="link"
-              onClick={() => dispatch({ type: 'reset' })}
-            >
-              <small>reset</small>
-            </Button>
-            <Button close onClick={toggle} />
-          </div>
-        </CardHeader>
-        <CardBody>
-          <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <h5>Display RTP Projects by</h5>
-            <div className="d-flex justify-content-between align-items-center position-relative">
-              <Nav tabs>
-                <NavItem>
-                  <NavLink
-                    active={state.display === MODE}
-                    href="#"
-                    onClick={() => dispatch({ type: 'display', payload: MODE })}
-                  >
-                    Transportation Mode
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    active={state.display === PHASE}
-                    href="#"
-                    onClick={() => dispatch({ type: 'display', payload: PHASE })}
-                  >
-                    Phase Years
-                  </NavLink>
-                </NavItem>
-              </Nav>
-              <InfoPopup
-                content={state.display === MODE ? config.infoText.simpleMode : config.infoText.simplePhase}
-                className="position-inherit"
-              />
-            </div>
-            <TabContent activeTab={state.display} className="mt-2 px-1">
-              <TabPane tabId={MODE}>
-                <SimpleControls
-                  type={MODE}
-                  state={state}
-                  dispatch={dispatch}
-                  groups={[
-                    {
-                      linear: layers?.modeLines,
-                      point: layers?.modePoints,
-                      value: config.symbolValues.mode.road,
-                      label: config.labels.mode.road,
-                    },
-                    {
-                      linear: layers?.modeLines,
-                      point: layers?.modePoints,
-                      value: config.symbolValues.mode.transit,
-                      label: config.labels.mode.transit,
-                    },
-                    {
-                      linear: layers?.modeLines,
-                      point: layers?.modePoints,
-                      value: config.symbolValues.mode.activeTransportation,
-                      label: config.labels.mode.activeTransportation,
-                    },
-                  ]}
-                  disabled={!layers}
-                />
-                <AdvancedControls
-                  disabled={!layers}
-                  dispatch={dispatch}
-                  isOpen={isAdvancedOpen}
-                  labelColors={{
-                    road: getLabelColor('road', layers?.modePoints),
-                    transit: getLabelColor('transit', layers?.modePoints),
-                    activeTransportation: getLabelColor('activeTransportation', layers?.modePoints),
-                  }}
-                  showPhaseFilter
-                  state={state}
-                  toggle={toggleAdvanced}
-                />
-              </TabPane>
-              <TabPane tabId={PHASE}>
-                <SimpleControls
-                  type={PHASE}
-                  state={state}
-                  dispatch={dispatch}
-                  groups={[
-                    {
-                      linear: layers?.phaseLines,
-                      point: layers?.phasePoints,
-                      value: config.symbolValues.phase.one,
-                      label: config.labels.phase.one,
-                    },
-                    {
-                      linear: layers?.phaseLines,
-                      point: layers?.phasePoints,
-                      value: config.symbolValues.phase.two,
-                      label: config.labels.phase.two,
-                    },
-                    {
-                      linear: layers?.phaseLines,
-                      point: layers?.phasePoints,
-                      value: config.symbolValues.phase.three,
-                      label: config.labels.phase.three,
-                    },
-                    {
-                      linear: layers?.phaseLines,
-                      point: layers?.phasePoints,
-                      value: config.symbolValues.phase.unfunded,
-                      label: config.labels.phase.unfunded,
-                    },
-                  ]}
-                  disabled={!layers}
-                  phaseField={state.phaseField}
-                />
-                <AdvancedControls
-                  disabled={!layers}
-                  dispatch={dispatch}
-                  isOpen={isAdvancedOpen}
-                  state={state}
-                  toggle={toggleAdvanced}
-                />
-              </TabPane>
-            </TabContent>
-          </ErrorBoundary>
-        </CardBody>
-      </Card>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <h5>Display RTP Projects by</h5>
+        <div className="d-flex justify-content-between align-items-center position-relative">
+          <Nav tabs>
+            <NavItem>
+              <NavLink
+                active={state.display === MODE}
+                href="#"
+                onClick={() => dispatch({ type: 'display', payload: MODE })}
+              >
+                Transportation Mode
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                active={state.display === PHASE}
+                href="#"
+                onClick={() => dispatch({ type: 'display', payload: PHASE })}
+              >
+                Phase Years
+              </NavLink>
+            </NavItem>
+          </Nav>
+          <InfoPopup
+            content={state.display === MODE ? config.infoText.simpleMode : config.infoText.simplePhase}
+            className="position-inherit"
+          />
+        </div>
+        <TabContent activeTab={state.display} className="mt-2 px-1">
+          <TabPane tabId={MODE}>
+            <SimpleControls
+              type={MODE}
+              state={state}
+              dispatch={dispatch}
+              groups={[
+                {
+                  linear: layers?.modeLines,
+                  point: layers?.modePoints,
+                  value: config.symbolValues.mode.road,
+                  label: config.labels.mode.road,
+                },
+                {
+                  linear: layers?.modeLines,
+                  point: layers?.modePoints,
+                  value: config.symbolValues.mode.transit,
+                  label: config.labels.mode.transit,
+                },
+                {
+                  linear: layers?.modeLines,
+                  point: layers?.modePoints,
+                  value: config.symbolValues.mode.activeTransportation,
+                  label: config.labels.mode.activeTransportation,
+                },
+              ]}
+              disabled={!layers}
+            />
+            <AdvancedControls
+              disabled={!layers}
+              dispatch={dispatch}
+              isOpen={isAdvancedOpen}
+              labelColors={{
+                road: getLabelColor('road', layers?.modePoints),
+                transit: getLabelColor('transit', layers?.modePoints),
+                activeTransportation: getLabelColor('activeTransportation', layers?.modePoints),
+              }}
+              showPhaseFilter
+              state={state}
+              toggle={toggleAdvanced}
+            />
+          </TabPane>
+          <TabPane tabId={PHASE}>
+            <SimpleControls
+              type={PHASE}
+              state={state}
+              dispatch={dispatch}
+              groups={[
+                {
+                  linear: layers?.phaseLines,
+                  point: layers?.phasePoints,
+                  value: config.symbolValues.phase.one,
+                  label: config.labels.phase.one,
+                },
+                {
+                  linear: layers?.phaseLines,
+                  point: layers?.phasePoints,
+                  value: config.symbolValues.phase.two,
+                  label: config.labels.phase.two,
+                },
+                {
+                  linear: layers?.phaseLines,
+                  point: layers?.phasePoints,
+                  value: config.symbolValues.phase.three,
+                  label: config.labels.phase.three,
+                },
+                {
+                  linear: layers?.phaseLines,
+                  point: layers?.phasePoints,
+                  value: config.symbolValues.phase.unfunded,
+                  label: config.labels.phase.unfunded,
+                },
+              ]}
+              disabled={!layers}
+              phaseField={state.phaseField}
+            />
+            <AdvancedControls
+              disabled={!layers}
+              dispatch={dispatch}
+              isOpen={isAdvancedOpen}
+              state={state}
+              toggle={toggleAdvanced}
+            />
+          </TabPane>
+        </TabContent>
+      </ErrorBoundary>
     </>
   );
 }

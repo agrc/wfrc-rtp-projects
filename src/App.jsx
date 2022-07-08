@@ -1,23 +1,31 @@
 import * as reactiveUtils from '@arcgis/core/core/reactiveUtils';
+import Graphic from '@arcgis/core/Graphic';
 import MapView from '@arcgis/core/views/MapView';
 import WebMap from '@arcgis/core/WebMap';
 import Home from '@arcgis/core/widgets/Home';
+import { faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import 'typeface-montserrat';
 import './App.scss';
 import Filter from './components/Filter';
+import MapWidget from './components/MapWidget';
+import ProjectInformation from './components/ProjectInformation';
 import { MapServiceProvider, Sherlock } from './components/Sherlock';
+import { useSpecialTranslation } from './i18n';
 import config from './services/config';
 
 function App() {
   const [mapView, setMapView] = React.useState(null);
   const [zoomToGraphic, setZoomToGraphic] = React.useState(null);
 
+  const t = useSpecialTranslation();
+
   React.useEffect(() => {
     const map = new WebMap({
       portalItem: { id: '64597762025546ca993bea496f51d302' },
     });
     const view = new MapView({ map, container: 'mapDiv' });
+    view.popup = null;
     view.ui.add(new Home({ view }), 'top-left');
 
     setMapView(view);
@@ -84,9 +92,52 @@ function App() {
 
   const sherlockConfig = {
     provider: new MapServiceProvider(config.sherlock.serviceUrl, config.sherlock.searchField),
-    placeHolder: 'Search...',
+    placeHolder: t(config.sherlock.placeHolder),
     onSherlockMatch,
   };
+
+  // required for ProjectInformation
+  const [selectedGraphics, setSelectedGraphics] = React.useState([]);
+  const [highlight, setHighlight] = React.useState(null);
+  const [graphic, setGraphic] = React.useState(null);
+  const highlightGraphic = async (newGraphic) => {
+    console.log('App:highlightGraphic', newGraphic);
+
+    if (highlight) {
+      highlight.remove();
+      setHighlight(null);
+    }
+
+    if (graphic) {
+      mapView.graphics.remove(graphic);
+    }
+
+    if (newGraphic) {
+      try {
+        const layerView = await mapView.whenLayerView(newGraphic.layer);
+        setHighlight(layerView.highlight(newGraphic));
+      } catch {
+        const symbolizedGraphic = new Graphic({
+          ...newGraphic,
+          symbol: config.SELECTION_SYMBOLS[newGraphic.geometry.type],
+        });
+
+        mapView.graphics.add(symbolizedGraphic);
+        setGraphic(symbolizedGraphic);
+      }
+    } else {
+      setGraphic(null);
+    }
+  };
+
+  React.useEffect(() => {
+    if (mapView) {
+      mapView.on('click', async (event) => {
+        const response = await mapView.hitTest(event);
+        setSelectedGraphics(response.results.map((result) => result.graphic));
+      });
+    }
+  }, [mapView]);
 
   return (
     <div className="d-flex flex-column w-100 h-100">
@@ -94,7 +145,25 @@ function App() {
         <h4 className="my-0">RTP Projects</h4>
       </div>
       <div id="mapDiv" className="flex-fill border-top border position-relative">
-        <Filter mapView={mapView} />
+        <MapWidget
+          defaultOpen={config.openOnLoad.filter}
+          name={t('trans:filter')}
+          icon={faFilter}
+          position={0}
+          mapView={mapView}
+          showReset={true}
+        >
+          <Filter mapView={mapView} />
+        </MapWidget>
+        <MapWidget
+          defaultOpen={config.openOnLoad.projectInfo}
+          name={t('trans:projectInformation')}
+          icon={faHandPointer}
+          position={1}
+          mapView={mapView}
+        >
+          <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
+        </MapWidget>
         <Sherlock {...sherlockConfig}></Sherlock>
       </div>
     </div>

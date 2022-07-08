@@ -1,10 +1,9 @@
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { Validator } from 'jsonschema';
+import { initReactI18next } from 'react-i18next';
 
 const config = {
-  sherlock: {
-    serviceUrl: 'https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/1',
-    searchField: 'NAME',
-  },
   layerNames: {
     modePoints: 'Points Displayed by Mode',
     modeLines: 'Lines Displayed by Mode',
@@ -46,7 +45,7 @@ const config = {
   outFields: ['OBJECTID', 'phase', 'mode', 'improvement_type', 'plan_id', 'breakout', 'bike_type_text'],
 };
 
-// optional configSchema is for jest and storybook since they are clumsy when it comes to
+// optional configSchema is for vitest and storybook since they are clumsy when it comes to
 // async setup
 export const setConfigs = async (appConfigs, configSchema = null) => {
   // we are fetching this rather than importing it so that it can be hosted publicly and available
@@ -66,23 +65,24 @@ export const setConfigs = async (appConfigs, configSchema = null) => {
     console.error('There is an error in config.json!', error.stack);
   }
 
-  // i18n
-  //   .use(initReactI18next)
-  //   .use(LanguageDetector)
-  //   .init({
-  //     detection: {
-  //       order: ['navigator'], // only look at the navigator object to determine locale
-  //       caches: [], // disable locale caching
-  //     },
-  //     resources: appConfigs.translations,
-  //     interpolation: {
-  //       escapeValue: false,
-  //     },
-  //     fallbackLng: 'en',
-  //   });
+  i18n
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+      detection: {
+        order: ['navigator'], // only look at the navigator object to determine locale
+        caches: [], // disable locale caching
+      },
+      resources: appConfigs.translations,
+      interpolation: {
+        escapeValue: false,
+      },
+      fallbackLng: 'en',
+    });
 
   // apply quad word from env
   Object.assign(config, appConfigs);
+  console.log('configs set');
 };
 
 export default config;
