@@ -136,7 +136,18 @@
         },
         "projectInformation": "Project Information",
         "projectInformationPrompt": "Click on a feature for more information",
-        "transportation": "Transportation"
+        "transportation": "Transportation",
+        "comments": {
+          "leaveComment": "Leave comment",
+          "name": "Name",
+          "organization": "Organization",
+          "contact": "Contact Information (email/phone)",
+          "comment": "Comment*",
+          "submit": "Submit",
+          "cancel": "Cancel",
+          "required": "*Required",
+          "publicComments": "Public Comments"
+        }
       }
     },
     "es": {
@@ -151,8 +162,33 @@
         },
         "projectInformation": "Información del Proyecto",
         "projectInformationPrompt": "Haga clic en una función para obtener más información",
-        "transportation": "Transporte"
+        "transportation": "Transporte",
+        "comments": {
+          "leaveComment": "Comentar",
+          "name": "Nombre",
+          "organization": "Organización",
+          "contact": "Contacto (teléfono/correo electrónico)",
+          "comment": "Comentario*",
+          "submit": "Enviar",
+          "cancel": "Cancelar",
+          "required": "*Solicitado",
+          "publicComments": "Comentarios del Público"
+        }
       }
+    }
+  },
+  "projectInformation": {
+    "commentsEnabled": true,
+    "commentsTableUrl": "https://services1.arcgis.com/taguadKoI1XFwivx/arcgis/rest/services/Draft_Projects_2023_2050_RTP_Phased_by_Need/FeatureServer/2",
+    "newCommentsOpenUntil": "9999-01-31T00:00:00.000Z",
+    "fieldNames": {
+      "globalId": "GlobalID",
+      "personName": "PersonName",
+      "personOrg": "PersonOrg",
+      "personCont": "PersonCont",
+      "comment": "Comment",
+      "commentDt": "CommentDT",
+      "guid": "GUID"
     }
   }
 }

@@ -1,7 +1,6 @@
 import Details from './Details';
 
 export default {
-  title: 'Details',
   component: Details,
 };
 

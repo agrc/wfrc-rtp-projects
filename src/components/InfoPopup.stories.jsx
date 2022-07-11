@@ -1,7 +1,6 @@
 import InfoPopup from './InfoPopup';
 
 export default {
-  title: 'Info Popup',
   component: InfoPopup,
 };
 

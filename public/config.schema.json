@@ -57,7 +57,7 @@
   "title": "WFRC RTP Projects",
   "type": "object",
   "additionalProperties": false,
-  "required": ["infoText", "projectTypes", "sherlock", "openOnLoad", "translations"],
+  "required": ["infoText", "projectTypes", "sherlock", "openOnLoad", "translations", "projectInformation"],
   "properties": {
     "infoText": {
       "title": "Info Popup Content",
@@ -189,6 +189,67 @@
         "additionalProperties": false
       },
       "required": ["en"]
+    },
+    "projectInformation": {
+      "title": "Project Information Widget Config",
+      "description": "Configuration options for the project information widget",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commentsEnabled", "commentsTableUrl", "newCommentsOpenUntil", "fieldNames"],
+      "properties": {
+        "commentsEnabled": {
+          "title": "Comments Enabled",
+          "description": "Whether the comments widget is enabled",
+          "type": "boolean"
+        },
+        "commentsTableUrl": {
+          "title": "Comments Table URL",
+          "description": "The URL to the feature service endpoint for the comments table",
+          "type": "string"
+        },
+        "newCommentsOpenUntil": {
+          "title": "New Comments Open Until",
+          "description": "The date after which new comments will no longer be accepted.",
+          "type": "string"
+        },
+        "fieldNames": {
+          "title": "Field Names",
+          "description": "An object that contains the field names for the comments table",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["globalId", "personName", "personOrg", "personCont", "comment", "commentDt", "guid"],
+          "properties": {
+            "globalId": {
+              "title": "Global ID",
+              "type": "string"
+            },
+            "personName": {
+              "title": "Person Name",
+              "type": "string"
+            },
+            "personOrg": {
+              "title": "Person Organization",
+              "type": "string"
+            },
+            "personCont": {
+              "title": "Person Contact",
+              "type": "string"
+            },
+            "comment": {
+              "title": "Comment",
+              "type": "string"
+            },
+            "commentDt": {
+              "title": "Comment Date",
+              "type": "string"
+            },
+            "guid": {
+              "title": "GUID",
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   }
 }

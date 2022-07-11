@@ -5,14 +5,17 @@ import WebMap from '@arcgis/core/WebMap';
 import Home from '@arcgis/core/widgets/Home';
 import { faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import 'typeface-montserrat';
 import './App.scss';
 import Filter from './components/Filter';
 import MapWidget from './components/MapWidget';
 import ProjectInformation from './components/ProjectInformation';
 import { MapServiceProvider, Sherlock } from './components/Sherlock';
-import { useSpecialTranslation } from './i18n';
 import config from './services/config';
+import { useSpecialTranslation } from './services/i18n';
+
+const queryClient = new QueryClient();
 
 function App() {
   const [mapView, setMapView] = React.useState(null);
@@ -140,33 +143,35 @@ function App() {
   }, [mapView]);
 
   return (
-    <div className="d-flex flex-column w-100 h-100">
-      <div className="m-3 title">
-        <h4 className="my-0">RTP Projects</h4>
+    <QueryClientProvider client={queryClient}>
+      <div className="d-flex flex-column w-100 h-100">
+        <div className="m-3 title">
+          <h4 className="my-0">RTP Projects</h4>
+        </div>
+        <div id="mapDiv" className="flex-fill border-top border position-relative">
+          <MapWidget
+            defaultOpen={config.openOnLoad.filter}
+            name={t('trans:filter')}
+            icon={faFilter}
+            position={0}
+            mapView={mapView}
+            showReset={true}
+          >
+            <Filter mapView={mapView} />
+          </MapWidget>
+          <MapWidget
+            defaultOpen={config.openOnLoad.projectInfo}
+            name={t('trans:projectInformation')}
+            icon={faHandPointer}
+            position={1}
+            mapView={mapView}
+          >
+            <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
+          </MapWidget>
+          <Sherlock {...sherlockConfig}></Sherlock>
+        </div>
       </div>
-      <div id="mapDiv" className="flex-fill border-top border position-relative">
-        <MapWidget
-          defaultOpen={config.openOnLoad.filter}
-          name={t('trans:filter')}
-          icon={faFilter}
-          position={0}
-          mapView={mapView}
-          showReset={true}
-        >
-          <Filter mapView={mapView} />
-        </MapWidget>
-        <MapWidget
-          defaultOpen={config.openOnLoad.projectInfo}
-          name={t('trans:projectInformation')}
-          icon={faHandPointer}
-          position={1}
-          mapView={mapView}
-        >
-          <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
-        </MapWidget>
-        <Sherlock {...sherlockConfig}></Sherlock>
-      </div>
-    </div>
+    </QueryClientProvider>
   );
 }
 

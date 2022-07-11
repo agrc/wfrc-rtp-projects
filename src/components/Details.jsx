@@ -3,12 +3,15 @@ import Feature from '@arcgis/core/widgets/Feature';
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { Collapse } from 'reactstrap';
+import config from '../services/config';
+import Comments from './Comments';
 import './Details.scss';
 
 export default function Details({ graphic, highlightGraphic }) {
   const [collapsed, setCollapsed] = useState(true);
   const containerRef = useRef();
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState(null);
+  const [featureWidgetGraphic, setFeatureWidgetGraphic] = useState(null);
 
   const toggle = () => setCollapsed(!collapsed);
 
@@ -29,6 +32,8 @@ export default function Details({ graphic, highlightGraphic }) {
       setTitle(feature.title);
 
       containerRef.current.appendChild(feature.container);
+
+      setFeatureWidgetGraphic(feature.graphic);
     };
 
     if (graphic) {
@@ -50,11 +55,16 @@ export default function Details({ graphic, highlightGraphic }) {
       </div>
       <Collapse isOpen={!collapsed}>
         <div ref={containerRef}></div>
+        {config.projectInformation.commentsEnabled &&
+          featureWidgetGraphic &&
+          Object.keys(featureWidgetGraphic.attributes).some(
+            (name) => name === config.projectInformation.fieldNames.globalId
+          ) && <Comments globalId={featureWidgetGraphic.attributes[config.projectInformation.fieldNames.globalId]} />}
       </Collapse>
     </div>
   );
 }
 Details.propTypes = {
   graphic: PropTypes.object,
-  highlightGraphic: PropTypes.object,
+  highlightGraphic: PropTypes.func.isRequired,
 };

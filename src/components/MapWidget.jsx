@@ -4,7 +4,7 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PropTypes from 'prop-types';
 import React, { createContext, useEffect, useRef, useState } from 'react';
 import { Button, Card, CardHeader } from 'reactstrap';
-import { useSpecialTranslation } from '../i18n';
+import { useSpecialTranslation } from '../services/i18n';
 import './MapWidget.scss';
 
 export const MapWidgetContext = createContext();

@@ -2,7 +2,6 @@ import { faHandPointer, faList } from '@fortawesome/free-solid-svg-icons';
 import MapWidget from './MapWidget';
 
 export default {
-  title: 'MapWidget',
   component: MapWidget,
 };
 

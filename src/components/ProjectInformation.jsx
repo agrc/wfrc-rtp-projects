@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Spinner } from 'reactstrap';
-import { useSpecialTranslation } from '../i18n';
+import { useSpecialTranslation } from '../services/i18n';
 import Details from './Details';
 import { MapWidgetContext } from './MapWidget';
 import './ProjectInformation.scss';
@@ -29,7 +29,7 @@ export default function ProjectInformation({ graphics, showLoader, highlightGrap
 
   return (
     <div className="project-information" ref={containerRef}>
-      {graphics.length === 0 && !showLoader && <p>{t('trans:projectInformationPrompt')}</p>}
+      {graphics.length === 0 && !showLoader && <p className="m-3">{t('trans:projectInformationPrompt')}</p>}
       {showLoader && (
         <div className="loader">
           <Spinner color="secondary" style={{ height: spinnerSize, width: spinnerSize }} />
