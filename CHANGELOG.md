@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.3.0...v0.4.0) (2022-07-11)
+
+
+### Features
+
+* port comments widget from old wab app ([e02835d](https://github.com/agrc/wfrc-rtp-projects/commit/e02835d6c8f3a23f2f8de5e93de7c0d4053d1e31)), closes [#19](https://github.com/agrc/wfrc-rtp-projects/issues/19) [#9](https://github.com/agrc/wfrc-rtp-projects/issues/9)
+* port Project Information widget from wasatch choice map ([66b704c](https://github.com/agrc/wfrc-rtp-projects/commit/66b704cd3f34efde0ef73c62d6d5d2a0b9789210)), closes [#19](https://github.com/agrc/wfrc-rtp-projects/issues/19)
+* pretty print sql in console logs ([1fd61a5](https://github.com/agrc/wfrc-rtp-projects/commit/1fd61a5d8b0d3f56b90fb2e64247d6d2abeb718b)), closes [#31](https://github.com/agrc/wfrc-rtp-projects/issues/31)
+
+
+### Bug Fixes
+
+* add spinners back to bootstrap ([09d1346](https://github.com/agrc/wfrc-rtp-projects/commit/09d134684c4ea03a55bd67cce03a3af98b3ee0bd))
+* simplify ownership filter ([9d96c20](https://github.com/agrc/wfrc-rtp-projects/commit/9d96c20b48fc0478ff488a2dc36f9828b4c3e34e)), closes [#33](https://github.com/agrc/wfrc-rtp-projects/issues/33) [#8](https://github.com/agrc/wfrc-rtp-projects/issues/8)
+* UX improvements for cost filter ([733b90b](https://github.com/agrc/wfrc-rtp-projects/commit/733b90b971e84b883a9dfcfda300b2b8e7e9071c)), closes [#32](https://github.com/agrc/wfrc-rtp-projects/issues/32)
+
 ## [0.3.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.1.5...v0.3.0) (2022-06-21)
 
 
