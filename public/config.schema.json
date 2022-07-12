@@ -57,8 +57,13 @@
   "title": "WFRC RTP Projects Application Configuration",
   "type": "object",
   "additionalProperties": false,
-  "required": ["filter", "sherlock", "openOnLoad", "translations", "projectInformation"],
+  "required": ["appTitle", "filter", "sherlock", "openOnLoad", "translations", "projectInformation"],
   "properties": {
+    "appTitle": {
+      "title": "Application Title",
+      "description": "The title of the application",
+      "type": "string"
+    },
     "filter": {
       "title": "Filter Widget Configuration",
       "description": "Configuration options for the filter widget",

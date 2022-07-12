@@ -149,7 +149,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="d-flex flex-column w-100 h-100">
         <div className="m-3 title">
-          <h4 className="my-0">RTP Projects</h4>
+          <h4 className="my-0">{config.appTitle}</h4>
         </div>
         <div id="mapDiv" className="flex-fill border-top border position-relative">
           <MapWidget

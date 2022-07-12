@@ -1,4 +1,5 @@
 {
+  "appTitle": "RTP Projects",
   "filter": {
     "infoText": {
       "simpleMode": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
