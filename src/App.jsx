@@ -14,6 +14,7 @@ import ProjectInformation from './components/ProjectInformation';
 import { MapServiceProvider, Sherlock } from './components/Sherlock';
 import config from './services/config';
 import { useSpecialTranslation } from './services/i18n';
+import useFilterReducer from './services/useFilterReducer';
 
 const queryClient = new QueryClient();
 
@@ -142,6 +143,8 @@ function App() {
     }
   }, [mapView]);
 
+  const [filterState, filterDispatch] = useFilterReducer();
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className="d-flex flex-column w-100 h-100">
@@ -156,8 +159,9 @@ function App() {
             position={0}
             mapView={mapView}
             showReset={true}
+            onReset={() => filterDispatch({ type: 'reset' })}
           >
-            <Filter mapView={mapView} />
+            <Filter mapView={mapView} state={filterState} dispatch={filterDispatch} />
           </MapWidget>
           <MapWidget
             defaultOpen={config.openOnLoad.projectInfo}

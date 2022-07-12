@@ -4,6 +4,8 @@ import { Validator } from 'jsonschema';
 import { initReactI18next } from 'react-i18next';
 
 const config = {
+  MODE: 'mode',
+  PHASE: 'phase',
   layerNames: {
     modePoints: 'Points Displayed by Mode',
     modeLines: 'Lines Displayed by Mode',

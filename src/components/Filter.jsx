@@ -4,164 +4,12 @@ import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Alert, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { format } from 'sql-formatter';
-import { useImmerReducer } from 'use-immer';
 import config from '../services/config';
 import AdvancedControls from './AdvancedControls';
 import './Filter.scss';
 import InfoPopup from './InfoPopup';
 import SimpleControls from './SimpleControls';
-import { addOrRemove, getLabelColor, useMapLayers } from './utils';
-
-export function getQuery(state, geometryType, projectConfig) {
-  // phase is a numeric field
-  const phaseQuery = `${state.phaseField} IN (${state.phase.join(',')})`;
-  // mode is a text field
-  const modeQuery = `${projectConfig.fieldNames.mode} IN ('${state.mode.join("','")}')`;
-
-  let query = `${phaseQuery} AND ${modeQuery}`;
-
-  // project type queries
-  const { road, transit, activeTransportation } = state.projectTypes;
-  let selectedProjectTypeInfos = [];
-
-  // only add project type queries if the corresponding project type is selected
-  if (state.mode.includes(projectConfig.symbolValues.mode.road)) {
-    selectedProjectTypeInfos.push(...road.map((name) => projectConfig.projectTypes.road[name]));
-  }
-  if (state.mode.includes(projectConfig.symbolValues.mode.transit)) {
-    selectedProjectTypeInfos.push(...transit.map((name) => projectConfig.projectTypes.transit[name]));
-  }
-  if (state.mode.includes(projectConfig.symbolValues.mode.activeTransportation)) {
-    selectedProjectTypeInfos.push(
-      ...activeTransportation.map((name) => projectConfig.projectTypes.activeTransportation[name])
-    );
-  }
-
-  const projectTypeOrQueries = [];
-  const projectTypeAndQueries = [];
-  for (const info of selectedProjectTypeInfos) {
-    if (info[geometryType]) {
-      if (info.useAnd) {
-        projectTypeAndQueries.push(info[geometryType]);
-      } else {
-        projectTypeOrQueries.push(info[geometryType]);
-      }
-    }
-  }
-
-  if (projectTypeOrQueries.length > 0) {
-    query += ` AND ((${projectTypeOrQueries.join(') OR (')}))`;
-  }
-  if (projectTypeAndQueries.length > 0) {
-    query += ` AND (${projectTypeAndQueries.join(') AND (')})`;
-  }
-
-  // cost queries
-  const costQueries = [];
-  if (state.cost?.min > 0) {
-    costQueries.push(`${projectConfig.fieldNames.cost} >= ${state.cost.min}`);
-  }
-  if (state.cost?.max > 0) {
-    costQueries.push(`${projectConfig.fieldNames.cost} <= ${state.cost.max}`);
-  }
-
-  if (costQueries.length > 0) {
-    query += ` AND ${costQueries.join(' AND ')}`;
-  }
-
-  return query;
-}
-
-function reducer(draft, action) {
-  const updateLayerDefinitions = () => {
-    const pointsQuery = getQuery(draft, 'points', config);
-    const linesQuery = getQuery(draft, 'lines', config);
-    draft.layerDefinitions.modePoints = pointsQuery;
-    draft.layerDefinitions.modeLines = linesQuery;
-    draft.layerDefinitions.phasePoints = pointsQuery;
-    draft.layerDefinitions.phaseLines = linesQuery;
-  };
-
-  switch (action.type) {
-    case 'display':
-      draft.display = action.payload;
-
-      break;
-
-    case 'simple':
-      console.log('action', action);
-      draft[action.meta] = addOrRemove(draft[action.meta], action.payload);
-
-      updateLayerDefinitions();
-
-      break;
-
-    case 'projectType':
-      draft.projectTypes[action.meta] = addOrRemove(draft.projectTypes[action.meta], action.payload);
-
-      updateLayerDefinitions();
-
-      break;
-
-    case 'projectTypeHeader':
-      if (action.payload) {
-        // toggle all sub project types on
-        draft.projectTypes[action.meta] = Object.keys(config.projectTypes[action.meta]);
-      } else {
-        draft.projectTypes[action.meta] = [];
-      }
-
-      updateLayerDefinitions();
-
-      break;
-
-    case 'usePhasing':
-      draft.phaseField = action.payload;
-
-      updateLayerDefinitions();
-
-      break;
-
-    case 'cost':
-      draft.cost[action.meta] = action.payload;
-
-      updateLayerDefinitions();
-
-      break;
-
-    case 'reset':
-      return initialState;
-
-    default:
-      throw new Error(`Unhandled action type: ${action.type}`);
-  }
-}
-
-const MODE = 'mode';
-const PHASE = 'phase';
-export const initialState = {
-  display: MODE,
-  mode: Object.values(config.symbolValues.mode),
-  phase: Object.values(config.symbolValues.phase),
-  projectTypes: {
-    road: Object.keys(config.projectTypes.road).filter((key) => !config.projectTypes.road[key].offByDefault),
-    transit: Object.keys(config.projectTypes.transit).filter((key) => !config.projectTypes.transit[key].offByDefault),
-    activeTransportation: Object.keys(config.projectTypes.activeTransportation).filter(
-      (key) => !config.projectTypes.activeTransportation[key].offByDefault
-    ),
-  },
-  layerDefinitions: {
-    modePoints: null,
-    modeLines: null,
-    phasePoints: null,
-    phaseLines: null,
-  },
-  phaseField: config.fieldNames.phase,
-  cost: {
-    min: null,
-    max: null,
-  },
-};
+import { getLabelColor, useMapLayers } from './utils';
 
 function ErrorFallback({ error }) {
   return <Alert color="danger">{error.message}</Alert>;
@@ -170,8 +18,7 @@ ErrorFallback.propTypes = {
   error: PropTypes.object.isRequired,
 };
 
-export default function Filter({ mapView }) {
-  const [state, dispatch] = useImmerReducer(reducer, initialState);
+export default function Filter({ mapView, state, dispatch }) {
   const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
   const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
 
@@ -180,10 +27,10 @@ export default function Filter({ mapView }) {
   // toggle layers
   React.useEffect(() => {
     if (layers) {
-      layers.modePoints.visible = state.display === MODE;
-      layers.modeLines.visible = state.display === MODE;
-      layers.phasePoints.visible = state.display === PHASE;
-      layers.phaseLines.visible = state.display === PHASE;
+      layers.modePoints.visible = state.display === config.MODE;
+      layers.modeLines.visible = state.display === config.MODE;
+      layers.phasePoints.visible = state.display === config.PHASE;
+      layers.phaseLines.visible = state.display === config.PHASE;
     }
   }, [layers, state.display]);
 
@@ -216,32 +63,32 @@ export default function Filter({ mapView }) {
           <Nav tabs>
             <NavItem>
               <NavLink
-                active={state.display === MODE}
+                active={state.display === config.MODE}
                 href="#"
-                onClick={() => dispatch({ type: 'display', payload: MODE })}
+                onClick={() => dispatch({ type: 'display', payload: config.MODE })}
               >
                 Transportation Mode
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink
-                active={state.display === PHASE}
+                active={state.display === config.PHASE}
                 href="#"
-                onClick={() => dispatch({ type: 'display', payload: PHASE })}
+                onClick={() => dispatch({ type: 'display', payload: config.PHASE })}
               >
                 Phase Years
               </NavLink>
             </NavItem>
           </Nav>
           <InfoPopup
-            content={state.display === MODE ? config.infoText.simpleMode : config.infoText.simplePhase}
+            content={state.display === config.MODE ? config.infoText.simpleMode : config.infoText.simplePhase}
             className="position-inherit"
           />
         </div>
         <TabContent activeTab={state.display} className="mt-2 px-1">
-          <TabPane tabId={MODE}>
+          <TabPane tabId={config.MODE}>
             <SimpleControls
-              type={MODE}
+              type={config.MODE}
               state={state}
               dispatch={dispatch}
               groups={[
@@ -280,9 +127,9 @@ export default function Filter({ mapView }) {
               toggle={toggleAdvanced}
             />
           </TabPane>
-          <TabPane tabId={PHASE}>
+          <TabPane tabId={config.PHASE}>
             <SimpleControls
-              type={PHASE}
+              type={config.PHASE}
               state={state}
               dispatch={dispatch}
               groups={[
@@ -330,4 +177,6 @@ export default function Filter({ mapView }) {
 
 Filter.propTypes = {
   mapView: PropTypes.object,
+  state: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
