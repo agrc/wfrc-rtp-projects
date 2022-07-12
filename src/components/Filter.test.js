@@ -15,13 +15,14 @@ describe('getQuery', () => {
       },
     };
     const config = {
-      phaseField: 'PHASE_FIELD',
-      fieldNames: {
-        mode: 'MODE',
-      },
-      symbolValues: {
-        mode: {
-          road: 'road_value',
+      filter: {
+        fieldNames: {
+          mode: 'MODE',
+        },
+        symbolValues: {
+          mode: {
+            road: 'road_value',
+          },
         },
       },
     };
@@ -44,18 +45,17 @@ describe('getQuery', () => {
       },
     };
     const config = {
-      phaseField: 'PHASE_FIELD',
-      fieldNames: {
-        mode: 'MODE',
-      },
-      symbolValues: {
-        mode: {
-          road: 'road_value',
-          transit: 'transit_value',
-          activeTransportation: 'active_transportation_value',
-        },
-      },
       filter: {
+        fieldNames: {
+          mode: 'MODE',
+        },
+        symbolValues: {
+          mode: {
+            road: 'road_value',
+            transit: 'transit_value',
+            activeTransportation: 'active_transportation_value',
+          },
+        },
         projectTypes: {
           road: {
             roadType: {
@@ -105,17 +105,17 @@ describe('getQuery', () => {
       },
     };
     const config = {
-      fieldNames: {
-        mode: 'MODE',
-      },
-      symbolValues: {
-        mode: {
-          road: 'road_value',
-          transit: 'transit_value',
-          activeTransportation: 'active_transportation_value',
-        },
-      },
       filter: {
+        fieldNames: {
+          mode: 'MODE',
+        },
+        symbolValues: {
+          mode: {
+            road: 'road_value',
+            transit: 'transit_value',
+            activeTransportation: 'active_transportation_value',
+          },
+        },
         projectTypes: {
           road: {
             roadType: {
@@ -164,17 +164,17 @@ describe('getQuery', () => {
       },
     };
     const config = {
-      fieldNames: {
-        mode: 'MODE',
-      },
-      symbolValues: {
-        mode: {
-          road: 'road_value',
-          transit: 'transit_value',
-          activeTransportation: 'active_transportation_value',
-        },
-      },
       filter: {
+        fieldNames: {
+          mode: 'MODE',
+        },
+        symbolValues: {
+          mode: {
+            road: 'road_value',
+            transit: 'transit_value',
+            activeTransportation: 'active_transportation_value',
+          },
+        },
         projectTypes: {
           road: {
             roadType: {
@@ -214,13 +214,15 @@ describe('getQuery', () => {
       },
     };
     const config = {
-      fieldNames: {
-        mode: 'MODE',
-        cost: 'COST',
-      },
-      symbolValues: {
-        mode: {
-          road: 'road_value',
+      filter: {
+        fieldNames: {
+          mode: 'MODE',
+          cost: 'COST',
+        },
+        symbolValues: {
+          mode: {
+            road: 'road_value',
+          },
         },
       },
     };

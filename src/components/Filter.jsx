@@ -22,7 +22,7 @@ export default function Filter({ mapView, state, dispatch }) {
   const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
   const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
 
-  const layers = useMapLayers(mapView, config.layerNames);
+  const layers = useMapLayers(mapView, config.filter.layerNames);
 
   // toggle layers
   React.useEffect(() => {
@@ -97,19 +97,19 @@ export default function Filter({ mapView, state, dispatch }) {
                 {
                   linear: layers?.modeLines,
                   point: layers?.modePoints,
-                  value: config.symbolValues.mode.road,
+                  value: config.filter.symbolValues.mode.road,
                   label: config.labels.mode.road,
                 },
                 {
                   linear: layers?.modeLines,
                   point: layers?.modePoints,
-                  value: config.symbolValues.mode.transit,
+                  value: config.filter.symbolValues.mode.transit,
                   label: config.labels.mode.transit,
                 },
                 {
                   linear: layers?.modeLines,
                   point: layers?.modePoints,
-                  value: config.symbolValues.mode.activeTransportation,
+                  value: config.filter.symbolValues.mode.activeTransportation,
                   label: config.labels.mode.activeTransportation,
                 },
               ]}
@@ -140,25 +140,25 @@ export default function Filter({ mapView, state, dispatch }) {
                 {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
-                  value: config.symbolValues.phase.one,
+                  value: config.filter.symbolValues.phase.one,
                   label: config.labels.phase.one,
                 },
                 {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
-                  value: config.symbolValues.phase.two,
+                  value: config.filter.symbolValues.phase.two,
                   label: config.labels.phase.two,
                 },
                 {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
-                  value: config.symbolValues.phase.three,
+                  value: config.filter.symbolValues.phase.three,
                   label: config.labels.phase.three,
                 },
                 {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
-                  value: config.symbolValues.phase.unfunded,
+                  value: config.filter.symbolValues.phase.unfunded,
                   label: config.labels.phase.unfunded,
                 },
               ]}

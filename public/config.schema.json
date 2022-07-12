@@ -69,7 +69,7 @@
       "description": "Configuration options for the filter widget",
       "type": "object",
       "additionalProperties": false,
-      "required": ["infoText", "projectTypes", "disableAdvanced"],
+      "required": ["infoText", "projectTypes", "disableAdvanced", "layerNames", "symbolValues", "fieldNames"],
       "properties": {
         "infoText": {
           "title": "Info Popup Content",
@@ -134,6 +134,109 @@
           "title": "Disable Advanced Filter",
           "description": "Whether the advanced filter should be disabled",
           "type": "boolean"
+        },
+        "layerNames": {
+          "title": "Layer Names",
+          "description": "The layer names in the web map",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["modePoints", "modeLines", "phasePoints", "phaseLines"],
+          "properties": {
+            "modePoints": {
+              "title": "Mode Points",
+              "type": "string"
+            },
+            "modeLines": {
+              "title": "Mode Lines",
+              "type": "string"
+            },
+            "phasePoints": {
+              "title": "Phase Points",
+              "type": "string"
+            },
+            "phaseLines": {
+              "title": "Phase Lines",
+              "type": "string"
+            }
+          }
+        },
+        "symbolValues": {
+          "title": "Symbol Values",
+          "description": "The values corresponding to the symbology in the web map",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "phase"],
+          "properties": {
+            "mode": {
+              "title": "Mode",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["road", "transit", "activeTransportation"],
+              "properties": {
+                "road": {
+                  "title": "Road",
+                  "type": "string"
+                },
+                "transit": {
+                  "title": "Transit",
+                  "type": "string"
+                },
+                "activeTransportation": {
+                  "title": "Active Transportation",
+                  "type": "string"
+                }
+              }
+            },
+            "phase": {
+              "title": "Phase",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["one", "two", "three", "unfunded"],
+              "properties": {
+                "one": {
+                  "title": "One",
+                  "type": "string"
+                },
+                "two": {
+                  "title": "Two",
+                  "type": "string"
+                },
+                "three": {
+                  "title": "Three",
+                  "type": "string"
+                },
+                "unfunded": {
+                  "title": "Unfunded",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "fieldNames": {
+          "title": "Field Names",
+          "description": "The field names in the points and line layers",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["phase", "phaseNeeded", "mode", "cost"],
+          "properties": {
+            "phase": {
+              "title": "Phase",
+              "type": "string"
+            },
+            "phaseNeeded": {
+              "title": "Phase Needed",
+              "type": "string"
+            },
+            "mode": {
+              "title": "Mode",
+              "type": "string"
+            },
+            "cost": {
+              "title": "Cost",
+              "type": "string"
+            }
+          }
         }
       }
     },

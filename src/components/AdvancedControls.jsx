@@ -64,7 +64,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   checked={state.projectTypes.road.includes(name)}
                   color={labelColors?.road}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'road' })}
-                  disabled={disabled || !state.mode.includes(config.symbolValues.mode.road)}
+                  disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.road)}
                 />
               ))}
             </Col>
@@ -84,7 +84,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   checked={state.projectTypes.transit.includes(name)}
                   color={labelColors?.transit}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'transit' })}
-                  disabled={disabled || !state.mode.includes(config.symbolValues.mode.transit)}
+                  disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.transit)}
                 />
               ))}
             </Col>
@@ -112,7 +112,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     checked={state.projectTypes.activeTransportation.includes(name)}
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
-                    disabled={disabled || !state.mode.includes(config.symbolValues.mode.activeTransportation)}
+                    disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
                   />
                 ))}
             </Col>
@@ -127,7 +127,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     checked={state.projectTypes.activeTransportation.includes(name)}
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
-                    disabled={disabled || !state.mode.includes(config.symbolValues.mode.activeTransportation)}
+                    disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
                   />
                 ))}
             </Col>
@@ -150,32 +150,36 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   <Checkbox
                     uniqueId="phase-1"
                     label={config.labels.phase.one}
-                    checked={state.phase.includes(config.symbolValues.phase.one)}
-                    onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.one, meta: 'phase' })}
+                    checked={state.phase.includes(config.filter.symbolValues.phase.one)}
+                    onChange={() =>
+                      dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.one, meta: 'phase' })
+                    }
                     disabled={disabled}
                   />
                   <Checkbox
                     uniqueId="phase-2"
                     label={config.labels.phase.two}
-                    checked={state.phase.includes(config.symbolValues.phase.two)}
-                    onChange={() => dispatch({ type: 'simple', payload: config.symbolValues.phase.two, meta: 'phase' })}
+                    checked={state.phase.includes(config.filter.symbolValues.phase.two)}
+                    onChange={() =>
+                      dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.two, meta: 'phase' })
+                    }
                     disabled={disabled}
                   />
                   <Checkbox
                     uniqueId="phase-3"
                     label={config.labels.phase.three}
-                    checked={state.phase.includes(config.symbolValues.phase.three)}
+                    checked={state.phase.includes(config.filter.symbolValues.phase.three)}
                     onChange={() =>
-                      dispatch({ type: 'simple', payload: config.symbolValues.phase.three, meta: 'phase' })
+                      dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.three, meta: 'phase' })
                     }
                     disabled={disabled}
                   />
                   <Checkbox
                     uniqueId="phase-4"
                     label={config.labels.phase.unfunded}
-                    checked={state.phase.includes(config.symbolValues.phase.unfunded)}
+                    checked={state.phase.includes(config.filter.symbolValues.phase.unfunded)}
                     onChange={() =>
-                      dispatch({ type: 'simple', payload: config.symbolValues.phase.unfunded, meta: 'phase' })
+                      dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.unfunded, meta: 'phase' })
                     }
                     disabled={disabled}
                   />

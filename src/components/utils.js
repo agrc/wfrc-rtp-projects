@@ -84,7 +84,7 @@ export const useMapLayers = (mapView, layerNames) => {
 };
 
 export const getLabelColor = (mode, layer) => {
-  const symbol = getSymbol(layer, config.symbolValues.mode[mode]);
+  const symbol = getSymbol(layer, config.filter.symbolValues.mode[mode]);
 
   return symbol ? symbol.color.toCss() : null;
 };

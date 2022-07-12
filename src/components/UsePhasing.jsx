@@ -13,8 +13,8 @@ export default function UsePhasing({ phaseField, disabled, inline, dispatch }) {
           id="use-phasing-constrained"
           name={`phasing-${inline}`}
           type="radio"
-          value={config.fieldNames.phase}
-          checked={phaseField === config.fieldNames.phase}
+          value={config.filter.fieldNames.phase}
+          checked={phaseField === config.filter.fieldNames.phase}
           disabled={disabled}
           onChange={handleChange}
         />
@@ -27,8 +27,8 @@ export default function UsePhasing({ phaseField, disabled, inline, dispatch }) {
           id="use-phasing-needs"
           name={`phasing-${inline}`}
           type="radio"
-          value={config.fieldNames.phaseNeeded}
-          checked={phaseField === config.fieldNames.phaseNeeded}
+          value={config.filter.fieldNames.phaseNeeded}
+          checked={phaseField === config.filter.fieldNames.phaseNeeded}
           disabled={disabled}
           onChange={handleChange}
         />

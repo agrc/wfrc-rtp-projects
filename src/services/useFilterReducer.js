@@ -6,7 +6,7 @@ export function getQuery(state, geometryType, projectConfig) {
   // phase is a numeric field
   const phaseQuery = `${state.phaseField} IN (${state.phase.join(',')})`;
   // mode is a text field
-  const modeQuery = `${projectConfig.fieldNames.mode} IN ('${state.mode.join("','")}')`;
+  const modeQuery = `${projectConfig.filter.fieldNames.mode} IN ('${state.mode.join("','")}')`;
 
   let query = `${phaseQuery} AND ${modeQuery}`;
 
@@ -15,13 +15,13 @@ export function getQuery(state, geometryType, projectConfig) {
   let selectedProjectTypeInfos = [];
 
   // only add project type queries if the corresponding project type is selected
-  if (state.mode.includes(projectConfig.symbolValues.mode.road)) {
+  if (state.mode.includes(projectConfig.filter.symbolValues.mode.road)) {
     selectedProjectTypeInfos.push(...road.map((name) => projectConfig.filter.projectTypes.road[name]));
   }
-  if (state.mode.includes(projectConfig.symbolValues.mode.transit)) {
+  if (state.mode.includes(projectConfig.filter.symbolValues.mode.transit)) {
     selectedProjectTypeInfos.push(...transit.map((name) => projectConfig.filter.projectTypes.transit[name]));
   }
-  if (state.mode.includes(projectConfig.symbolValues.mode.activeTransportation)) {
+  if (state.mode.includes(projectConfig.filter.symbolValues.mode.activeTransportation)) {
     selectedProjectTypeInfos.push(
       ...activeTransportation.map((name) => projectConfig.filter.projectTypes.activeTransportation[name])
     );
@@ -49,10 +49,10 @@ export function getQuery(state, geometryType, projectConfig) {
   // cost queries
   const costQueries = [];
   if (state.cost?.min > 0) {
-    costQueries.push(`${projectConfig.fieldNames.cost} >= ${state.cost.min}`);
+    costQueries.push(`${projectConfig.filter.fieldNames.cost} >= ${state.cost.min}`);
   }
   if (state.cost?.max > 0) {
-    costQueries.push(`${projectConfig.fieldNames.cost} <= ${state.cost.max}`);
+    costQueries.push(`${projectConfig.filter.fieldNames.cost} <= ${state.cost.max}`);
   }
 
   if (costQueries.length > 0) {
@@ -131,8 +131,8 @@ export function reducer(draft, action) {
 
 export const initialState = {
   display: config.MODE,
-  mode: Object.values(config.symbolValues.mode),
-  phase: Object.values(config.symbolValues.phase),
+  mode: Object.values(config.filter.symbolValues.mode),
+  phase: Object.values(config.filter.symbolValues.phase),
   projectTypes: {
     road: Object.keys(config.filter.projectTypes.road).filter(
       (key) => !config.filter.projectTypes.road[key].offByDefault
@@ -150,7 +150,7 @@ export const initialState = {
     phasePoints: null,
     phaseLines: null,
   },
-  phaseField: config.fieldNames.phase,
+  phaseField: config.filter.fieldNames.phase,
   cost: {
     min: null,
     max: null,

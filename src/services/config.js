@@ -6,31 +6,6 @@ import { initReactI18next } from 'react-i18next';
 const config = {
   MODE: 'mode',
   PHASE: 'phase',
-  layerNames: {
-    modePoints: 'Points Displayed by Mode',
-    modeLines: 'Lines Displayed by Mode',
-    phasePoints: 'Points Displayed by Phase',
-    phaseLines: 'Lines Displayed by Phase',
-  },
-  symbolValues: {
-    mode: {
-      road: 'Highway',
-      transit: 'Transit',
-      activeTransportation: 'Active Transportation',
-    },
-    phase: {
-      one: '1',
-      two: '2',
-      three: '3',
-      unfunded: '4',
-    },
-  },
-  fieldNames: {
-    phase: 'phase',
-    phaseNeeded: 'phase_needed',
-    mode: 'mode',
-    cost: 'cost',
-  },
   labels: {
     phase: {
       one: 'Phase 1 (2023-2032)',
