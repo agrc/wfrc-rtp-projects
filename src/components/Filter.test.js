@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getQuery, initialState } from './Filter';
+import { getQuery, initialState, reducer } from '../services/useFilterReducer';
 
 describe('getQuery', () => {
   it('builds the simple queries', () => {
@@ -224,5 +224,26 @@ describe('getQuery', () => {
     expect(query).toEqual(
       "phase IN (1,2,3,4) AND MODE IN ('Highway','Transit','Active Transportation') AND COST >= 1 AND COST <= 4"
     );
+  });
+});
+
+describe('reducer', () => {
+  it('returns the initial state on reset', () => {
+    expect(reducer(null, { type: 'reset' })).toEqual(initialState);
+  });
+
+  it('handles project type header toggles', () => {
+    const current = {
+      ...initialState,
+      projectTypes: {
+        ...initialState.projectTypes,
+        road: ['a', 'b', 'c'],
+      },
+    };
+    const toggleOffResult = reducer(current, { type: 'projectTypeHeader', meta: 'road', payload: false });
+    expect(toggleOffResult.projectTypes.road).toEqual([]);
+
+    const toggleOnResult = reducer(toggleOffResult, { type: 'projectTypeHeader', meta: 'road', payload: true });
+    expect(toggleOnResult.projectTypes.road).toEqual(initialState.projectTypes.road);
   });
 });
