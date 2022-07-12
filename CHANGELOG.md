@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.4.0...v0.5.0) (2022-07-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* The `infoText` and `projectTypes` configs have been nested under `filter`.
+
+### Features
+
+* add `disableAdvanced` filter config ([e40a28f](https://github.com/agrc/wfrc-rtp-projects/commit/e40a28f649bba4a74896057e906019f56ba1a0bb))
+* make application title configurable ([3160c6b](https://github.com/agrc/wfrc-rtp-projects/commit/3160c6b8ce218e87d40b72afeb04ce0eff4ef1c2))
+
+
+### Bug Fixes
+
+* fix reset button regression ([b881b7c](https://github.com/agrc/wfrc-rtp-projects/commit/b881b7c4b4a8873ebd96d7e2fc69d346a9fed9e8))
+* remove "in millions" text from cost filter ([ea31ee0](https://github.com/agrc/wfrc-rtp-projects/commit/ea31ee0320e9122d31c7aef581bdf80156624b51))
+
 ## [0.4.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.3.0...v0.4.0) (2022-07-11)
 
 
