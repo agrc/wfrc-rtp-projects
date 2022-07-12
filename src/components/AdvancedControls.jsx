@@ -190,7 +190,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
           ) : null}
           <Row className="mt-2 position-relative">
             <Col>
-              <b>Filter By Project Cost (in millions, 2023 dollars):</b>
+              <b>Filter By Project Cost (2023 dollars):</b>
               <InfoPopup content={config.filter.infoText.cost} className="me-2 position-absolute top-0 end-0" />
             </Col>
           </Row>
