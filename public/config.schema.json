@@ -54,67 +54,81 @@
       }
     }
   },
-  "title": "WFRC RTP Projects",
+  "title": "WFRC RTP Projects Application Configuration",
   "type": "object",
   "additionalProperties": false,
-  "required": ["infoText", "projectTypes", "sherlock", "openOnLoad", "translations", "projectInformation"],
+  "required": ["filter", "sherlock", "openOnLoad", "translations", "projectInformation"],
   "properties": {
-    "infoText": {
-      "title": "Info Popup Content",
-      "description": "An object that contains the content that will show up in the info popups",
+    "filter": {
+      "title": "Filter Widget Configuration",
+      "description": "Configuration options for the filter widget",
       "type": "object",
       "additionalProperties": false,
-      "required": ["simpleMode", "simplePhase", "projectType", "phaseYears", "cost"],
+      "required": ["infoText", "projectTypes", "disableAdvanced"],
       "properties": {
-        "simpleMode": {
-          "title": "Simple Filter - Mode Tab",
-          "type": "string"
-        },
-        "simplePhase": {
-          "title": "Simple Filter - Phase Tab",
-          "type": "string"
-        },
-        "projectType": {
-          "title": "Advanced Filter - Project Types",
-          "type": "string"
-        },
-        "phaseYears": {
-          "title": "Advanced Filter - Phase Years",
-          "type": "string"
-        },
-        "cost": {
-          "title": "Advanced Filter - Cost",
-          "type": "string"
-        }
-      }
-    },
-    "projectTypes": {
-      "title": "Project Types",
-      "description": "An array of project types",
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["road", "transit", "activeTransportation"],
-      "properties": {
-        "road": {
-          "title": "Road",
+        "infoText": {
+          "title": "Info Popup Content",
+          "description": "An object that contains the content that will show up in the info popups",
           "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/projectType"
+          "additionalProperties": false,
+          "required": ["simpleMode", "simplePhase", "projectType", "phaseYears", "cost"],
+          "properties": {
+            "simpleMode": {
+              "title": "Simple Filter - Mode Tab",
+              "type": "string"
+            },
+            "simplePhase": {
+              "title": "Simple Filter - Phase Tab",
+              "type": "string"
+            },
+            "projectType": {
+              "title": "Advanced Filter - Project Types",
+              "type": "string"
+            },
+            "phaseYears": {
+              "title": "Advanced Filter - Phase Years",
+              "type": "string"
+            },
+            "cost": {
+              "title": "Advanced Filter - Cost",
+              "type": "string"
+            }
           }
         },
-        "transit": {
-          "title": "Transit",
+        "projectTypes": {
+          "title": "Project Types",
+          "description": "An array of project types",
           "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/projectType"
+          "additionalProperties": false,
+          "required": ["road", "transit", "activeTransportation"],
+          "properties": {
+            "road": {
+              "title": "Road",
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/projectType"
+              }
+            },
+            "transit": {
+              "title": "Transit",
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/projectType"
+              }
+            },
+            "activeTransportation": {
+              "title": "Active Transportation",
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/projectType"
+              }
+            }
           }
         },
-        "activeTransportation": {
-          "title": "Active Transportation",
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/projectType"
-          }
+        "disableAdvanced": {
+          "title": "Disable Advanced Filter",
+          "description": "Whether the advanced filter should be disabled",
+          "type": "boolean"
         }
       }
     },

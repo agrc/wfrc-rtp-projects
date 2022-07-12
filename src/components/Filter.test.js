@@ -55,29 +55,31 @@ describe('getQuery', () => {
           activeTransportation: 'active_transportation_value',
         },
       },
-      projectTypes: {
-        road: {
-          roadType: {
-            points: 'roadTypePoints',
+      filter: {
+        projectTypes: {
+          road: {
+            roadType: {
+              points: 'roadTypePoints',
+            },
+            roadType2: {
+              points: 'roadType2Points',
+            },
           },
-          roadType2: {
-            points: 'roadType2Points',
+          transit: {
+            transitType: {
+              points: 'transitTypePoints',
+            },
+            transitType2: {
+              points: 'transitType2Points',
+            },
           },
-        },
-        transit: {
-          transitType: {
-            points: 'transitTypePoints',
-          },
-          transitType2: {
-            points: 'transitType2Points',
-          },
-        },
-        activeTransportation: {
-          activeTransportationType: {
-            points: 'activeTransportationTypePoints',
-          },
-          activeTransportationType2: {
-            points: 'activeTransportationType2Points',
+          activeTransportation: {
+            activeTransportationType: {
+              points: 'activeTransportationTypePoints',
+            },
+            activeTransportationType2: {
+              points: 'activeTransportationType2Points',
+            },
           },
         },
       },
@@ -113,29 +115,31 @@ describe('getQuery', () => {
           activeTransportation: 'active_transportation_value',
         },
       },
-      projectTypes: {
-        road: {
-          roadType: {
-            points: 'roadTypePoints',
+      filter: {
+        projectTypes: {
+          road: {
+            roadType: {
+              points: 'roadTypePoints',
+            },
+            roadType2: {
+              points: 'roadType2Points',
+            },
           },
-          roadType2: {
-            points: 'roadType2Points',
+          transit: {
+            transitType: {
+              points: 'transitTypePoints',
+            },
+            transitType2: {
+              points: 'transitType2Points',
+            },
           },
-        },
-        transit: {
-          transitType: {
-            points: 'transitTypePoints',
-          },
-          transitType2: {
-            points: 'transitType2Points',
-          },
-        },
-        activeTransportation: {
-          activeTransportationType: {
-            points: 'activeTransportationTypePoints',
-          },
-          activeTransportationType2: {
-            points: 'activeTransportationType2Points',
+          activeTransportation: {
+            activeTransportationType: {
+              points: 'activeTransportationTypePoints',
+            },
+            activeTransportationType2: {
+              points: 'activeTransportationType2Points',
+            },
           },
         },
       },
@@ -170,25 +174,27 @@ describe('getQuery', () => {
           activeTransportation: 'active_transportation_value',
         },
       },
-      projectTypes: {
-        road: {
-          roadType: {
-            points: 'roadTypePoints',
+      filter: {
+        projectTypes: {
+          road: {
+            roadType: {
+              points: 'roadTypePoints',
+            },
+            roadType2: {
+              points: 'roadType2Points',
+            },
+            roadType3And: {
+              points: 'roadType3Points',
+              useAnd: true,
+            },
+            roadType4And: {
+              points: 'roadType4Points',
+              useAnd: true,
+            },
           },
-          roadType2: {
-            points: 'roadType2Points',
-          },
-          roadType3And: {
-            points: 'roadType3Points',
-            useAnd: true,
-          },
-          roadType4And: {
-            points: 'roadType4Points',
-            useAnd: true,
-          },
+          transit: {},
+          activeTransportation: {},
         },
-        transit: {},
-        activeTransportation: {},
       },
     };
 

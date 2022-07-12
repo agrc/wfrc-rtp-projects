@@ -81,7 +81,9 @@ export default function Filter({ mapView, state, dispatch }) {
             </NavItem>
           </Nav>
           <InfoPopup
-            content={state.display === config.MODE ? config.infoText.simpleMode : config.infoText.simplePhase}
+            content={
+              state.display === config.MODE ? config.filter.infoText.simpleMode : config.filter.infoText.simplePhase
+            }
             className="position-inherit"
           />
         </div>
@@ -113,19 +115,21 @@ export default function Filter({ mapView, state, dispatch }) {
               ]}
               disabled={!layers}
             />
-            <AdvancedControls
-              disabled={!layers}
-              dispatch={dispatch}
-              isOpen={isAdvancedOpen}
-              labelColors={{
-                road: getLabelColor('road', layers?.modePoints),
-                transit: getLabelColor('transit', layers?.modePoints),
-                activeTransportation: getLabelColor('activeTransportation', layers?.modePoints),
-              }}
-              showPhaseFilter
-              state={state}
-              toggle={toggleAdvanced}
-            />
+            {!config.filter.disableAdvanced ? (
+              <AdvancedControls
+                disabled={!layers}
+                dispatch={dispatch}
+                isOpen={isAdvancedOpen}
+                labelColors={{
+                  road: getLabelColor('road', layers?.modePoints),
+                  transit: getLabelColor('transit', layers?.modePoints),
+                  activeTransportation: getLabelColor('activeTransportation', layers?.modePoints),
+                }}
+                showPhaseFilter
+                state={state}
+                toggle={toggleAdvanced}
+              />
+            ) : null}
           </TabPane>
           <TabPane tabId={config.PHASE}>
             <SimpleControls
@@ -161,13 +165,15 @@ export default function Filter({ mapView, state, dispatch }) {
               disabled={!layers}
               phaseField={state.phaseField}
             />
-            <AdvancedControls
-              disabled={!layers}
-              dispatch={dispatch}
-              isOpen={isAdvancedOpen}
-              state={state}
-              toggle={toggleAdvanced}
-            />
+            {!config.filter.disableAdvanced ? (
+              <AdvancedControls
+                disabled={!layers}
+                dispatch={dispatch}
+                isOpen={isAdvancedOpen}
+                state={state}
+                toggle={toggleAdvanced}
+              />
+            ) : null}
           </TabPane>
         </TabContent>
       </ErrorBoundary>

@@ -16,14 +16,14 @@ export function getQuery(state, geometryType, projectConfig) {
 
   // only add project type queries if the corresponding project type is selected
   if (state.mode.includes(projectConfig.symbolValues.mode.road)) {
-    selectedProjectTypeInfos.push(...road.map((name) => projectConfig.projectTypes.road[name]));
+    selectedProjectTypeInfos.push(...road.map((name) => projectConfig.filter.projectTypes.road[name]));
   }
   if (state.mode.includes(projectConfig.symbolValues.mode.transit)) {
-    selectedProjectTypeInfos.push(...transit.map((name) => projectConfig.projectTypes.transit[name]));
+    selectedProjectTypeInfos.push(...transit.map((name) => projectConfig.filter.projectTypes.transit[name]));
   }
   if (state.mode.includes(projectConfig.symbolValues.mode.activeTransportation)) {
     selectedProjectTypeInfos.push(
-      ...activeTransportation.map((name) => projectConfig.projectTypes.activeTransportation[name])
+      ...activeTransportation.map((name) => projectConfig.filter.projectTypes.activeTransportation[name])
     );
   }
 
@@ -134,10 +134,14 @@ export const initialState = {
   mode: Object.values(config.symbolValues.mode),
   phase: Object.values(config.symbolValues.phase),
   projectTypes: {
-    road: Object.keys(config.projectTypes.road).filter((key) => !config.projectTypes.road[key].offByDefault),
-    transit: Object.keys(config.projectTypes.transit).filter((key) => !config.projectTypes.transit[key].offByDefault),
-    activeTransportation: Object.keys(config.projectTypes.activeTransportation).filter(
-      (key) => !config.projectTypes.activeTransportation[key].offByDefault
+    road: Object.keys(config.filter.projectTypes.road).filter(
+      (key) => !config.filter.projectTypes.road[key].offByDefault
+    ),
+    transit: Object.keys(config.filter.projectTypes.transit).filter(
+      (key) => !config.filter.projectTypes.transit[key].offByDefault
+    ),
+    activeTransportation: Object.keys(config.filter.projectTypes.activeTransportation).filter(
+      (key) => !config.filter.projectTypes.activeTransportation[key].offByDefault
     ),
   },
   layerDefinitions: {

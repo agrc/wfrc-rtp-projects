@@ -13,9 +13,9 @@ const SELECT_ALL = 'select all';
 const UNSELECT_ALL = 'unselect all';
 export default function AdvancedControls({ disabled, dispatch, isOpen, labelColors, showPhaseFilter, state, toggle }) {
   const numPossibleProjectTypes = {
-    road: Object.keys(config.projectTypes.road).length,
-    transit: Object.keys(config.projectTypes.transit).length,
-    activeTransportation: Object.keys(config.projectTypes.activeTransportation).length,
+    road: Object.keys(config.filter.projectTypes.road).length,
+    transit: Object.keys(config.filter.projectTypes.transit).length,
+    activeTransportation: Object.keys(config.filter.projectTypes.activeTransportation).length,
   };
   const getHeaderOperationLabel = (mode) => {
     return state.projectTypes[mode].length === numPossibleProjectTypes[mode] ? UNSELECT_ALL : SELECT_ALL;
@@ -44,7 +44,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
               <b>Filter By Project Type:</b>
             </Col>
             <Col>
-              <InfoPopup content={config.infoText.projectType} className="me-2 position-absolute top-0 end-0" />
+              <InfoPopup content={config.filter.infoText.projectType} className="me-2 position-absolute top-0 end-0" />
             </Col>
           </Row>
           <Row className="mb-2">
@@ -56,7 +56,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
               >
                 Road
               </ProjectTypeHeader>
-              {Object.keys(config.projectTypes.road).map((name) => (
+              {Object.keys(config.filter.projectTypes.road).map((name) => (
                 <Checkbox
                   key={name}
                   uniqueId={`${name}-road`}
@@ -76,7 +76,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
               >
                 Transit
               </ProjectTypeHeader>
-              {Object.keys(config.projectTypes.transit).map((name) => (
+              {Object.keys(config.filter.projectTypes.transit).map((name) => (
                 <Checkbox
                   key={name}
                   uniqueId={`${name}-transit`}
@@ -102,8 +102,8 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
           </Row>
           <Row>
             <Col>
-              {Object.keys(config.projectTypes.activeTransportation)
-                .slice(0, Math.ceil(Object.keys(config.projectTypes.activeTransportation).length / 2))
+              {Object.keys(config.filter.projectTypes.activeTransportation)
+                .slice(0, Math.ceil(Object.keys(config.filter.projectTypes.activeTransportation).length / 2))
                 .map((name) => (
                   <Checkbox
                     key={name}
@@ -117,8 +117,8 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                 ))}
             </Col>
             <Col>
-              {Object.keys(config.projectTypes.activeTransportation)
-                .slice(Math.ceil(Object.keys(config.projectTypes.activeTransportation).length / 2))
+              {Object.keys(config.filter.projectTypes.activeTransportation)
+                .slice(Math.ceil(Object.keys(config.filter.projectTypes.activeTransportation).length / 2))
                 .map((name) => (
                   <Checkbox
                     key={name}
@@ -139,7 +139,10 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   <b>Filter By Phase Years:</b>
                 </Col>
                 <Col>
-                  <InfoPopup content={config.infoText.phaseYears} className="me-2 position-absolute top-0 end-0" />
+                  <InfoPopup
+                    content={config.filter.infoText.phaseYears}
+                    className="me-2 position-absolute top-0 end-0"
+                  />
                 </Col>
               </Row>
               <Row>
@@ -188,7 +191,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
           <Row className="mt-2 position-relative">
             <Col>
               <b>Filter By Project Cost (in millions, 2023 dollars):</b>
-              <InfoPopup content={config.infoText.cost} className="me-2 position-absolute top-0 end-0" />
+              <InfoPopup content={config.filter.infoText.cost} className="me-2 position-absolute top-0 end-0" />
             </Col>
           </Row>
           <Row>
