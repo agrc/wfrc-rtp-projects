@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.6.0...v1.0.0) (2022-07-13)
+
+
+### Features
+
+* add config docs ([ff39312](https://github.com/agrc/wfrc-rtp-projects/commit/ff3931285a2ac8be9c71169dd0dde7e76be20a10)), closes [#42](https://github.com/agrc/wfrc-rtp-projects/issues/42)
+* add final configurable options ([a74a3ef](https://github.com/agrc/wfrc-rtp-projects/commit/a74a3ef6fa7bc18b08e1b6da92f772f851295fcf)), closes [#9](https://github.com/agrc/wfrc-rtp-projects/issues/9)
+
 ## [0.6.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.5.0...v0.6.0) (2022-07-13)
 
 
