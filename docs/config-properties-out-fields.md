@@ -1,0 +1,3 @@
+## outFields Type
+
+`string[]`
