@@ -1,12 +1,25 @@
 {
   "appTitle": "RTP Projects",
   "filter": {
+    "disableAdvanced": false,
+    "fieldNames": {
+      "cost": "cost",
+      "mode": "mode",
+      "phase": "phase",
+      "phaseNeeded": "phase_needed"
+    },
     "infoText": {
-      "simpleMode": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
-      "simplePhase": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p>In the RTP development process, projects are initially assigned to a project phase period, that are typically 8-10 years in length.</p><p>In this map, phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Or, phasing can be displayed according to <i>“financially-constrained phasing”</i>, wherein needed projects are prioritized according to the overall amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
-      "projectType": "Projects displayed on the map be filtered by any combination of project types. Project type filtering options are presented in transportation mode groups.",
+      "cost": "<p>Projects displayed on the map can be filtered by the estimated project cost.</p><p>The filter uses project costs adjusted to 2023 dollars, using economic assumptions adopted as part of the RTP development process.</p><p>Project estimates in future dollars, and additional project information, can be viewed by clicking on individual projects displayed on the map.</p>",
       "phaseYears": "<p>In the RTP development process, projects are initially assigned to a project phase period, that are typically 8-10 years in length.</p><p>In this map, phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Or, phasing can be displayed according to <i>“financially-constrained phasing”</i>, wherein needed projects have been prioritized according to the overall projected amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p>",
-      "cost": "<p>Projects displayed on the map can be filtered by the estimated project cost.</p><p>The filter uses project costs adjusted to 2023 dollars, using economic assumptions adopted as part of the RTP development process.</p><p>Project estimates in future dollars, and additional project information, can be viewed by clicking on individual projects displayed on the map.</p>"
+      "projectType": "Projects displayed on the map be filtered by any combination of project types. Project type filtering options are presented in transportation mode groups.",
+      "simpleMode": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
+      "simplePhase": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p>In the RTP development process, projects are initially assigned to a project phase period, that are typically 8-10 years in length.</p><p>In this map, phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Or, phasing can be displayed according to <i>“financially-constrained phasing”</i>, wherein needed projects are prioritized according to the overall amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>"
+    },
+    "layerNames": {
+      "modeLines": "Lines Displayed by Mode",
+      "modePoints": "Points Displayed by Mode",
+      "phaseLines": "Lines Displayed by Phase",
+      "phasePoints": "Points Displayed by Phase"
     },
     "projectTypes": {
       "road": {
@@ -116,12 +129,6 @@
         }
       }
     },
-    "layerNames": {
-      "modePoints": "Points Displayed by Mode",
-      "modeLines": "Lines Displayed by Mode",
-      "phasePoints": "Points Displayed by Phase",
-      "phaseLines": "Lines Displayed by Phase"
-    },
     "symbolValues": {
       "mode": {
         "road": "Highway",
@@ -134,90 +141,83 @@
         "three": "3",
         "unfunded": "4"
       }
-    },
-    "fieldNames": {
-      "phase": "phase",
-      "phaseNeeded": "phase_needed",
-      "mode": "mode",
-      "cost": "cost"
-    },
-    "disableAdvanced": false
-  },
-  "sherlock": {
-    "placeHolder": "trans:searchPlaceholder",
-    "serviceUrl": "https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/1",
-    "searchField": "NAME"
+    }
   },
   "openOnLoad": {
-    "projectInfo": true,
-    "filter": true
-  },
-  "translations": {
-    "en": {
-      "translation": {
-        "searchPlaceholder": "Search...",
-        "filter": "Filter",
-        "reset": "reset",
-        "filterByPhasing": "filter by phasing",
-        "transFilter": {
-          "transportation": "Transportation",
-          "roads": "Roads"
-        },
-        "projectInformation": "Project Information",
-        "projectInformationPrompt": "Click on a feature for more information",
-        "transportation": "Transportation",
-        "comments": {
-          "leaveComment": "Leave comment",
-          "name": "Name",
-          "organization": "Organization",
-          "contact": "Contact Information (email/phone)",
-          "comment": "Comment*",
-          "submit": "Submit",
-          "cancel": "Cancel",
-          "required": "*Required",
-          "publicComments": "Public Comments"
-        }
-      }
-    },
-    "es": {
-      "translation": {
-        "searchPlaceholder": "Buscar...",
-        "filter": "Filtrar",
-        "reset": "reiniciar",
-        "filterByPhasing": "filtrar por fases",
-        "transFilter": {
-          "transportation": "Transporte",
-          "roads": "Carreteras"
-        },
-        "projectInformation": "Información del Proyecto",
-        "projectInformationPrompt": "Haga clic en una función para obtener más información",
-        "transportation": "Transporte",
-        "comments": {
-          "leaveComment": "Comentar",
-          "name": "Nombre",
-          "organization": "Organización",
-          "contact": "Contacto (teléfono/correo electrónico)",
-          "comment": "Comentario*",
-          "submit": "Enviar",
-          "cancel": "Cancelar",
-          "required": "*Solicitado",
-          "publicComments": "Comentarios del Público"
-        }
-      }
-    }
+    "filter": true,
+    "projectInfo": true
   },
   "projectInformation": {
     "commentsEnabled": true,
     "commentsTableUrl": "https://services1.arcgis.com/taguadKoI1XFwivx/arcgis/rest/services/Draft_Projects_2023_2050_RTP_Phased_by_Need/FeatureServer/2",
-    "newCommentsOpenUntil": "9999-01-31T00:00:00.000Z",
     "fieldNames": {
-      "globalId": "GlobalID",
-      "personName": "PersonName",
-      "personOrg": "PersonOrg",
-      "personCont": "PersonCont",
       "comment": "Comment",
       "commentDt": "CommentDT",
-      "guid": "GUID"
+      "globalId": "GlobalID",
+      "guid": "GUID",
+      "personCont": "PersonCont",
+      "personName": "PersonName",
+      "personOrg": "PersonOrg"
+    },
+    "newCommentsOpenUntil": "9999-01-31T00:00:00.000Z"
+  },
+  "sherlock": {
+    "placeHolder": "trans:searchPlaceholder",
+    "searchField": "NAME",
+    "serviceUrl": "https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/1"
+  },
+  "translations": {
+    "en": {
+      "translation": {
+        "comments": {
+          "cancel": "Cancel",
+          "comment": "Comment*",
+          "contact": "Contact Information (email/phone)",
+          "leaveComment": "Leave comment",
+          "name": "Name",
+          "organization": "Organization",
+          "publicComments": "Public Comments",
+          "required": "*Required",
+          "submit": "Submit"
+        },
+        "filter": "Filter",
+        "filterByPhasing": "filter by phasing",
+        "projectInformation": "Project Information",
+        "projectInformationPrompt": "Click on a feature for more information",
+        "reset": "reset",
+        "searchPlaceholder": "Search...",
+        "transFilter": {
+          "roads": "Roads",
+          "transportation": "Transportation"
+        },
+        "transportation": "Transportation"
+      }
+    },
+    "es": {
+      "translation": {
+        "comments": {
+          "cancel": "Cancelar",
+          "comment": "Comentario*",
+          "contact": "Contacto (teléfono/correo electrónico)",
+          "leaveComment": "Comentar",
+          "name": "Nombre",
+          "organization": "Organización",
+          "publicComments": "Comentarios del Público",
+          "required": "*Solicitado",
+          "submit": "Enviar"
+        },
+        "filter": "Filtrar",
+        "filterByPhasing": "filtrar por fases",
+        "projectInformation": "Información del Proyecto",
+        "projectInformationPrompt": "Haga clic en una función para obtener más información",
+        "reset": "reiniciar",
+        "searchPlaceholder": "Buscar...",
+        "transFilter": {
+          "roads": "Carreteras",
+          "transportation": "Transporte"
+        },
+        "transportation": "Transporte"
+      }
     }
   }
 }

@@ -1,47 +1,39 @@
 {
   "$id": "https://wfrc.org/??/config.schema.json",
   "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "title": "WFRC RTP Projects Application Configuration",
+  "description": "Configuration for the WFRC RTP Projects Application",
+  "type": "object",
   "definitions": {
     "projectType": {
-      "title": "Project Type",
-      "type": "object",
       "additionalProperties": false,
-      "required": ["points", "lines"],
       "properties": {
-        "points": {
-          "title": "Points Query",
-          "description": "The query that will be applied to the point layers",
-          "type": ["string", "null"]
-        },
         "lines": {
-          "title": "Lines Query",
           "description": "The query that will be applied to the line layers",
+          "title": "Lines Query",
           "type": ["string", "null"]
         },
         "offByDefault": {
-          "title": "Off By Default",
           "description": "Whether the associated checkbox is off on app load",
+          "title": "Off By Default",
           "type": "boolean"
         },
+        "points": {
+          "description": "The query that will be applied to the point layers",
+          "title": "Points Query",
+          "type": ["string", "null"]
+        },
         "useAnd": {
-          "title": "Use AND",
           "description": "Whether the query should use AND or OR",
+          "title": "Use AND",
           "type": "boolean"
         }
-      }
+      },
+      "required": ["lines", "points"],
+      "title": "Project Type",
+      "type": "object"
     },
     "translation": {
-      "title": "Translation",
-      "type": "object",
-      "properties": {
-        "mapTabsDialog": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "required": ["title", "availableHeader", "selectedHeader", "maxMessage"]
-        }
-      },
       "additionalProperties": {
         "oneOf": [
           {
@@ -51,13 +43,22 @@
             "type": "object"
           }
         ]
-      }
+      },
+      "properties": {
+        "mapTabsDialog": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "required": ["availableHeader", "maxMessage", "selectedHeader", "title"],
+          "type": "object"
+        }
+      },
+      "title": "Translation",
+      "type": "object"
     }
   },
-  "title": "WFRC RTP Projects Application Configuration",
-  "type": "object",
+  "required": ["appTitle", "filter", "openOnLoad", "projectInformation", "sherlock", "translations"],
   "additionalProperties": false,
-  "required": ["appTitle", "filter", "sherlock", "openOnLoad", "translations", "projectInformation"],
   "properties": {
     "appTitle": {
       "title": "Application Title",
@@ -68,16 +69,58 @@
       "title": "Filter Widget Configuration",
       "description": "Configuration options for the filter widget",
       "type": "object",
+      "required": ["disableAdvanced", "fieldNames", "infoText", "layerNames", "projectTypes", "symbolValues"],
       "additionalProperties": false,
-      "required": ["infoText", "projectTypes", "disableAdvanced", "layerNames", "symbolValues", "fieldNames"],
       "properties": {
+        "disableAdvanced": {
+          "title": "Disable Advanced Filter",
+          "description": "Whether the advanced filter should be disabled",
+          "type": "boolean"
+        },
+        "fieldNames": {
+          "title": "Field Names",
+          "description": "The field names in the points and line layers",
+          "type": "object",
+          "required": ["cost", "mode", "phase", "phaseNeeded"],
+          "additionalProperties": false,
+          "properties": {
+            "cost": {
+              "title": "Cost",
+              "type": "string"
+            },
+            "mode": {
+              "title": "Mode",
+              "type": "string"
+            },
+            "phase": {
+              "title": "Phase",
+              "type": "string"
+            },
+            "phaseNeeded": {
+              "title": "Phase Needed",
+              "type": "string"
+            }
+          }
+        },
         "infoText": {
           "title": "Info Popup Content",
           "description": "An object that contains the content that will show up in the info popups",
           "type": "object",
           "additionalProperties": false,
-          "required": ["simpleMode", "simplePhase", "projectType", "phaseYears", "cost"],
+          "required": ["cost", "phaseYears", "projectType", "simpleMode", "simplePhase"],
           "properties": {
+            "cost": {
+              "title": "Advanced Filter - Cost",
+              "type": "string"
+            },
+            "phaseYears": {
+              "title": "Advanced Filter - Phase Years",
+              "type": "string"
+            },
+            "projectType": {
+              "title": "Advanced Filter - Project Types",
+              "type": "string"
+            },
             "simpleMode": {
               "title": "Simple Filter - Mode Tab",
               "type": "string"
@@ -85,17 +128,30 @@
             "simplePhase": {
               "title": "Simple Filter - Phase Tab",
               "type": "string"
-            },
-            "projectType": {
-              "title": "Advanced Filter - Project Types",
+            }
+          }
+        },
+        "layerNames": {
+          "title": "Layer Names",
+          "description": "The layer names in the web map",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["modeLines", "modePoints", "phaseLines", "phasePoints"],
+          "properties": {
+            "modeLines": {
+              "title": "Mode Lines",
               "type": "string"
             },
-            "phaseYears": {
-              "title": "Advanced Filter - Phase Years",
+            "modePoints": {
+              "title": "Mode Points",
               "type": "string"
             },
-            "cost": {
-              "title": "Advanced Filter - Cost",
+            "phaseLines": {
+              "title": "Phase Lines",
+              "type": "string"
+            },
+            "phasePoints": {
+              "title": "Phase Points",
               "type": "string"
             }
           }
@@ -127,36 +183,6 @@
               "additionalProperties": {
                 "$ref": "#/definitions/projectType"
               }
-            }
-          }
-        },
-        "disableAdvanced": {
-          "title": "Disable Advanced Filter",
-          "description": "Whether the advanced filter should be disabled",
-          "type": "boolean"
-        },
-        "layerNames": {
-          "title": "Layer Names",
-          "description": "The layer names in the web map",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["modePoints", "modeLines", "phasePoints", "phaseLines"],
-          "properties": {
-            "modePoints": {
-              "title": "Mode Points",
-              "type": "string"
-            },
-            "modeLines": {
-              "title": "Mode Lines",
-              "type": "string"
-            },
-            "phasePoints": {
-              "title": "Phase Points",
-              "type": "string"
-            },
-            "phaseLines": {
-              "title": "Phase Lines",
-              "type": "string"
             }
           }
         },
@@ -212,112 +238,29 @@
               }
             }
           }
-        },
-        "fieldNames": {
-          "title": "Field Names",
-          "description": "The field names in the points and line layers",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["phase", "phaseNeeded", "mode", "cost"],
-          "properties": {
-            "phase": {
-              "title": "Phase",
-              "type": "string"
-            },
-            "phaseNeeded": {
-              "title": "Phase Needed",
-              "type": "string"
-            },
-            "mode": {
-              "title": "Mode",
-              "type": "string"
-            },
-            "cost": {
-              "title": "Cost",
-              "type": "string"
-            }
-          }
         }
       }
     },
-    "sherlock": {
-      "description": "Configuration options for the map search widget",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "serviceUrl": {
-          "description": "The URL to the service that you would like to search features on.",
-          "type": "string"
-        },
-        "searchField": {
-          "description": "The name of the field that you would like the search to be applied to.",
-          "type": "string"
-        },
-        "placeHolder": {
-          "description": "The place holder text that shows up in the text box before a user starts typing.",
-          "type": "string"
-        }
-      },
-      "required": ["serviceUrl", "searchField"]
-    },
     "openOnLoad": {
+      "title": "Open On Load",
       "description": "Controls whether specific map widgets default to be open on page load",
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "projectInfo": {
+        "filter": {
           "type": "boolean"
         },
-        "filter": {
+        "projectInfo": {
           "type": "boolean"
         }
       }
-    },
-    "translations": {
-      "description": "Contains the translated strings used in the app. Falls back to `en` if there is no other translation. Most strings in the other configs can be translated by using this format: `trans:<key>`. For example: `trans:visionMapTitle`.",
-      "title": "Translations",
-      "type": "object",
-      "properties": {
-        "en": {
-          "type": "object",
-          "properties": {
-            "translation": {
-              "$ref": "#/definitions/translation",
-              "required": [
-                "appTitle",
-                "tagLine",
-                "mapTabsDialog",
-                "searchPlaceholder",
-                "filter",
-                "filterByPhasing",
-                "reset",
-                "projectInformation",
-                "projectInformationPrompt"
-              ]
-            }
-          },
-          "required": ["translation"],
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": {
-        "type": "object",
-        "properties": {
-          "translation": {
-            "$ref": "#/definitions/translation"
-          }
-        },
-        "required": ["translation"],
-        "additionalProperties": false
-      },
-      "required": ["en"]
     },
     "projectInformation": {
       "title": "Project Information Widget Config",
       "description": "Configuration options for the project information widget",
       "type": "object",
       "additionalProperties": false,
-      "required": ["commentsEnabled", "commentsTableUrl", "newCommentsOpenUntil", "fieldNames"],
+      "required": ["commentsEnabled", "commentsTableUrl", "fieldNames", "newCommentsOpenUntil"],
       "properties": {
         "commentsEnabled": {
           "title": "Comments Enabled",
@@ -329,20 +272,31 @@
           "description": "The URL to the feature service endpoint for the comments table",
           "type": "string"
         },
-        "newCommentsOpenUntil": {
-          "title": "New Comments Open Until",
-          "description": "The date after which new comments will no longer be accepted.",
-          "type": "string"
-        },
         "fieldNames": {
           "title": "Field Names",
           "description": "An object that contains the field names for the comments table",
           "type": "object",
           "additionalProperties": false,
-          "required": ["globalId", "personName", "personOrg", "personCont", "comment", "commentDt", "guid"],
+          "required": ["comment", "commentDt", "globalId", "guid", "personCont", "personName", "personOrg"],
           "properties": {
+            "comment": {
+              "title": "Comment",
+              "type": "string"
+            },
+            "commentDt": {
+              "title": "Comment Date",
+              "type": "string"
+            },
             "globalId": {
               "title": "Global ID",
+              "type": "string"
+            },
+            "guid": {
+              "title": "GUID",
+              "type": "string"
+            },
+            "personCont": {
+              "title": "Person Contact",
               "type": "string"
             },
             "personName": {
@@ -352,23 +306,73 @@
             "personOrg": {
               "title": "Person Organization",
               "type": "string"
-            },
-            "personCont": {
-              "title": "Person Contact",
-              "type": "string"
-            },
-            "comment": {
-              "title": "Comment",
-              "type": "string"
-            },
-            "commentDt": {
-              "title": "Comment Date",
-              "type": "string"
-            },
-            "guid": {
-              "title": "GUID",
-              "type": "string"
             }
+          }
+        },
+        "newCommentsOpenUntil": {
+          "title": "New Comments Open Until",
+          "description": "The date after which new comments will no longer be accepted.",
+          "type": "string"
+        }
+      }
+    },
+    "sherlock": {
+      "title": "Sherlock Widget Config",
+      "description": "Configuration options for the map search widget",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["searchField", "serviceUrl"],
+      "properties": {
+        "placeHolder": {
+          "description": "The place holder text that shows up in the text box before a user starts typing.",
+          "type": "string"
+        },
+        "searchField": {
+          "description": "The name of the field that you would like the search to be applied to.",
+          "type": "string"
+        },
+        "serviceUrl": {
+          "description": "The URL to the service that you would like to search features on.",
+          "type": "string"
+        }
+      }
+    },
+    "translations": {
+      "title": "Translations",
+      "description": "Contains the translated strings used in the app. Falls back to `en` if there is no other translation. Most strings in the other configs can be translated by using this format: `trans:<key>`. For example: `trans:visionMapTitle`.",
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": {
+          "title": "English",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["translation"],
+          "properties": {
+            "translation": {
+              "$ref": "#/definitions/translation",
+              "required": [
+                "appTitle",
+                "filter",
+                "filterByPhasing",
+                "mapTabsDialog",
+                "projectInformation",
+                "projectInformationPrompt",
+                "reset",
+                "searchPlaceholder",
+                "tagLine"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["translation"],
+        "properties": {
+          "translation": {
+            "$ref": "#/definitions/translation"
           }
         }
       }
