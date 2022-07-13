@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     const map = new WebMap({
-      portalItem: { id: '64597762025546ca993bea496f51d302' },
+      portalItem: { id: config.webMapId },
     });
     const view = new MapView({ map, container: 'mapDiv' });
     view.popup = null;

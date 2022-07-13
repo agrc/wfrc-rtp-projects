@@ -98,19 +98,19 @@ export default function Filter({ mapView, state, dispatch }) {
                   linear: layers?.modeLines,
                   point: layers?.modePoints,
                   value: config.filter.symbolValues.mode.road,
-                  label: config.labels.mode.road,
+                  label: config.filter.labels.mode.road,
                 },
                 {
                   linear: layers?.modeLines,
                   point: layers?.modePoints,
                   value: config.filter.symbolValues.mode.transit,
-                  label: config.labels.mode.transit,
+                  label: config.filter.labels.mode.transit,
                 },
                 {
                   linear: layers?.modeLines,
                   point: layers?.modePoints,
                   value: config.filter.symbolValues.mode.activeTransportation,
-                  label: config.labels.mode.activeTransportation,
+                  label: config.filter.labels.mode.activeTransportation,
                 },
               ]}
               disabled={!layers}
@@ -141,25 +141,25 @@ export default function Filter({ mapView, state, dispatch }) {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
                   value: config.filter.symbolValues.phase.one,
-                  label: config.labels.phase.one,
+                  label: config.filter.labels.phase.one,
                 },
                 {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
                   value: config.filter.symbolValues.phase.two,
-                  label: config.labels.phase.two,
+                  label: config.filter.labels.phase.two,
                 },
                 {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
                   value: config.filter.symbolValues.phase.three,
-                  label: config.labels.phase.three,
+                  label: config.filter.labels.phase.three,
                 },
                 {
                   linear: layers?.phaseLines,
                   point: layers?.phasePoints,
                   value: config.filter.symbolValues.phase.unfunded,
-                  label: config.labels.phase.unfunded,
+                  label: config.filter.labels.phase.unfunded,
                 },
               ]}
               disabled={!layers}

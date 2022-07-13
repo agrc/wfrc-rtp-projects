@@ -6,20 +6,6 @@ import { initReactI18next } from 'react-i18next';
 const config = {
   MODE: 'mode',
   PHASE: 'phase',
-  labels: {
-    phase: {
-      one: 'Phase 1 (2023-2032)',
-      two: 'Phase 2 (2033-2042)',
-      three: 'Phase 3 (2043-2050)',
-      unfunded: 'Unfunded',
-    },
-    mode: {
-      road: 'Road',
-      transit: 'Transit',
-      activeTransportation: 'Active Transportation',
-    },
-  },
-  outFields: ['OBJECTID', 'phase', 'mode', 'improvement_type', 'plan_id', 'breakout', 'bike_type_text'],
 };
 
 // optional configSchema is for vitest and storybook since they are clumsy when it comes to

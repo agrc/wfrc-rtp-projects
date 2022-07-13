@@ -15,6 +15,19 @@
       "simpleMode": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
       "simplePhase": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p>In the RTP development process, projects are initially assigned to a project phase period, that are typically 8-10 years in length.</p><p>In this map, phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Or, phasing can be displayed according to <i>“financially-constrained phasing”</i>, wherein needed projects are prioritized according to the overall amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>"
     },
+    "labels": {
+      "mode": {
+        "road": "Road",
+        "transit": "Transit",
+        "activeTransportation": "Active Transportation"
+      },
+      "phase": {
+        "one": "Phase 1 (2023-2032)",
+        "two": "Phase 2 (2033-2042)",
+        "three": "Phase 3 (2043-2050)",
+        "unfunded": "Unfunded"
+      }
+    },
     "layerNames": {
       "modeLines": "Lines Displayed by Mode",
       "modePoints": "Points Displayed by Mode",
@@ -147,6 +160,7 @@
     "filter": true,
     "projectInfo": true
   },
+  "outFields": ["OBJECTID", "phase", "mode", "improvement_type", "plan_id", "breakout", "bike_type_text"],
   "projectInformation": {
     "commentsEnabled": true,
     "commentsTableUrl": "https://services1.arcgis.com/taguadKoI1XFwivx/arcgis/rest/services/Draft_Projects_2023_2050_RTP_Phased_by_Need/FeatureServer/2",
@@ -219,5 +233,6 @@
         "transportation": "Transporte"
       }
     }
-  }
+  },
+  "webMapId": "64597762025546ca993bea496f51d302"
 }

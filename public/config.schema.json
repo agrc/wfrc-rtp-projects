@@ -57,7 +57,16 @@
       "type": "object"
     }
   },
-  "required": ["appTitle", "filter", "openOnLoad", "projectInformation", "sherlock", "translations"],
+  "required": [
+    "appTitle",
+    "filter",
+    "openOnLoad",
+    "outFields",
+    "projectInformation",
+    "sherlock",
+    "translations",
+    "webMapId"
+  ],
   "additionalProperties": false,
   "properties": {
     "appTitle": {
@@ -69,7 +78,7 @@
       "title": "Filter Widget Configuration",
       "description": "Configuration options for the filter widget",
       "type": "object",
-      "required": ["disableAdvanced", "fieldNames", "infoText", "layerNames", "projectTypes", "symbolValues"],
+      "required": ["disableAdvanced", "fieldNames", "infoText", "labels", "layerNames", "projectTypes", "symbolValues"],
       "additionalProperties": false,
       "properties": {
         "disableAdvanced": {
@@ -128,6 +137,59 @@
             "simplePhase": {
               "title": "Simple Filter - Phase Tab",
               "type": "string"
+            }
+          }
+        },
+        "labels": {
+          "title": "Primary Checkbox Labels",
+          "description": "The labels for the primary checkboxes",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "phase"],
+          "properties": {
+            "mode": {
+              "title": "Mode Type Labels",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["road", "transit", "activeTransportation"],
+              "properties": {
+                "road": {
+                  "title": "Road",
+                  "type": "string"
+                },
+                "transit": {
+                  "title": "Transit",
+                  "type": "string"
+                },
+                "activeTransportation": {
+                  "title": "Active Transportation",
+                  "type": "string"
+                }
+              }
+            },
+            "phase": {
+              "title": "Phase Labels",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["one", "two", "three", "unfunded"],
+              "properties": {
+                "one": {
+                  "title": "Phase 1",
+                  "type": "string"
+                },
+                "two": {
+                  "title": "Phase 2",
+                  "type": "string"
+                },
+                "three": {
+                  "title": "Phase 3",
+                  "type": "string"
+                },
+                "unfunded": {
+                  "title": "Unfunded",
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -255,6 +317,14 @@
         }
       }
     },
+    "outFields": {
+      "title": "Out Fields",
+      "description": "The fields that will be requested along with the features displayed in the map",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "projectInformation": {
       "title": "Project Information Widget Config",
       "description": "Configuration options for the project information widget",
@@ -376,6 +446,11 @@
           }
         }
       }
+    },
+    "webMapId": {
+      "title": "Web Map ID",
+      "description": "The AGOL ID of the web map that will be displayed in the app",
+      "type": "string"
     }
   }
 }

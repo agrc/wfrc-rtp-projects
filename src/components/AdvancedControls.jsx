@@ -159,7 +159,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                 <Col>
                   <Checkbox
                     uniqueId="phase-1"
-                    label={config.labels.phase.one}
+                    label={config.filter.labels.phase.one}
                     checked={state.phase.includes(config.filter.symbolValues.phase.one)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.one, meta: 'phase' })
@@ -168,7 +168,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   />
                   <Checkbox
                     uniqueId="phase-2"
-                    label={config.labels.phase.two}
+                    label={config.filter.labels.phase.two}
                     checked={state.phase.includes(config.filter.symbolValues.phase.two)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.two, meta: 'phase' })
@@ -177,7 +177,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   />
                   <Checkbox
                     uniqueId="phase-3"
-                    label={config.labels.phase.three}
+                    label={config.filter.labels.phase.three}
                     checked={state.phase.includes(config.filter.symbolValues.phase.three)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.three, meta: 'phase' })
@@ -186,7 +186,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   />
                   <Checkbox
                     uniqueId="phase-4"
-                    label={config.labels.phase.unfunded}
+                    label={config.filter.labels.phase.unfunded}
                     checked={state.phase.includes(config.filter.symbolValues.phase.unfunded)}
                     onChange={() =>
                       dispatch({ type: 'simple', payload: config.filter.symbolValues.phase.unfunded, meta: 'phase' })
