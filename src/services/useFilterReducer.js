@@ -5,45 +5,55 @@ import config from './config';
 export function getQuery(state, geometryType, projectConfig) {
   // phase is a numeric field
   const phaseQuery = `${state.phaseField} IN (${state.phase.join(',')})`;
-  // mode is a text field
-  const modeQuery = `${projectConfig.filter.fieldNames.mode} IN ('${state.mode.join("','")}')`;
 
-  let query = `${phaseQuery} AND ${modeQuery}`;
+  let query = `${phaseQuery}`;
 
   // project type queries
-  const { road, transit, activeTransportation } = state.projectTypes;
-  let selectedProjectTypeInfos = [];
+  const modeQueries = [];
+  for (const mode of state.mode) {
+    let modeQuery = `${projectConfig.filter.fieldNames.mode} = '${mode}'`;
 
-  // only add project type queries if the corresponding project type is selected
-  if (state.mode.includes(projectConfig.filter.symbolValues.mode.road)) {
-    selectedProjectTypeInfos.push(...road.map((name) => projectConfig.filter.projectTypes.road[name]));
-  }
-  if (state.mode.includes(projectConfig.filter.symbolValues.mode.transit)) {
-    selectedProjectTypeInfos.push(...transit.map((name) => projectConfig.filter.projectTypes.transit[name]));
-  }
-  if (state.mode.includes(projectConfig.filter.symbolValues.mode.activeTransportation)) {
-    selectedProjectTypeInfos.push(
-      ...activeTransportation.map((name) => projectConfig.filter.projectTypes.activeTransportation[name])
-    );
-  }
+    // find project types that are associated with this mode
+    const { road, transit, activeTransportation } = state.projectTypes;
 
-  const projectTypeOrQueries = [];
-  const projectTypeAndQueries = [];
-  for (const info of selectedProjectTypeInfos) {
-    if (info[geometryType]) {
-      if (info.useAnd) {
-        projectTypeAndQueries.push(info[geometryType]);
-      } else {
-        projectTypeOrQueries.push(info[geometryType]);
+    let selectedProjectTypeInfos = [];
+    if (mode == projectConfig.filter.symbolValues.mode.road) {
+      selectedProjectTypeInfos = road.map((name) => projectConfig.filter.projectTypes.road[name]);
+    } else if (mode == projectConfig.filter.symbolValues.mode.transit) {
+      selectedProjectTypeInfos = transit.map((name) => projectConfig.filter.projectTypes.transit[name]);
+    } else if (mode == projectConfig.filter.symbolValues.mode.activeTransportation) {
+      selectedProjectTypeInfos = activeTransportation.map(
+        (name) => projectConfig.filter.projectTypes.activeTransportation[name]
+      );
+    }
+
+    if (selectedProjectTypeInfos.length > 0) {
+      const projectTypeOrQueries = [];
+      const projectTypeAndQueries = [];
+      for (const info of selectedProjectTypeInfos) {
+        if (info[geometryType]) {
+          if (info.useAnd) {
+            projectTypeAndQueries.push(info[geometryType]);
+          } else {
+            projectTypeOrQueries.push(info[geometryType]);
+          }
+        }
+      }
+
+      if (projectTypeOrQueries.length > 0) {
+        modeQuery += ` AND ((${projectTypeOrQueries.join(') OR (')}))`;
+      }
+
+      if (projectTypeAndQueries.length > 0) {
+        modeQuery += ` AND (${projectTypeAndQueries.join(') AND (')})`;
       }
     }
+
+    modeQueries.push(`(${modeQuery})`);
   }
 
-  if (projectTypeOrQueries.length > 0) {
-    query += ` AND ((${projectTypeOrQueries.join(') OR (')}))`;
-  }
-  if (projectTypeAndQueries.length > 0) {
-    query += ` AND (${projectTypeAndQueries.join(') AND (')})`;
+  if (modeQueries.length > 0) {
+    query += ` AND (${modeQueries.join(' OR ')})`;
   }
 
   // cost queries

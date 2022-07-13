@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { getQuery, initialState, reducer } from '../services/useFilterReducer';
+import { getQuery, initialState, reducer } from './useFilterReducer';
+
+const strip = (str) => str.replace(/\s/g, '');
 
 describe('getQuery', () => {
   it('builds the simple queries', () => {
@@ -29,7 +31,7 @@ describe('getQuery', () => {
 
     const query = getQuery(state, 'points', config);
 
-    expect(query).toEqual("PHASE_FIELD IN (1,2) AND MODE IN ('3','4')");
+    expect(strip(query)).toEqual(strip("PHASE_FIELD IN (1,2) AND ((MODE = '3') OR (MODE = '4'))"));
   });
 
   it('builds and adds the project type queries', () => {
@@ -87,8 +89,42 @@ describe('getQuery', () => {
 
     const query = getQuery(state, 'points', config);
 
-    expect(query).toEqual(
-      "PHASE_FIELD IN (1,2) AND MODE IN ('road_value','transit_value','active_transportation_value') AND ((roadTypePoints) OR (roadType2Points) OR (transitTypePoints) OR (transitType2Points) OR (activeTransportationTypePoints) OR (activeTransportationType2Points))"
+    expect(strip(query)).toEqual(
+      strip(`
+      PHASE_FIELD IN (1,2)
+      AND
+      (
+        (
+          MODE = 'road_value'
+          AND
+          (
+            (roadTypePoints)
+            OR
+            (roadType2Points)
+          )
+        )
+        OR
+        (
+          MODE = 'transit_value'
+          AND
+          (
+            (transitTypePoints)
+            OR
+            (transitType2Points)
+          )
+        )
+        OR
+        (
+          MODE = 'active_transportation_value'
+          AND
+          (
+            (activeTransportationTypePoints)
+            OR
+            (activeTransportationType2Points)
+          )
+        )
+      )
+      `)
     );
   });
 
@@ -147,8 +183,32 @@ describe('getQuery', () => {
 
     const query = getQuery(state, 'points', config);
 
-    expect(query).toEqual(
-      "PHASE_FIELD IN (1,2) AND MODE IN ('road_value','active_transportation_value') AND ((roadTypePoints) OR (roadType2Points) OR (activeTransportationTypePoints) OR (activeTransportationType2Points))"
+    expect(strip(query)).toEqual(
+      strip(`
+      PHASE_FIELD IN (1,2)
+      AND
+      (
+        (
+          MODE = 'road_value'
+          AND
+          (
+            (roadTypePoints)
+            OR
+            (roadType2Points)
+          )
+        )
+        OR
+        (
+          MODE = 'active_transportation_value'
+          AND
+          (
+            (activeTransportationTypePoints)
+            OR
+            (activeTransportationType2Points)
+          )
+        )
+      )
+      `)
     );
   });
 
@@ -200,8 +260,30 @@ describe('getQuery', () => {
 
     const query = getQuery(state, 'points', config);
 
-    expect(query).toEqual(
-      "PHASE_FIELD IN (1,2,3,4) AND MODE IN ('road_value','active_transportation_value') AND ((roadTypePoints) OR (roadType2Points)) AND (roadType3Points) AND (roadType4Points)"
+    expect(strip(query)).toEqual(
+      strip(`
+      PHASE_FIELD IN (1,2,3,4)
+      AND
+      (
+        (
+          MODE = 'road_value'
+          AND
+          (
+            (roadTypePoints)
+            OR
+            (roadType2Points)
+          )
+          AND
+          (roadType3Points)
+          AND
+          (roadType4Points)
+        )
+        OR
+        (
+          MODE = 'active_transportation_value'
+        )
+      )
+      `)
     );
   });
 
@@ -229,8 +311,26 @@ describe('getQuery', () => {
 
     const query = getQuery(state, 'points', config);
 
-    expect(query).toEqual(
-      "phase IN (1,2,3,4) AND MODE IN ('Highway','Transit','Active Transportation') AND COST >= 1 AND COST <= 4"
+    expect(strip(query)).toEqual(
+      strip(`
+      phase IN (1,2,3,4)
+      AND
+      (
+        (
+          MODE = 'Highway'
+        )
+        OR
+        (
+          MODE = 'Transit'
+        )
+        OR
+        (
+          MODE = 'Active Transportation'
+        )
+      )
+      AND
+      COST >= 1 AND COST <= 4
+    `)
     );
   });
 });
