@@ -3,6 +3,13 @@ import config from './config';
 import { getQuery, initialState, reducer } from './useFilterReducer';
 
 const strip = (str) => str.replace(/\s/g, '');
+let offByDefaultType;
+for (const name in config.filter.projectTypes.road) {
+  if (config.filter.projectTypes.road[name].offByDefault) {
+    offByDefaultType = name;
+    break;
+  }
+}
 
 describe('getQuery', () => {
   it('builds the simple queries', () => {
@@ -10,29 +17,47 @@ describe('getQuery', () => {
       ...initialState,
       phaseField: 'PHASE_FIELD',
       phase: ['1', '2'],
-      mode: ['3', '4'],
-      projectTypes: {
-        road: [],
-        transit: [],
-        activeTransportation: [],
-      },
+      mode: [initialState.mode[0], initialState.mode[1]],
     };
-    const config = {
-      filter: {
-        fieldNames: {
-          mode: 'MODE',
-        },
-        symbolValues: {
-          mode: {
-            road: 'road_value',
-          },
-        },
+
+    const query = getQuery(state, 'points', config);
+
+    expect(strip(query)).toMatch("mode='Highway'");
+    expect(strip(query)).toMatch("mode='Transit'");
+    expect(strip(query)).not.toMatch("mode='Active Transportation'");
+  });
+
+  it('turns off a mode if all associated project types are unchecked', () => {
+    const state = {
+      ...initialState,
+      phaseField: 'PHASE_FIELD',
+      phase: ['1', '2'],
+      mode: [initialState.mode[0], initialState.mode[1]],
+      projectTypes: {
+        ...initialState.projectTypes,
+        road: [],
       },
     };
 
     const query = getQuery(state, 'points', config);
 
-    expect(strip(query)).toEqual(strip("PHASE_FIELD IN (1,2) AND ((MODE = '3') OR (MODE = '4'))"));
+    expect(strip(query)).not.toMatch("MODE='Transit'");
+  });
+
+  it('turns off a mode if all associated project types are unchecked even if UDOT checkbox is checked', () => {
+    const state = {
+      ...initialState,
+      phaseField: 'PHASE_FIELD',
+      phase: ['1', '2'],
+      projectTypes: {
+        ...initialState.projectTypes,
+        road: [offByDefaultType],
+      },
+    };
+
+    const query = getQuery(state, 'points', config);
+
+    expect(strip(query)).not.toMatch("MODE='Highway'");
   });
 
   it('builds and adds the project type queries', () => {
@@ -67,6 +92,9 @@ describe('getQuery', () => {
             roadType2: {
               points: 'roadType2Points',
             },
+            roadType3: {
+              points: 'roadType3Points',
+            },
           },
           transit: {
             transitType: {
@@ -75,6 +103,9 @@ describe('getQuery', () => {
             transitType2: {
               points: 'transitType2Points',
             },
+            transitType3: {
+              points: 'transitType3Points',
+            },
           },
           activeTransportation: {
             activeTransportationType: {
@@ -82,6 +113,9 @@ describe('getQuery', () => {
             },
             activeTransportationType2: {
               points: 'activeTransportationType2Points',
+            },
+            activeTransportationType3: {
+              points: 'activeTransportationType3Points',
             },
           },
         },
@@ -161,6 +195,9 @@ describe('getQuery', () => {
             roadType2: {
               points: 'roadType2Points',
             },
+            roadType3: {
+              points: 'roadType3Points',
+            },
           },
           transit: {
             transitType: {
@@ -176,6 +213,9 @@ describe('getQuery', () => {
             },
             activeTransportationType2: {
               points: 'activeTransportationType2Points',
+            },
+            activeTransportationType3: {
+              points: 'activeTransportationType3Points',
             },
           },
         },
@@ -279,10 +319,6 @@ describe('getQuery', () => {
           AND
           (roadType4Points)
         )
-        OR
-        (
-          MODE = 'active_transportation_value'
-        )
       )
       `)
     );
@@ -296,43 +332,10 @@ describe('getQuery', () => {
         min: 1,
       },
     };
-    const config = {
-      filter: {
-        fieldNames: {
-          mode: 'MODE',
-          cost: 'COST',
-        },
-        symbolValues: {
-          mode: {
-            road: 'road_value',
-          },
-        },
-      },
-    };
 
     const query = getQuery(state, 'points', config);
 
-    expect(strip(query)).toEqual(
-      strip(`
-      phase IN (1,2,3,4)
-      AND
-      (
-        (
-          MODE = 'Highway'
-        )
-        OR
-        (
-          MODE = 'Transit'
-        )
-        OR
-        (
-          MODE = 'Active Transportation'
-        )
-      )
-      AND
-      COST >= 1 AND COST <= 4
-    `)
-    );
+    expect(strip(query)).toMatch(/ANDcost>=1ANDcost<=4/);
   });
 });
 
@@ -368,13 +371,6 @@ describe('reducer', () => {
   });
 
   it("toggle off project type header doesn't affect UDOT ownership checkboxes", () => {
-    let offByDefaultType;
-    for (const name in config.filter.projectTypes.road) {
-      if (config.filter.projectTypes.road[name].offByDefault) {
-        offByDefaultType = name;
-        break;
-      }
-    }
     const current = {
       ...initialState,
       projectTypes: {

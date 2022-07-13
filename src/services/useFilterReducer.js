@@ -42,14 +42,14 @@ export function getQuery(state, geometryType, projectConfig) {
 
       if (projectTypeOrQueries.length > 0) {
         modeQuery += ` AND ((${projectTypeOrQueries.join(') OR (')}))`;
-      }
 
-      if (projectTypeAndQueries.length > 0) {
-        modeQuery += ` AND (${projectTypeAndQueries.join(') AND (')})`;
+        if (projectTypeAndQueries.length > 0) {
+          modeQuery += ` AND (${projectTypeAndQueries.join(') AND (')})`;
+        }
+
+        modeQueries.push(`(${modeQuery})`);
       }
     }
-
-    modeQueries.push(`(${modeQuery})`);
   }
 
   if (modeQueries.length > 0) {
