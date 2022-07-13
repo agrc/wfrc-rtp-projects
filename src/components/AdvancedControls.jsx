@@ -65,6 +65,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.road}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'road' })}
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.road)}
+                  distinct={config.filter.projectTypes.road[name].useAnd}
                 />
               ))}
             </Col>
@@ -85,6 +86,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.transit}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'transit' })}
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.transit)}
+                  distinct={config.filter.projectTypes.transit[name].useAnd}
                 />
               ))}
             </Col>
@@ -113,6 +115,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
+                    distinct={config.filter.projectTypes.activeTransportation[name].useAnd}
                   />
                 ))}
             </Col>
@@ -128,6 +131,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
+                    distinct={config.filter.projectTypes.activeTransportation[name].useAnd}
                   />
                 ))}
             </Col>
