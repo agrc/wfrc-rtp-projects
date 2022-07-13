@@ -10,9 +10,7 @@ export function getQuery(state, geometryType, projectConfig) {
 
   // project type queries
   const modeQueries = [];
-  for (const mode of state.mode) {
-    let modeQuery = `${projectConfig.filter.fieldNames.mode} = '${mode}'`;
-
+  for (const mode of Object.values(projectConfig.filter.symbolValues.mode)) {
     // find project types that are associated with this mode
     const { road, transit, activeTransportation } = state.projectTypes;
 
@@ -27,16 +25,15 @@ export function getQuery(state, geometryType, projectConfig) {
       );
     }
 
-    if (selectedProjectTypeInfos.length > 0) {
+    let modeQuery = `${projectConfig.filter.fieldNames.mode} = '${mode}'`;
+    if (state.mode.includes(mode) && selectedProjectTypeInfos.length > 0) {
       const projectTypeOrQueries = [];
       const projectTypeAndQueries = [];
       for (const info of selectedProjectTypeInfos) {
-        if (info[geometryType]) {
-          if (info.useAnd) {
-            projectTypeAndQueries.push(info[geometryType]);
-          } else {
-            projectTypeOrQueries.push(info[geometryType]);
-          }
+        if (info.useAnd) {
+          projectTypeAndQueries.push(info[geometryType]);
+        } else {
+          projectTypeOrQueries.push(info[geometryType] ?? '1=2');
         }
       }
 
@@ -46,15 +43,16 @@ export function getQuery(state, geometryType, projectConfig) {
         if (projectTypeAndQueries.length > 0) {
           modeQuery += ` AND (${projectTypeAndQueries.join(') AND (')})`;
         }
-
-        modeQueries.push(`(${modeQuery})`);
       }
+    } else {
+      // nothing is selected, turn off this mode
+      modeQuery = modeQuery.replace('=', '!=');
     }
+
+    modeQueries.push(`(${modeQuery})`);
   }
 
-  if (modeQueries.length > 0) {
-    query += ` AND (${modeQueries.join(' OR ')})`;
-  }
+  query += ` AND (${modeQueries.join(' OR ')})`;
 
   // cost queries
   const costQueries = [];

@@ -223,6 +223,7 @@ describe('getQuery', () => {
     };
 
     const query = getQuery(state, 'points', config);
+    console.log('query', query);
 
     expect(strip(query)).toEqual(
       strip(`
@@ -238,6 +239,8 @@ describe('getQuery', () => {
             (roadType2Points)
           )
         )
+        OR
+        (MODE != 'transit_value')
         OR
         (
           MODE = 'active_transportation_value'
@@ -319,6 +322,10 @@ describe('getQuery', () => {
           AND
           (roadType4Points)
         )
+        OR
+        (MODE != 'transit_value')
+        OR
+        (MODE != 'active_transportation_value')
       )
       `)
     );
