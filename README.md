@@ -6,7 +6,7 @@ Standalone RTP Project Web App
 
 [Web Map and Filter Specs](https://docs.google.com/spreadsheets/d/1zrcI_XNdhlxNlj703HnaKOio7d9U1pWhzghnR-izdIY/edit#gid=0)
 
-This project was bootstrapped with [create-react-app](https://www.npmjs.com/search?q=create-react-app).
+This project was [bootstrapped](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) with `npm create vite@latest`.
 
 ## Releases
 
