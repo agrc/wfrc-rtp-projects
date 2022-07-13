@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.5.0...v0.6.0) (2022-07-13)
+
+
+### Features
+
+* auto-open project info on map feature click ([8fcf25a](https://github.com/agrc/wfrc-rtp-projects/commit/8fcf25a73ae389b7f34660e728ad3d2007fcf67f))
+
+
+### Bug Fixes
+
+* make udot facilities checkbox look visually distinct from others ([a48c148](https://github.com/agrc/wfrc-rtp-projects/commit/a48c1484818c30dc86aa499f82a215c3a122c39b))
+* make udot ownership and other checkboxes apply only to the project type that they are contained in ([1207e62](https://github.com/agrc/wfrc-rtp-projects/commit/1207e62a47fe6e4cb07263260337cb9db622b99e))
+* select/unselect all should ignore udot ownership checkboxes ([7b0e21e](https://github.com/agrc/wfrc-rtp-projects/commit/7b0e21ee8675f991f8d8a13b9002fdea5941ab77))
+* turning off all primary checkboxes hides all features ([61d2246](https://github.com/agrc/wfrc-rtp-projects/commit/61d22469bdf719cf6287ddc1b1a5394a07c0e303))
+* unselecting all should remove all features for that project type ([6ef6a65](https://github.com/agrc/wfrc-rtp-projects/commit/6ef6a6524e5dc1cfa1c64363392ad1eaff1840c9))
+
 ## [0.5.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.4.0...v0.5.0) (2022-07-12)
 
 
