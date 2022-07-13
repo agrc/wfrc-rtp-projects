@@ -9,7 +9,7 @@ import './MapWidget.scss';
 
 export const MapWidgetContext = createContext();
 
-export default function MapWidget({ defaultOpen, position, mapView, children, icon, showReset, onReset, name }) {
+export default function MapWidget({ defaultOpen, position, mapView, children, icon, onReset, name }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const scrollBar = useRef();
   const scrollBarContainer = useRef();
@@ -61,7 +61,7 @@ export default function MapWidget({ defaultOpen, position, mapView, children, ic
           <CardHeader>
             {name}
             <div className="buttons-container">
-              {showReset && (
+              {onReset && (
                 <Button className="reset-button" color="link" onClick={onReset}>
                   <small>{t('trans:reset')}</small>
                 </Button>
@@ -85,6 +85,5 @@ MapWidget.propTypes = {
   name: PropTypes.string,
   icon: PropTypes.object,
   children: PropTypes.node,
-  showReset: PropTypes.bool,
   onReset: PropTypes.func,
 };
