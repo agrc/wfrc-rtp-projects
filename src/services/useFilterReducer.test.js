@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import config from './config';
 import { getQuery, initialState, reducer } from './useFilterReducer';
 
 const strip = (str) => str.replace(/\s/g, '');
@@ -340,18 +341,61 @@ describe('reducer', () => {
     expect(reducer(null, { type: 'reset' })).toEqual(initialState);
   });
 
-  it('handles project type header toggles', () => {
+  it('handles project type header toggles off', () => {
     const current = {
       ...initialState,
       projectTypes: {
         ...initialState.projectTypes,
-        road: ['a', 'b', 'c'],
+        road: [initialState.projectTypes.road[0]],
       },
     };
+
     const toggleOffResult = reducer(current, { type: 'projectTypeHeader', meta: 'road', payload: false });
     expect(toggleOffResult.projectTypes.road).toEqual([]);
+  });
 
-    const toggleOnResult = reducer(toggleOffResult, { type: 'projectTypeHeader', meta: 'road', payload: true });
+  it('handles project type header toggles on', () => {
+    const current = {
+      ...initialState,
+      projectTypes: {
+        ...initialState.projectTypes,
+        road: [initialState.projectTypes.road[0]],
+      },
+    };
+
+    const toggleOnResult = reducer(current, { type: 'projectTypeHeader', meta: 'road', payload: true });
+    expect(toggleOnResult.projectTypes.road).toEqual(initialState.projectTypes.road);
+  });
+
+  it("toggle off project type header doesn't affect UDOT ownership checkboxes", () => {
+    let offByDefaultType;
+    for (const name in config.filter.projectTypes.road) {
+      if (config.filter.projectTypes.road[name].offByDefault) {
+        offByDefaultType = name;
+        break;
+      }
+    }
+    const current = {
+      ...initialState,
+      projectTypes: {
+        ...initialState.projectTypes,
+        road: [...initialState.projectTypes.road, offByDefaultType],
+      },
+    };
+
+    // unselect all should leave off by default alone
+    const toggleOffResult = reducer(current, { type: 'projectTypeHeader', meta: 'road', payload: false });
+    expect(toggleOffResult.projectTypes.road).toEqual([offByDefaultType]);
+  });
+
+  it("toggle on project type header doesn't affect UDOT ownership checkboxes", () => {
+    const current = {
+      ...initialState,
+    };
+
+    // select all should leave off by default alone
+    current.projectTypes.road = initialState.projectTypes.road;
+    const toggleOnResult = reducer(current, { type: 'projectTypeHeader', meta: 'road', payload: true });
     expect(toggleOnResult.projectTypes.road).toEqual(initialState.projectTypes.road);
   });
 });

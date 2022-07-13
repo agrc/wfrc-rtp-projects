@@ -103,17 +103,30 @@ export function reducer(draft, action) {
 
       break;
 
-    case 'projectTypeHeader':
+    case 'projectTypeHeader': {
+      const newTypes = Array.from(draft.projectTypes[action.meta]);
+
       if (action.payload) {
         // toggle all sub project types on
-        draft.projectTypes[action.meta] = initialState.projectTypes[action.meta];
+        for (const name in config.filter.projectTypes[action.meta]) {
+          if (!config.filter.projectTypes[action.meta][name].offByDefault && !newTypes.includes(name)) {
+            newTypes.push(name);
+          }
+        }
       } else {
-        draft.projectTypes[action.meta] = [];
+        // toggle off
+        for (const name of draft.projectTypes[action.meta]) {
+          if (!config.filter.projectTypes[action.meta][name].offByDefault) {
+            newTypes.splice(newTypes.indexOf(name), 1);
+          }
+        }
       }
+      draft.projectTypes[action.meta] = newTypes;
 
       updateLayerDefinitions();
 
       break;
+    }
 
     case 'usePhasing':
       draft.phaseField = action.payload;
