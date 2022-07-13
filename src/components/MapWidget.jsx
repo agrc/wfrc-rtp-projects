@@ -2,22 +2,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PropTypes from 'prop-types';
-import React, { createContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, useEffect, useRef } from 'react';
 import { Button, Card, CardHeader } from 'reactstrap';
 import { useSpecialTranslation } from '../services/i18n';
 import './MapWidget.scss';
 
 export const MapWidgetContext = createContext();
 
-export default function MapWidget({ defaultOpen, position, mapView, children, icon, onReset, name }) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+export default function MapWidget({ isOpen, position, mapView, children, icon, onReset, name, toggle }) {
   const scrollBar = useRef();
   const scrollBarContainer = useRef();
   const t = useSpecialTranslation();
 
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
   const padding = '15px';
   const cardStyle = {
     display: isOpen ? 'flex' : 'none',
@@ -79,11 +75,12 @@ export default function MapWidget({ defaultOpen, position, mapView, children, ic
 }
 
 MapWidget.propTypes = {
-  defaultOpen: PropTypes.bool,
-  position: PropTypes.number,
+  isOpen: PropTypes.bool.isRequired,
+  position: PropTypes.number.isRequired,
   mapView: PropTypes.object,
-  name: PropTypes.string,
-  icon: PropTypes.object,
-  children: PropTypes.node,
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
   onReset: PropTypes.func,
+  toggle: PropTypes.func.isRequired,
 };

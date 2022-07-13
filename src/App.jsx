@@ -4,7 +4,7 @@ import MapView from '@arcgis/core/views/MapView';
 import WebMap from '@arcgis/core/WebMap';
 import Home from '@arcgis/core/widgets/Home';
 import { faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import 'typeface-montserrat';
 import './App.scss';
@@ -19,12 +19,12 @@ import useFilterReducer from './services/useFilterReducer';
 const queryClient = new QueryClient();
 
 function App() {
-  const [mapView, setMapView] = React.useState(null);
-  const [zoomToGraphic, setZoomToGraphic] = React.useState(null);
+  const [mapView, setMapView] = useState(null);
+  const [zoomToGraphic, setZoomToGraphic] = useState(null);
 
   const t = useSpecialTranslation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const map = new WebMap({
       portalItem: { id: '64597762025546ca993bea496f51d302' },
     });
@@ -35,8 +35,8 @@ function App() {
     setMapView(view);
   }, []);
 
-  const [displayedZoomGraphic, setDisplayedZoomGraphic] = React.useState(null);
-  const zoomTo = React.useCallback(
+  const [displayedZoomGraphic, setDisplayedZoomGraphic] = useState(null);
+  const zoomTo = useCallback(
     async (zoomObj) => {
       if (!Array.isArray(zoomObj.target)) {
         zoomObj.target = [zoomObj.target];
@@ -74,7 +74,7 @@ function App() {
     [displayedZoomGraphic, mapView]
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (zoomToGraphic) {
       const { graphic, level, preserve } = zoomToGraphic;
 
@@ -101,9 +101,9 @@ function App() {
   };
 
   // required for ProjectInformation
-  const [selectedGraphics, setSelectedGraphics] = React.useState([]);
-  const [highlight, setHighlight] = React.useState(null);
-  const [graphic, setGraphic] = React.useState(null);
+  const [selectedGraphics, setSelectedGraphics] = useState([]);
+  const [highlight, setHighlight] = useState(null);
+  const [graphic, setGraphic] = useState(null);
   const highlightGraphic = async (newGraphic) => {
     console.log('App:highlightGraphic', newGraphic);
 
@@ -134,16 +134,22 @@ function App() {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (mapView) {
       mapView.on('click', async (event) => {
         const response = await mapView.hitTest(event);
         setSelectedGraphics(response.results.map((result) => result.graphic));
+
+        if (response.results.length > 0) {
+          setProjectInfoIsOpen(true);
+        }
       });
     }
   }, [mapView]);
 
   const [filterState, filterDispatch] = useFilterReducer();
+  const [filterIsOpen, setFilterIsOpen] = useState(config.openOnLoad.filter);
+  const [projectInfoIsOpen, setProjectInfoIsOpen] = useState(config.openOnLoad.projectInfo);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -154,21 +160,25 @@ function App() {
         <div id="mapDiv" className="flex-fill border-top border position-relative">
           <MapWidget
             defaultOpen={config.openOnLoad.filter}
+            isOpen={filterIsOpen}
             name={t('trans:filter')}
             icon={faFilter}
             position={0}
             mapView={mapView}
             showReset={true}
             onReset={() => filterDispatch({ type: 'reset' })}
+            toggle={() => setFilterIsOpen((current) => !current)}
           >
             <Filter mapView={mapView} state={filterState} dispatch={filterDispatch} />
           </MapWidget>
           <MapWidget
             defaultOpen={config.openOnLoad.projectInfo}
+            isOpen={projectInfoIsOpen}
             name={t('trans:projectInformation')}
             icon={faHandPointer}
             position={1}
             mapView={mapView}
+            toggle={() => setProjectInfoIsOpen((current) => !current)}
           >
             <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
           </MapWidget>
