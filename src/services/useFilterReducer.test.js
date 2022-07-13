@@ -223,7 +223,6 @@ describe('getQuery', () => {
     };
 
     const query = getQuery(state, 'points', config);
-    console.log('query', query);
 
     expect(strip(query)).toEqual(
       strip(`
