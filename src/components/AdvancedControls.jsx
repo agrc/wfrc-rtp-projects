@@ -11,20 +11,18 @@ import UsePhasing from './UsePhasing';
 
 const SELECT_ALL = 'select all';
 const UNSELECT_ALL = 'unselect all';
+
+export function allButOffByDefault(selectedTypes, projectTypesConfig) {
+  const possibilities = Object.keys(projectTypesConfig)
+    .filter((key) => !projectTypesConfig[key].offByDefault)
+    .map((key) => key);
+
+  return possibilities.every((type) => selectedTypes.includes(type));
+}
+
 export default function AdvancedControls({ disabled, dispatch, isOpen, labelColors, showPhaseFilter, state, toggle }) {
-  const numPossibleProjectTypes = {
-    road: Object.keys(config.filter.projectTypes.road).filter(
-      (key) => !config.filter.projectTypes.road[key].offByDefault
-    ).length,
-    transit: Object.keys(config.filter.projectTypes.transit).filter(
-      (key) => !config.filter.projectTypes.transit[key].offByDefault
-    ).length,
-    activeTransportation: Object.keys(config.filter.projectTypes.activeTransportation).filter(
-      (key) => !config.filter.projectTypes.activeTransportation[key].offByDefault
-    ).length,
-  };
   const getHeaderOperationLabel = (mode) => {
-    return state.projectTypes[mode].length === numPossibleProjectTypes[mode] ? UNSELECT_ALL : SELECT_ALL;
+    return allButOffByDefault(state.projectTypes[mode], config.filter.projectTypes[mode]) ? UNSELECT_ALL : SELECT_ALL;
   };
 
   const onHeaderClick = (mode) => {

@@ -57,7 +57,7 @@ describe('getQuery', () => {
 
     const query = getQuery(state, 'points', config);
 
-    expect(strip(query)).not.toMatch("MODE='Highway'");
+    expect(strip(query)).not.toMatch("mode='Highway'");
   });
 
   it('builds and adds the project type queries', () => {

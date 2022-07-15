@@ -26,9 +26,9 @@ export function getQuery(state, geometryType, projectConfig) {
     }
 
     let modeQuery = `${projectConfig.filter.fieldNames.mode} = '${mode}'`;
+    const projectTypeOrQueries = [];
+    const projectTypeAndQueries = [];
     if (state.mode.includes(mode) && selectedProjectTypeInfos.length > 0) {
-      const projectTypeOrQueries = [];
-      const projectTypeAndQueries = [];
       for (const info of selectedProjectTypeInfos) {
         if (info.useAnd) {
           projectTypeAndQueries.push(info[geometryType]);
@@ -44,7 +44,9 @@ export function getQuery(state, geometryType, projectConfig) {
           modeQuery += ` AND (${projectTypeAndQueries.join(') AND (')})`;
         }
       }
-    } else {
+    }
+
+    if (projectTypeOrQueries.length === 0) {
       // nothing is selected, turn off this mode
       modeQuery = modeQuery.replace('=', '!=');
     }
