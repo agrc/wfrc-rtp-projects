@@ -105,7 +105,7 @@
           "lines": null
         },
         "Maintenance Facility": {
-          "points": "improvement_type = 'Maintenance'",
+          "points": "improvement_type = 'Maintenance Facility'",
           "lines": null
         }
       },
