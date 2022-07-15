@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from './components/ErrorFallback';
 import './index.css';
 import { setConfigs } from './services/config';
 
@@ -13,7 +15,9 @@ fetch('config.json')
     console.log('rendering app');
     ReactDOM.createRoot(document.getElementById('root')).render(
       <React.StrictMode>
-        <App />
+        <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => document.location.reload()}>
+          <App />
+        </ErrorBoundary>
       </React.StrictMode>
     );
   });
