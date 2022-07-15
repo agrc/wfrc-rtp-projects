@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/agrc/wfrc-rtp-projects/compare/v1.0.0...v1.1.0) (2022-07-15)
+
+
+### Features
+
+* add project-level error boundary ([234c43c](https://github.com/agrc/wfrc-rtp-projects/commit/234c43cf8fff7e420dfb184de0dd99cdea5589f3)), closes [#47](https://github.com/agrc/wfrc-rtp-projects/issues/47)
+
+
+### Bug Fixes
+
+* financially constrained -> fiscally constrained ([75cd5bb](https://github.com/agrc/wfrc-rtp-projects/commit/75cd5bb50bb27ebfc665694258548e3355946e21))
+* fix issues with limit to udot checkboxes ([61b8af8](https://github.com/agrc/wfrc-rtp-projects/commit/61b8af8f901ade74cc6f799ac161dbd9f3ac13b4)), closes [#49](https://github.com/agrc/wfrc-rtp-projects/issues/49)
+
 ## [1.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/v0.6.0...v1.0.0) (2022-07-13)
 
 
