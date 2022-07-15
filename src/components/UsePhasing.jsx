@@ -19,7 +19,7 @@ export default function UsePhasing({ phaseField, disabled, inline, dispatch }) {
           onChange={handleChange}
         />
         <Label check for="use-phasing-constrained">
-          Financially Constrained
+          Fiscally Constrained
         </Label>
       </FormGroup>
       <FormGroup check inline>
