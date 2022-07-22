@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/agrc/wfrc-rtp-projects/compare/v1.1.0...v1.2.0) (2022-07-22)
+
+
+### Features
+
+* add map widget resizer handle and other layout improvements ([b5d82e6](https://github.com/agrc/wfrc-rtp-projects/commit/b5d82e62ed38c4a2d7b959b42ac95bd308c36c54)), closes [#44](https://github.com/agrc/wfrc-rtp-projects/issues/44)
+* add validation message to cost filter ([d37686a](https://github.com/agrc/wfrc-rtp-projects/commit/d37686afb16559a796b3007951fd3ffb3edc974e)), closes [#48](https://github.com/agrc/wfrc-rtp-projects/issues/48)
+
+
+### Bug Fixes
+
+* when closing advanced filter, scroll simple controls into view ([a436c68](https://github.com/agrc/wfrc-rtp-projects/commit/a436c68d1a7703bb2463576cd1b2bbf738d3110c)), closes [#44](https://github.com/agrc/wfrc-rtp-projects/issues/44)
+
 ## [1.1.0](https://github.com/agrc/wfrc-rtp-projects/compare/v1.0.0...v1.1.0) (2022-07-15)
 
 
