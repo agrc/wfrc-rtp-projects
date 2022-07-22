@@ -10,6 +10,8 @@ import 'typeface-montserrat';
 import './App.scss';
 import Filter from './components/Filter';
 import MapWidget from './components/MapWidget';
+import MapWidgetContainer from './components/MapWidgetContainer';
+import MapWidgetResizeHandle from './components/MapWidgetResizeHandle';
 import ProjectInformation from './components/ProjectInformation';
 import { MapServiceProvider, Sherlock } from './components/Sherlock';
 import config from './services/config';
@@ -150,6 +152,7 @@ function App() {
   const [filterState, filterDispatch] = useFilterReducer();
   const [filterIsOpen, setFilterIsOpen] = useState(config.openOnLoad.filter);
   const [projectInfoIsOpen, setProjectInfoIsOpen] = useState(config.openOnLoad.projectInfo);
+  const [resize, setResize] = useState(0);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -158,30 +161,37 @@ function App() {
           <h4 className="my-0">{config.appTitle}</h4>
         </div>
         <div id="mapDiv" className="flex-fill border-top border position-relative">
-          <MapWidget
-            defaultOpen={config.openOnLoad.filter}
-            isOpen={filterIsOpen}
-            name={t('trans:filter')}
-            icon={faFilter}
-            position={0}
-            mapView={mapView}
-            showReset={true}
-            onReset={() => filterDispatch({ type: 'reset' })}
-            toggle={() => setFilterIsOpen((current) => !current)}
-          >
-            <Filter mapView={mapView} state={filterState} dispatch={filterDispatch} />
-          </MapWidget>
-          <MapWidget
-            defaultOpen={config.openOnLoad.projectInfo}
-            isOpen={projectInfoIsOpen}
-            name={t('trans:projectInformation')}
-            icon={faHandPointer}
-            position={1}
-            mapView={mapView}
-            toggle={() => setProjectInfoIsOpen((current) => !current)}
-          >
-            <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
-          </MapWidget>
+          <MapWidgetContainer openStates={[filterIsOpen, projectInfoIsOpen]}>
+            <MapWidget
+              defaultOpen={config.openOnLoad.filter}
+              isOpen={filterIsOpen}
+              name={t('trans:filter')}
+              icon={faFilter}
+              position={0}
+              mapView={mapView}
+              showReset={true}
+              onReset={() => filterDispatch({ type: 'reset' })}
+              toggle={() => setFilterIsOpen((current) => !current)}
+              resize={resize}
+              isAlone={filterIsOpen && !projectInfoIsOpen}
+            >
+              <Filter mapView={mapView} state={filterState} dispatch={filterDispatch} />
+            </MapWidget>
+            <MapWidgetResizeHandle onResize={setResize} show={filterIsOpen && projectInfoIsOpen} />
+            <MapWidget
+              defaultOpen={config.openOnLoad.projectInfo}
+              isOpen={projectInfoIsOpen}
+              name={t('trans:projectInformation')}
+              icon={faHandPointer}
+              position={1}
+              mapView={mapView}
+              toggle={() => setProjectInfoIsOpen((current) => !current)}
+              resize={resize}
+              isAlone={!filterIsOpen && projectInfoIsOpen}
+            >
+              <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
+            </MapWidget>
+          </MapWidgetContainer>
           <Sherlock {...sherlockConfig}></Sherlock>
         </div>
       </div>

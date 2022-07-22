@@ -10,16 +10,8 @@
 }
 
 .map-widget-card {
-  position: absolute;
-  right: 15px;
   z-index: 5;
   width: 500px;
-  @media only screen and (max-width: 500px) {
-    width: 100%;
-    right: 0;
-    height: 65%;
-    top: 0;
-  }
   .card-header {
     display: flex;
     justify-content: space-between;

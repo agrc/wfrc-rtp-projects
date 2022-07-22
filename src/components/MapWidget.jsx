@@ -9,16 +9,30 @@ import './MapWidget.scss';
 
 export const MapWidgetContext = createContext();
 
-export default function MapWidget({ isOpen, position, mapView, children, icon, onReset, name, toggle }) {
+export default function MapWidget({
+  isOpen,
+  position,
+  mapView,
+  children,
+  icon,
+  onReset,
+  name,
+  toggle,
+  resize,
+  isAlone,
+}) {
   const scrollBar = useRef();
   const scrollBarContainer = useRef();
   const t = useSpecialTranslation();
 
-  const padding = '15px';
+  const bufferForResizeHandle = '0.5rem';
   const cardStyle = {
     display: isOpen ? 'flex' : 'none',
-    top: position === 0 ? padding : `calc(50% - ${padding})`,
-    bottom: position === 0 ? `calc(50% + 2 * ${padding})` : padding,
+    height: isAlone
+      ? '100%'
+      : position === 0
+      ? `calc(50% + ${resize}px - ${bufferForResizeHandle})`
+      : `calc(50% - ${resize}px - ${bufferForResizeHandle})`,
   };
   const buttonDiv = useRef();
   useEffect(() => {
@@ -48,7 +62,7 @@ export default function MapWidget({ isOpen, position, mapView, children, icon, o
   }, []);
 
   return (
-    <div>
+    <>
       <MapWidgetContext.Provider value={{ updateScrollbar }}>
         <div className="map-widget-button esri-widget--button" ref={buttonDiv} onClick={toggle} title={name}>
           <FontAwesomeIcon icon={icon} />
@@ -70,7 +84,7 @@ export default function MapWidget({ isOpen, position, mapView, children, icon, o
           </div>
         </Card>
       </MapWidgetContext.Provider>
-    </div>
+    </>
   );
 }
 
@@ -83,4 +97,6 @@ MapWidget.propTypes = {
   children: PropTypes.node.isRequired,
   onReset: PropTypes.func,
   toggle: PropTypes.func.isRequired,
+  resize: PropTypes.number.isRequired,
+  isAlone: PropTypes.bool.isRequired,
 };
