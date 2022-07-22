@@ -67,7 +67,7 @@
     "i18next": "^21.8.14",
     "i18next-browser-languagedetector": "^6.1.4",
     "jsonschema": "^1.4.1",
-    "ky": "^0.31.0",
+    "ky": "^0.31.1",
     "lodash.debounce": "^4.0.8",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.sortby": "^4.7.0",
@@ -81,7 +81,7 @@
     "react-i18next": "^11.18.1",
     "react-number-format": "^4.9.3",
     "react-query": "^4.0.0-beta.23",
-    "reactstrap": "^9.1.1",
+    "reactstrap": "^9.1.2",
     "sql-formatter": "^8.2.0",
     "typeface-montserrat": "^1.1.13",
     "use-immer": "^0.7.0"
@@ -98,17 +98,17 @@
     "@storybook/testing-library": "^0.0.13",
     "@vitejs/plugin-react": "^2.0.0",
     "bestzip": "^2.2.1",
-    "del-cli": "^4.0.1",
+    "del-cli": "^5.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "happy-dom": "^6.0.3",
+    "happy-dom": "^6.0.4",
     "prettier": "^2.7.1",
     "prettier-plugin-organize-imports": "^3.0.0",
     "prettier-plugin-packagejson": "^2.2.18",
     "sass": "^1.53.0",
     "standard-version": "^9.5.0",
-    "vite": "^3.0.0",
-    "vitest": "^0.18.0"
+    "vite": "^3.0.2",
+    "vitest": "^0.18.1"
   }
 }
