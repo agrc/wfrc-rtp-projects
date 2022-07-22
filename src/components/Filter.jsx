@@ -1,6 +1,6 @@
 import FeatureFilter from '@arcgis/core/layers/support/FeatureFilter';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Alert, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { format } from 'sql-formatter';
@@ -20,7 +20,13 @@ ErrorFallback.propTypes = {
 
 export default function Filter({ mapView, state, dispatch }) {
   const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
-  const toggleAdvanced = () => setIsAdvancedOpen((current) => !current);
+  const headerRef = useRef();
+  const toggleAdvanced = () => {
+    if (isAdvancedOpen) {
+      headerRef.current.scrollIntoView();
+    }
+    setIsAdvancedOpen((current) => !current);
+  };
 
   const layers = useMapLayers(mapView, config.filter.layerNames);
 
@@ -58,7 +64,7 @@ export default function Filter({ mapView, state, dispatch }) {
   return (
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <h5>Display RTP Projects by</h5>
+        <h5 ref={headerRef}>Display RTP Projects by</h5>
         <div className="d-flex justify-content-between align-items-center position-relative">
           <Nav tabs>
             <NavItem>
