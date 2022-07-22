@@ -2,7 +2,7 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
-import { Button, Col, Collapse, Container, Input, Label, Row } from 'reactstrap';
+import { Button, Col, Collapse, Container, FormFeedback, Input, Label, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
 import InfoPopup from './InfoPopup';
@@ -33,6 +33,9 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
     (costType) =>
     ({ value }) =>
       dispatch({ type: 'cost', payload: value, meta: costType });
+
+  const costIsValid =
+    !state.cost.min || !state.cost.max || parseInt(state.cost.max, 10) >= parseInt(state.cost.min, 10);
 
   return (
     <>
@@ -218,6 +221,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                 prefix="$"
                 className="mb-1"
                 onValueChange={getHandleCostChange('min')}
+                invalid={!costIsValid}
               />
             </Col>
             <Col>
@@ -231,7 +235,9 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                 prefix="$"
                 className="mb-1"
                 onValueChange={getHandleCostChange('max')}
+                invalid={!costIsValid}
               />
+              <FormFeedback>max should be less than min</FormFeedback>
             </Col>
           </Row>
         </Container>
