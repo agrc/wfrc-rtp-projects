@@ -14,7 +14,7 @@ export const Default = () => {
     <div className="h-100 w-100 position-relative">
       <MapWidgetContainer openStates={[true, true]}>
         <div className="bg-primary rounded border" style={{ width, height: `calc(50% + ${resize}px - 0.25rem)` }}></div>
-        <MapWidgetResizeHandle onResize={(y) => setResize(y)} />
+        <MapWidgetResizeHandle onResize={(y) => setResize(y)} show={true} />
         <div
           className="bg-secondary rounded border"
           style={{ width, height: `calc(50% - ${resize}px - 0.25rem)` }}

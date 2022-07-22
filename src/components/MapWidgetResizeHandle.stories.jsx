@@ -4,4 +4,4 @@ export default {
   component: MapWidgetResizeHandle,
 };
 
-export const Default = () => <MapWidgetResizeHandle />;
+export const Default = () => <MapWidgetResizeHandle show={true} onResize={() => {}} />;

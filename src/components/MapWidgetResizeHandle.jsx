@@ -21,10 +21,7 @@ export default function MapWidgetResizeHandle({ onResize, show }) {
       axis="y"
       onStart={() => setCursor('grabbing')}
       onStop={() => setCursor('grab')}
-      onDrag={(_, { y }) => {
-        console.log(y);
-        onResize(y);
-      }}
+      onDrag={(_, { y }) => onResize(y)}
       nodeRef={ref}
       bounds={{ top: -maxDrag, bottom: maxDrag }}
     >
