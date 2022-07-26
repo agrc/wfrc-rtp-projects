@@ -237,7 +237,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                 onValueChange={getHandleCostChange('max')}
                 invalid={!costIsValid}
               />
-              <FormFeedback>max should be less than min</FormFeedback>
+              <FormFeedback>max should be greater than min</FormFeedback>
             </Col>
           </Row>
         </Container>
