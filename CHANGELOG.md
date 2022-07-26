@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/agrc/wfrc-rtp-projects/compare/v1.2.0...v1.2.1) (2022-07-26)
+
+
+### Bug Fixes
+
+* fix cost validation error message ([0a583d4](https://github.com/agrc/wfrc-rtp-projects/commit/0a583d4ae369b571c92f647d95f8046fb35da606))
+
 ## [1.2.0](https://github.com/agrc/wfrc-rtp-projects/compare/v1.1.0...v1.2.0) (2022-07-22)
 
 
