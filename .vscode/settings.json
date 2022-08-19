@@ -16,7 +16,8 @@
     "sherlock",
     "softprops",
     "tanstack",
-    "TSQL"
+    "TSQL",
+    "ugrc"
   ],
   "cSpell.language": "en,es-ES"
 }

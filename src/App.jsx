@@ -5,6 +5,7 @@ import WebMap from '@arcgis/core/WebMap';
 import Home from '@arcgis/core/widgets/Home';
 import { faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import LayerSelector from '@ugrc/layer-selector';
 import { useCallback, useEffect, useState } from 'react';
 import 'typeface-montserrat';
 import './App.scss';
@@ -24,9 +25,11 @@ const queryClient = new QueryClient();
 function App() {
   const [mapView, setMapView] = useState(null);
   const [zoomToGraphic, setZoomToGraphic] = useState(null);
+  const [layerSelectorOptions, setLayerSelectorOptions] = useState(null);
 
   const t = useSpecialTranslation();
 
+  // init map
   useEffect(() => {
     const map = new WebMap({
       portalItem: { id: config.webMapId },
@@ -34,6 +37,14 @@ function App() {
     const view = new MapView({ map, container: 'mapDiv' });
     view.popup = null;
     view.ui.add(new Home({ view }), 'top-left');
+
+    setLayerSelectorOptions({
+      view,
+      quadWord: import.meta.env.VITE_DISCOVER,
+      position: 'top-left',
+      showOpacitySlider: true,
+      ...config.layerSelector,
+    });
 
     setMapView(view);
   }, []);
@@ -194,6 +205,7 @@ function App() {
             </MapWidget>
           </MapWidgetContainer>
           <Sherlock {...sherlockConfig}></Sherlock>
+          {layerSelectorOptions && <LayerSelector {...layerSelectorOptions} />}
         </div>
       </div>
       <SplashScreen />
