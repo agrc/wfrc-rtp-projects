@@ -330,7 +330,7 @@
       "description": "Configuration options for the project information widget",
       "type": "object",
       "additionalProperties": false,
-      "required": ["commentsEnabled", "commentsTableUrl", "fieldNames", "newCommentsOpenUntil"],
+      "required": ["commentsEnabled", "commentsTableUrl", "fieldNames", "commentsEnabledUntil"],
       "properties": {
         "commentsEnabled": {
           "title": "Comments Enabled",
@@ -379,9 +379,9 @@
             }
           }
         },
-        "newCommentsOpenUntil": {
-          "title": "New Comments Open Until",
-          "description": "The date after which new comments will no longer be accepted.",
+        "commentsEnabledUntil": {
+          "title": "Comments Enabled Until",
+          "description": "The date after which comments will be shown.",
           "type": "string"
         }
       }

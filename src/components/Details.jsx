@@ -48,6 +48,12 @@ export default function Details({ graphic, highlightGraphic }) {
     };
   }, [graphic]);
 
+  const showComments =
+    config.projectInformation.commentsEnabled &&
+    featureWidgetGraphic &&
+    new Date() < new Date(config.projectInformation.commentsEnabledUntil) &&
+    Object.keys(featureWidgetGraphic.attributes).some((name) => name === config.projectInformation.fieldNames.globalId);
+
   return (
     <div className="details" onMouseEnter={() => highlightGraphic(graphic)} onMouseLeave={() => highlightGraphic()}>
       <div className="title" onClick={toggle}>
@@ -55,11 +61,9 @@ export default function Details({ graphic, highlightGraphic }) {
       </div>
       <Collapse isOpen={!collapsed}>
         <div ref={containerRef}></div>
-        {config.projectInformation.commentsEnabled &&
-          featureWidgetGraphic &&
-          Object.keys(featureWidgetGraphic.attributes).some(
-            (name) => name === config.projectInformation.fieldNames.globalId
-          ) && <Comments globalId={featureWidgetGraphic.attributes[config.projectInformation.fieldNames.globalId]} />}
+        {showComments && (
+          <Comments globalId={featureWidgetGraphic.attributes[config.projectInformation.fieldNames.globalId]} />
+        )}
       </Collapse>
     </div>
   );

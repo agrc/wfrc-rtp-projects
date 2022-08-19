@@ -173,7 +173,7 @@
       "personName": "PersonName",
       "personOrg": "PersonOrg"
     },
-    "newCommentsOpenUntil": "9999-01-31T00:00:00.000Z"
+    "commentsEnabledUntil": "2030-01-31T00:00:00.000Z"
   },
   "sherlock": {
     "placeHolder": "trans:searchPlaceholder",
