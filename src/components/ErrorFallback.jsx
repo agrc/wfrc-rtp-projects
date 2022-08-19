@@ -6,7 +6,7 @@ export default function ErrorFallback({ error, resetErrorBoundary }) {
     <Alert color="danger" className="m-3">
       <h4 className="alert-heading">Error!</h4>
       <p>Looks like something went wrong.</p>
-      <pre>{error.message}</pre>
+      <pre className="text-wrap">{error.message}</pre>
       <Button color="primary" onClick={resetErrorBoundary}>
         Try Again
       </Button>
