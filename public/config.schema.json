@@ -64,6 +64,7 @@
     "outFields",
     "projectInformation",
     "sherlock",
+    "splashScreen",
     "translations",
     "webMapId"
   ],
@@ -403,6 +404,30 @@
         },
         "serviceUrl": {
           "description": "The URL to the service that you would like to search features on.",
+          "type": "string"
+        }
+      }
+    },
+    "splashScreen": {
+      "title": "Splash Screen Config",
+      "description": "Configuration options for the splash screen",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": {
+          "title": "Enabled",
+          "description": "Whether the splash screen is enabled",
+          "type": "boolean"
+        },
+        "title": {
+          "title": "Title",
+          "description": "The title of the splash screen",
+          "type": "string"
+        },
+        "content": {
+          "title": "Content",
+          "description": "The content of the splash screen",
           "type": "string"
         }
       }

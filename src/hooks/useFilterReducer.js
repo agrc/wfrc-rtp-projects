@@ -1,6 +1,6 @@
 import { useImmerReducer } from 'use-immer';
 import { addOrRemove } from '../components/utils';
-import config from './config';
+import config from '../services/config';
 
 export function getQuery(state, geometryType, projectConfig) {
   // phase is a numeric field

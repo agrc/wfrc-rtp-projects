@@ -180,6 +180,11 @@
     "searchField": "NAME",
     "serviceUrl": "https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/1"
   },
+  "splashScreen": {
+    "enabled": true,
+    "title": "Splash Screen Title",
+    "content": "<p>Splash <b>Screen</b> Content</p>"
+  },
   "translations": {
     "en": {
       "translation": {

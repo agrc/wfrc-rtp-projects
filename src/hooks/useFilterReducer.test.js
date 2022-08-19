@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import config from './config';
+import config from '../services/config';
 import { getQuery, initialState, reducer } from './useFilterReducer';
 
 const strip = (str) => str.replace(/\s/g, '');

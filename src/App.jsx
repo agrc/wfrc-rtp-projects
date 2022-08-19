@@ -14,9 +14,10 @@ import MapWidgetContainer from './components/MapWidgetContainer';
 import MapWidgetResizeHandle from './components/MapWidgetResizeHandle';
 import ProjectInformation from './components/ProjectInformation';
 import { MapServiceProvider, Sherlock } from './components/Sherlock';
+import SplashScreen from './components/SplashScreen';
+import useFilterReducer from './hooks/useFilterReducer';
 import config from './services/config';
 import { useSpecialTranslation } from './services/i18n';
-import useFilterReducer from './services/useFilterReducer';
 
 const queryClient = new QueryClient();
 
@@ -195,6 +196,7 @@ function App() {
           <Sherlock {...sherlockConfig}></Sherlock>
         </div>
       </div>
+      <SplashScreen />
     </QueryClientProvider>
   );
 }
