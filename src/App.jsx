@@ -6,7 +6,8 @@ import Home from '@arcgis/core/widgets/Home';
 import { faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import LayerSelector from '@ugrc/layer-selector';
-import { useCallback, useEffect, useState } from 'react';
+import debounce from 'lodash.debounce';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import 'typeface-montserrat';
 import './App.scss';
 import Filter from './components/Filter';
@@ -16,6 +17,7 @@ import MapWidgetResizeHandle from './components/MapWidgetResizeHandle';
 import ProjectInformation from './components/ProjectInformation';
 import { MapServiceProvider, Sherlock } from './components/Sherlock';
 import SplashScreen from './components/SplashScreen';
+import { ACTION_TYPE, useURLState } from './components/URLState';
 import useFilterReducer from './hooks/useFilterReducer';
 import config from './services/config';
 import { useSpecialTranslation } from './services/i18n';
@@ -26,15 +28,26 @@ function App() {
   const [mapView, setMapView] = useState(null);
   const [zoomToGraphic, setZoomToGraphic] = useState(null);
   const [layerSelectorOptions, setLayerSelectorOptions] = useState(null);
+  const [urlState, dispatchURLState] = useURLState();
+  const mapInitialized = useRef(false);
 
   const t = useSpecialTranslation();
 
   // init map
   useEffect(() => {
+    if (mapInitialized.current) return;
+
     const map = new WebMap({
       portalItem: { id: config.webMapId },
     });
-    const view = new MapView({ map, container: 'mapDiv' });
+    const mapOptions = { map, container: 'mapDiv' };
+
+    if (urlState.x && urlState.y && urlState.scale) {
+      mapOptions.center = { x: urlState.x, y: urlState.y, spatialReference: 3857 };
+      mapOptions.scale = urlState.scale;
+    }
+
+    const view = new MapView(mapOptions);
     view.popup = null;
     view.ui.add(new Home({ view }), 'top-left');
 
@@ -47,7 +60,9 @@ function App() {
     });
 
     setMapView(view);
-  }, []);
+
+    mapInitialized.current = true;
+  }, [urlState.scale, urlState.x, urlState.y]);
 
   const [displayedZoomGraphic, setDisplayedZoomGraphic] = useState(null);
   const zoomTo = useCallback(
@@ -158,8 +173,25 @@ function App() {
           setProjectInfoIsOpen(true);
         }
       });
+
+      mapView.watch(
+        'extent',
+        debounce((newExtent) => {
+          if (newExtent) {
+            dispatchURLState({
+              type: ACTION_TYPE,
+              meta: 'mapExtent',
+              payload: {
+                x: Math.round(newExtent.center.x),
+                y: Math.round(newExtent.center.y),
+                scale: Math.round(mapView.scale),
+              },
+            });
+          }
+        }, 100)
+      );
     }
-  }, [mapView]);
+  }, [dispatchURLState, mapView]);
 
   const [filterState, filterDispatch] = useFilterReducer();
   const [filterIsOpen, setFilterIsOpen] = useState(config.openOnLoad.filter);
