@@ -1,6 +1,6 @@
+import { useLocalStorage } from '@ugrc/utilities/hooks';
 import { useState } from 'react';
 import { Button, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import useLocalStorage from '../hooks/useLocalStorage';
 import config from '../services/config';
 
 export default function SplashScreen() {
