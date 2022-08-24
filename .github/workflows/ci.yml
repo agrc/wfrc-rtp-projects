@@ -4,6 +4,8 @@ on: push
 
 permissions:
   contents: write
+  id-token: write
+  deployments: write
 
 concurrency:
   group: '${{ github.head_ref || github.ref }}'
