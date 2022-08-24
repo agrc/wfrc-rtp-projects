@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useImmerReducer } from 'use-immer';
+import { JsonParam, useQueryParams, withDefault } from 'use-query-params';
 import { addOrRemove } from '../components/utils';
 import config from '../services/config';
 
@@ -180,6 +182,26 @@ export const initialState = {
   },
 };
 
+// I'm passing in each filter prop as a separate param to try
+// and cut down on the length of the URL
+
+const queryParams = {};
+for (const key in initialState) {
+  queryParams[key] = withDefault(JsonParam, initialState[key]);
+}
 export default function useFilterReducer() {
-  return useImmerReducer(reducer, initialState);
+  const [urlState, setUrlState] = useQueryParams(queryParams, {
+    removeDefaultsFromUrl: true,
+  });
+  const [state, dispatch] = useImmerReducer(
+    reducer,
+    urlState && Object.keys(urlState).length === Object.keys(initialState).length ? urlState : initialState
+  );
+
+  useEffect(() => {
+    setUrlState(state);
+    console.log(`url length: ${document.location.href.length}`);
+  }, [setUrlState, state]);
+
+  return [state, dispatch];
 }
