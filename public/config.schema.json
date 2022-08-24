@@ -59,6 +59,7 @@
   },
   "required": [
     "appTitle",
+    "defaultExtent",
     "filter",
     "layerSelector",
     "openOnLoad",
@@ -75,6 +76,24 @@
       "title": "Application Title",
       "description": "The title of the application",
       "type": "string"
+    },
+    "defaultExtent": {
+      "title": "Default Map Extent",
+      "description": "The default extent of the map on load. Also controls the extent for the home button",
+      "type": "object",
+      "required": ["x", "y", "scale"],
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "scale": {
+          "type": "number"
+        }
+      }
     },
     "filter": {
       "title": "Filter Widget Configuration",

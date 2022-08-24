@@ -1,5 +1,10 @@
 {
   "appTitle": "RTP Projects",
+  "defaultExtent": {
+    "x": -12453807,
+    "y": 5014773,
+    "scale": 1155581
+  },
   "filter": {
     "disableAdvanced": false,
     "fieldNames": {

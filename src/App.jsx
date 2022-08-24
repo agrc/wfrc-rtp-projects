@@ -1,5 +1,6 @@
 import * as reactiveUtils from '@arcgis/core/core/reactiveUtils';
 import Graphic from '@arcgis/core/Graphic';
+import Viewpoint from '@arcgis/core/Viewpoint';
 import MapView from '@arcgis/core/views/MapView';
 import WebMap from '@arcgis/core/WebMap';
 import Home from '@arcgis/core/widgets/Home';
@@ -45,11 +46,28 @@ function App() {
     if (urlState.x && urlState.y && urlState.scale) {
       mapOptions.center = { x: urlState.x, y: urlState.y, spatialReference: 3857 };
       mapOptions.scale = urlState.scale;
+    } else {
+      mapOptions.center = { x: config.defaultExtent.x, y: config.defaultExtent.y, spatialReference: 3857 };
+      mapOptions.scale = config.defaultExtent.scale;
     }
 
     const view = new MapView(mapOptions);
     view.popup = null;
-    view.ui.add(new Home({ view }), 'top-left');
+    view.ui.add(
+      new Home({
+        view,
+        viewpoint: new Viewpoint({
+          targetGeometry: {
+            type: 'point',
+            x: config.defaultExtent.x,
+            y: config.defaultExtent.y,
+            spatialReference: 3857,
+          },
+          scale: config.defaultExtent.scale,
+        }),
+      }),
+      'top-left'
+    );
 
     setLayerSelectorOptions({
       view,
