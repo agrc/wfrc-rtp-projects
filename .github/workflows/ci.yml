@@ -93,7 +93,7 @@ jobs:
         run: npm ci
 
       - name: 🏗 Run build script
-        run: npm run build
+        run: npm run build:stage
 
       - name: 🪣 Cache firebase
         uses: actions/cache@v3

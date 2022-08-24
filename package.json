@@ -6,6 +6,7 @@
   "scripts": {
     "build": "vite build",
     "build-storybook": "build-storybook",
+    "build:stage": "vite build --mode stage",
     "format": "prettier . -w",
     "lint": "eslint .",
     "preview": "vite preview",
