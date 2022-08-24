@@ -3,12 +3,19 @@ import Feature from '@arcgis/core/widgets/Feature';
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { Collapse } from 'reactstrap';
+import { NumberParam, StringParam, useQueryParams } from 'use-query-params';
 import config from '../services/config';
 import Comments from './Comments';
 import './Details.scss';
 
-export default function Details({ graphic, highlightGraphic }) {
-  const [collapsed, setCollapsed] = useState(true);
+export default function Details({ graphic, highlightGraphic, onlyOne }) {
+  const [urlState, setUrlState] = useQueryParams({
+    selected_id: NumberParam,
+    selected_layer_id: StringParam,
+  });
+  const isNotSelected =
+    urlState.selected_id !== graphic.attributes.OBJECTID || urlState.selected_layer_id !== graphic.layer.id;
+  const [collapsed, setCollapsed] = useState(isNotSelected);
   const containerRef = useRef();
   const [title, setTitle] = useState(null);
   const [featureWidgetGraphic, setFeatureWidgetGraphic] = useState(null);
@@ -34,6 +41,10 @@ export default function Details({ graphic, highlightGraphic }) {
       containerRef.current.appendChild(feature.container);
 
       setFeatureWidgetGraphic(feature.graphic);
+
+      if (onlyOne) {
+        highlightGraphic(graphic);
+      }
     };
 
     if (graphic) {
@@ -43,10 +54,24 @@ export default function Details({ graphic, highlightGraphic }) {
     return () => {
       if (feature) {
         feature.destroy();
-        console.log('destroyed');
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [graphic]);
+
+  useEffect(() => {
+    if (!collapsed) {
+      setUrlState({
+        selected_id: graphic.attributes.OBJECTID,
+        selected_layer_id: graphic.layer.id,
+      });
+    } else if (!isNotSelected) {
+      setUrlState({
+        selected_id: null,
+        selected_layer_id: null,
+      });
+    }
+  }, [collapsed, graphic.attributes.OBJECTID, graphic.layer.id, isNotSelected, setUrlState]);
 
   const showComments =
     config.projectInformation.commentsEnabled &&
@@ -55,7 +80,11 @@ export default function Details({ graphic, highlightGraphic }) {
     Object.keys(featureWidgetGraphic.attributes).some((name) => name === config.projectInformation.fieldNames.globalId);
 
   return (
-    <div className="details" onMouseEnter={() => highlightGraphic(graphic)} onMouseLeave={() => highlightGraphic()}>
+    <div
+      className="details"
+      onMouseEnter={() => !onlyOne && highlightGraphic(graphic)}
+      onMouseLeave={() => !onlyOne && highlightGraphic()}
+    >
       <div className="title" onClick={toggle}>
         {title}
       </div>
@@ -71,4 +100,5 @@ export default function Details({ graphic, highlightGraphic }) {
 Details.propTypes = {
   graphic: PropTypes.object,
   highlightGraphic: PropTypes.func.isRequired,
+  onlyOne: PropTypes.bool.isRequired,
 };

@@ -36,7 +36,12 @@ export default function ProjectInformation({ graphics, showLoader, highlightGrap
         </div>
       )}
       {graphics.map((graphic, index) => (
-        <Details key={index} graphic={graphic} highlightGraphic={highlightGraphic} />
+        <Details
+          key={`${graphic.layer.id}_${graphic.attributes.OBJECTID}_${index}`}
+          graphic={graphic}
+          highlightGraphic={highlightGraphic}
+          onlyOne={graphics.length === 1}
+        />
       ))}
     </div>
   );

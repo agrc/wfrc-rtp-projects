@@ -1,4 +1,5 @@
 import * as reactiveUtils from '@arcgis/core/core/reactiveUtils';
+import { whenOnce } from '@arcgis/core/core/reactiveUtils';
 import Graphic from '@arcgis/core/Graphic';
 import Viewpoint from '@arcgis/core/Viewpoint';
 import MapView from '@arcgis/core/views/MapView';
@@ -10,7 +11,7 @@ import LayerSelector from '@ugrc/layer-selector';
 import debounce from 'lodash.debounce';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import 'typeface-montserrat';
-import { NumberParam, useQueryParams } from 'use-query-params';
+import { NumberParam, StringParam, useQueryParams } from 'use-query-params';
 import './App.scss';
 import Filter from './components/Filter';
 import MapWidget from './components/MapWidget';
@@ -33,6 +34,10 @@ function App() {
     x: NumberParam,
     y: NumberParam,
     scale: NumberParam,
+
+    //🎗️ these configs need to be synced with Details.jsx
+    selected_id: NumberParam,
+    selected_layer_id: StringParam,
   });
   const mapInitialized = useRef(false);
 
@@ -155,40 +160,72 @@ function App() {
   const [selectedGraphics, setSelectedGraphics] = useState([]);
   const [highlight, setHighlight] = useState(null);
   const [graphic, setGraphic] = useState(null);
-  const highlightGraphic = async (newGraphic) => {
-    console.log('App:highlightGraphic', newGraphic);
+  const highlightGraphic = useCallback(
+    async (newGraphic) => {
+      console.log('App:highlightGraphic', newGraphic);
 
-    if (highlight) {
-      highlight.remove();
-      setHighlight(null);
-    }
-
-    if (graphic) {
-      mapView.graphics.remove(graphic);
-    }
-
-    if (newGraphic) {
-      try {
-        const layerView = await mapView.whenLayerView(newGraphic.layer);
-        setHighlight(layerView.highlight(newGraphic));
-      } catch {
-        const symbolizedGraphic = new Graphic({
-          ...newGraphic,
-          symbol: config.SELECTION_SYMBOLS[newGraphic.geometry.type],
-        });
-
-        mapView.graphics.add(symbolizedGraphic);
-        setGraphic(symbolizedGraphic);
+      if (highlight) {
+        highlight.remove();
+        setHighlight(null);
       }
-    } else {
-      setGraphic(null);
+
+      if (graphic) {
+        mapView.graphics.remove(graphic);
+      }
+
+      if (newGraphic) {
+        try {
+          const layerView = await mapView.whenLayerView(newGraphic.layer);
+          setHighlight(layerView.highlight(newGraphic));
+        } catch {
+          const symbolizedGraphic = new Graphic({
+            ...newGraphic,
+            symbol: config.SELECTION_SYMBOLS[newGraphic.geometry.type],
+          });
+
+          mapView.graphics.add(symbolizedGraphic);
+          setGraphic(symbolizedGraphic);
+        }
+      } else {
+        setGraphic(null);
+      }
+    },
+    [graphic, highlight, mapView]
+  );
+
+  const initialSelectedGraphicLoaded = useRef(false);
+  useEffect(() => {
+    const selectGraphic = async () => {
+      await mapView.map.when();
+
+      const layer = mapView.map.findLayerById(urlState.selected_layer_id);
+      const layerView = await mapView.whenLayerView(layer);
+      await whenOnce(() => layerView.updating === false);
+
+      const featureSet = await layerView.queryFeatures({
+        where: `OBJECTID = ${urlState.selected_id}`,
+      });
+
+      setSelectedGraphics(featureSet.features);
+    };
+
+    if (!initialSelectedGraphicLoaded.current && mapView) {
+      if (urlState.selected_id && urlState.selected_layer_id) {
+        selectGraphic();
+      }
+      initialSelectedGraphicLoaded.current = true;
     }
-  };
+  }, [urlState, mapView]);
 
   useEffect(() => {
     if (mapView) {
       mapView.on('click', async (event) => {
         const response = await mapView.hitTest(event);
+        highlightGraphic();
+        setUrlState({
+          selected_id: null,
+          selected_layer_id: null,
+        });
         setSelectedGraphics(response.results.map((result) => result.graphic));
 
         if (response.results.length > 0) {
@@ -209,7 +246,7 @@ function App() {
         }, 100)
       );
     }
-  }, [mapView, setUrlState]);
+  }, [highlightGraphic, mapView, setUrlState]);
 
   const [filterState, filterDispatch] = useFilterReducer();
   const [filterIsOpen, setFilterIsOpen] = useState(config.openOnLoad.filter);
