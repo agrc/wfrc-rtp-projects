@@ -10,6 +10,7 @@ import LayerSelector from '@ugrc/layer-selector';
 import debounce from 'lodash.debounce';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import 'typeface-montserrat';
+import { NumberParam, useQueryParams } from 'use-query-params';
 import './App.scss';
 import Filter from './components/Filter';
 import MapWidget from './components/MapWidget';
@@ -18,7 +19,6 @@ import MapWidgetResizeHandle from './components/MapWidgetResizeHandle';
 import ProjectInformation from './components/ProjectInformation';
 import { MapServiceProvider, Sherlock } from './components/Sherlock';
 import SplashScreen from './components/SplashScreen';
-import { ACTION_TYPE, useURLState } from './components/URLState';
 import useFilterReducer from './hooks/useFilterReducer';
 import config from './services/config';
 import { useSpecialTranslation } from './services/i18n';
@@ -29,7 +29,11 @@ function App() {
   const [mapView, setMapView] = useState(null);
   const [zoomToGraphic, setZoomToGraphic] = useState(null);
   const [layerSelectorOptions, setLayerSelectorOptions] = useState(null);
-  const [urlState, dispatchURLState] = useURLState();
+  const [urlState, setUrlState] = useQueryParams({
+    x: NumberParam,
+    y: NumberParam,
+    scale: NumberParam,
+  });
   const mapInitialized = useRef(false);
 
   const t = useSpecialTranslation();
@@ -196,20 +200,16 @@ function App() {
         'extent',
         debounce((newExtent) => {
           if (newExtent) {
-            dispatchURLState({
-              type: ACTION_TYPE,
-              meta: 'mapExtent',
-              payload: {
-                x: Math.round(newExtent.center.x),
-                y: Math.round(newExtent.center.y),
-                scale: Math.round(mapView.scale),
-              },
+            setUrlState({
+              x: Math.round(newExtent.center.x),
+              y: Math.round(newExtent.center.y),
+              scale: Math.round(mapView.scale),
             });
           }
         }, 100)
       );
     }
-  }, [dispatchURLState, mapView]);
+  }, [mapView, setUrlState]);
 
   const [filterState, filterDispatch] = useFilterReducer();
   const [filterIsOpen, setFilterIsOpen] = useState(config.openOnLoad.filter);
