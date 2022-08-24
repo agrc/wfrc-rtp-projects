@@ -37,4 +37,3 @@ jobs:
         with:
           add: 'docs'
           message: 'docs: update config docs'
-          skip-github-release: true #: ci.yml creates the release with the zip file
