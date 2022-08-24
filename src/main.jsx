@@ -20,7 +20,7 @@ fetch('config.json')
       <React.StrictMode>
         <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => document.location.reload()}>
           <BrowserRouter>
-            <QueryParamProvider adapter={ReactRouter6Adapter}>
+            <QueryParamProvider adapter={ReactRouter6Adapter} options={{ updateType: 'replaceIn' }}>
               <Routes>
                 <Route path="/" element={<App />} />
               </Routes>
