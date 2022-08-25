@@ -343,6 +343,24 @@ describe('getQuery', () => {
 
     expect(strip(query)).toMatch(/ANDcost>=1ANDcost<=4/);
   });
+
+  it('adds the limit to phasing query', () => {
+    const state = {
+      ...initialState,
+      phaseLimitEquals: true,
+      phaseLimit: true,
+    };
+
+    const query = getQuery(state, 'points', config);
+
+    expect(strip(query)).toMatch(/ANDphase_needed=phase/);
+
+    state.phaseLimitEquals = false;
+
+    const lessThanQuery = getQuery(state, 'points', config);
+
+    expect(strip(lessThanQuery)).toMatch(/ANDphase_needed<phase/);
+  });
 });
 
 describe('reducer', () => {

@@ -7,7 +7,7 @@ import { getSymbol } from './utils';
 
 const firstColWidth = 7;
 
-export default function SimpleControls({ type, state, dispatch, groups, disabled, phaseField }) {
+export default function SimpleControls({ type, state, dispatch, groups, disabled, showPhaseFilter }) {
   const toggle = (value) => {
     dispatch({ type: 'simple', payload: value, meta: type });
   };
@@ -47,10 +47,17 @@ export default function SimpleControls({ type, state, dispatch, groups, disabled
           </Row>
         );
       })}
-      {phaseField ? (
+      {showPhaseFilter ? (
         <Row>
           <Col>
-            <UsePhasing phaseField={phaseField} disabled={disabled} inline dispatch={dispatch} />
+            <UsePhasing
+              phaseField={state.phaseField}
+              phaseLimit={state.phaseLimit}
+              phaseLimitEquals={state.phaseLimitEquals}
+              disabled={disabled}
+              inline
+              dispatch={dispatch}
+            />
           </Col>
         </Row>
       ) : null}
@@ -70,5 +77,5 @@ SimpleControls.propTypes = {
   ),
   dispatch: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
-  phaseField: PropTypes.string,
+  showPhaseFilter: PropTypes.bool,
 };

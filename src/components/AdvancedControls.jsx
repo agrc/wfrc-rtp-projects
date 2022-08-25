@@ -197,7 +197,13 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                 </Col>
                 {showPhaseFilter ? (
                   <Col>
-                    <UsePhasing phaseField={state.phaseField} disabled={disabled} dispatch={dispatch} />
+                    <UsePhasing
+                      phaseField={state.phaseField}
+                      phaseLimit={state.phaseLimit}
+                      phaseLimitEquals={state.phaseLimitEquals}
+                      disabled={disabled}
+                      dispatch={dispatch}
+                    />
                   </Col>
                 ) : null}
               </Row>

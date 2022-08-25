@@ -6,10 +6,13 @@ import config from '../services/config';
 
 export function getQuery(state, geometryType, projectConfig) {
   // phase is a numeric field
-  const phaseQuery = `${state.phaseField} IN (${state.phase.join(',')})`;
+  let query = `${state.phaseField} IN (${state.phase.join(',')})`;
 
-  let query = `${phaseQuery}`;
-
+  if (state.phaseLimit) {
+    query += `AND ${config.filter.fieldNames.phaseNeeded} ${state.phaseLimitEquals ? '=' : '<'} ${
+      config.filter.fieldNames.phase
+    }`;
+  }
   // project type queries
   const modeQueries = [];
   for (const mode of Object.values(projectConfig.filter.symbolValues.mode)) {
@@ -131,7 +134,7 @@ export function reducer(draft, action) {
     }
 
     case 'usePhasing':
-      draft.phaseField = action.payload;
+      draft[action.meta] = action.payload;
 
       updateLayerDefinitions();
 
@@ -176,6 +179,8 @@ export const initialState = {
     phaseLines: null,
   },
   phaseField: config.filter.fieldNames.phase,
+  phaseLimitEquals: true,
+  phaseLimit: false,
   cost: {
     min: null,
     max: null,
@@ -200,7 +205,6 @@ export default function useFilterReducer() {
 
   useEffect(() => {
     setUrlState(state);
-    console.log(`url length: ${document.location.href.length}`);
   }, [setUrlState, state]);
 
   return [state, dispatch];

@@ -169,7 +169,7 @@ export default function Filter({ mapView, state, dispatch }) {
                 },
               ]}
               disabled={!layers}
-              phaseField={state.phaseField}
+              showPhaseFilter
             />
             {!config.filter.disableAdvanced ? (
               <AdvancedControls
