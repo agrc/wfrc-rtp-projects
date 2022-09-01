@@ -81,7 +81,7 @@
     "react-hook-form": "^7.34.0",
     "react-i18next": "^11.18.3",
     "react-number-format": "^4.9.3",
-    "reactstrap": "^9.1.2",
+    "reactstrap": "^9.1.4",
     "sql-formatter": "^8.2.0",
     "typeface-montserrat": "^1.1.13",
     "use-immer": "^0.7.0"
