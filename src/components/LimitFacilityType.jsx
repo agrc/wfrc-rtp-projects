@@ -33,6 +33,6 @@ LimitFacilityType.propTypes = {
   values: PropTypes.arrayOf(PropTypes.string).isRequired,
   selected: PropTypes.bool.isRequired,
   type: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };

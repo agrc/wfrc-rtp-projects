@@ -103,16 +103,6 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.transit)}
                 />
               ))}
-              <LimitFacilityType
-                color={labelColors?.transit}
-                labels={config.filter.limitFacilityType.labels}
-                onChange={(selected, type) =>
-                  dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'transit' })
-                }
-                selected={state.limitFacilityType.transit.selected}
-                type={state.limitFacilityType.transit.type}
-                values={config.filter.limitFacilityType.values}
-              />
             </Col>
           </Row>
           <Row>
@@ -156,6 +146,16 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
                   />
                 ))}
+              <LimitFacilityType
+                color={labelColors?.activeTransportation}
+                labels={config.filter.limitFacilityType.labels}
+                onChange={(selected, type) =>
+                  dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'activeTransportation' })
+                }
+                selected={state.limitFacilityType.activeTransportation.selected}
+                type={state.limitFacilityType.activeTransportation.type}
+                values={config.filter.limitFacilityType.values}
+              />
             </Col>
           </Row>
           {showPhaseFilter ? (
