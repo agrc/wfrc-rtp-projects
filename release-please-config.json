@@ -1,6 +1,5 @@
 {
   "bootstrap-sha": "89b47cff826dc2d0f128c2f2272276cc44251135",
-  "skip-github-release": true,
   "packages": {
     ".": {}
   }
