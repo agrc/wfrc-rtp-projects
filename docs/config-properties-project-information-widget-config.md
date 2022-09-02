@@ -4,12 +4,12 @@
 
 # projectInformation Properties
 
-| Property                                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                       |
-| :-------------------------------------------- | :-------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [commentsEnabled](#commentsenabled)           | `boolean` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabled")             |
-| [commentsTableUrl](#commentstableurl)         | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-table-url.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsTableUrl")          |
-| [fieldNames](#fieldnames)                     | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/fieldNames")                       |
-| [newCommentsOpenUntil](#newcommentsopenuntil) | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-open-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/newCommentsOpenUntil") |
+| Property                                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
+| :-------------------------------------------- | :-------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [commentsEnabled](#commentsenabled)           | `boolean` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabled")            |
+| [commentsTableUrl](#commentstableurl)         | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-table-url.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsTableUrl")         |
+| [fieldNames](#fieldnames)                     | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/fieldNames")                      |
+| [commentsEnabledUntil](#commentsenableduntil) | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabledUntil") |
 
 ## commentsEnabled
 
@@ -65,20 +65,20 @@ An object that contains the field names for the comments table
 
 `object` ([Field Names](config-properties-project-information-widget-config-properties-field-names.md))
 
-## newCommentsOpenUntil
+## commentsEnabledUntil
 
-The date after which new comments will no longer be accepted.
+The date after which comments will be shown.
 
-`newCommentsOpenUntil`
+`commentsEnabledUntil`
 
 *   is required
 
-*   Type: `string` ([New Comments Open Until](config-properties-project-information-widget-config-properties-new-comments-open-until.md))
+*   Type: `string` ([Comments Enabled Until](config-properties-project-information-widget-config-properties-comments-enabled-until.md))
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-open-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/newCommentsOpenUntil")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabledUntil")
 
-### newCommentsOpenUntil Type
+### commentsEnabledUntil Type
 
-`string` ([New Comments Open Until](config-properties-project-information-widget-config-properties-new-comments-open-until.md))
+`string` ([Comments Enabled Until](config-properties-project-information-widget-config-properties-comments-enabled-until.md))
