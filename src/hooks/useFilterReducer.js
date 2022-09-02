@@ -184,7 +184,7 @@ export const initialState = {
       selected: false,
       type: config.filter.limitFacilityType.values[0],
     },
-    transit: {
+    activeTransportation: {
       selected: false,
       type: config.filter.limitFacilityType.values[0],
     },
