@@ -155,7 +155,7 @@
     }
   },
   "layerSelector": {
-    "baseLayers": ["Lite", "Terrain", "Imagery"],
+    "baseLayers": ["Lite", "Terrain", "Hybrid"],
     "overlays": [
       {
         "id": "Cities",
