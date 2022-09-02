@@ -51,11 +51,11 @@ export default function UsePhasing({ phaseField, phaseLimit, phaseLimitEquals, d
       <FormGroup check inline>
         <Input id={`use-phasing-limit-${inline}`} type="checkbox" checked={phaseLimit} onChange={handleChangeLimit} />
         <Label className="d-flex align-items-center" check for={`use-phasing-limit-${inline}`}>
-          Limit to Needs {inline ? 'Phase' : null}
-          <Button className="py-0 mx-2" color="secondary" outline size="sm" onClick={toggleLimitEquals}>
+          <span className="text-nowrap">Limit to Needs {inline ? 'Phase' : null}</span>
+          <Button className="py-0 mx-1" color="secondary" outline size="sm" onClick={toggleLimitEquals}>
             {phaseLimitEquals ? '=' : '<'}
           </Button>
-          FC {inline ? 'Phase' : null}
+          <span className="text-nowrap">FC {inline ? 'Phase' : null}</span>
         </Label>
       </FormGroup>
     </>

@@ -39,6 +39,11 @@
       "phaseLines": "Lines Displayed by Phase",
       "phasePoints": "Points Displayed by Phase"
     },
+    "limitFacilityType": {
+      "field": "breakout",
+      "labels": ["UDOT", "Local"],
+      "values": ["state", "local"]
+    },
     "projectTypes": {
       "road": {
         "New Construction": {
@@ -68,12 +73,6 @@
         "Corridor Preservation": {
           "points": null,
           "lines": "improvement_type = 'Corridor Preservation' AND mode = 'Highway'"
-        },
-        "Limit to UDOT Facilities": {
-          "points": "breakout IN ('State', 'State/Local')",
-          "lines": "breakout IN ('State', 'State/Local')",
-          "offByDefault": true,
-          "useAnd": true
         }
       },
       "transit": {
@@ -138,12 +137,6 @@
         "At-Grade Crossing": {
           "points": "bike_type_text = 'At-Grade Crossing' OR bike_type_text = 'Crossing'",
           "lines": null
-        },
-        "Limit to UDOT Facilities": {
-          "points": "breakout IN ('State', 'State/Local')",
-          "lines": "breakout IN ('State', 'State/Local')",
-          "offByDefault": true,
-          "useAnd": true
         }
       }
     },

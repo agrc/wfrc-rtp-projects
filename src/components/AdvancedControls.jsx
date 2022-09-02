@@ -6,23 +6,22 @@ import { Button, Col, Collapse, Container, FormFeedback, Input, Label, Row } fro
 import config from '../services/config';
 import Checkbox from './Checkbox';
 import InfoPopup from './InfoPopup';
+import LimitFacilityType from './LimitFacilityType';
 import ProjectTypeHeader from './ProjectTypeHeader';
 import UsePhasing from './UsePhasing';
 
 const SELECT_ALL = 'select all';
 const UNSELECT_ALL = 'unselect all';
 
-export function allButOffByDefault(selectedTypes, projectTypesConfig) {
-  const possibilities = Object.keys(projectTypesConfig)
-    .filter((key) => !projectTypesConfig[key].offByDefault)
-    .map((key) => key);
+export function getAll(selectedTypes, projectTypesConfig) {
+  const possibilities = Object.keys(projectTypesConfig).map((key) => key);
 
   return possibilities.every((type) => selectedTypes.includes(type));
 }
 
 export default function AdvancedControls({ disabled, dispatch, isOpen, labelColors, showPhaseFilter, state, toggle }) {
   const getHeaderOperationLabel = (mode) => {
-    return allButOffByDefault(state.projectTypes[mode], config.filter.projectTypes[mode]) ? UNSELECT_ALL : SELECT_ALL;
+    return getAll(state.projectTypes[mode], config.filter.projectTypes[mode]) ? UNSELECT_ALL : SELECT_ALL;
   };
 
   const onHeaderClick = (mode) => {
@@ -72,9 +71,18 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.road}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'road' })}
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.road)}
-                  distinct={config.filter.projectTypes.road[name].useAnd}
                 />
               ))}
+              <LimitFacilityType
+                color={labelColors?.road}
+                labels={config.filter.limitFacilityType.labels}
+                onChange={(selected, type) =>
+                  dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'road' })
+                }
+                selected={state.limitFacilityType.road.selected}
+                type={state.limitFacilityType.road.type}
+                values={config.filter.limitFacilityType.values}
+              />
             </Col>
             <Col>
               <ProjectTypeHeader
@@ -93,9 +101,18 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.transit}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'transit' })}
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.transit)}
-                  distinct={config.filter.projectTypes.transit[name].useAnd}
                 />
               ))}
+              <LimitFacilityType
+                color={labelColors?.transit}
+                labels={config.filter.limitFacilityType.labels}
+                onChange={(selected, type) =>
+                  dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'transit' })
+                }
+                selected={state.limitFacilityType.transit.selected}
+                type={state.limitFacilityType.transit.type}
+                values={config.filter.limitFacilityType.values}
+              />
             </Col>
           </Row>
           <Row>
@@ -122,7 +139,6 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
-                    distinct={config.filter.projectTypes.activeTransportation[name].useAnd}
                   />
                 ))}
             </Col>
@@ -138,7 +154,6 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
-                    distinct={config.filter.projectTypes.activeTransportation[name].useAnd}
                   />
                 ))}
             </Col>

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { FormGroup, Input, Label } from 'reactstrap';
 
-export default function Checkbox({ label, checked, color, onChange, uniqueId, disabled, indent = false, distinct }) {
+export default function Checkbox({ label, checked, color, onChange, uniqueId, disabled, indent = false }) {
   const setIndeterminate = (ref) => {
     if (ref) {
       ref.indeterminate = checked === null;
@@ -11,7 +11,6 @@ export default function Checkbox({ label, checked, color, onChange, uniqueId, di
 
   return (
     <>
-      {distinct ? <hr className="m-0" /> : null}
       <FormGroup check inline className={clsx(indent && 'ms-2')}>
         <Input
           innerRef={setIndeterminate}
@@ -21,12 +20,7 @@ export default function Checkbox({ label, checked, color, onChange, uniqueId, di
           onChange={onChange}
           disabled={disabled}
         />{' '}
-        <Label
-          check
-          for={uniqueId ?? label}
-          style={{ marginBottom: 0, color }}
-          className={clsx(distinct && 'fst-italic')}
-        >
+        <Label check for={uniqueId ?? label} style={{ marginBottom: 0, color }}>
           {` ${label}`}
         </Label>
       </FormGroup>
@@ -42,5 +36,4 @@ Checkbox.propTypes = {
   uniqueId: PropTypes.string,
   disabled: PropTypes.bool.isRequired,
   indent: PropTypes.bool,
-  distinct: PropTypes.bool,
 };

@@ -15,7 +15,7 @@ export function getQuery(state, geometryType, projectConfig) {
   }
   // project type queries
   const modeQueries = [];
-  for (const mode of Object.values(projectConfig.filter.symbolValues.mode)) {
+  for (const [key, mode] of Object.entries(projectConfig.filter.symbolValues.mode)) {
     // find project types that are associated with this mode
     const { road, transit, activeTransportation } = state.projectTypes;
 
@@ -32,23 +32,18 @@ export function getQuery(state, geometryType, projectConfig) {
 
     let modeQuery = `${projectConfig.filter.fieldNames.mode} = '${mode}'`;
     const projectTypeOrQueries = [];
-    const projectTypeAndQueries = [];
     if (state.mode.includes(mode) && selectedProjectTypeInfos.length > 0) {
       for (const info of selectedProjectTypeInfos) {
-        if (info.useAnd) {
-          projectTypeAndQueries.push(info[geometryType]);
-        } else {
-          projectTypeOrQueries.push(info[geometryType] ?? '1=2');
-        }
+        projectTypeOrQueries.push(info[geometryType] ?? '1=2');
       }
 
       if (projectTypeOrQueries.length > 0) {
         modeQuery += ` AND ((${projectTypeOrQueries.join(') OR (')}))`;
-
-        if (projectTypeAndQueries.length > 0) {
-          modeQuery += ` AND (${projectTypeAndQueries.join(') AND (')})`;
-        }
       }
+    }
+
+    if (state.limitFacilityType[key]?.selected) {
+      modeQuery += ` AND lower(${projectConfig.filter.limitFacilityType.field}) LIKE '%${state.limitFacilityType[key].type}%'`;
     }
 
     if (projectTypeOrQueries.length === 0) {
@@ -114,16 +109,14 @@ export function reducer(draft, action) {
       if (action.payload) {
         // toggle all sub project types on
         for (const name in config.filter.projectTypes[action.meta]) {
-          if (!config.filter.projectTypes[action.meta][name].offByDefault && !newTypes.includes(name)) {
+          if (!newTypes.includes(name)) {
             newTypes.push(name);
           }
         }
       } else {
         // toggle off
         for (const name of draft.projectTypes[action.meta]) {
-          if (!config.filter.projectTypes[action.meta][name].offByDefault) {
-            newTypes.splice(newTypes.indexOf(name), 1);
-          }
+          newTypes.splice(newTypes.indexOf(name), 1);
         }
       }
       draft.projectTypes[action.meta] = newTypes;
@@ -147,6 +140,13 @@ export function reducer(draft, action) {
 
       break;
 
+    case 'limitFacilityType':
+      draft.limitFacilityType[action.meta] = action.payload;
+
+      updateLayerDefinitions();
+
+      break;
+
     case 'reset':
       return initialState;
 
@@ -162,15 +162,9 @@ export const initialState = {
   mode: Object.values(config.filter.symbolValues.mode),
   phase: Object.values(config.filter.symbolValues.phase),
   projectTypes: {
-    road: Object.keys(config.filter.projectTypes.road).filter(
-      (key) => !config.filter.projectTypes.road[key].offByDefault
-    ),
-    transit: Object.keys(config.filter.projectTypes.transit).filter(
-      (key) => !config.filter.projectTypes.transit[key].offByDefault
-    ),
-    activeTransportation: Object.keys(config.filter.projectTypes.activeTransportation).filter(
-      (key) => !config.filter.projectTypes.activeTransportation[key].offByDefault
-    ),
+    road: Object.keys(config.filter.projectTypes.road),
+    transit: Object.keys(config.filter.projectTypes.transit),
+    activeTransportation: Object.keys(config.filter.projectTypes.activeTransportation),
   },
   layerDefinitions: {
     modePoints: null,
@@ -184,6 +178,16 @@ export const initialState = {
   cost: {
     min: null,
     max: null,
+  },
+  limitFacilityType: {
+    road: {
+      selected: false,
+      type: config.filter.limitFacilityType.values[0],
+    },
+    transit: {
+      selected: false,
+      type: config.filter.limitFacilityType.values[0],
+    },
   },
 };
 

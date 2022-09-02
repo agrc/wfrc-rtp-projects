@@ -3,13 +3,6 @@ import config from '../services/config';
 import { getQuery, initialState, reducer } from './useFilterReducer';
 
 const strip = (str) => str.replace(/\s/g, '');
-let offByDefaultType;
-for (const name in config.filter.projectTypes.road) {
-  if (config.filter.projectTypes.road[name].offByDefault) {
-    offByDefaultType = name;
-    break;
-  }
-}
 
 describe('getQuery', () => {
   it('builds the simple queries', () => {
@@ -42,22 +35,6 @@ describe('getQuery', () => {
     const query = getQuery(state, 'points', config);
 
     expect(strip(query)).not.toMatch("MODE='Transit'");
-  });
-
-  it('turns off a mode if all associated project types are unchecked even if UDOT checkbox is checked', () => {
-    const state = {
-      ...initialState,
-      phaseField: 'PHASE_FIELD',
-      phase: ['1', '2'],
-      projectTypes: {
-        ...initialState.projectTypes,
-        road: [offByDefaultType],
-      },
-    };
-
-    const query = getQuery(state, 'points', config);
-
-    expect(strip(query)).not.toMatch("mode='Highway'");
   });
 
   it('builds and adds the project type queries', () => {
@@ -255,81 +232,6 @@ describe('getQuery', () => {
     );
   });
 
-  it('should honor the `useAnd` prop for project types', () => {
-    const state = {
-      ...initialState,
-      phaseField: 'PHASE_FIELD',
-      mode: ['road_value', 'active_transportation_value'],
-      projectTypes: {
-        road: ['roadType', 'roadType2', 'roadType3And', 'roadType4And'],
-        transit: [],
-        activeTransportation: [],
-      },
-    };
-    const config = {
-      filter: {
-        fieldNames: {
-          mode: 'MODE',
-        },
-        symbolValues: {
-          mode: {
-            road: 'road_value',
-            transit: 'transit_value',
-            activeTransportation: 'active_transportation_value',
-          },
-        },
-        projectTypes: {
-          road: {
-            roadType: {
-              points: 'roadTypePoints',
-            },
-            roadType2: {
-              points: 'roadType2Points',
-            },
-            roadType3And: {
-              points: 'roadType3Points',
-              useAnd: true,
-            },
-            roadType4And: {
-              points: 'roadType4Points',
-              useAnd: true,
-            },
-          },
-          transit: {},
-          activeTransportation: {},
-        },
-      },
-    };
-
-    const query = getQuery(state, 'points', config);
-
-    expect(strip(query)).toEqual(
-      strip(`
-      PHASE_FIELD IN (1,2,3,4)
-      AND
-      (
-        (
-          MODE = 'road_value'
-          AND
-          (
-            (roadTypePoints)
-            OR
-            (roadType2Points)
-          )
-          AND
-          (roadType3Points)
-          AND
-          (roadType4Points)
-        )
-        OR
-        (MODE != 'transit_value')
-        OR
-        (MODE != 'active_transportation_value')
-      )
-      `)
-    );
-  });
-
   it('builds the cost queries', () => {
     const state = {
       ...initialState,
@@ -360,6 +262,26 @@ describe('getQuery', () => {
     const lessThanQuery = getQuery(state, 'points', config);
 
     expect(strip(lessThanQuery)).toMatch(/ANDphase_needed<phase/);
+  });
+
+  it('handles the facility type limit query', () => {
+    const state = {
+      ...initialState,
+      limitFacilityType: {
+        road: {
+          selected: true,
+          type: config.filter.limitFacilityType.values[1],
+        },
+        transit: {
+          selected: false,
+          type: config.filter.limitFacilityType.values[0],
+        },
+      },
+    };
+
+    const query = getQuery(state, 'points', config);
+
+    expect(strip(query)).toMatch(/ANDlower\(breakout\)LIKE'%local%'/);
   });
 });
 
@@ -392,20 +314,6 @@ describe('reducer', () => {
 
     const toggleOnResult = reducer(current, { type: 'projectTypeHeader', meta: 'road', payload: true });
     expect(toggleOnResult.projectTypes.road).toEqual(initialState.projectTypes.road);
-  });
-
-  it("toggle off project type header doesn't affect UDOT ownership checkboxes", () => {
-    const current = {
-      ...initialState,
-      projectTypes: {
-        ...initialState.projectTypes,
-        road: [...initialState.projectTypes.road, offByDefaultType],
-      },
-    };
-
-    // unselect all should leave off by default alone
-    const toggleOffResult = reducer(current, { type: 'projectTypeHeader', meta: 'road', payload: false });
-    expect(toggleOffResult.projectTypes.road).toEqual([offByDefaultType]);
   });
 
   it("toggle on project type header doesn't affect UDOT ownership checkboxes", () => {

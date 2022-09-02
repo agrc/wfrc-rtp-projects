@@ -13,20 +13,10 @@
           "title": "Lines Query",
           "type": ["string", "null"]
         },
-        "offByDefault": {
-          "description": "Whether the associated checkbox is off on app load",
-          "title": "Off By Default",
-          "type": "boolean"
-        },
         "points": {
           "description": "The query that will be applied to the point layers",
           "title": "Points Query",
           "type": ["string", "null"]
-        },
-        "useAnd": {
-          "description": "Whether the query should use AND or OR",
-          "title": "Use AND",
-          "type": "boolean"
         }
       },
       "required": ["lines", "points"],
@@ -99,7 +89,16 @@
       "title": "Filter Widget Configuration",
       "description": "Configuration options for the filter widget",
       "type": "object",
-      "required": ["disableAdvanced", "fieldNames", "infoText", "labels", "layerNames", "projectTypes", "symbolValues"],
+      "required": [
+        "disableAdvanced",
+        "fieldNames",
+        "infoText",
+        "labels",
+        "layerNames",
+        "limitFacilityType",
+        "projectTypes",
+        "symbolValues"
+      ],
       "additionalProperties": false,
       "properties": {
         "disableAdvanced": {
@@ -236,6 +235,33 @@
             "phasePoints": {
               "title": "Phase Points",
               "type": "string"
+            }
+          }
+        },
+        "limitFacilityType": {
+          "title": "Limit to ... Facilities config",
+          "description": "Configuration options for LimitFacilityType widget",
+          "type": "object",
+          "required": ["field", "labels", "values"],
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "title": "Field",
+              "type": "string"
+            },
+            "labels": {
+              "title": "Label",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "values": {
+              "title": "Values",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         },
