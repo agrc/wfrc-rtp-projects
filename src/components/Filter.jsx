@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Alert, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { format } from 'sql-formatter';
+import { initialState } from '../hooks/useFilterReducer';
 import config from '../services/config';
 import AdvancedControls from './AdvancedControls';
 import './Filter.scss';
@@ -19,7 +20,7 @@ ErrorFallback.propTypes = {
 };
 
 export default function Filter({ mapView, state, dispatch }) {
-  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(false);
+  const [isAdvancedOpen, setIsAdvancedOpen] = React.useState(JSON.stringify(state) !== JSON.stringify(initialState));
   const headerRef = useRef();
   const toggleAdvanced = () => {
     if (isAdvancedOpen) {
