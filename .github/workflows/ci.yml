@@ -43,6 +43,7 @@ jobs:
     needs: test
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
+      tag_name: ${{ steps.release-please.outputs.tag_name }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release-please
@@ -78,6 +79,34 @@ jobs:
         with:
           add: 'docs'
           message: 'docs: update config docs'
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    if: needs.release-please.outputs.release_created
+    steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: npm
+
+      - name: 📥 Download dependencies
+        run: npm ci
+
+      - name: 🏗 Run build
+        run: npm run build
+
+      - name: 🗜 Compress
+        run: npm run zip
+
+      - name: 🚀 Create release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          tag: ${{ needs.release-please.outputs.tag_name }}
+          file: build.zip
 
   deploy-dev:
     runs-on: ubuntu-latest
