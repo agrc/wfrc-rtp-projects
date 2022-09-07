@@ -295,7 +295,7 @@ function App() {
           {layerSelectorOptions && <LayerSelector {...layerSelectorOptions} />}
         </div>
       </div>
-      <SplashScreen />
+      {config.splashScreen.enabled ? <SplashScreen /> : null}
     </QueryClientProvider>
   );
 }
