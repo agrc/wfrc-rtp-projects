@@ -22,7 +22,7 @@ fetch('config.json')
           <BrowserRouter>
             <QueryParamProvider adapter={ReactRouter6Adapter} options={{ updateType: 'replaceIn' }}>
               <Routes>
-                <Route path="/" element={<App />} />
+                <Route path="*" element={<App />} />
               </Routes>
             </QueryParamProvider>
           </BrowserRouter>
