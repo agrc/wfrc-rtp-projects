@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [2.0.1](https://github.com/agrc/wfrc-rtp-projects/compare/wfrc-rtp-projects-v2.0.0...wfrc-rtp-projects-v2.0.1) (2022-09-07)
+
+
+### Bug Fixes
+
+* fix react router bug causing the app to be blank when hosted in a subdirectory ([7a41dc5](https://github.com/agrc/wfrc-rtp-projects/commit/7a41dc57e1ea4d2e10c1c91045e0fd973fdfb232))
+
 ## [2.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/wfrc-rtp-projects-v1.2.1...wfrc-rtp-projects-v2.0.0) (2022-09-05)
 
 
