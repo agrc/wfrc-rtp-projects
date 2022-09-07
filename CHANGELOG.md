@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [2.0.2](https://github.com/agrc/wfrc-rtp-projects/compare/wfrc-rtp-projects-v2.0.1...wfrc-rtp-projects-v2.0.2) (2022-09-07)
+
+
+### Bug Fixes
+
+* wire up config.splashScreen.enabled config ([009718a](https://github.com/agrc/wfrc-rtp-projects/commit/009718a8d729ea0084ec97c971f5e7de1da4b290))
+
 ## [2.0.1](https://github.com/agrc/wfrc-rtp-projects/compare/wfrc-rtp-projects-v2.0.0...wfrc-rtp-projects-v2.0.1) (2022-09-07)
 
 
