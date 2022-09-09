@@ -24,5 +24,6 @@
     "udot",
     "ugrc"
   ],
-  "cSpell.language": "en,es-ES"
+  "cSpell.language": "en,es-ES",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
