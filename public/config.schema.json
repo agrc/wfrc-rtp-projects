@@ -136,7 +136,7 @@
           "description": "An object that contains the content that will show up in the info popups",
           "type": "object",
           "additionalProperties": false,
-          "required": ["cost", "phaseYears", "projectType", "simpleMode", "simplePhase"],
+          "required": ["cost", "phaseYears", "projectType", "simpleMode", "simplePhase", "usePhasing"],
           "properties": {
             "cost": {
               "title": "Advanced Filter - Cost",
@@ -156,6 +156,10 @@
             },
             "simplePhase": {
               "title": "Simple Filter - Phase Tab",
+              "type": "string"
+            },
+            "usePhasing": {
+              "title": "Use Phasing Filter - Phase Tab",
               "type": "string"
             }
           }
