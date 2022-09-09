@@ -11,6 +11,7 @@
 | [projectType](#projecttype) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---project-types.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/projectType") |
 | [simpleMode](#simplemode)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---mode-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/simpleMode")         |
 | [simplePhase](#simplephase) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---phase-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/simplePhase")       |
+| [usePhasing](#usephasing)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/usePhasing")   |
 
 ## cost
 
@@ -101,3 +102,21 @@
 ### simplePhase Type
 
 `string` ([Simple Filter - Phase Tab](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---phase-tab.md))
+
+## usePhasing
+
+
+
+`usePhasing`
+
+*   is required
+
+*   Type: `string` ([Use Phasing Filter - Phase Tab](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md))
+
+*   cannot be null
+
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/usePhasing")
+
+### usePhasing Type
+
+`string` ([Use Phasing Filter - Phase Tab](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md))
