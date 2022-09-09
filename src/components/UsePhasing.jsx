@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button, FormGroup, Input, Label } from 'reactstrap';
 import config from '../services/config';
+import InfoPopup from './InfoPopup';
 
 export default function UsePhasing({ phaseField, phaseLimit, phaseLimitEquals, disabled, inline, dispatch }) {
   const handleChangeField = (event) =>
@@ -66,6 +67,7 @@ export default function UsePhasing({ phaseField, phaseLimit, phaseLimitEquals, d
       <div className="d-flex">
         <b className="me-3 text-nowrap">Use Phasing:</b>
         <div>{getContents()}</div>
+        <InfoPopup className="" content={config.filter.infoText.usePhasing}></InfoPopup>
       </div>
     );
   }
