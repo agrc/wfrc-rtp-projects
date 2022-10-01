@@ -83,7 +83,7 @@
     "react-hook-form": "^7.34.2",
     "react-i18next": "^11.18.5",
     "react-number-format": "^4.9.4",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.4.1",
     "react-uid": "^2.3.2",
     "reactstrap": "^9.1.4",
     "sql-formatter": "^10.4.0",
