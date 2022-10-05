@@ -1,7 +1,7 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import NumberFormat from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
 import { Button, Col, Collapse, Container, FormFeedback, Input, Label, Row } from 'reactstrap';
 import config from '../services/config';
 import Checkbox from './Checkbox';
@@ -233,30 +233,32 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
           <Row>
             <Col>
               <Label>Minimum</Label>
-              <NumberFormat
-                min="0"
-                value={state.cost.min}
-                displayType="input"
-                customInput={Input}
-                thousandSeparator
-                prefix="$"
+              <NumericFormat
+                allowNegative={false}
                 className="mb-1"
-                onValueChange={getHandleCostChange('min')}
+                customInput={Input}
+                displayType="input"
                 invalid={!costIsValid}
+                onValueChange={getHandleCostChange('min')}
+                prefix="$"
+                thousandSeparator=","
+                value={state.cost.min}
+                valueIsNumericString={true}
               />
             </Col>
             <Col>
               <Label>Maximum</Label>
-              <NumberFormat
-                min="0"
-                value={state.cost.max}
-                displayType="input"
-                customInput={Input}
-                thousandSeparator
-                prefix="$"
+              <NumericFormat
+                allowNegative={false}
                 className="mb-1"
-                onValueChange={getHandleCostChange('max')}
+                customInput={Input}
+                displayType="input"
                 invalid={!costIsValid}
+                onValueChange={getHandleCostChange('max')}
+                prefix="$"
+                thousandSeparator=","
+                value={state.cost.max}
+                valueIsNumericString={true}
               />
               <FormFeedback>max should be greater than min</FormFeedback>
             </Col>
