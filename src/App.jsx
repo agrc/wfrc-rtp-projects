@@ -122,9 +122,11 @@ function App() {
       mapView.graphics.addMany(zoomObj.target);
 
       if (!zoomObj.preserve) {
-        reactiveUtils.once(mapView, 'extent', () => {
-          mapView.graphics.removeAll();
-        });
+        reactiveUtils
+          .once(() => mapView.extent)
+          .then(() => {
+            mapView.graphics.removeAll();
+          });
       }
     },
     [displayedZoomGraphic, mapView]
