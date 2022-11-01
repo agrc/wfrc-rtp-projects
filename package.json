@@ -85,7 +85,7 @@
     "react-number-format": "^5.0.1",
     "react-router-dom": "^6.4.1",
     "react-uid": "^2.3.2",
-    "reactstrap": "^9.1.4",
+    "reactstrap": "^9.1.5",
     "sql-formatter": "^11.0.2",
     "typeface-montserrat": "^1.1.13",
     "use-immer": "^0.7.0",
