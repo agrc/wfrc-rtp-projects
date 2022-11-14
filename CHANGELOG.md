@@ -2,6 +2,44 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [3.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/wfrc-rtp-projects-v2.1.0...wfrc-rtp-projects-v3.0.0) (2022-11-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* A new filter config property, `limitFacilityType`, has been added. Also, the `useAnd` and `offByDefault` options have been removed since they are no longer needed.
+* `defaultExtent` needs to be added to your config.
+* The `projectInformation.newCommentsOpenUtil` config value has been renamed to `commentsEnabledUntil`.
+
+### Features
+
+* add defaultExtent config value ([dc76865](https://github.com/agrc/wfrc-rtp-projects/commit/dc768652fafe1a2c720938a4694f98b568285ca3))
+* add filter state as url query parameter ([b4d68d9](https://github.com/agrc/wfrc-rtp-projects/commit/b4d68d90986bec0a53edf05ecce984ac6c9b0fba)), closes [#13](https://github.com/agrc/wfrc-rtp-projects/issues/13)
+* add firebase deploy action for dev ([6a32dc9](https://github.com/agrc/wfrc-rtp-projects/commit/6a32dc9cd072c278962f087da7def846b833d9e3))
+* add selected project as a url parameter ([f1e200e](https://github.com/agrc/wfrc-rtp-projects/commit/f1e200e7a78df6f82df27d1f21ec948c98581c23)), closes [#13](https://github.com/agrc/wfrc-rtp-projects/issues/13)
+* add udot/local toggle to facility type limit checkboxes ([c08be8f](https://github.com/agrc/wfrc-rtp-projects/commit/c08be8f69998951d3f7eebd5262b3b0d7c37694e)), closes [#70](https://github.com/agrc/wfrc-rtp-projects/issues/70)
+* add url parameters for preserving map extent ([640a4b4](https://github.com/agrc/wfrc-rtp-projects/commit/640a4b44e25f097b07097ab99d40de824d8ac3e4)), closes [#13](https://github.com/agrc/wfrc-rtp-projects/issues/13)
+* added info popup to use phasing ([98d87ad](https://github.com/agrc/wfrc-rtp-projects/commit/98d87adf40fddae3443344cba66bee620f796b1a))
+* cut prereleases in dev ([c1824d3](https://github.com/agrc/wfrc-rtp-projects/commit/c1824d34baaa74b6899421dc370383a710fbcf78))
+* implement "Limit to Needs Phase..." checkbox ([dfdda0b](https://github.com/agrc/wfrc-rtp-projects/commit/dfdda0b38cb34ddac3394348f43d62b88ca80fc3)), closes [#69](https://github.com/agrc/wfrc-rtp-projects/issues/69)
+* implement commentsEnabledUntil config ([048a663](https://github.com/agrc/wfrc-rtp-projects/commit/048a663f89c35d4955d362b705d57f94d84782e0)), closes [#66](https://github.com/agrc/wfrc-rtp-projects/issues/66)
+* implement layer selector ([fce296d](https://github.com/agrc/wfrc-rtp-projects/commit/fce296dbd43187f61edaafacaa37feca3ba4a01d)), closes [#63](https://github.com/agrc/wfrc-rtp-projects/issues/63) [#64](https://github.com/agrc/wfrc-rtp-projects/issues/64)
+* implement splash screen ([de576fa](https://github.com/agrc/wfrc-rtp-projects/commit/de576fa460dd302346479cbbb2e11842ffeef0bc)), closes [#65](https://github.com/agrc/wfrc-rtp-projects/issues/65)
+* open advanced filter on load if url params have changed filter params ([62f98b1](https://github.com/agrc/wfrc-rtp-projects/commit/62f98b17e8509407dbd441e79d7197d484943660)), closes [#89](https://github.com/agrc/wfrc-rtp-projects/issues/89)
+
+
+### Bug Fixes
+
+* base map selector - Imagery -&gt; Hybrid ([150cc32](https://github.com/agrc/wfrc-rtp-projects/commit/150cc3211b5a525eea5c3146c83f3d0116123b89))
+* fix react router bug causing the app to be blank when hosted in a subdirectory ([7a41dc5](https://github.com/agrc/wfrc-rtp-projects/commit/7a41dc57e1ea4d2e10c1c91045e0fd973fdfb232))
+* make limit to needs text italic ([2f13742](https://github.com/agrc/wfrc-rtp-projects/commit/2f1374228d536540919036b91b8a0a04a02d7a84))
+* move limit facilities from transit to active transportation ([758193e](https://github.com/agrc/wfrc-rtp-projects/commit/758193eceaf864061bccdca258d565482e5e3306))
+* November dependency bumps 🌲 ([4362500](https://github.com/agrc/wfrc-rtp-projects/commit/4362500ad58a0adf87d16e59ba397799d7cebda7))
+* October dependency bumps 🌲 ([25365f3](https://github.com/agrc/wfrc-rtp-projects/commit/25365f370b1d98d686f6b1aefe71abf80a4d5fb5))
+* once function parameter should be a function ([86f2d55](https://github.com/agrc/wfrc-rtp-projects/commit/86f2d55ad166d3c4d20a844d7aa544060666ee43))
+* prevent url updates to add to the browser history ([dc60da4](https://github.com/agrc/wfrc-rtp-projects/commit/dc60da437e00aa1556a8018319ea4ac3068033e6))
+* wire up config.splashScreen.enabled config ([009718a](https://github.com/agrc/wfrc-rtp-projects/commit/009718a8d729ea0084ec97c971f5e7de1da4b290))
+
 ## [2.1.0](https://github.com/agrc/wfrc-rtp-projects/compare/wfrc-rtp-projects-v2.0.2...wfrc-rtp-projects-v2.1.0) (2022-09-09)
 
 
