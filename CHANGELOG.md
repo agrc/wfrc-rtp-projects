@@ -2,6 +2,34 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [3.0.0-0](https://github.com/agrc/wfrc-rtp-projects/compare/v2.1.0...v3.0.0-0) (2022-12-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added the following config props under `layerSelector`:
+    - `BWName`
+    - `BWOpacity`
+* `projectInformation` config changes: `commentsEnabled` and `commentsEnabledUntil` have been replaced with `showComments`, `newCommentsEnabled`, and `newCommentsEnabledUtil`. See the updated docs for details.
+
+### 📖 Documentation Improvements
+
+* update config docs ([ef6c8d1](https://github.com/agrc/wfrc-rtp-projects/commit/ef6c8d162a9f87d5605dde9a8ae80b4dd706bc37))
+
+
+### 🐛 Bug Fixes
+
+* December dependency bumps 🌲 ([aad330a](https://github.com/agrc/wfrc-rtp-projects/commit/aad330af59efe7d24facde80718c293e3c31e755))
+* November dependency bumps 🌲 ([4362500](https://github.com/agrc/wfrc-rtp-projects/commit/4362500ad58a0adf87d16e59ba397799d7cebda7))
+* October dependency bumps 🌲 ([25365f3](https://github.com/agrc/wfrc-rtp-projects/commit/25365f370b1d98d686f6b1aefe71abf80a4d5fb5))
+* once function parameter should be a function ([86f2d55](https://github.com/agrc/wfrc-rtp-projects/commit/86f2d55ad166d3c4d20a844d7aa544060666ee43))
+
+
+### 🚀 Features
+
+* add support for black and white imagery base map ([29b35fa](https://github.com/agrc/wfrc-rtp-projects/commit/29b35fa95c6ca735246013a2ec80e71f54a34db4)), closes [#110](https://github.com/agrc/wfrc-rtp-projects/issues/110)
+* use separate configs for viewing existing and submitting new comments ([bbcaaef](https://github.com/agrc/wfrc-rtp-projects/commit/bbcaaef48a2d4c88c34fccea4e4484ed675d1fc8)), closes [#124](https://github.com/agrc/wfrc-rtp-projects/issues/124)
+
 ## [2.1.0](https://github.com/agrc/wfrc-rtp-projects/compare/wfrc-rtp-projects-v2.0.2...wfrc-rtp-projects-v2.1.0) (2022-09-09)
 
 
