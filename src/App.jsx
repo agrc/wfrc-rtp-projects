@@ -1,6 +1,7 @@
 import * as reactiveUtils from '@arcgis/core/core/reactiveUtils';
 import { whenOnce } from '@arcgis/core/core/reactiveUtils';
 import Graphic from '@arcgis/core/Graphic';
+import WebTileLayer from '@arcgis/core/layers/WebTileLayer';
 import Viewpoint from '@arcgis/core/Viewpoint';
 import MapView from '@arcgis/core/views/MapView';
 import WebMap from '@arcgis/core/WebMap';
@@ -77,6 +78,21 @@ function App() {
       }),
       'top-left'
     );
+
+    config.layerSelector.baseLayers = config.layerSelector.baseLayers.map((layer) => {
+      if (typeof layer === 'string' && layer === config.layerSelector.BWName) {
+        return {
+          id: config.layerSelector.BWName,
+          Factory: WebTileLayer,
+          urlTemplate: `https://discover.agrc.utah.gov/login/path/${
+            import.meta.env.VITE_DISCOVER
+          }/tiles/utah/{level}/{col}/{row}`,
+          effect: `grayscale(100%) opacity(${config.layerSelector.BWOpacity})`,
+        };
+      }
+
+      return layer;
+    });
 
     setLayerSelectorOptions({
       view,

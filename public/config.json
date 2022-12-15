@@ -156,7 +156,7 @@
     }
   },
   "layerSelector": {
-    "baseLayers": ["Lite", "Terrain", "Hybrid"],
+    "baseLayers": ["Lite", "Terrain", "Hybrid", "B/W Imagery"],
     "overlays": [
       {
         "id": "Cities",
@@ -164,7 +164,9 @@
         "url": "https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/2",
         "opacity": 1
       }
-    ]
+    ],
+    "BWName": "B/W Imagery",
+    "BWOpacity": "75%"
   },
   "openOnLoad": {
     "filter": true,

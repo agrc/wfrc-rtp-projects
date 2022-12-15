@@ -23,7 +23,8 @@
     "tanstack",
     "TSQL",
     "udot",
-    "ugrc"
+    "ugrc",
+    "utah"
   ],
   "cSpell.language": "en,es-ES",
   "editor.defaultFormatter": "esbenp.prettier-vscode"
