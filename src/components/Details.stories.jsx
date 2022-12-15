@@ -1,32 +1,58 @@
+import Graphic from '@arcgis/core/Graphic';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import config from '../services/config';
 import Details from './Details';
 
 export default {
   component: Details,
+  decorators: [
+    (Story) => {
+      const queryClient = new QueryClient();
+      return (
+        <QueryClientProvider client={queryClient}>
+          <Story />
+        </QueryClientProvider>
+      );
+    },
+  ],
 };
 
-const feature = {
+const graphic = new Graphic({
+  aggregateGeometries: null,
+  geometry: {
+    type: 'point',
+    spatialReference: {
+      latestWkid: 3857,
+      wkid: 102100,
+    },
+    x: -12433858.517092792,
+    y: 4949756.203636566,
+  },
+  symbol: null,
   attributes: {
-    fieldOne: 'display field value',
-    fieldTwo: 'hello',
-    fieldThree: 'world',
+    OBJECTID: 1429,
+    bike_type_text: null,
+    breakout: 'State',
+    improvement_type: 'Grade-Separated Crossing',
+    mode: 'Highway',
+    phase: 3,
+    plan_id: 'R-S-216',
+    [config.projectInformation.fieldNames.globalId]: 'R-S-216',
   },
-  layer: {
-    fields: [
-      {
-        name: 'fieldOne',
-        alias: 'Field One',
-      },
-      {
-        name: 'fieldTwo',
-        alias: 'Field Two',
-      },
-      {
-        name: 'fieldThree',
-        alias: 'Field Three',
-      },
-    ],
-    displayField: 'fieldOne',
+  popupTemplate: {
+    title: 'Test Title',
+    content: 'Test Content',
   },
-};
+});
 
-export const Default = () => <Details feature={feature} />;
+graphic.layer = { id: 'layer_id' };
+
+export const Default = () => (
+  <Details
+    graphic={graphic}
+    highlightGraphic={() => {}}
+    urlState={{ selected_id: 1429, selected_layer_id: 'layer_id' }}
+    setUrlState={() => {}}
+    onlyOne={true}
+  />
+);

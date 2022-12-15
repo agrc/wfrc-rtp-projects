@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Spinner } from 'reactstrap';
+import { NumberParam, StringParam, useQueryParams } from 'use-query-params';
 import { useSpecialTranslation } from '../services/i18n';
 import Details from './Details';
 import { MapWidgetContext } from './MapWidget';
@@ -8,6 +9,10 @@ import './ProjectInformation.scss';
 
 export default function ProjectInformation({ graphics, showLoader, highlightGraphic }) {
   const { updateScrollbar } = React.useContext(MapWidgetContext);
+  const [urlState, setUrlState] = useQueryParams({
+    selected_id: NumberParam,
+    selected_layer_id: StringParam,
+  });
 
   const containerRef = React.useRef(null);
 
@@ -41,6 +46,8 @@ export default function ProjectInformation({ graphics, showLoader, highlightGrap
           graphic={graphic}
           highlightGraphic={highlightGraphic}
           onlyOne={graphics.length === 1}
+          urlState={urlState}
+          setUrlState={setUrlState}
         />
       ))}
     </div>

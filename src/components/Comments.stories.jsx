@@ -15,5 +15,10 @@ export default {
   ],
 };
 
-export const Default = () => <Comments globalId="{4E84CF79-D876-405A-B0B3-8797E2A5860C}" />;
-export const ExistingComments = () => <Comments globalId="{4E84CF79-D876-405A-B0B3-8797E2A5860B}" />;
+export const Default = () => <Comments globalId="{4E84CF79-D876-405A-B0B3-8797E2A5860C}" showNewCommentForm={true} />;
+export const ExistingComments = () => (
+  <Comments globalId="{4E84CF79-D876-405A-B0B3-8797E2A5860B}" showNewCommentForm={true} />
+);
+export const ExistingCommentsNoNewComments = () => (
+  <Comments globalId="{4E84CF79-D876-405A-B0B3-8797E2A5860B}" showNewCommentForm={false} />
+);

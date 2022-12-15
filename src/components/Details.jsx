@@ -3,16 +3,11 @@ import Feature from '@arcgis/core/widgets/Feature';
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { Collapse } from 'reactstrap';
-import { NumberParam, StringParam, useQueryParams } from 'use-query-params';
 import config from '../services/config';
 import Comments from './Comments';
 import './Details.scss';
 
-export default function Details({ graphic, highlightGraphic, onlyOne }) {
-  const [urlState, setUrlState] = useQueryParams({
-    selected_id: NumberParam,
-    selected_layer_id: StringParam,
-  });
+export default function Details({ graphic, highlightGraphic, onlyOne, urlState, setUrlState }) {
   const isNotSelected =
     urlState.selected_id !== graphic.attributes.OBJECTID || urlState.selected_layer_id !== graphic.layer.id;
   const [collapsed, setCollapsed] = useState(isNotSelected);
@@ -74,9 +69,8 @@ export default function Details({ graphic, highlightGraphic, onlyOne }) {
   }, [collapsed, graphic.attributes.OBJECTID, graphic.layer.id, isNotSelected, setUrlState]);
 
   const showComments =
-    config.projectInformation.commentsEnabled &&
+    config.projectInformation.showComments &&
     featureWidgetGraphic &&
-    new Date() < new Date(config.projectInformation.commentsEnabledUntil) &&
     Object.keys(featureWidgetGraphic.attributes).some((name) => name === config.projectInformation.fieldNames.globalId);
 
   return (
@@ -91,7 +85,13 @@ export default function Details({ graphic, highlightGraphic, onlyOne }) {
       <Collapse isOpen={!collapsed}>
         <div ref={containerRef}></div>
         {showComments && (
-          <Comments globalId={featureWidgetGraphic.attributes[config.projectInformation.fieldNames.globalId]} />
+          <Comments
+            globalId={featureWidgetGraphic.attributes[config.projectInformation.fieldNames.globalId]}
+            showNewCommentForm={
+              config.projectInformation.newCommentsEnabled &&
+              new Date() < new Date(config.projectInformation.newCommentsEnabledUntil)
+            }
+          />
         )}
       </Collapse>
     </div>
@@ -101,4 +101,6 @@ Details.propTypes = {
   graphic: PropTypes.object,
   highlightGraphic: PropTypes.func.isRequired,
   onlyOne: PropTypes.bool.isRequired,
+  urlState: PropTypes.object.isRequired,
+  setUrlState: PropTypes.func.isRequired,
 };
