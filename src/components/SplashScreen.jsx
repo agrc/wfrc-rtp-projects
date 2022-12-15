@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { Button, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import config from '../services/config';
 
+/*
+  This component throws react warnings as console errors because of an upstream bug in reactstrap
+  https://github.com/reactstrap/reactstrap/issues/1289
+*/
 export default function SplashScreen() {
   const [showOnLoad, setShowOnLoad] = useLocalStorage('wfrc-rtp-show-splash', true, true);
   const [isOpen, setIsOpen] = useState(showOnLoad);

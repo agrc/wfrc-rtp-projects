@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Alert, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
-import { format } from 'sql-formatter';
+import { formatDialect, sqlite } from 'sql-formatter';
 import { initialState } from '../hooks/useFilterReducer';
 import config from '../services/config';
 import AdvancedControls from './AdvancedControls';
@@ -49,7 +49,11 @@ export default function Filter({ mapView, state, dispatch }) {
         layers[layerKey].filter = new FeatureFilter({
           where,
         });
-        console.log(`${layers[layerKey].layer.title} filter updated to: \n${where ? format(where) : where}`);
+        console.log(
+          `${layers[layerKey].layer.title} filter updated to: \n${
+            where ? formatDialect(where, { dialect: sqlite }) : where
+          }`
+        );
       }
     }
   }, [layers, state.layerDefinitions]);
