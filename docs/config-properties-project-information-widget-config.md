@@ -4,30 +4,13 @@
 
 # projectInformation Properties
 
-| Property                                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                      |
-| :-------------------------------------------- | :-------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [commentsEnabled](#commentsenabled)           | `boolean` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabled")            |
-| [commentsTableUrl](#commentstableurl)         | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-table-url.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsTableUrl")         |
-| [fieldNames](#fieldnames)                     | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/fieldNames")                      |
-| [commentsEnabledUntil](#commentsenableduntil) | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabledUntil") |
-
-## commentsEnabled
-
-Whether the comments widget is enabled
-
-`commentsEnabled`
-
-*   is required
-
-*   Type: `boolean` ([Comments Enabled](config-properties-project-information-widget-config-properties-comments-enabled.md))
-
-*   cannot be null
-
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabled")
-
-### commentsEnabled Type
-
-`boolean` ([Comments Enabled](config-properties-project-information-widget-config-properties-comments-enabled.md))
+| Property                                            | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                                                             |
+| :-------------------------------------------------- | :-------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [commentsTableUrl](#commentstableurl)               | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-table-url.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsTableUrl")                |
+| [fieldNames](#fieldnames)                           | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/fieldNames")                             |
+| [showComments](#showcomments)                       | `boolean` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-show-the-comments-widget.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/showComments")              |
+| [newCommentsEnabled](#newcommentsenabled)           | `boolean` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/newCommentsEnabled")            |
+| [newCommentsEnabledUntil](#newcommentsenableduntil) | `string`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/newCommentsEnabledUntil") |
 
 ## commentsTableUrl
 
@@ -65,20 +48,56 @@ An object that contains the field names for the comments table
 
 `object` ([Field Names](config-properties-project-information-widget-config-properties-field-names.md))
 
-## commentsEnabledUntil
+## showComments
 
-The date after which comments will be shown.
+Controls the visibility of the entire comments widget (existing comments and new comment form).
 
-`commentsEnabledUntil`
+`showComments`
 
 *   is required
 
-*   Type: `string` ([Comments Enabled Until](config-properties-project-information-widget-config-properties-comments-enabled-until.md))
+*   Type: `boolean` ([Show the comments widget](config-properties-project-information-widget-config-properties-show-the-comments-widget.md))
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-enabled-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/commentsEnabledUntil")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-show-the-comments-widget.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/showComments")
 
-### commentsEnabledUntil Type
+### showComments Type
 
-`string` ([Comments Enabled Until](config-properties-project-information-widget-config-properties-comments-enabled-until.md))
+`boolean` ([Show the comments widget](config-properties-project-information-widget-config-properties-show-the-comments-widget.md))
+
+## newCommentsEnabled
+
+Controls the visibility of the new comment form. Existing comments will be shown regardless of this setting.
+
+`newCommentsEnabled`
+
+*   is required
+
+*   Type: `boolean` ([New Comments Enabled](config-properties-project-information-widget-config-properties-new-comments-enabled.md))
+
+*   cannot be null
+
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/newCommentsEnabled")
+
+### newCommentsEnabled Type
+
+`boolean` ([New Comments Enabled](config-properties-project-information-widget-config-properties-new-comments-enabled.md))
+
+## newCommentsEnabledUntil
+
+The date after which the new comment form will hidden. Existing comments will still be shown.
+
+`newCommentsEnabledUntil`
+
+*   is required
+
+*   Type: `string` ([New Comments Enabled Until](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md))
+
+*   cannot be null
+
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation/properties/newCommentsEnabledUntil")
+
+### newCommentsEnabledUntil Type
+
+`string` ([New Comments Enabled Until](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md))

@@ -449,13 +449,8 @@
       "description": "Configuration options for the project information widget",
       "type": "object",
       "additionalProperties": false,
-      "required": ["commentsEnabled", "commentsTableUrl", "fieldNames", "commentsEnabledUntil"],
+      "required": ["commentsTableUrl", "fieldNames", "showComments", "newCommentsEnabled", "newCommentsEnabledUntil"],
       "properties": {
-        "commentsEnabled": {
-          "title": "Comments Enabled",
-          "description": "Whether the comments widget is enabled",
-          "type": "boolean"
-        },
         "commentsTableUrl": {
           "title": "Comments Table URL",
           "description": "The URL to the feature service endpoint for the comments table",
@@ -498,9 +493,19 @@
             }
           }
         },
-        "commentsEnabledUntil": {
-          "title": "Comments Enabled Until",
-          "description": "The date after which comments will be shown.",
+        "showComments": {
+          "title": "Show the comments widget",
+          "description": "Controls the visibility of the entire comments widget (existing comments and new comment form).",
+          "type": "boolean"
+        },
+        "newCommentsEnabled": {
+          "title": "New Comments Enabled",
+          "description": "Controls the visibility of the new comment form. Existing comments will be shown regardless of this setting.",
+          "type": "boolean"
+        },
+        "newCommentsEnabledUntil": {
+          "title": "New Comments Enabled Until",
+          "description": "The date after which the new comment form will hidden. Existing comments will still be shown.",
           "type": "string"
         }
       }
