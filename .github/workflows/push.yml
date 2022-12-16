@@ -17,15 +17,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  release-please:
+  release:
     name: Create release
     runs-on: ubuntu-latest
     outputs:
-      release_created: ${{ steps.release-please.outputs.release_created }}
+      release_created: ${{ steps.release.outputs.release_created }}
+      released_version: ${{ steps.release.outputs.released_version }}
 
     steps:
       - name: 🚀 Create Release
-        id: release-please
+        id: release
         uses: agrc/release-composite-action@v1
         with:
           prerelease: ${{ github.ref_name == 'dev' }}
@@ -37,8 +38,8 @@ jobs:
 
   rebuild-docs:
     runs-on: ubuntu-latest
-    needs: release-please
-    if: needs.release-please.outputs.release_created
+    needs: release
+    if: needs.release.outputs.release_created
     steps:
       - name: ⬇️ Checkout Code
         uses: actions/checkout@v3
@@ -64,11 +65,11 @@ jobs:
   deploy-firebase-dev:
     name: Deploy staging to firebase
     runs-on: ubuntu-latest
-    needs: release-please
+    needs: release
     environment:
       name: dev
       url: https://wfrc-rtp.dev.utah.gov
-    if: github.ref_name == 'dev' && needs.release-please.outputs.release_created
+    if: github.ref_name == 'dev' && needs.release.outputs.release_created
 
     steps:
       - name: 🚀 Deploy
@@ -83,10 +84,10 @@ jobs:
   deploy-dev:
     name: Cut staging release
     runs-on: ubuntu-latest
-    needs: release-please
+    needs: release
     environment:
       name: dev
-    if: github.ref_name == 'dev' && needs.release-please.outputs.release_created
+    if: github.ref_name == 'dev' && needs.release.outputs.release_created
 
     steps:
       - name: ⬇️ Set up code
@@ -110,14 +111,14 @@ jobs:
       - name: 🚀 Create release
         uses: svenstaro/upload-release-action@v2
         with:
-          tag: ${{ needs.release-please.outputs.released_version }}
+          tag: v${{ needs.release.outputs.released_version }}
           file: build.zip
           prerelease: true
 
   deploy-prod:
     runs-on: ubuntu-latest
-    needs: release-please
-    if: github.ref_name == 'main' && needs.release-please.outputs.release_created
+    needs: release
+    if: github.ref_name == 'main' && needs.release.outputs.release_created
     steps:
       - name: ⬇️ Set up code
         uses: actions/checkout@v3
@@ -140,5 +141,5 @@ jobs:
       - name: 🚀 Create release
         uses: svenstaro/upload-release-action@v2
         with:
-          tag: ${{ needs.release-please.outputs.released_version }}
+          tag: v${{ needs.release.outputs.released_version }}
           file: build.zip
