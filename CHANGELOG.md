@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [3.0.0-4](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.0-3...v3.0.0-4) (2022-12-16)
+
+
+### 🐛 Bug Fixes
+
+* disable new comments ([7c015b8](https://github.com/agrc/wfrc-rtp-projects/commit/7c015b85988607ce6fd4090d2065e54680299d74))
+
 ## [3.0.0-3](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.0-2...v3.0.0-3) (2022-12-16)
 
 
