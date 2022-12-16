@@ -110,7 +110,7 @@ jobs:
       - name: 🚀 Create release
         uses: svenstaro/upload-release-action@v2
         with:
-          tag: ${{ needs.release-please.outputs.tag_name }}
+          tag: ${{ needs.release-please.outputs.released_version }}
           file: build.zip
           prerelease: true
 
@@ -140,5 +140,5 @@ jobs:
       - name: 🚀 Create release
         uses: svenstaro/upload-release-action@v2
         with:
-          tag: ${{ needs.release-please.outputs.tag_name }}
+          tag: ${{ needs.release-please.outputs.released_version }}
           file: build.zip
