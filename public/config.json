@@ -185,7 +185,7 @@
       "personOrg": "PersonOrg"
     },
     "showComments": true,
-    "newCommentsEnabled": true,
+    "newCommentsEnabled": false,
     "newCommentsEnabledUntil": "2030-01-31T00:00:00.000Z"
   },
   "sherlock": {
