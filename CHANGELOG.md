@@ -2,6 +2,38 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [3.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/v2.1.0...v3.0.0) (2022-12-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added the following config props under `layerSelector`:
+    - `BWName`
+    - `BWOpacity`
+* `projectInformation` config changes: `commentsEnabled` and `commentsEnabledUntil` have been replaced with `showComments`, `newCommentsEnabled`, and `newCommentsEnabledUtil`. See the updated docs for details.
+
+### 📖 Documentation Improvements
+
+* update config docs ([ef6c8d1](https://github.com/agrc/wfrc-rtp-projects/commit/ef6c8d162a9f87d5605dde9a8ae80b4dd706bc37))
+
+
+### 🚀 Features
+
+* add support for black and white imagery base map ([0543008](https://github.com/agrc/wfrc-rtp-projects/commit/05430089a2da24fab35c9b369e98e0fe406a4baf)), closes [#110](https://github.com/agrc/wfrc-rtp-projects/issues/110)
+* use separate configs for viewing existing and submitting new comments ([7e7b7ce](https://github.com/agrc/wfrc-rtp-projects/commit/7e7b7ce1fc2faa5325cbd4dd28a770fbde686a83)), closes [#124](https://github.com/agrc/wfrc-rtp-projects/issues/124)
+
+
+### 🐛 Bug Fixes
+
+* add mission output ([ce1aa4e](https://github.com/agrc/wfrc-rtp-projects/commit/ce1aa4e7cf0f2bbce82003f5b79c24041f5b88b1))
+* December dependency bumps 🌲 ([f0f93f5](https://github.com/agrc/wfrc-rtp-projects/commit/f0f93f5cc9eb2125874cd90520eb14d50023b2ea))
+* disable new comments ([50151d6](https://github.com/agrc/wfrc-rtp-projects/commit/50151d69339a491ec405fb03feb64522a3df290e))
+* fix release output name ([1d14c95](https://github.com/agrc/wfrc-rtp-projects/commit/1d14c9500a71c1dcacc0adf893cd665089669073))
+* November dependency bumps 🌲 ([4362500](https://github.com/agrc/wfrc-rtp-projects/commit/4362500ad58a0adf87d16e59ba397799d7cebda7))
+* October dependency bumps 🌲 ([25365f3](https://github.com/agrc/wfrc-rtp-projects/commit/25365f370b1d98d686f6b1aefe71abf80a4d5fb5))
+* once function parameter should be a function ([86f2d55](https://github.com/agrc/wfrc-rtp-projects/commit/86f2d55ad166d3c4d20a844d7aa544060666ee43))
+* only deploy to prod on main branch ([8266365](https://github.com/agrc/wfrc-rtp-projects/commit/8266365049624166c54bd2121d6e27b2d8749db8))
+
 ## [3.0.0-4](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.0-3...v3.0.0-4) (2022-12-16)
 
 
