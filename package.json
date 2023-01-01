@@ -67,7 +67,7 @@
     "bootstrap": "^5.2.3",
     "clsx": "^1.2.1",
     "downshift": "^7.0.4",
-    "i18next": "^22.4.5",
+    "i18next": "^22.4.6",
     "i18next-browser-languagedetector": "^7.0.1",
     "jsonschema": "^1.4.1",
     "ky": "^0.33.0",
