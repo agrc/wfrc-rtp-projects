@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [3.0.2](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.1...v3.0.2) (2023-04-04)
+
+
+### 🐛 Bug Fixes
+
+* remove reference to missing node version file ([a282961](https://github.com/agrc/wfrc-rtp-projects/commit/a2829611e764428c75b61a9a417f00773df380ec))
+
 ## [3.0.1](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.0...v3.0.1) (2023-04-04)
 
 
