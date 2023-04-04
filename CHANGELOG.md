@@ -2,6 +2,14 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [3.0.1](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.0...v3.0.1) (2023-04-04)
+
+
+### 🐛 Bug Fixes
+
+* January dependency bumps 🌲 ([9ae3cfe](https://github.com/agrc/wfrc-rtp-projects/commit/9ae3cfea0a9434afb8cdc6c84ee7d5bf5e8ff100))
+* Q2 Dep Bumps 🌲 ([42b2699](https://github.com/agrc/wfrc-rtp-projects/commit/42b26995643ea96c7c15a9becf24827503dd91d5))
+
 ## [3.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/v2.1.0...v3.0.0) (2022-12-16)
 
 
