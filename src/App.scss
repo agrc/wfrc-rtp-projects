@@ -4,7 +4,9 @@
 @import '../node_modules/@ugrc/layer-selector/src/LayerSelector.css';
 
 .title {
-  font-family: Montserrat, Arial, sans-serif;
+  h4 {
+    font-family: Montserrat, Arial, sans-serif;
+  }
   color: $highlightColor;
 }
 
