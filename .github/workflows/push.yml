@@ -60,7 +60,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: 'docs'
-          message: 'docs: update config docs'
+          message: 'docs: update config docs [skip ci]'
 
   deploy-firebase-dev:
     name: Deploy staging to firebase
