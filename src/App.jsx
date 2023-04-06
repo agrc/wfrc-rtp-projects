@@ -280,12 +280,17 @@ function App() {
         <div className="d-flex flex-fill flex-column">
           <div className="m-3 title d-flex flex-row justify-content-between align-items-center">
             <h4 className="my-0">{config.appTitle}</h4>
-            <FontAwesomeIcon
-              icon={faCircleQuestion}
-              onClick={() => setAboutIsOpen(!aboutIsOpen)}
-              role="button"
-              size="xl"
-            />
+            <div className="d-flex flex-row">
+              <a href={config.rtpInfoLink} target="_blank" rel="noopener noreferrer" className="me-2">
+                RTP Info
+              </a>
+              <FontAwesomeIcon
+                icon={faCircleQuestion}
+                onClick={() => setAboutIsOpen(!aboutIsOpen)}
+                role="button"
+                size="xl"
+              />
+            </div>
           </div>
           <div id="mapDiv" className="flex-fill position-relative border-top">
             <MapWidgetContainer openStates={[filterIsOpen, projectInfoIsOpen]}>

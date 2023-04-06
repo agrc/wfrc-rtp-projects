@@ -194,6 +194,7 @@
     "newCommentsEnabled": false,
     "newCommentsEnabledUntil": "2030-01-31T00:00:00.000Z"
   },
+  "rtpInfoLink": "https://wfrc.org/vision-plans/regional-transportation-plan/2023-2050-regional-transportation-plan",
   "sherlock": {
     "placeHolder": "trans:searchPlaceholder",
     "searchField": "NAME",
