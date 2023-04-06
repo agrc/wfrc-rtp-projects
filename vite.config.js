@@ -20,6 +20,9 @@ function watchConfigFiles() {
 export default defineConfig({
   plugins: [react(), watchConfigFiles()],
   base: './',
+  build: {
+    target: 'esnext',
+  },
   test: {
     environment: 'happy-dom',
     setupFiles: ['./tests/setup.js'],
