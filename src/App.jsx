@@ -1,19 +1,20 @@
+import Graphic from '@arcgis/core/Graphic';
+import Viewpoint from '@arcgis/core/Viewpoint';
+import WebMap from '@arcgis/core/WebMap';
 import * as reactiveUtils from '@arcgis/core/core/reactiveUtils';
 import { whenOnce } from '@arcgis/core/core/reactiveUtils';
-import Graphic from '@arcgis/core/Graphic';
 import WebTileLayer from '@arcgis/core/layers/WebTileLayer';
-import Viewpoint from '@arcgis/core/Viewpoint';
 import MapView from '@arcgis/core/views/MapView';
-import WebMap from '@arcgis/core/WebMap';
 import Home from '@arcgis/core/widgets/Home';
-import { faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import LayerSelector from '@ugrc/layer-selector';
 import debounce from 'lodash.debounce';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Button, Collapse } from 'reactstrap';
 import 'typeface-montserrat';
 import { NumberParam, StringParam, useQueryParams } from 'use-query-params';
-import './App.scss';
 import Filter from './components/Filter';
 import MapWidget from './components/MapWidget';
 import MapWidgetContainer from './components/MapWidgetContainer';
@@ -271,47 +272,66 @@ function App() {
   const [projectInfoIsOpen, setProjectInfoIsOpen] = useState(config.openOnLoad.projectInfo);
   const [resize, setResize] = useState(0);
 
+  const [aboutIsOpen, setAboutIsOpen] = useState(false);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="d-flex flex-column w-100 h-100">
-        <div className="m-3 title">
-          <h4 className="my-0">{config.appTitle}</h4>
+      <div className="w-100 h-100 d-flex flex-row">
+        <div className="d-flex flex-fill flex-column">
+          <div className="m-3 title d-flex flex-row justify-content-between align-items-center">
+            <h4 className="my-0">{config.appTitle}</h4>
+            <FontAwesomeIcon
+              icon={faCircleQuestion}
+              onClick={() => setAboutIsOpen(!aboutIsOpen)}
+              role="button"
+              size="xl"
+            />
+          </div>
+          <div id="mapDiv" className="flex-fill position-relative border-top">
+            <MapWidgetContainer openStates={[filterIsOpen, projectInfoIsOpen]}>
+              <MapWidget
+                defaultOpen={config.openOnLoad.filter}
+                isOpen={filterIsOpen}
+                name={t('trans:filter')}
+                icon={faFilter}
+                position={0}
+                mapView={mapView}
+                showReset={true}
+                onReset={() => filterDispatch({ type: 'reset' })}
+                toggle={() => setFilterIsOpen((current) => !current)}
+                resize={resize}
+                isAlone={filterIsOpen && !projectInfoIsOpen}
+              >
+                <Filter mapView={mapView} state={filterState} dispatch={filterDispatch} />
+              </MapWidget>
+              <MapWidgetResizeHandle onResize={setResize} show={filterIsOpen && projectInfoIsOpen} />
+              <MapWidget
+                defaultOpen={config.openOnLoad.projectInfo}
+                isOpen={projectInfoIsOpen}
+                name={t('trans:projectInformation')}
+                icon={faHandPointer}
+                position={1}
+                mapView={mapView}
+                toggle={() => setProjectInfoIsOpen((current) => !current)}
+                resize={resize}
+                isAlone={!filterIsOpen && projectInfoIsOpen}
+              >
+                <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
+              </MapWidget>
+            </MapWidgetContainer>
+            <Sherlock {...sherlockConfig}></Sherlock>
+            {layerSelectorOptions && <LayerSelector {...layerSelectorOptions} />}
+          </div>
         </div>
-        <div id="mapDiv" className="flex-fill border-top border position-relative">
-          <MapWidgetContainer openStates={[filterIsOpen, projectInfoIsOpen]}>
-            <MapWidget
-              defaultOpen={config.openOnLoad.filter}
-              isOpen={filterIsOpen}
-              name={t('trans:filter')}
-              icon={faFilter}
-              position={0}
-              mapView={mapView}
-              showReset={true}
-              onReset={() => filterDispatch({ type: 'reset' })}
-              toggle={() => setFilterIsOpen((current) => !current)}
-              resize={resize}
-              isAlone={filterIsOpen && !projectInfoIsOpen}
-            >
-              <Filter mapView={mapView} state={filterState} dispatch={filterDispatch} />
-            </MapWidget>
-            <MapWidgetResizeHandle onResize={setResize} show={filterIsOpen && projectInfoIsOpen} />
-            <MapWidget
-              defaultOpen={config.openOnLoad.projectInfo}
-              isOpen={projectInfoIsOpen}
-              name={t('trans:projectInformation')}
-              icon={faHandPointer}
-              position={1}
-              mapView={mapView}
-              toggle={() => setProjectInfoIsOpen((current) => !current)}
-              resize={resize}
-              isAlone={!filterIsOpen && projectInfoIsOpen}
-            >
-              <ProjectInformation graphics={selectedGraphics} highlightGraphic={highlightGraphic} />
-            </MapWidget>
-          </MapWidgetContainer>
-          <Sherlock {...sherlockConfig}></Sherlock>
-          {layerSelectorOptions && <LayerSelector {...layerSelectorOptions} />}
-        </div>
+        <Collapse horizontal isOpen={aboutIsOpen}>
+          <div className="h-100 about-content border-start p-3">
+            <div className="mb-1 w-100 d-flex flex-row justify-content-between align-items-center">
+              <h5 className="m-0">{config.aboutTitle}</h5>
+              <Button close onClick={() => setAboutIsOpen(false)} />
+            </div>
+            <div dangerouslySetInnerHTML={{ __html: config.aboutContent }}></div>
+          </div>
+        </Collapse>
       </div>
       {config.splashScreen.enabled ? <SplashScreen /> : null}
     </QueryClientProvider>

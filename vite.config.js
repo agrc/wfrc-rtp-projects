@@ -7,7 +7,7 @@ function watchConfigFiles() {
     name: 'watch-config-files',
     enforce: 'post',
     handleHotUpdate({ file, server }) {
-      if (file.endsWith('.json')) {
+      if (file.endsWith('.json') || file.endsWith('about.html')) {
         server.ws.send({
           type: 'full-reload',
           path: '*',

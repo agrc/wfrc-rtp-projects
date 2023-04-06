@@ -1,6 +1,9 @@
 @import '@arcgis/core/assets/esri/themes/light/main.css';
+@import 'App.scss';
 
-html, body, #root {
+html,
+body,
+#root {
   padding: 0;
   margin: 0;
   height: 100%;

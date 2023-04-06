@@ -1,10 +1,9 @@
 import appConfig from '../public/config.json';
 import configSchema from '../public/config.schema.json';
-import '../src/App.scss';
-import '../src/index.css';
+import '../src/index.scss';
 import { setConfigs } from '../src/services/config';
 
-setConfigs(appConfig, configSchema);
+setConfigs(appConfig, null, configSchema);
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
