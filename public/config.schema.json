@@ -48,6 +48,7 @@
     }
   },
   "required": [
+    "aboutTitle",
     "appTitle",
     "defaultExtent",
     "filter",
@@ -62,6 +63,11 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "aboutTitle": {
+      "title": "About Title",
+      "description": "The title of the about dialog",
+      "type": "string"
+    },
     "appTitle": {
       "title": "Application Title",
       "description": "The title of the application",

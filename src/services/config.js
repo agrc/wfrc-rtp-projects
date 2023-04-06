@@ -10,7 +10,7 @@ const config = {
 
 // optional configSchema is for vitest and storybook since they are clumsy when it comes to
 // async setup
-export const setConfigs = async (appConfigs, configSchema = null) => {
+export const setConfigs = async (appConfigs, aboutContent, configSchema = null) => {
   // we are fetching this rather than importing it so that it can be hosted publicly and available
   // for WFRC to reference it in their config files
   if (!configSchema) {
@@ -27,6 +27,8 @@ export const setConfigs = async (appConfigs, configSchema = null) => {
   } catch (error) {
     console.error('There is an error in config.json!', error.stack);
   }
+
+  appConfigs.aboutContent = aboutContent;
 
   i18n
     .use(initReactI18next)
