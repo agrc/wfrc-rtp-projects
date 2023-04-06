@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [4.0.0-2](https://github.com/agrc/wfrc-rtp-projects/compare/v4.0.0-0...v4.0.0-2) (2023-04-06)
+
+
+### 🐛 Bug Fixes
+
+* make docs commit as bot ([a07c339](https://github.com/agrc/wfrc-rtp-projects/commit/a07c33930a57404e81b42f3bd725e378a64edc24))
+
 ## [4.0.0-0](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.2...v4.0.0-0) (2023-04-06)
 
 
