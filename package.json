@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "vite",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 9009",
     "test": "vitest",
     "update-config-docs": "del ./docs/** && jsonschema2md -d public -o docs -h false -x - -n",
     "zip": "bestzip build.zip dist/*"
