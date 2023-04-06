@@ -46,6 +46,10 @@ export function getQuery(state, geometryType, projectConfig) {
       modeQuery += ` AND lower(${projectConfig.filter.limitFacilityType.field}) LIKE '%${state.limitFacilityType[key].type}%'`;
     }
 
+    if (state.limitROW[key]?.selected) {
+      modeQuery += ` AND lower(${projectConfig.filter.limitROW.field}) = lower('${state.limitROW[key].type}')`;
+    }
+
     if (projectTypeOrQueries.length === 0) {
       // nothing is selected, turn off this mode
       modeQuery = modeQuery.replace('=', '!=');
@@ -147,6 +151,13 @@ export function reducer(draft, action) {
 
       break;
 
+    case 'limitROW':
+      draft.limitROW[action.meta] = action.payload;
+
+      updateLayerDefinitions();
+
+      break;
+
     case 'reset':
       return initialState;
 
@@ -179,7 +190,10 @@ export const initialState = {
     min: null,
     max: null,
   },
-  limitFacilityType: {
+};
+
+if (config.filter.limitFacilityType) {
+  initialState.limitFacilityType = {
     road: {
       selected: false,
       type: config.filter.limitFacilityType.values[0],
@@ -188,8 +202,21 @@ export const initialState = {
       selected: false,
       type: config.filter.limitFacilityType.values[0],
     },
-  },
-};
+  };
+}
+
+if (config.filter.limitROW) {
+  initialState.limitROW = {
+    road: {
+      selected: false,
+      type: config.filter.limitROW.values[0],
+    },
+    activeTransportation: {
+      selected: false,
+      type: config.filter.limitROW.values[0],
+    },
+  };
+}
 
 // I'm passing in each filter prop as a separate param to try
 // and cut down on the length of the URL

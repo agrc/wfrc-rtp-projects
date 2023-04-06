@@ -6,7 +6,7 @@ import { Button, Col, Collapse, Container, FormFeedback, Input, Label, Row } fro
 import config from '../services/config';
 import Checkbox from './Checkbox';
 import InfoPopup from './InfoPopup';
-import LimitFacilityType from './LimitFacilityType';
+import LimitType from './LimitType';
 import ProjectTypeHeader from './ProjectTypeHeader';
 import UsePhasing from './UsePhasing';
 
@@ -73,16 +73,31 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.road)}
                 />
               ))}
-              <LimitFacilityType
-                color={labelColors?.road}
-                labels={config.filter.limitFacilityType.labels}
-                onChange={(selected, type) =>
-                  dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'road' })
-                }
-                selected={state.limitFacilityType.road.selected}
-                type={state.limitFacilityType.road.type}
-                values={config.filter.limitFacilityType.values}
-              />
+              {config.filter.limitFacilityType ? (
+                <LimitType
+                  color={labelColors?.road}
+                  labels={config.filter.limitFacilityType.labels}
+                  onChange={(selected, type) =>
+                    dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'road' })
+                  }
+                  postFix="Facilities"
+                  selected={state.limitFacilityType.road.selected}
+                  type={state.limitFacilityType.road.type}
+                  values={config.filter.limitFacilityType.values}
+                />
+              ) : null}
+              {config.filter.limitROW ? (
+                <LimitType
+                  color={labelColors?.road}
+                  labels={config.filter.limitROW.labels}
+                  onChange={(selected, type) =>
+                    dispatch({ type: 'limitROW', payload: { selected, type }, meta: 'road' })
+                  }
+                  selected={state.limitROW.road.selected}
+                  type={state.limitROW.road.type}
+                  values={config.filter.limitROW.values}
+                />
+              ) : null}
             </Col>
             <Col>
               <ProjectTypeHeader
@@ -146,16 +161,31 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
                   />
                 ))}
-              <LimitFacilityType
-                color={labelColors?.activeTransportation}
-                labels={config.filter.limitFacilityType.labels}
-                onChange={(selected, type) =>
-                  dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'activeTransportation' })
-                }
-                selected={state.limitFacilityType.activeTransportation.selected}
-                type={state.limitFacilityType.activeTransportation.type}
-                values={config.filter.limitFacilityType.values}
-              />
+              {config.filter.limitFacilityType ? (
+                <LimitType
+                  color={labelColors?.activeTransportation}
+                  labels={config.filter.limitFacilityType.labels}
+                  onChange={(selected, type) =>
+                    dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'activeTransportation' })
+                  }
+                  postFix="Facilities"
+                  selected={state.limitFacilityType.activeTransportation.selected}
+                  type={state.limitFacilityType.activeTransportation.type}
+                  values={config.filter.limitFacilityType.values}
+                />
+              ) : null}
+              {config.filter.limitROW ? (
+                <LimitType
+                  color={labelColors?.activeTransportation}
+                  labels={config.filter.limitROW.labels}
+                  onChange={(selected, type) =>
+                    dispatch({ type: 'limitROW', payload: { selected, type }, meta: 'activeTransportation' })
+                  }
+                  selected={state.limitROW.activeTransportation.selected}
+                  type={state.limitROW.activeTransportation.type}
+                  values={config.filter.limitROW.values}
+                />
+              ) : null}
             </Col>
           </Row>
           {showPhaseFilter ? (

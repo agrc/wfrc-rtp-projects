@@ -1,21 +1,22 @@
 import config from '../services/config';
-import LimitFacilityType from './LimitFacilityType';
+import LimitType from './LimitType';
 
 export default {
-  component: LimitFacilityType,
+  component: LimitType,
 };
 
 export const Default = () => (
   <>
-    <LimitFacilityType
+    <LimitType
       color={'red'}
       labels={config.filter.limitFacilityType.labels}
       onChange={() => {}}
+      postFix="Facilities"
       selected={true}
       type="local"
       values={config.filter.limitFacilityType.values}
     />
-    <LimitFacilityType
+    <LimitType
       color={'blue'}
       labels={config.filter.limitFacilityType.labels}
       onChange={() => {}}

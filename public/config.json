@@ -45,6 +45,11 @@
       "labels": ["UDOT", "Local"],
       "values": ["state", "local"]
     },
+    "limitROW": {
+      "field": "COR_PRES",
+      "labels": ["ROW Needed", "No ROW Needed"],
+      "values": ["Yes", "No"]
+    },
     "projectTypes": {
       "road": {
         "New Construction": {
