@@ -89,16 +89,7 @@
       "title": "Filter Widget Configuration",
       "description": "Configuration options for the filter widget",
       "type": "object",
-      "required": [
-        "disableAdvanced",
-        "fieldNames",
-        "infoText",
-        "labels",
-        "layerNames",
-        "limitFacilityType",
-        "projectTypes",
-        "symbolValues"
-      ],
+      "required": ["disableAdvanced", "fieldNames", "infoText", "labels", "layerNames", "projectTypes", "symbolValues"],
       "additionalProperties": false,
       "properties": {
         "disableAdvanced": {
@@ -244,7 +235,34 @@
         },
         "limitFacilityType": {
           "title": "Limit to ... Facilities config",
-          "description": "Configuration options for LimitFacilityType widget",
+          "description": "Configuration for the Limit to ... Facilities filter. If this property is missing, then the associated control will be hidden",
+          "type": "object",
+          "required": ["field", "labels", "values"],
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "title": "Field",
+              "type": "string"
+            },
+            "labels": {
+              "title": "Label",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "values": {
+              "title": "Values",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "limitROW": {
+          "title": "Limit to [no] ROW Needed config",
+          "description": "Configuration for the Limit to [no] ROW Needed filter. If this property is missing, then the associated control will be hidden",
           "type": "object",
           "required": ["field", "labels", "values"],
           "additionalProperties": false,

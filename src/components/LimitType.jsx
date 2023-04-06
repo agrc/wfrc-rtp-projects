@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useUID } from 'react-uid';
 import { Button, FormGroup, Input, Label } from 'reactstrap';
 
-export default function LimitFacilityType({ labels, values, selected, type, color, onChange }) {
+export default function LimitType({ labels, values, selected, type, color, onChange, postFix }) {
   const uid = useUID();
 
   return (
@@ -21,18 +21,19 @@ export default function LimitFacilityType({ labels, values, selected, type, colo
           >
             {labels[values.indexOf(type)]}
           </Button>{' '}
-          Facilities
+          {postFix}
         </Label>
       </FormGroup>
     </>
   );
 }
 
-LimitFacilityType.propTypes = {
+LimitType.propTypes = {
+  color: PropTypes.string,
   labels: PropTypes.arrayOf(PropTypes.string).isRequired,
-  values: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onChange: PropTypes.func.isRequired,
+  postFix: PropTypes.string,
   selected: PropTypes.bool.isRequired,
   type: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  values: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
