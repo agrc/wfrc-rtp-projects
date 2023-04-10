@@ -79,5 +79,5 @@ jobs:
           author_name: ${{ secrets.UGRC_RELEASE_BOT_NAME }}
           author_email: ${{ secrets.UGRC_RELEASE_BOT_EMAIL }}
           add: 'docs'
-          message: 'docs: update config docs'
+          message: 'docs: update config docs\n[skip ci]'
           new_branch: ${{ github.head_ref }}
