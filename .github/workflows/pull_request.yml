@@ -53,3 +53,29 @@ jobs:
           preview: yes
           build-command: npm run build:stage
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+  rebuild-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: 📥 Download dependencies
+        run: npm ci
+
+      - name: 📚 Update Config Docs
+        run: npm run update-config-docs
+
+      - name: 🚀 Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: ${{ secrets.UGRC_RELEASE_BOT_NAME }}
+          author_email: ${{ secrets.UGRC_RELEASE_BOT_EMAIL }}
+          add: 'docs'
+          message: 'docs: update config docs'
