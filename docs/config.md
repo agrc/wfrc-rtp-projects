@@ -6,6 +6,7 @@
 
 | Property                                  | Type     | Required | Nullable       | Defined by                                                                                                                                                                    |
 | :---------------------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [aboutTitle](#abouttitle)                 | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-about-title.md "https://wfrc.org/??/config.schema.json#/properties/aboutTitle")                               |
 | [appTitle](#apptitle)                     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-application-title.md "https://wfrc.org/??/config.schema.json#/properties/appTitle")                           |
 | [defaultExtent](#defaultextent)           | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-default-map-extent.md "https://wfrc.org/??/config.schema.json#/properties/defaultExtent")                     |
 | [filter](#filter)                         | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration.md "https://wfrc.org/??/config.schema.json#/properties/filter")                   |
@@ -13,10 +14,29 @@
 | [openOnLoad](#openonload)                 | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-open-on-load.md "https://wfrc.org/??/config.schema.json#/properties/openOnLoad")                              |
 | [outFields](#outfields)                   | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-out-fields.md "https://wfrc.org/??/config.schema.json#/properties/outFields")                                 |
 | [projectInformation](#projectinformation) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation") |
+| [rtpInfoLink](#rtpinfolink)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-rtp-info-link.md "https://wfrc.org/??/config.schema.json#/properties/rtpInfoLink")                            |
 | [sherlock](#sherlock)                     | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-sherlock-widget-config.md "https://wfrc.org/??/config.schema.json#/properties/sherlock")                      |
 | [splashScreen](#splashscreen)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config.md "https://wfrc.org/??/config.schema.json#/properties/splashScreen")                    |
 | [translations](#translations)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-translations.md "https://wfrc.org/??/config.schema.json#/properties/translations")                            |
 | [webMapId](#webmapid)                     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-web-map-id.md "https://wfrc.org/??/config.schema.json#/properties/webMapId")                                  |
+
+## aboutTitle
+
+The title of the about dialog
+
+`aboutTitle`
+
+*   is required
+
+*   Type: `string` ([About Title](config-properties-about-title.md))
+
+*   cannot be null
+
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-about-title.md "https://wfrc.org/??/config.schema.json#/properties/aboutTitle")
+
+### aboutTitle Type
+
+`string` ([About Title](config-properties-about-title.md))
 
 ## appTitle
 
@@ -143,6 +163,24 @@ Configuration options for the project information widget
 ### projectInformation Type
 
 `object` ([Project Information Widget Config](config-properties-project-information-widget-config.md))
+
+## rtpInfoLink
+
+The URL to the RTP Info page
+
+`rtpInfoLink`
+
+*   is required
+
+*   Type: `string` ([RTP Info Link](config-properties-rtp-info-link.md))
+
+*   cannot be null
+
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-rtp-info-link.md "https://wfrc.org/??/config.schema.json#/properties/rtpInfoLink")
+
+### rtpInfoLink Type
+
+`string` ([RTP Info Link](config-properties-rtp-info-link.md))
 
 ## sherlock
 
