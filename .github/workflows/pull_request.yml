@@ -80,3 +80,4 @@ jobs:
           git config --global user.name "${{ secrets.UGRC_RELEASE_BOT_NAME }}"
           git add docs
           git commit -m "docs: update config docs"
+          git push
