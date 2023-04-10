@@ -19,34 +19,32 @@ async function fetchConfig(resource, type) {
   return type === 'json' ? response.json() : response.text();
 }
 
-let appConfig;
-let aboutContent;
-try {
-  [appConfig, aboutContent] = await Promise.all([
-    fetchConfig('config.json', 'json'),
-    fetchConfig('about.html', 'text'),
-  ]);
-} catch (error) {
-  ReactDOM.createRoot(document.getElementById('root')).render(
-    <ErrorFallback error={error} resetErrorBoundary={() => document.location.reload()} />
-  );
-}
+Promise.all([fetchConfig('config.json', 'json'), fetchConfig('about.html', 'text')]).then(
+  async ([appConfig, aboutContent]) => {
+    console.log('setting configs');
+    await setConfigs(appConfig, aboutContent);
+    console.log('importing app');
+    const ImportedApp = await import('./App.jsx');
+    const App = ImportedApp.default;
 
-await setConfigs(appConfig, aboutContent);
-
-const { default: App } = await import('./App');
-
-console.log('rendering app');
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => document.location.reload()}>
-      <BrowserRouter>
-        <QueryParamProvider adapter={ReactRouter6Adapter} options={{ updateType: 'replaceIn' }}>
-          <Routes>
-            <Route path="*" element={<App />} />
-          </Routes>
-        </QueryParamProvider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  </React.StrictMode>
+    console.log('rendering app');
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <React.StrictMode>
+        <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => document.location.reload()}>
+          <BrowserRouter>
+            <QueryParamProvider adapter={ReactRouter6Adapter} options={{ updateType: 'replaceIn' }}>
+              <Routes>
+                <Route path="*" element={<App />} />
+              </Routes>
+            </QueryParamProvider>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </React.StrictMode>
+    );
+  },
+  (error) => {
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <ErrorFallback error={error} resetErrorBoundary={() => document.location.reload()} />
+    );
+  }
 );
