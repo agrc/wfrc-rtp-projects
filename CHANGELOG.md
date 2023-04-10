@@ -2,6 +2,16 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [4.0.0-3](https://github.com/agrc/wfrc-rtp-projects/compare/v4.0.0-2...v4.0.0-3) (2023-04-10)
+
+
+### 🐛 Bug Fixes
+
+* checkout PR before docs commit ([8c577a4](https://github.com/agrc/wfrc-rtp-projects/commit/8c577a45dabf0697dcdea460471549d2a69f40ef))
+* move rebuilding of docs to PRs ([4d9b27c](https://github.com/agrc/wfrc-rtp-projects/commit/4d9b27c659202872e7336b8af127527778951b7b))
+* push docs commit ([c5fcd43](https://github.com/agrc/wfrc-rtp-projects/commit/c5fcd430ee280cee613c5adceadeed05e6a21949))
+* push docs to current source branch of PR ([6524e2d](https://github.com/agrc/wfrc-rtp-projects/commit/6524e2d1f046af22fb0a00c0b85cf5aa40913626))
+
 ## [4.0.0-2](https://github.com/agrc/wfrc-rtp-projects/compare/v4.0.0-0...v4.0.0-2) (2023-04-06)
 
 
