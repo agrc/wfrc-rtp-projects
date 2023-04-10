@@ -11,7 +11,8 @@
 | [infoText](#infotext)                   | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText")                   |
 | [labels](#labels)                       | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/labels")                |
 | [layerNames](#layernames)               | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames")                        |
-| [limitFacilityType](#limitfacilitytype) | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-limit-to--facilities-config.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/limitFacilityType") |
+| [limitFacilityType](#limitfacilitytype) | `object`  | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-limit-to--facilities-config.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/limitFacilityType") |
+| [limitROW](#limitrow)                   | `object`  | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-limit-to-no-row-needed-config.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/limitROW")        |
 | [projectTypes](#projecttypes)           | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/projectTypes")                    |
 | [symbolValues](#symbolvalues)           | `object`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/symbolValues")                    |
 
@@ -107,11 +108,11 @@ The layer names in the web map
 
 ## limitFacilityType
 
-Configuration options for LimitFacilityType widget
+Configuration for the Limit to ... Facilities filter. If this property is missing, then the associated control will be hidden
 
 `limitFacilityType`
 
-*   is required
+*   is optional
 
 *   Type: `object` ([Limit to ... Facilities config](config-properties-filter-widget-configuration-properties-limit-to--facilities-config.md))
 
@@ -122,6 +123,24 @@ Configuration options for LimitFacilityType widget
 ### limitFacilityType Type
 
 `object` ([Limit to ... Facilities config](config-properties-filter-widget-configuration-properties-limit-to--facilities-config.md))
+
+## limitROW
+
+Configuration for the Limit to \[no] ROW Needed filter. If this property is missing, then the associated control will be hidden
+
+`limitROW`
+
+*   is optional
+
+*   Type: `object` ([Limit to \[no\] ROW Needed config](config-properties-filter-widget-configuration-properties-limit-to-no-row-needed-config.md))
+
+*   cannot be null
+
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-limit-to-no-row-needed-config.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/limitROW")
+
+### limitROW Type
+
+`object` ([Limit to \[no\] ROW Needed config](config-properties-filter-widget-configuration-properties-limit-to-no-row-needed-config.md))
 
 ## projectTypes
 
