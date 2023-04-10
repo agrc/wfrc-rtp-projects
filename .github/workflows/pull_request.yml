@@ -55,6 +55,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
   rebuild-docs:
+    name: Rebuild config docs
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout Code
@@ -79,3 +80,4 @@ jobs:
           author_email: ${{ secrets.UGRC_RELEASE_BOT_EMAIL }}
           add: 'docs'
           message: 'docs: update config docs'
+          new_branch: ${{ github.head_ref }}
