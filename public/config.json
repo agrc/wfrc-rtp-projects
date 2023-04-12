@@ -44,12 +44,14 @@
     "limitFacilityType": {
       "field": "breakout",
       "labels": ["UDOT", "Local"],
-      "values": ["state", "local"]
+      "values": ["state", "local"],
+      "modes": ["road", "activeTransportation"]
     },
     "limitROW": {
       "field": "COR_PRES",
       "labels": ["ROW Needed", "No ROW Needed"],
-      "values": ["Yes", "No"]
+      "values": ["Yes", "No"],
+      "modes": ["road", "activeTransportation"]
     },
     "projectTypes": {
       "road": {

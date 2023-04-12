@@ -73,7 +73,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.road)}
                 />
               ))}
-              {config.filter.limitFacilityType ? (
+              {config.filter.limitFacilityType?.modes?.includes('road') ? (
                 <LimitType
                   color={labelColors?.road}
                   labels={config.filter.limitFacilityType.labels}
@@ -86,7 +86,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   values={config.filter.limitFacilityType.values}
                 />
               ) : null}
-              {config.filter.limitROW ? (
+              {config.filter.limitROW?.modes.includes('road') ? (
                 <LimitType
                   color={labelColors?.road}
                   labels={config.filter.limitROW.labels}
@@ -118,6 +118,31 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.transit)}
                 />
               ))}
+              {config.filter.limitFacilityType?.modes?.includes('transit') ? (
+                <LimitType
+                  color={labelColors?.road}
+                  labels={config.filter.limitFacilityType.labels}
+                  onChange={(selected, type) =>
+                    dispatch({ type: 'limitFacilityType', payload: { selected, type }, meta: 'transit' })
+                  }
+                  postFix="Facilities"
+                  selected={state.limitFacilityType.road.selected}
+                  type={state.limitFacilityType.road.type}
+                  values={config.filter.limitFacilityType.values}
+                />
+              ) : null}
+              {config.filter.limitROW?.modes.includes('transit') ? (
+                <LimitType
+                  color={labelColors?.road}
+                  labels={config.filter.limitROW.labels}
+                  onChange={(selected, type) =>
+                    dispatch({ type: 'limitROW', payload: { selected, type }, meta: 'transit' })
+                  }
+                  selected={state.limitROW.road.selected}
+                  type={state.limitROW.road.type}
+                  values={config.filter.limitROW.values}
+                />
+              ) : null}
             </Col>
           </Row>
           <Row>
@@ -161,7 +186,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
                   />
                 ))}
-              {config.filter.limitFacilityType ? (
+              {config.filter.limitFacilityType?.modes?.includes('activeTransportation') ? (
                 <LimitType
                   color={labelColors?.activeTransportation}
                   labels={config.filter.limitFacilityType.labels}
@@ -174,7 +199,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   values={config.filter.limitFacilityType.values}
                 />
               ) : null}
-              {config.filter.limitROW ? (
+              {config.filter.limitROW?.modes?.includes('activeTransportation') ? (
                 <LimitType
                   color={labelColors?.activeTransportation}
                   labels={config.filter.limitROW.labels}
