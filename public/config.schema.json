@@ -45,6 +45,40 @@
       },
       "title": "Translation",
       "type": "object"
+    },
+    "limitControl": {
+      "type": "object",
+      "required": ["field", "labels", "values", "modes"],
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "title": "Field",
+          "type": "string"
+        },
+        "labels": {
+          "title": "Label",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "title": "Values",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "modes": {
+          "title": "Modes",
+          "description": "The modes that this control should be enabled for",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["road", "transit", "activeTransportation"]
+          }
+        }
+      }
     }
   },
   "required": [
@@ -243,56 +277,12 @@
         "limitFacilityType": {
           "title": "Limit to ... Facilities config",
           "description": "Configuration for the Limit to ... Facilities filter. If this property is missing, then the associated control will be hidden",
-          "type": "object",
-          "required": ["field", "labels", "values"],
-          "additionalProperties": false,
-          "properties": {
-            "field": {
-              "title": "Field",
-              "type": "string"
-            },
-            "labels": {
-              "title": "Label",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "values": {
-              "title": "Values",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
+          "$ref": "#/definitions/limitControl"
         },
         "limitROW": {
           "title": "Limit to [no] ROW Needed config",
           "description": "Configuration for the Limit to [no] ROW Needed filter. If this property is missing, then the associated control will be hidden",
-          "type": "object",
-          "required": ["field", "labels", "values"],
-          "additionalProperties": false,
-          "properties": {
-            "field": {
-              "title": "Field",
-              "type": "string"
-            },
-            "labels": {
-              "title": "Label",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "values": {
-              "title": "Values",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
+          "$ref": "#/definitions/limitControl"
         },
         "projectTypes": {
           "title": "Project Types",
