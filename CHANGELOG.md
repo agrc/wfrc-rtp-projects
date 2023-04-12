@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [4.1.0-0](https://github.com/agrc/wfrc-rtp-projects/compare/v4.0.0-1...v4.1.0-0) (2023-04-12)
+
+
+### 🚀 Features
+
+* add modes config to limit controls ([4b4b928](https://github.com/agrc/wfrc-rtp-projects/commit/4b4b928e13852263fa103b42a0d7af2f82359249)), closes [#168](https://github.com/agrc/wfrc-rtp-projects/issues/168)
+
 ## [4.0.0-1](https://github.com/agrc/wfrc-rtp-projects/compare/v4.0.0-0...v4.0.0-1) (2023-04-10)
 
 
