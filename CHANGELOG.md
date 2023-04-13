@@ -2,6 +2,34 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.2...v5.0.0) (2023-04-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* added `rtpInfoLink` required config prop
+* Added `aboutTitle` required config
+
+### 🐛 Bug Fixes
+
+* bump deps 🌲 ([c389c14](https://github.com/agrc/wfrc-rtp-projects/commit/c389c144d33be21bf618b8b8c98212963484b691))
+* fix rebuild-docs action ([8ed87da](https://github.com/agrc/wfrc-rtp-projects/commit/8ed87da54134b3394b7c090f7fc0c64331872139))
+* go back to no top-level async/await ([9f0c864](https://github.com/agrc/wfrc-rtp-projects/commit/9f0c8644769ae3d03f5d7cf95b9d423a310ca4bd))
+
+
+### 🚀 Features
+
+* add "Limit to [no] ROW needed" filter control ([c6d2eb1](https://github.com/agrc/wfrc-rtp-projects/commit/c6d2eb1daedf10f6ae8ca7d547fe49b381610a83)), closes [#152](https://github.com/agrc/wfrc-rtp-projects/issues/152)
+* add about sidebar collapsible panel ([57cb3fa](https://github.com/agrc/wfrc-rtp-projects/commit/57cb3fa9b94c468621abd2db5b9709e2b9597aec)), closes [#151](https://github.com/agrc/wfrc-rtp-projects/issues/151)
+* add configurable "RTP Info" link to header ([670b98b](https://github.com/agrc/wfrc-rtp-projects/commit/670b98bd6a293e55dc0944408ac95858bae4c316)), closes [#150](https://github.com/agrc/wfrc-rtp-projects/issues/150)
+* add modes config to limit controls ([044fc88](https://github.com/agrc/wfrc-rtp-projects/commit/044fc883f88aba95733d75850f2d04262d8cd1f5)), closes [#168](https://github.com/agrc/wfrc-rtp-projects/issues/168)
+
+
+### 📖 Documentation Improvements
+
+* update config docs ([f6e7022](https://github.com/agrc/wfrc-rtp-projects/commit/f6e70221bfaed3a949a6ac35c3a0e80b4003527a))
+* update config docs ([9b016f8](https://github.com/agrc/wfrc-rtp-projects/commit/9b016f83e32cf67ebc5aa6c8fec83c8f6c38ed41))
+
 ## [4.1.0-0](https://github.com/agrc/wfrc-rtp-projects/compare/v4.0.0-1...v4.1.0-0) (2023-04-12)
 
 
