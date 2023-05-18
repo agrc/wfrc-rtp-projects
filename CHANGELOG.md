@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.0.1](https://github.com/agrc/wfrc-rtp-projects/compare/v5.0.0...v5.0.1) (2023-05-18)
+
+
+### 🐛 Bug Fixes
+
+* enable arcade expressions in project information component ([baa7ccb](https://github.com/agrc/wfrc-rtp-projects/commit/baa7ccbe39cba95607f8d81906ed20e89a5d8b4b))
+
 ## [5.0.0](https://github.com/agrc/wfrc-rtp-projects/compare/v3.0.2...v5.0.0) (2023-04-13)
 
 
