@@ -22,11 +22,11 @@ export default function Details({ graphic, highlightGraphic, onlyOne, urlState, 
     const buildContent = async () => {
       feature = new Feature({
         container: document.createElement('div'),
-        graphic,
-        visibleElements: {
-          title: false,
-        },
         defaultPopupTemplateEnabled: true,
+        graphic,
+        map: graphic.layer.parent,
+        spatialReference: graphic.layer.spatialReference,
+        visibleElements: { title: false },
       });
 
       await once(() => feature.title);
