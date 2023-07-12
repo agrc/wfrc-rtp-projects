@@ -1,6 +1,6 @@
 {
-  "appTitle": "RTP Projects",
-  "aboutTitle": "About this map",
+  "aboutTitle": "About the 2023-2050 RTP Projects Map",
+  "appTitle": "WFRC RTP Projects Map (2023-2050)",
   "defaultExtent": {
     "x": -12453807,
     "y": 5014773,
@@ -16,11 +16,11 @@
     },
     "infoText": {
       "cost": "<p>Projects displayed on the map can be filtered by the estimated project cost.</p><p>The filter uses project costs adjusted to 2023 dollars, using economic assumptions adopted as part of the RTP development process.</p><p>Project estimates in future dollars, and additional project information, can be viewed by clicking on individual projects displayed on the map.</p>",
-      "phaseYears": "<p>In the RTP development process, projects are initially assigned to a project phase period, that are typically 8-10 years in length.</p><p>In this map, phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Or, phasing can be displayed according to <i>fiscally-constrained phasing”</i>, wherein needed projects have been prioritized according to the overall projected amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p>",
-      "projectType": "Projects displayed on the map be filtered by any combination of project types. Project type filtering options are presented in transportation mode groups.",
+      "phaseYears": "<p>Projects are assigned to a phase period that is typically 8-10 years in length.</p><p>Phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Phasing can also be displayed according to <i>“fiscally-constrained phasing”</i>, wherein needed projects have been prioritized according to the overall projected amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p><p><i>Limit to Needs < FC</i> shows projects that are fiscally constrained in a later phase than they are needed.</p><p><i>Limit to Needs = FC</i> shows projects that are fiscally constrained in the same phase as they are needed.</p>",
+      "projectType": "Projects displayed on the map can be filtered by any combination of project types. Project type filtering options are presented in transportation mode groups.",
       "simpleMode": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
-      "simplePhase": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p>In the RTP development process, projects are initially assigned to a project phase period, that are typically 8-10 years in length.</p><p>In this map, phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Or, phasing can be displayed according to <i>fiscally-constrained phasing”</i>, wherein needed projects are prioritized according to the overall amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
-      "usePhasing": "Instructions will go here when I write them in."
+      "simplePhase": "<p>Projects in the Regional Transportation Plan (RTP) can be displayed and filtered on this map by either <i>transportation mode</i> or by the <i>phasing period</i> in which the projects are planned for completion.</p><p><i>For more information, contact the WFRC Long Range Planning team at longrange@wfrc.org.</i></p>",
+      "usePhasing": "<p>Projects are assigned to a phase period that is typically 8-10 years in length.</p><p>Phasing can be displayed as <i>“needs-based phasing”</i> - the periods in which projects are needed to support the overall transportation system.</p><p>Phasing can also be displayed according to <i>“fiscally-constrained phasing”</i>, wherein needed projects have been prioritized according to the overall projected amount of transportation funding available and the project's comparative performance. <i>A portion of projected future funding is anticipated, but not yet in place.</i></p><p><i>Limit to Needs < FC</i> shows projects that are fiscally constrained in a later phase than they are needed.</p><p><i>Limit to Needs = FC</i> shows projects that are fiscally constrained in the same phase as they are needed.</p>"
     },
     "labels": {
       "mode": {
@@ -51,7 +51,7 @@
       "field": "COR_PRES",
       "labels": ["ROW Needed", "No ROW Needed"],
       "values": ["Yes", "No"],
-      "modes": ["road", "activeTransportation"]
+      "modes": ["road"]
     },
     "projectTypes": {
       "road": {
@@ -97,7 +97,11 @@
           "points": null,
           "lines": "improvement_type = 'Bus Rapid Transit'"
         },
-        "Bus, Core Route": {
+        "Gondola (this reflects the current status of the federally-mandated EIS process; if that process ultimately results in a modified approach, the RTP will be changed to reflect that modified approach)": {
+          "points": null,
+          "lines": "improvement_type = 'Gondola'"
+        },
+        "Core Routes": {
           "points": null,
           "lines": "improvement_type = 'Core Route'"
         },
@@ -118,18 +122,18 @@
           "lines": null
         },
         "Maintenance Facility": {
-          "points": "improvement_type = 'Maintenance Facility'",
+          "points": "improvement_type = 'Maintenance Facility' OR improvement_type = 'Education Center'",
           "lines": null
         }
       },
       "activeTransportation": {
         "Multiuse Pathway": {
           "points": null,
-          "lines": "bike_type_text = 'Parallel Bikeway Paved' OR bike_type_text = 'Parallel Bikeway Unpaved'"
+          "lines": "bike_type_text = 'Parallel Bikeway Paved' OR bike_type_text = 'Parallel Bikeway Unpaved' OR bike_type_text = 'Shared Use Path' OR bike_type_text = 'Trail'"
         },
         "On-street, Protected": {
           "points": null,
-          "lines": "bike_type_text = 'General Cycle Track'"
+          "lines": "bike_type_text = 'General Cycle Track' OR bike_type_text = 'Protected Bike Lane'"
         },
         "On-street, Bike Lane": {
           "points": null,
@@ -137,10 +141,10 @@
         },
         "Signed Route/Sharrow": {
           "points": null,
-          "lines": "bike_type_text = 'General Shared Roadway' OR bike_type_text = 'Marked Shared Roadway' OR bike_type_text = 'Shoulder Bikeway' OR bike_type_text = 'Unknown Category'"
+          "lines": "bike_type_text = 'General Shared Roadway' OR bike_type_text = 'Marked Shared Roadway' OR bike_type_text = 'Shoulder Bikeway' OR bike_type_text = 'Unknown Category' OR bike_type_text = 'Bicycle Boulevard' OR bike_type_text = 'Shared Lane'"
         },
         "Over/Underpass (AT)": {
-          "points": "bike_type_text = 'Overpass' OR bike_type_text = 'Underpass'",
+          "points": "bike_type_text = 'Overpass' OR bike_type_text = 'Underground Crossing' OR bike_type_text = 'Grade Separated Crossing' OR bike_type_text = 'Overhead Crossing'",
           "lines": null
         },
         "At-Grade Crossing": {
@@ -169,12 +173,24 @@
       {
         "id": "Cities",
         "Factory": "FeatureLayer",
-        "url": "https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/2",
+        "url": "https://services1.arcgis.com/taguadKoI1XFwivx/arcgis/rest/services/CityOutlines/FeatureServer/0",
+        "opacity": 1
+      },
+      {
+        "id": "5YSP Bus",
+        "Factory": "FeatureLayer",
+        "url": "https://gis.wfrc.org/arcgis/rest/services/UTAMap/FiveYearServicePlan2023/MapServer/0",
+        "opacity": 1
+      },
+      {
+        "id": "5YSP On Demand",
+        "Factory": "FeatureLayer",
+        "url": "https://gis.wfrc.org/arcgis/rest/services/UTAMap/FiveYearServicePlan2023/MapServer/1",
         "opacity": 1
       }
     ],
     "BWName": "B/W Imagery",
-    "BWOpacity": "75%"
+    "BWOpacity": "65%"
   },
   "openOnLoad": {
     "filter": true,
@@ -182,7 +198,7 @@
   },
   "outFields": ["OBJECTID", "phase", "mode", "improvement_type", "plan_id", "breakout", "bike_type_text"],
   "projectInformation": {
-    "commentsTableUrl": "https://services1.arcgis.com/taguadKoI1XFwivx/arcgis/rest/services/Draft_Projects_2023_2050_RTP_Phased_by_Need/FeatureServer/2",
+    "commentsTableUrl": "https://services1.arcgis.com/taguadKoI1XFwivx/arcgis/rest/services/Draft_2023_RTP_Projects/FeatureServer/2",
     "fieldNames": {
       "comment": "Comment",
       "commentDt": "CommentDT",
@@ -192,20 +208,20 @@
       "personName": "PersonName",
       "personOrg": "PersonOrg"
     },
-    "showComments": true,
+    "showComments": false,
     "newCommentsEnabled": false,
-    "newCommentsEnabledUntil": "2030-01-31T00:00:00.000Z"
+    "newCommentsEnabledUntil": "2023-02-27T00:00:00.000Z"
   },
-  "rtpInfoLink": "https://wfrc.org/vision-plans/regional-transportation-plan/2023-2050-regional-transportation-plan",
+  "rtpInfoLink":"https://wfrc.org/vision-plans/regional-transportation-plan/2023-2050-regional-transportation-plan/",
   "sherlock": {
     "placeHolder": "trans:searchPlaceholder",
     "searchField": "NAME",
-    "serviceUrl": "https://gis.wfrc.org/arcgis/rest/services/General/ZoomToPlaceNames/FeatureServer/1"
+    "serviceUrl": "https://services1.arcgis.com/taguadKoI1XFwivx/arcgis/rest/services/ZoomTo_PlaceNames2023/FeatureServer/0"
   },
   "splashScreen": {
     "enabled": true,
-    "title": "Splash Screen Title",
-    "content": "<p>Splash <b>Screen</b> Content</p>"
+    "title": "WFRC RTP Projects Map (2023-2050)",
+    "content": "<div>This map shows the Adopted 2023 Regional Transportation Plan (RTP).<br /><br />For project questions, contact the <a href=\"https://wfrc.org/contact/staff-directory/#longrange\" target=\"_blank\">Long-Range Planning Group</a> at WFRC.<br />For map questions, contact the <a href=\"https://wfrc.org/contact-sarah-lawless/\" target=\"_blank\">Analytics Group</a> at WFRC.</div>"
   },
   "translations": {
     "en": {
@@ -213,8 +229,8 @@
         "comments": {
           "cancel": "Cancel",
           "comment": "Comment*",
-          "contact": "Contact Information (email/phone)",
-          "leaveComment": "Leave comment",
+          "contact": "Contact Information (e-mail/phone)",
+          "leaveComment": "Leave Comment",
           "name": "Name",
           "organization": "Organization",
           "publicComments": "Public Comments",
@@ -224,7 +240,7 @@
         "filter": "Filter",
         "filterByPhasing": "filter by phasing",
         "projectInformation": "Project Information",
-        "projectInformationPrompt": "Click on a feature for more information",
+        "projectInformationPrompt": "Click the map for project name(s) at any location. Then, select a project name from the list that will be provided here to access project information and public comment options",
         "reset": "reset",
         "searchPlaceholder": "Search...",
         "transFilter": {
@@ -261,5 +277,5 @@
       }
     }
   },
-  "webMapId": "9ddb6fe1baf046ff862a0915ad94dc00"
+  "webMapId": "8bbd0346267840c591f4476440f5bca1"
 }
