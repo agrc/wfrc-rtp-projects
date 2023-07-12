@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.0.3](https://github.com/agrc/wfrc-rtp-projects/compare/v5.0.2...v5.0.3) (2023-07-12)
+
+
+### 🐛 Bug Fixes
+
+* update firebase project name ([98eeb6b](https://github.com/agrc/wfrc-rtp-projects/commit/98eeb6bee6cee2ee2278b6635d205ad6229e5f62))
+
 ## [5.0.2](https://github.com/agrc/wfrc-rtp-projects/compare/v5.0.1...v5.0.2) (2023-07-04)
 
 
