@@ -2,6 +2,18 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.1.0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.0.3...v5.1.0) (2023-07-21)
+
+
+### 🚀 Features
+
+* add optional help popup to advanced filter checkboxes ([d221c10](https://github.com/agrc/wfrc-rtp-projects/commit/d221c10ca9237142e87492797e95d4973490831f))
+
+
+### 🌲 Dependencies
+
+* bump dependencies 🌲 ([395e644](https://github.com/agrc/wfrc-rtp-projects/commit/395e6444d3333023d3f6581ae019d6b923f36027))
+
 ## [5.0.3](https://github.com/agrc/wfrc-rtp-projects/compare/v5.0.2...v5.0.3) (2023-07-12)
 
 
