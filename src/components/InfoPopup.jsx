@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Popover from 'bootstrap/js/dist/popover';
 import PropTypes from 'prop-types';
 
-export default function InfoPopup({ content, className }) {
+export default function InfoPopup({ content, className, style }) {
   const setUp = (ref) => {
     if (ref) {
       new Popover(ref, {
@@ -17,7 +17,7 @@ export default function InfoPopup({ content, className }) {
   };
 
   return (
-    <span tabIndex="0" ref={setUp} className={className}>
+    <span tabIndex="0" ref={setUp} className={className} style={style}>
       <FontAwesomeIcon icon={faCircleQuestion} />
     </span>
   );
@@ -25,4 +25,5 @@ export default function InfoPopup({ content, className }) {
 InfoPopup.propTypes = {
   content: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
+  style: PropTypes.object,
 };

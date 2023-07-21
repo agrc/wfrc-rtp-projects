@@ -71,6 +71,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.road}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'road' })}
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.road)}
+                  helpTxt={config.filter.projectTypes.road[name].helpTxt}
                 />
               ))}
               {config.filter.limitFacilityType?.modes?.includes('road') ? (
@@ -116,6 +117,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                   color={labelColors?.transit}
                   onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'transit' })}
                   disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.transit)}
+                  helpTxt={config.filter.projectTypes.transit[name].helpTxt}
                 />
               ))}
               {config.filter.limitFacilityType?.modes?.includes('transit') ? (
@@ -169,6 +171,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
+                    helpTxt={config.filter.projectTypes.activeTransportation[name].helpTxt}
                   />
                 ))}
             </Col>
@@ -184,6 +187,7 @@ export default function AdvancedControls({ disabled, dispatch, isOpen, labelColo
                     color={labelColors?.activeTransportation}
                     onChange={() => dispatch({ type: 'projectType', payload: name, meta: 'activeTransportation' })}
                     disabled={disabled || !state.mode.includes(config.filter.symbolValues.mode.activeTransportation)}
+                    helpTxt={config.filter.projectTypes.activeTransportation[name].helpTxt}
                   />
                 ))}
               {config.filter.limitFacilityType?.modes?.includes('activeTransportation') ? (

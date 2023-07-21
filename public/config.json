@@ -97,9 +97,10 @@
           "points": null,
           "lines": "improvement_type = 'Bus Rapid Transit'"
         },
-        "Gondola (this reflects the current status of the federally-mandated EIS process; if that process ultimately results in a modified approach, the RTP will be changed to reflect that modified approach)": {
+        "Gondola": {
           "points": null,
-          "lines": "improvement_type = 'Gondola'"
+          "lines": "improvement_type = 'Gondola'",
+          "helpTxt": "This reflects the current status of the federally-mandated EIS process; if that process ultimately results in a modified approach, the RTP will be changed to reflect that modified approach."
         },
         "Core Routes": {
           "points": null,
@@ -212,7 +213,7 @@
     "newCommentsEnabled": false,
     "newCommentsEnabledUntil": "2023-02-27T00:00:00.000Z"
   },
-  "rtpInfoLink":"https://wfrc.org/vision-plans/regional-transportation-plan/2023-2050-regional-transportation-plan/",
+  "rtpInfoLink": "https://wfrc.org/vision-plans/regional-transportation-plan/2023-2050-regional-transportation-plan/",
   "sherlock": {
     "placeHolder": "trans:searchPlaceholder",
     "searchField": "NAME",

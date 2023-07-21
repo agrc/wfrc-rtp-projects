@@ -17,6 +17,11 @@
           "description": "The query that will be applied to the point layers",
           "title": "Points Query",
           "type": ["string", "null"]
+        },
+        "helpTxt": {
+          "description": "Optionally show a '?' popup with help text",
+          "title": "Help Text",
+          "type": ["string"]
         }
       },
       "required": ["lines", "points"],
