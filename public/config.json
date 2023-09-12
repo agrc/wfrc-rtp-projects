@@ -100,7 +100,7 @@
         "Gondola": {
           "points": null,
           "lines": "improvement_type = 'Gondola'",
-          "helpTxt": "This reflects the current status of the federally-mandated EIS process; if that process ultimately results in a modified approach, the RTP will be changed to reflect that modified approach."
+          "helpTxt": "Gondola and Base Station Improvements (as recommended in phase 3 within UDOT LCC EIS Record of Decision; WFRC supports prioritizing the phase 1 and 2 LCC EIS projects, and implementation and evaluation of phase 1 and 2, before advancing to phase 3 LCC EIS projects)."
         },
         "Core Routes": {
           "points": null,
@@ -169,7 +169,18 @@
     }
   },
   "layerSelector": {
-    "baseLayers": ["Lite", "Terrain", "Hybrid", "B/W Imagery"],
+    "baseLayers": [
+      "Lite",
+      "Terrain",
+      "Hybrid",
+      "B/W Imagery",
+      {
+        "id": "Vision Refresh Basemap",
+        "Factory": "TileLayer",
+        "url": "https://gis.wfrc.org/arcgis/rest/services/WC2050Vision/2023_Vision_Refresh_Basemap/MapServer/",
+        "opacity": 1
+      }
+    ],
     "overlays": [
       {
         "id": "Cities",
