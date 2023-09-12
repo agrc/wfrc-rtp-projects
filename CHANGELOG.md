@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.2.0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.1.0...v5.2.0) (2023-09-12)
+
+
+### 🚀 Features
+
+* add vision refresh basemap to layer selector ([aa55df4](https://github.com/agrc/wfrc-rtp-projects/commit/aa55df40b9ef217f0d2790724f8d4e35e5ca7b4d))
+
 ## [5.1.0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.0.3...v5.1.0) (2023-07-21)
 
 
