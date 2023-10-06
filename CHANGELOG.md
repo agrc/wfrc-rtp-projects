@@ -2,6 +2,25 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.3.0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.2.0...v5.3.0) (2023-10-06)
+
+
+### 🚀 Features
+
+* add google analytics ([27db32c](https://github.com/agrc/wfrc-rtp-projects/commit/27db32c7f18fcbcf98bf59d64c457af0575c68fe))
+
+
+### 🐛 Bug Fixes
+
+* env var substitution ([331ad33](https://github.com/agrc/wfrc-rtp-projects/commit/331ad338b944f8d36c0af084c133574cee7d26c1))
+* unit test import ([51367c1](https://github.com/agrc/wfrc-rtp-projects/commit/51367c129fdbd947d40b2b11741bdaf9c14483f5))
+
+
+### 📖 Documentation Improvements
+
+* add app links ([6a6c612](https://github.com/agrc/wfrc-rtp-projects/commit/6a6c612cb203986681270f2f2eae890e57d14e93))
+* update config docs ([01cbbad](https://github.com/agrc/wfrc-rtp-projects/commit/01cbbadfdb6ce1182bf4e2ebe8b9d89cbe542bfd))
+
 ## [5.2.0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.1.0...v5.2.0) (2023-09-12)
 
 
