@@ -10,7 +10,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X21LHFPMF"></script>
     <script>
       // we don't want analytics for staging...
-      if (%MODE% !== 'staging') {
+      if ('%MODE%' !== 'staging') {
         window.dataLayer = window.dataLayer || [];
         function gtag() {
           dataLayer.push(arguments);
