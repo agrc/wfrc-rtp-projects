@@ -1,5 +1,5 @@
 {
-  "$id": "https://wfrc.org/??/config.schema.json",
+  "$id": "https://wfrc.org/rtp-2023-adopted-map/config.schema.json",
   "$schema": "http://json-schema.org/draft/2019-09/schema#",
   "title": "WFRC RTP Projects Application Configuration",
   "description": "Configuration for the WFRC RTP Projects Application",
