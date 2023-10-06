@@ -4,12 +4,12 @@
 
 # 1 Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                 |
-| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [id](#id)                   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-id.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/id")                   |
-| [Factory](#factory)         | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-factory.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/Factory")         |
-| [urlTemplate](#urltemplate) | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-urltemplate.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/urlTemplate") |
-| [url](#url)                 | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-url.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/url")                 |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                   |
+| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [id](#id)                   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-id.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/id")                   |
+| [Factory](#factory)         | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-factory.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/Factory")         |
+| [urlTemplate](#urltemplate) | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-urltemplate.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/urlTemplate") |
+| [url](#url)                 | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-url.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/url")                 |
 
 ## id
 
@@ -23,7 +23,7 @@ The name of the layer
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-id.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/id")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-id.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/id")
 
 ### id Type
 
@@ -41,7 +41,7 @@ The name of the esrijs module associated with the layer type
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-factory.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/Factory")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-factory.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/Factory")
 
 ### Factory Type
 
@@ -59,7 +59,7 @@ The urlTemplate for the layer. "{quadWord}" will be automatically replaced with 
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-urltemplate.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/urlTemplate")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-urltemplate.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/urlTemplate")
 
 ### urlTemplate Type
 
@@ -77,7 +77,7 @@ The url for the layer. Used for TileLayer factories.
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-url.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/url")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers-items-anyof-1-properties-url.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers/items/anyOf/1/properties/url")
 
 ### url Type
 

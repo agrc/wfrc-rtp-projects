@@ -4,12 +4,12 @@
 
 # limitROW Properties
 
-| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                                                               |
-| :---------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [field](#field)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/field")   |
-| [labels](#labels) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/labels")  |
-| [values](#values) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/values") |
-| [modes](#modes)   | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/modes")   |
+| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                 |
+| :---------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [field](#field)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/field")   |
+| [labels](#labels) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/labels")  |
+| [values](#values) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/values") |
+| [modes](#modes)   | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/modes")   |
 
 ## field
 
@@ -23,7 +23,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/field")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/field")
 
 ### field Type
 
@@ -41,7 +41,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/labels")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/labels")
 
 ### labels Type
 
@@ -59,7 +59,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/values")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/values")
 
 ### values Type
 
@@ -77,7 +77,7 @@ The modes that this control should be enabled for
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/modes")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/modes")
 
 ### modes Type
 

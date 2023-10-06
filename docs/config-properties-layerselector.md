@@ -4,12 +4,12 @@
 
 # layerSelector Properties
 
-| Property                  | Type     | Required | Nullable       | Defined by                                                                                                                                                                                       |
-| :------------------------ | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [baseLayers](#baselayers) | `array`  | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers") |
-| [overlays](#overlays)     | `array`  | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-overlays.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/overlays")     |
-| [BWName](#bwname)         | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwname.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/BWName")         |
-| [BWOpacity](#bwopacity)   | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwopacity.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/BWOpacity")   |
+| Property                  | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                         |
+| :------------------------ | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [baseLayers](#baselayers) | `array`  | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers") |
+| [overlays](#overlays)     | `array`  | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-overlays.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/overlays")     |
+| [BWName](#bwname)         | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwname.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/BWName")         |
+| [BWOpacity](#bwopacity)   | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwopacity.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/BWOpacity")   |
 
 ## baseLayers
 
@@ -23,7 +23,7 @@ The base layers to be displayed in the widget. Use a string value that matches t
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/baseLayers")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-baselayers.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/baseLayers")
 
 ### baseLayers Type
 
@@ -41,7 +41,7 @@ an array of merged types ([Details](config-properties-layerselector-properties-b
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-overlays.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/overlays")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-overlays.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/overlays")
 
 ### overlays Type
 
@@ -59,7 +59,7 @@ The name of the black and white imagery layer token in the baseLayers array
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwname.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/BWName")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwname.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/BWName")
 
 ### BWName Type
 
@@ -77,7 +77,7 @@ The opacity of the black and white imagery layer expressed as a percentage (e.g.
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwopacity.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector/properties/BWOpacity")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector-properties-bwopacity.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector/properties/BWOpacity")
 
 ### BWOpacity Type
 

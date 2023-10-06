@@ -4,14 +4,14 @@
 
 # infoText Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                      |
-| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [cost](#cost)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---cost.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/cost")                 |
-| [phaseYears](#phaseyears)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---phase-years.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/phaseYears")    |
-| [projectType](#projecttype) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---project-types.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/projectType") |
-| [simpleMode](#simplemode)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---mode-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/simpleMode")         |
-| [simplePhase](#simplephase) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---phase-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/simplePhase")       |
-| [usePhasing](#usephasing)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/usePhasing")   |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                        |
+| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [cost](#cost)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---cost.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/cost")                 |
+| [phaseYears](#phaseyears)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---phase-years.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/phaseYears")    |
+| [projectType](#projecttype) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---project-types.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/projectType") |
+| [simpleMode](#simplemode)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---mode-tab.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/simpleMode")         |
+| [simplePhase](#simplephase) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---phase-tab.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/simplePhase")       |
+| [usePhasing](#usephasing)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/usePhasing")   |
 
 ## cost
 
@@ -25,7 +25,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---cost.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/cost")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---cost.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/cost")
 
 ### cost Type
 
@@ -43,7 +43,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---phase-years.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/phaseYears")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---phase-years.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/phaseYears")
 
 ### phaseYears Type
 
@@ -61,7 +61,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---project-types.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/projectType")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-advanced-filter---project-types.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/projectType")
 
 ### projectType Type
 
@@ -79,7 +79,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---mode-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/simpleMode")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---mode-tab.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/simpleMode")
 
 ### simpleMode Type
 
@@ -97,7 +97,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---phase-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/simplePhase")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-simple-filter---phase-tab.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/simplePhase")
 
 ### simplePhase Type
 
@@ -115,7 +115,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/infoText/properties/usePhasing")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content-properties-use-phasing-filter---phase-tab.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText/properties/usePhasing")
 
 ### usePhasing Type
 

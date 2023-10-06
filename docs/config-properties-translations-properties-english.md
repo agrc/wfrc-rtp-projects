@@ -4,9 +4,9 @@
 
 # en Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                              |
-| :-------------------------- | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [translation](#translation) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation.md "https://wfrc.org/??/config.schema.json#/properties/translations/properties/en/properties/translation") |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                |
+| :-------------------------- | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [translation](#translation) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/properties/en/properties/translation") |
 
 ## translation
 
@@ -20,7 +20,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation.md "https://wfrc.org/??/config.schema.json#/properties/translations/properties/en/properties/translation")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/properties/en/properties/translation")
 
 ### translation Type
 
