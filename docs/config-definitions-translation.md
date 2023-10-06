@@ -4,10 +4,10 @@
 
 # translation Properties
 
-| Property                        | Type     | Required | Nullable       | Defined by                                                                                                                                                                                           |
-| :------------------------------ | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [mapTabsDialog](#maptabsdialog) | `object` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/??/config.schema.json#/definitions/translation/properties/mapTabsDialog") |
-| Additional Properties           | Merged   | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/??/config.schema.json#/definitions/translation/additionalProperties")         |
+| Property                        | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                             |
+| :------------------------------ | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [mapTabsDialog](#maptabsdialog) | `object` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/properties/mapTabsDialog") |
+| Additional Properties           | Merged   | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/additionalProperties")         |
 
 ## mapTabsDialog
 
@@ -21,7 +21,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/??/config.schema.json#/definitions/translation/properties/mapTabsDialog")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/properties/mapTabsDialog")
 
 ### mapTabsDialog Type
 
@@ -39,7 +39,7 @@ Additional properties are allowed, as long as they follow this schema:
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/??/config.schema.json#/definitions/translation/additionalProperties")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/additionalProperties")
 
 ### additionalProperties Type
 

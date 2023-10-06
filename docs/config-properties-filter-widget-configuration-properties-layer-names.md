@@ -4,12 +4,12 @@
 
 # layerNames Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                              |
-| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [modeLines](#modelines)     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/modeLines")     |
-| [modePoints](#modepoints)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/modePoints")   |
-| [phaseLines](#phaselines)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/phaseLines")   |
-| [phasePoints](#phasepoints) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/phasePoints") |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                |
+| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [modeLines](#modelines)     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modeLines")     |
+| [modePoints](#modepoints)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modePoints")   |
+| [phaseLines](#phaselines)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phaseLines")   |
+| [phasePoints](#phasepoints) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phasePoints") |
 
 ## modeLines
 
@@ -23,7 +23,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/modeLines")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modeLines")
 
 ### modeLines Type
 
@@ -41,7 +41,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/modePoints")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modePoints")
 
 ### modePoints Type
 
@@ -59,7 +59,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/phaseLines")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phaseLines")
 
 ### phaseLines Type
 
@@ -77,7 +77,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/layerNames/properties/phasePoints")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phasePoints")
 
 ### phasePoints Type
 

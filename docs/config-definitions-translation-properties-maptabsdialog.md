@@ -4,9 +4,9 @@
 
 # mapTabsDialog Properties
 
-| Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                     |
-| :-------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Additional Properties | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog-additionalproperties.md "https://wfrc.org/??/config.schema.json#/definitions/translation/properties/mapTabsDialog/additionalProperties") |
+| Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                       |
+| :-------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Additional Properties | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/properties/mapTabsDialog/additionalProperties") |
 
 ## Additional Properties
 
@@ -20,7 +20,7 @@ Additional properties are allowed, as long as they follow this schema:
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog-additionalproperties.md "https://wfrc.org/??/config.schema.json#/definitions/translation/properties/mapTabsDialog/additionalProperties")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/properties/mapTabsDialog/additionalProperties")
 
 ### additionalProperties Type
 

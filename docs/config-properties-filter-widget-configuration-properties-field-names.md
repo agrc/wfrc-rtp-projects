@@ -4,12 +4,12 @@
 
 # fieldNames Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                              |
-| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [cost](#cost)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-cost.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/cost")                |
-| [mode](#mode)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-mode.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/mode")                |
-| [phase](#phase)             | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/phase")              |
-| [phaseNeeded](#phaseneeded) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase-needed.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/phaseNeeded") |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                |
+| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [cost](#cost)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-cost.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/cost")                |
+| [mode](#mode)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-mode.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/mode")                |
+| [phase](#phase)             | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/phase")              |
+| [phaseNeeded](#phaseneeded) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase-needed.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/phaseNeeded") |
 
 ## cost
 
@@ -23,7 +23,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-cost.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/cost")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-cost.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/cost")
 
 ### cost Type
 
@@ -41,7 +41,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-mode.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/mode")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-mode.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/mode")
 
 ### mode Type
 
@@ -59,7 +59,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/phase")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/phase")
 
 ### phase Type
 
@@ -77,7 +77,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase-needed.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/fieldNames/properties/phaseNeeded")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names-properties-phase-needed.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames/properties/phaseNeeded")
 
 ### phaseNeeded Type
 

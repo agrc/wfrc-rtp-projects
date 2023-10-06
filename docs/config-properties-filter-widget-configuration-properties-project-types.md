@@ -4,11 +4,11 @@
 
 # projectTypes Properties
 
-| Property                                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                    |
-| :-------------------------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [road](#road)                                 | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-road.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/projectTypes/properties/road")                                  |
-| [transit](#transit)                           | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/projectTypes/properties/transit")                            |
-| [activeTransportation](#activetransportation) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/projectTypes/properties/activeTransportation") |
+| Property                                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                      |
+| :-------------------------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [road](#road)                                 | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/road")                                  |
+| [transit](#transit)                           | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/transit")                            |
+| [activeTransportation](#activetransportation) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/activeTransportation") |
 
 ## road
 
@@ -22,7 +22,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-road.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/projectTypes/properties/road")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/road")
 
 ### road Type
 
@@ -40,7 +40,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/projectTypes/properties/transit")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/transit")
 
 ### transit Type
 
@@ -58,7 +58,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/projectTypes/properties/activeTransportation")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/activeTransportation")
 
 ### activeTransportation Type
 

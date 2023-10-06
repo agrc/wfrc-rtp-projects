@@ -4,21 +4,21 @@
 
 # WFRC RTP Projects Application Configuration Properties
 
-| Property                                  | Type     | Required | Nullable       | Defined by                                                                                                                                                                    |
-| :---------------------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [aboutTitle](#abouttitle)                 | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-about-title.md "https://wfrc.org/??/config.schema.json#/properties/aboutTitle")                               |
-| [appTitle](#apptitle)                     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-application-title.md "https://wfrc.org/??/config.schema.json#/properties/appTitle")                           |
-| [defaultExtent](#defaultextent)           | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-default-map-extent.md "https://wfrc.org/??/config.schema.json#/properties/defaultExtent")                     |
-| [filter](#filter)                         | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration.md "https://wfrc.org/??/config.schema.json#/properties/filter")                   |
-| [layerSelector](#layerselector)           | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector")                          |
-| [openOnLoad](#openonload)                 | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-open-on-load.md "https://wfrc.org/??/config.schema.json#/properties/openOnLoad")                              |
-| [outFields](#outfields)                   | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-out-fields.md "https://wfrc.org/??/config.schema.json#/properties/outFields")                                 |
-| [projectInformation](#projectinformation) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation") |
-| [rtpInfoLink](#rtpinfolink)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-rtp-info-link.md "https://wfrc.org/??/config.schema.json#/properties/rtpInfoLink")                            |
-| [sherlock](#sherlock)                     | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-sherlock-widget-config.md "https://wfrc.org/??/config.schema.json#/properties/sherlock")                      |
-| [splashScreen](#splashscreen)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config.md "https://wfrc.org/??/config.schema.json#/properties/splashScreen")                    |
-| [translations](#translations)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-translations.md "https://wfrc.org/??/config.schema.json#/properties/translations")                            |
-| [webMapId](#webmapid)                     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-web-map-id.md "https://wfrc.org/??/config.schema.json#/properties/webMapId")                                  |
+| Property                                  | Type     | Required | Nullable       | Defined by                                                                                                                                                                                      |
+| :---------------------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [aboutTitle](#abouttitle)                 | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-about-title.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/aboutTitle")                               |
+| [appTitle](#apptitle)                     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-application-title.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/appTitle")                           |
+| [defaultExtent](#defaultextent)           | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-default-map-extent.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent")                     |
+| [filter](#filter)                         | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter")                   |
+| [layerSelector](#layerselector)           | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-layerselector.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector")                          |
+| [openOnLoad](#openonload)                 | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-open-on-load.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/openOnLoad")                              |
+| [outFields](#outfields)                   | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-out-fields.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/outFields")                                 |
+| [projectInformation](#projectinformation) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation") |
+| [rtpInfoLink](#rtpinfolink)               | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-rtp-info-link.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/rtpInfoLink")                            |
+| [sherlock](#sherlock)                     | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-sherlock-widget-config.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/sherlock")                      |
+| [splashScreen](#splashscreen)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen")                    |
+| [translations](#translations)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-translations.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations")                            |
+| [webMapId](#webmapid)                     | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-web-map-id.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/webMapId")                                  |
 
 ## aboutTitle
 
@@ -32,7 +32,7 @@ The title of the about dialog
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-about-title.md "https://wfrc.org/??/config.schema.json#/properties/aboutTitle")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-about-title.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/aboutTitle")
 
 ### aboutTitle Type
 
@@ -50,7 +50,7 @@ The title of the application
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-application-title.md "https://wfrc.org/??/config.schema.json#/properties/appTitle")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-application-title.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/appTitle")
 
 ### appTitle Type
 
@@ -68,7 +68,7 @@ The default extent of the map on load. Also controls the extent for the home but
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent.md "https://wfrc.org/??/config.schema.json#/properties/defaultExtent")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent")
 
 ### defaultExtent Type
 
@@ -86,7 +86,7 @@ Configuration options for the filter widget
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration.md "https://wfrc.org/??/config.schema.json#/properties/filter")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter")
 
 ### filter Type
 
@@ -104,7 +104,7 @@ Configuration options for the base map selector widget
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector.md "https://wfrc.org/??/config.schema.json#/properties/layerSelector")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-layerselector.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/layerSelector")
 
 ### layerSelector Type
 
@@ -122,7 +122,7 @@ Controls whether specific map widgets default to be open on page load
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-open-on-load.md "https://wfrc.org/??/config.schema.json#/properties/openOnLoad")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-open-on-load.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/openOnLoad")
 
 ### openOnLoad Type
 
@@ -140,7 +140,7 @@ The fields that will be requested along with the features displayed in the map
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-out-fields.md "https://wfrc.org/??/config.schema.json#/properties/outFields")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-out-fields.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/outFields")
 
 ### outFields Type
 
@@ -158,7 +158,7 @@ Configuration options for the project information widget
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config.md "https://wfrc.org/??/config.schema.json#/properties/projectInformation")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation")
 
 ### projectInformation Type
 
@@ -176,7 +176,7 @@ The URL to the RTP Info page
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-rtp-info-link.md "https://wfrc.org/??/config.schema.json#/properties/rtpInfoLink")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-rtp-info-link.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/rtpInfoLink")
 
 ### rtpInfoLink Type
 
@@ -194,7 +194,7 @@ Configuration options for the map search widget
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-sherlock-widget-config.md "https://wfrc.org/??/config.schema.json#/properties/sherlock")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-sherlock-widget-config.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/sherlock")
 
 ### sherlock Type
 
@@ -212,7 +212,7 @@ Configuration options for the splash screen
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config.md "https://wfrc.org/??/config.schema.json#/properties/splashScreen")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen")
 
 ### splashScreen Type
 
@@ -230,7 +230,7 @@ Contains the translated strings used in the app. Falls back to `en` if there is 
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations.md "https://wfrc.org/??/config.schema.json#/properties/translations")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations")
 
 ### translations Type
 
@@ -248,7 +248,7 @@ The AGOL ID of the web map that will be displayed in the app
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-web-map-id.md "https://wfrc.org/??/config.schema.json#/properties/webMapId")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-web-map-id.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/webMapId")
 
 ### webMapId Type
 
@@ -261,14 +261,14 @@ The AGOL ID of the web map that will be displayed in the app
 Reference this group by using
 
 ```json
-{"$ref":"https://wfrc.org/??/config.schema.json#/definitions/projectType"}
+{"$ref":"https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType"}
 ```
 
-| Property            | Type     | Required | Nullable       | Defined by                                                                                                                                                                                    |
-| :------------------ | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [lines](#lines)     | `string` | Required | can be null    | [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-lines-query.md "https://wfrc.org/??/config.schema.json#/definitions/projectType/properties/lines")   |
-| [points](#points)   | `string` | Required | can be null    | [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-points-query.md "https://wfrc.org/??/config.schema.json#/definitions/projectType/properties/points") |
-| [helpTxt](#helptxt) | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-help-text.md "https://wfrc.org/??/config.schema.json#/definitions/projectType/properties/helpTxt")   |
+| Property            | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                      |
+| :------------------ | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [lines](#lines)     | `string` | Required | can be null    | [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-lines-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/lines")   |
+| [points](#points)   | `string` | Required | can be null    | [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-points-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/points") |
+| [helpTxt](#helptxt) | `string` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-help-text.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/helpTxt")   |
 
 ### lines
 
@@ -282,7 +282,7 @@ The query that will be applied to the line layers
 
 *   can be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-lines-query.md "https://wfrc.org/??/config.schema.json#/definitions/projectType/properties/lines")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-lines-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/lines")
 
 #### lines Type
 
@@ -300,7 +300,7 @@ The query that will be applied to the point layers
 
 *   can be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-points-query.md "https://wfrc.org/??/config.schema.json#/definitions/projectType/properties/points")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-points-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/points")
 
 #### points Type
 
@@ -318,7 +318,7 @@ Optionally show a '?' popup with help text
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-help-text.md "https://wfrc.org/??/config.schema.json#/definitions/projectType/properties/helpTxt")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-help-text.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/helpTxt")
 
 #### helpTxt Type
 
@@ -329,13 +329,13 @@ Optionally show a '?' popup with help text
 Reference this group by using
 
 ```json
-{"$ref":"https://wfrc.org/??/config.schema.json#/definitions/translation"}
+{"$ref":"https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation"}
 ```
 
-| Property                        | Type     | Required | Nullable       | Defined by                                                                                                                                                                                           |
-| :------------------------------ | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [mapTabsDialog](#maptabsdialog) | `object` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/??/config.schema.json#/definitions/translation/properties/mapTabsDialog") |
-| Additional Properties           | Merged   | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/??/config.schema.json#/definitions/translation/additionalProperties")         |
+| Property                        | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                             |
+| :------------------------------ | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [mapTabsDialog](#maptabsdialog) | `object` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/properties/mapTabsDialog") |
+| Additional Properties           | Merged   | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/additionalProperties")         |
 
 ### mapTabsDialog
 
@@ -349,7 +349,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/??/config.schema.json#/definitions/translation/properties/mapTabsDialog")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-properties-maptabsdialog.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/properties/mapTabsDialog")
 
 #### mapTabsDialog Type
 
@@ -367,7 +367,7 @@ Additional properties are allowed, as long as they follow this schema:
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/??/config.schema.json#/definitions/translation/additionalProperties")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-translation-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/translation/additionalProperties")
 
 #### additionalProperties Type
 
@@ -384,15 +384,15 @@ one (and only one) of
 Reference this group by using
 
 ```json
-{"$ref":"https://wfrc.org/??/config.schema.json#/definitions/limitControl"}
+{"$ref":"https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl"}
 ```
 
-| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                                                               |
-| :---------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [field](#field)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/field")   |
-| [labels](#labels) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/labels")  |
-| [values](#values) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/values") |
-| [modes](#modes)   | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/modes")   |
+| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                 |
+| :---------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [field](#field)   | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/field")   |
+| [labels](#labels) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/labels")  |
+| [values](#values) | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/values") |
+| [modes](#modes)   | `array`  | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/modes")   |
 
 ### field
 
@@ -406,7 +406,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/field")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/field")
 
 #### field Type
 
@@ -424,7 +424,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/labels")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/labels")
 
 #### labels Type
 
@@ -442,7 +442,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/values")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/values")
 
 #### values Type
 
@@ -460,7 +460,7 @@ The modes that this control should be enabled for
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/??/config.schema.json#/definitions/limitControl/properties/modes")
+*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/modes")
 
 #### modes Type
 

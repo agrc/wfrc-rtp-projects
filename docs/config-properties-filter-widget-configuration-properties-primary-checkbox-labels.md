@@ -4,10 +4,10 @@
 
 # labels Properties
 
-| Property        | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                   |
-| :-------------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [mode](#mode)   | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/labels/properties/mode") |
-| [phase](#phase) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/labels/properties/phase")    |
+| Property        | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                     |
+| :-------------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [mode](#mode)   | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode") |
+| [phase](#phase) | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase")    |
 
 ## mode
 
@@ -21,7 +21,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/labels/properties/mode")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode")
 
 ### mode Type
 
@@ -39,7 +39,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/labels/properties/phase")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase")
 
 ### phase Type
 

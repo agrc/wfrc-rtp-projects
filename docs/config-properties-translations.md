@@ -4,10 +4,10 @@
 
 # translations Properties
 
-| Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                                                   |
-| :-------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [en](#en)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-translations-properties-english.md "https://wfrc.org/??/config.schema.json#/properties/translations/properties/en")          |
-| Additional Properties | `object` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-translations-additionalproperties.md "https://wfrc.org/??/config.schema.json#/properties/translations/additionalProperties") |
+| Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                     |
+| :-------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [en](#en)             | `object` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-translations-properties-english.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/properties/en")          |
+| Additional Properties | `object` | Optional | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-translations-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/additionalProperties") |
 
 ## en
 
@@ -21,7 +21,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-properties-english.md "https://wfrc.org/??/config.schema.json#/properties/translations/properties/en")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-properties-english.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/properties/en")
 
 ### en Type
 
@@ -39,7 +39,7 @@ Additional properties are allowed, as long as they follow this schema:
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-additionalproperties.md "https://wfrc.org/??/config.schema.json#/properties/translations/additionalProperties")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/additionalProperties")
 
 ### additionalProperties Type
 

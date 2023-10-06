@@ -4,11 +4,11 @@
 
 # mode Properties
 
-| Property                                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                    |
-| :-------------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [road](#road)                                 | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-road.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/road")                                  |
-| [transit](#transit)                           | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-transit.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/transit")                            |
-| [activeTransportation](#activetransportation) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-active-transportation.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/activeTransportation") |
+| Property                                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                                                                                                                      |
+| :-------------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [road](#road)                                 | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/road")                                  |
+| [transit](#transit)                           | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/transit")                            |
+| [activeTransportation](#activetransportation) | `string` | Required | cannot be null | [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/activeTransportation") |
 
 ## road
 
@@ -22,7 +22,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-road.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/road")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/road")
 
 ### road Type
 
@@ -40,7 +40,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-transit.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/transit")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/transit")
 
 ### transit Type
 
@@ -58,7 +58,7 @@
 
 *   cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-active-transportation.md "https://wfrc.org/??/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/activeTransportation")
+*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode/properties/activeTransportation")
 
 ### activeTransportation Type
 
