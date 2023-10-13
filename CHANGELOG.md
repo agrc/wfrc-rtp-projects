@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.3.1](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.0...v5.3.1) (2023-10-13)
+
+
+### 🌲 Dependencies
+
+* bump the safe-dependencies group with 6 updates ([dd4cffe](https://github.com/agrc/wfrc-rtp-projects/commit/dd4cffe5526e14b3bb7a8613ff807f49de54a309))
+
 ## [5.3.0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.2.0...v5.3.0) (2023-10-06)
 
 
