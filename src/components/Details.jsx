@@ -9,7 +9,7 @@ import './Details.scss';
 
 export default function Details({ graphic, highlightGraphic, onlyOne, urlState, setUrlState }) {
   const isNotSelected =
-    urlState.selected_id !== graphic.attributes.OBJECTID || urlState.selected_layer_id !== graphic.layer.id;
+    urlState.selected_id !== graphic.attributes.OBJECTID || urlState.selected_layer_id !== graphic?.layer?.id;
   const [collapsed, setCollapsed] = useState(isNotSelected);
   const containerRef = useRef();
   const [title, setTitle] = useState(null);
@@ -24,8 +24,8 @@ export default function Details({ graphic, highlightGraphic, onlyOne, urlState, 
         container: document.createElement('div'),
         defaultPopupTemplateEnabled: true,
         graphic,
-        map: graphic.layer.parent,
-        spatialReference: graphic.layer.spatialReference,
+        map: graphic?.layer?.parent,
+        spatialReference: graphic?.layer?.spatialReference,
         visibleElements: { title: false },
       });
 
@@ -58,7 +58,7 @@ export default function Details({ graphic, highlightGraphic, onlyOne, urlState, 
     if (!collapsed) {
       setUrlState({
         selected_id: graphic.attributes.OBJECTID,
-        selected_layer_id: graphic.layer.id,
+        selected_layer_id: graphic?.layer?.id,
       });
     } else if (!isNotSelected) {
       setUrlState({
@@ -66,7 +66,7 @@ export default function Details({ graphic, highlightGraphic, onlyOne, urlState, 
         selected_layer_id: null,
       });
     }
-  }, [collapsed, graphic.attributes.OBJECTID, graphic.layer.id, isNotSelected, setUrlState]);
+  }, [collapsed, graphic.attributes.OBJECTID, graphic?.layer?.id, isNotSelected, setUrlState]);
 
   const showComments =
     config.projectInformation.showComments &&
