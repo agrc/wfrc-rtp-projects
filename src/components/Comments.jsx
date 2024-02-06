@@ -29,7 +29,7 @@ export default function Comments({ globalId, showNewCommentForm }) {
     return response.features ?? [];
   };
 
-  const existingCommentsQuery = useQuery([clientId], fetchComments);
+  const existingCommentsQuery = useQuery({ queryKey: clientId, queryFn: fetchComments });
 
   const t = useSpecialTranslation();
 
@@ -53,11 +53,11 @@ export default function Comments({ globalId, showNewCommentForm }) {
       })
       .json();
 
-    queryClient.invalidateQueries([clientId]);
+    queryClient.invalidateQueries({ queryKey: clientId });
 
     reset();
   };
-  const submitMutation = useMutation(submitComment, { retry: 3 });
+  const submitMutation = useMutation({ mutationFn: submitComment, retry: 3 });
 
   const toggleNewCommentForm = () => {
     setIsNewCommentFormOpen((current) => !current);
