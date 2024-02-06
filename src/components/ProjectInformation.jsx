@@ -42,7 +42,7 @@ export default function ProjectInformation({ graphics, showLoader, highlightGrap
       )}
       {graphics.map((graphic, index) => (
         <Details
-          key={`${graphic.layer.id}_${graphic.attributes.OBJECTID}_${index}`}
+          key={`${graphic?.layer.id}_${graphic.attributes.OBJECTID}_${index}`}
           graphic={graphic}
           highlightGraphic={highlightGraphic}
           onlyOne={graphics.length === 1}
