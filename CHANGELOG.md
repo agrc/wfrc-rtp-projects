@@ -2,6 +2,13 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.3.2-1](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.2-0...v5.3.2-1) (2024-02-06)
+
+
+### 🐛 Bug Fixes
+
+* another try at fixing the sherlock project search crash ([73bdd06](https://github.com/agrc/wfrc-rtp-projects/commit/73bdd06988c31ac924e7223d530242413ddf441b)), closes [#221](https://github.com/agrc/wfrc-rtp-projects/issues/221)
+
 ## [5.3.2-0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.1...v5.3.2-0) (2024-02-06)
 
 
