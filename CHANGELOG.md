@@ -2,6 +2,19 @@
 
 For versions >= `2.0.0` the changelog can be found in the [GitHub Releases](https://github.com/agrc/wfrc-rtp-projects/releases).
 
+## [5.3.2-0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.1...v5.3.2-0) (2024-02-06)
+
+
+### 🐛 Bug Fixes
+
+* prevent crash when searching for multiple projects ([906f315](https://github.com/agrc/wfrc-rtp-projects/commit/906f315df3041ef1c65af1b21087e88c74922f69)), closes [#221](https://github.com/agrc/wfrc-rtp-projects/issues/221)
+
+
+### 🌲 Dependencies
+
+* bump deps 🌲 ([dda59bb](https://github.com/agrc/wfrc-rtp-projects/commit/dda59bb064d473f38a35952d854506971f63b6a4))
+* **dev:** bump @babel/traverse from 7.23.0 to 7.23.2 ([9127add](https://github.com/agrc/wfrc-rtp-projects/commit/9127add3844b3b8f7d1aad647fa1a9b45e49b01e))
+
 ## [5.3.1](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.0...v5.3.1) (2023-10-13)
 
 
