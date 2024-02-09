@@ -1,5 +1,24 @@
 # Changelog
 
+## [5.3.2](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.1...v5.3.2) (2024-02-09)
+
+
+### 🐛 Bug Fixes
+
+* another try at fixing the sherlock project search crash ([bfa8a7b](https://github.com/agrc/wfrc-rtp-projects/commit/bfa8a7b26590c4f5c7ad86a44ad9d1aae45dea31)), closes [#221](https://github.com/agrc/wfrc-rtp-projects/issues/221)
+* prevent crash when searching for multiple projects ([ad00ccb](https://github.com/agrc/wfrc-rtp-projects/commit/ad00ccbe63c277a06a713561e8316ab12cae59cd)), closes [#221](https://github.com/agrc/wfrc-rtp-projects/issues/221)
+
+
+### 🌲 Dependencies
+
+* bump deps 🌲 ([de8bf29](https://github.com/agrc/wfrc-rtp-projects/commit/de8bf29e38b60b6a6bd42a9d11fec06553a29e3b))
+* **dev:** bump @babel/traverse from 7.23.0 to 7.23.2 ([9127add](https://github.com/agrc/wfrc-rtp-projects/commit/9127add3844b3b8f7d1aad647fa1a9b45e49b01e))
+
+
+### 📖 Documentation Improvements
+
+* remove incorrect comment in changelog ([aa58de8](https://github.com/agrc/wfrc-rtp-projects/commit/aa58de82f3821e6325e61880c7be24f4afa87b1b))
+
 ## [5.3.2-1](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.2-0...v5.3.2-1) (2024-02-06)
 
 
