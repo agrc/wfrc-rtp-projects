@@ -1,5 +1,15 @@
 # Changelog
 
+## [5.3.3](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.2...v5.3.3) (2024-04-12)
+
+
+### 🌲 Dependencies
+
+* **dev:** bump eslint-plugin-storybook in the safe-dependencies group ([7bc93ed](https://github.com/agrc/wfrc-rtp-projects/commit/7bc93ed013c48a471d4ebb1abea0d59ef062d404))
+* **dev:** bump express from 4.18.2 to 4.19.2 ([152c421](https://github.com/agrc/wfrc-rtp-projects/commit/152c421b8662f2e20aeb2d33e7f54a5e45584dbc))
+* **dev:** bump ip from 2.0.0 to 2.0.1 ([4badb1f](https://github.com/agrc/wfrc-rtp-projects/commit/4badb1fce4b2acbba99bd4f1cc3c64c7a42b1d83))
+* **dev:** bump phin from 3.7.0 to 3.7.1 ([8226c41](https://github.com/agrc/wfrc-rtp-projects/commit/8226c412a4d69914b8bb86c1cb8b6f29680724c8))
+
 ## [5.3.2](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.1...v5.3.2) (2024-02-09)
 
 
