@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.3.4](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.3...v5.3.4) (2024-04-12)
+
+
+### 🐛 Bug Fixes
+
+* app version log ([f52b925](https://github.com/agrc/wfrc-rtp-projects/commit/f52b925ff181bf657a12a00db075821306edbdfa))
+* update about content ([8333106](https://github.com/agrc/wfrc-rtp-projects/commit/8333106a69926f229220c00cd4ac91cdebfae77c))
+
 ## [5.3.3](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.2...v5.3.3) (2024-04-12)
 
 
