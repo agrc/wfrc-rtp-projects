@@ -1,3 +1,4 @@
+/* eslint-env node */
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
@@ -23,5 +24,8 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     setupFiles: ['./tests/setup.js'],
+  },
+  define: {
+    APP_VERSION: JSON.stringify(process.env.npm_package_version),
   },
 });

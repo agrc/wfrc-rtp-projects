@@ -8,6 +8,7 @@ import ErrorFallback from './components/ErrorFallback';
 import './index.scss';
 import { setConfigs } from './services/config';
 
+console.log(`app version: ${import.meta.env.DEV ? 'dev' : window.APP_VERSION}`);
 console.log('fetching config.json');
 
 async function fetchConfig(resource, type) {
@@ -39,12 +40,12 @@ Promise.all([fetchConfig('config.json', 'json'), fetchConfig('about.html', 'text
             </QueryParamProvider>
           </BrowserRouter>
         </ErrorBoundary>
-      </React.StrictMode>
+      </React.StrictMode>,
     );
   },
   (error) => {
     ReactDOM.createRoot(document.getElementById('root')).render(
-      <ErrorFallback error={error} resetErrorBoundary={() => document.location.reload()} />
+      <ErrorFallback error={error} resetErrorBoundary={() => document.location.reload()} />,
     );
-  }
+  },
 );
