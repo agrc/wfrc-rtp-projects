@@ -8,7 +8,7 @@ import ErrorFallback from './components/ErrorFallback';
 import './index.scss';
 import { setConfigs } from './services/config';
 
-console.log(`app version: ${import.meta.env.DEV ? 'dev' : window.APP_VERSION}`);
+console.log(`app version: v${import.meta.env.DEV ? '-dev' : APP_VERSION}`);
 console.log('fetching config.json');
 
 async function fetchConfig(resource, type) {

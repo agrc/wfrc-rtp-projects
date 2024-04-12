@@ -38,7 +38,8 @@
       "es2022": true
     },
     "parserOptions": {
-      "sourceType": "module"
+      "sourceType": "module",
+      "ecmaVersion": "latest"
     },
     "settings": {
       "react": {
@@ -56,7 +57,10 @@
     "ignorePatterns": [
       "dist/**",
       "docs/**"
-    ]
+    ],
+    "globals": {
+      "APP_VERSION": "readonly"
+    }
   },
   "dependencies": {
     "@arcgis/core": "^4.29.10",

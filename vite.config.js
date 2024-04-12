@@ -1,6 +1,7 @@
 /* eslint-env node */
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import packageJson from './package.json';
 
 // https://vitejs.dev/config/
 function watchConfigFiles() {
@@ -26,6 +27,6 @@ export default defineConfig({
     setupFiles: ['./tests/setup.js'],
   },
   define: {
-    APP_VERSION: JSON.stringify(process.env.npm_package_version),
+    APP_VERSION: JSON.stringify(packageJson.version),
   },
 });
