@@ -16,13 +16,13 @@
 
 `road`
 
-*   is required
+* is required
 
-*   Type: `object` ([Road](config-properties-filter-widget-configuration-properties-project-types-properties-road.md))
+* Type: `object` ([Road](config-properties-filter-widget-configuration-properties-project-types-properties-road.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/road")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/road")
 
 ### road Type
 
@@ -34,13 +34,13 @@
 
 `transit`
 
-*   is required
+* is required
 
-*   Type: `object` ([Transit](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md))
+* Type: `object` ([Transit](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/transit")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/transit")
 
 ### transit Type
 
@@ -52,13 +52,13 @@
 
 `activeTransportation`
 
-*   is required
+* is required
 
-*   Type: `object` ([Active Transportation](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md))
+* Type: `object` ([Active Transportation](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/activeTransportation")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/activeTransportation")
 
 ### activeTransportation Type
 

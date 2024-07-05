@@ -15,13 +15,13 @@
 
 `filter`
 
-*   is optional
+* is optional
 
-*   Type: `boolean`
+* Type: `boolean`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-open-on-load-properties-filter.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/openOnLoad/properties/filter")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-open-on-load-properties-filter.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/openOnLoad/properties/filter")
 
 ### filter Type
 
@@ -33,13 +33,13 @@
 
 `projectInfo`
 
-*   is optional
+* is optional
 
-*   Type: `boolean`
+* Type: `boolean`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-open-on-load-properties-projectinfo.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/openOnLoad/properties/projectInfo")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-open-on-load-properties-projectinfo.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/openOnLoad/properties/projectInfo")
 
 ### projectInfo Type
 

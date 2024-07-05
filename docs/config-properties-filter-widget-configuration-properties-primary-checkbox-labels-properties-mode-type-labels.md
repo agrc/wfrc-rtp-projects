@@ -16,13 +16,13 @@
 
 `road`
 
-*   is required
+* is required
 
-*   Type: `string` ([Road](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-road.md))
+* Type: `string` ([Road](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-road.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode/properties/road")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-road.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode/properties/road")
 
 ### road Type
 
@@ -34,13 +34,13 @@
 
 `transit`
 
-*   is required
+* is required
 
-*   Type: `string` ([Transit](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-transit.md))
+* Type: `string` ([Transit](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-transit.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode/properties/transit")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-transit.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode/properties/transit")
 
 ### transit Type
 
@@ -52,13 +52,13 @@
 
 `activeTransportation`
 
-*   is required
+* is required
 
-*   Type: `string` ([Active Transportation](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-active-transportation.md))
+* Type: `string` ([Active Transportation](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-active-transportation.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode/properties/activeTransportation")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels-properties-active-transportation.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode/properties/activeTransportation")
 
 ### activeTransportation Type
 

@@ -22,13 +22,13 @@ Whether the advanced filter should be disabled
 
 `disableAdvanced`
 
-*   is required
+* is required
 
-*   Type: `boolean` ([Disable Advanced Filter](config-properties-filter-widget-configuration-properties-disable-advanced-filter.md))
+* Type: `boolean` ([Disable Advanced Filter](config-properties-filter-widget-configuration-properties-disable-advanced-filter.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-disable-advanced-filter.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/disableAdvanced")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-disable-advanced-filter.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/disableAdvanced")
 
 ### disableAdvanced Type
 
@@ -40,13 +40,13 @@ The field names in the points and line layers
 
 `fieldNames`
 
-*   is required
+* is required
 
-*   Type: `object` ([Field Names](config-properties-filter-widget-configuration-properties-field-names.md))
+* Type: `object` ([Field Names](config-properties-filter-widget-configuration-properties-field-names.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-field-names.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/fieldNames")
 
 ### fieldNames Type
 
@@ -58,13 +58,13 @@ An object that contains the content that will show up in the info popups
 
 `infoText`
 
-*   is required
+* is required
 
-*   Type: `object` ([Info Popup Content](config-properties-filter-widget-configuration-properties-info-popup-content.md))
+* Type: `object` ([Info Popup Content](config-properties-filter-widget-configuration-properties-info-popup-content.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-info-popup-content.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/infoText")
 
 ### infoText Type
 
@@ -76,13 +76,13 @@ The labels for the primary checkboxes
 
 `labels`
 
-*   is required
+* is required
 
-*   Type: `object` ([Primary Checkbox Labels](config-properties-filter-widget-configuration-properties-primary-checkbox-labels.md))
+* Type: `object` ([Primary Checkbox Labels](config-properties-filter-widget-configuration-properties-primary-checkbox-labels.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels")
 
 ### labels Type
 
@@ -94,13 +94,13 @@ The layer names in the web map
 
 `layerNames`
 
-*   is required
+* is required
 
-*   Type: `object` ([Layer Names](config-properties-filter-widget-configuration-properties-layer-names.md))
+* Type: `object` ([Layer Names](config-properties-filter-widget-configuration-properties-layer-names.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames")
 
 ### layerNames Type
 
@@ -112,13 +112,13 @@ Configuration for the Limit to ... Facilities filter. If this property is missin
 
 `limitFacilityType`
 
-*   is optional
+* is optional
 
-*   Type: `object` ([Limit to ... Facilities config](config-definitions-limitcontrol.md))
+* Type: `object` ([Limit to ... Facilities config](config-definitions-limitcontrol.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/limitFacilityType")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/limitFacilityType")
 
 ### limitFacilityType Type
 
@@ -130,13 +130,13 @@ Configuration for the Limit to \[no] ROW Needed filter. If this property is miss
 
 `limitROW`
 
-*   is optional
+* is optional
 
-*   Type: `object` ([Limit to \[no\] ROW Needed config](config-definitions-limitcontrol.md))
+* Type: `object` ([Limit to \[no\] ROW Needed config](config-definitions-limitcontrol.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/limitROW")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/limitROW")
 
 ### limitROW Type
 
@@ -148,13 +148,13 @@ An array of project types
 
 `projectTypes`
 
-*   is required
+* is required
 
-*   Type: `object` ([Project Types](config-properties-filter-widget-configuration-properties-project-types.md))
+* Type: `object` ([Project Types](config-properties-filter-widget-configuration-properties-project-types.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-project-types.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes")
 
 ### projectTypes Type
 
@@ -166,13 +166,13 @@ The values corresponding to the symbology in the web map
 
 `symbolValues`
 
-*   is required
+* is required
 
-*   Type: `object` ([Symbol Values](config-properties-filter-widget-configuration-properties-symbol-values.md))
+* Type: `object` ([Symbol Values](config-properties-filter-widget-configuration-properties-symbol-values.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues")
 
 ### symbolValues Type
 

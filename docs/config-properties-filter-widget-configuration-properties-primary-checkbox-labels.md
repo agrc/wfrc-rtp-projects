@@ -15,13 +15,13 @@
 
 `mode`
 
-*   is required
+* is required
 
-*   Type: `object` ([Mode Type Labels](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md))
+* Type: `object` ([Mode Type Labels](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-mode-type-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/mode")
 
 ### mode Type
 
@@ -33,13 +33,13 @@
 
 `phase`
 
-*   is required
+* is required
 
-*   Type: `object` ([Phase Labels](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md))
+* Type: `object` ([Phase Labels](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase")
 
 ### phase Type
 

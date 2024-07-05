@@ -17,13 +17,13 @@
 
 `one`
 
-*   is required
+* is required
 
-*   Type: `string` ([Phase 1](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-1.md))
+* Type: `string` ([Phase 1](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-1.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-1.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/one")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-1.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/one")
 
 ### one Type
 
@@ -35,13 +35,13 @@
 
 `two`
 
-*   is required
+* is required
 
-*   Type: `string` ([Phase 2](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-2.md))
+* Type: `string` ([Phase 2](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-2.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-2.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/two")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-2.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/two")
 
 ### two Type
 
@@ -53,13 +53,13 @@
 
 `three`
 
-*   is required
+* is required
 
-*   Type: `string` ([Phase 3](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-3.md))
+* Type: `string` ([Phase 3](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-3.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-3.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/three")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-phase-3.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/three")
 
 ### three Type
 
@@ -71,13 +71,13 @@
 
 `unfunded`
 
-*   is required
+* is required
 
-*   Type: `string` ([Unfunded](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-unfunded.md))
+* Type: `string` ([Unfunded](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-unfunded.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-unfunded.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/unfunded")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-primary-checkbox-labels-properties-phase-labels-properties-unfunded.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/labels/properties/phase/properties/unfunded")
 
 ### unfunded Type
 

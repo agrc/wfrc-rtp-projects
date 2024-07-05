@@ -16,13 +16,13 @@ The query that will be applied to the line layers
 
 `lines`
 
-*   is required
+* is required
 
-*   Type: `string` ([Lines Query](config-definitions-project-type-properties-lines-query.md))
+* Type: `string` ([Lines Query](config-definitions-project-type-properties-lines-query.md))
 
-*   can be null
+* can be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-lines-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/lines")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-lines-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/lines")
 
 ### lines Type
 
@@ -34,13 +34,13 @@ The query that will be applied to the point layers
 
 `points`
 
-*   is required
+* is required
 
-*   Type: `string` ([Points Query](config-definitions-project-type-properties-points-query.md))
+* Type: `string` ([Points Query](config-definitions-project-type-properties-points-query.md))
 
-*   can be null
+* can be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-points-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/points")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-points-query.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/points")
 
 ### points Type
 
@@ -52,13 +52,13 @@ Optionally show a '?' popup with help text
 
 `helpTxt`
 
-*   is optional
+* is optional
 
-*   Type: `string` ([Help Text](config-definitions-project-type-properties-help-text.md))
+* Type: `string` ([Help Text](config-definitions-project-type-properties-help-text.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-help-text.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/helpTxt")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type-properties-help-text.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/projectType/properties/helpTxt")
 
 ### helpTxt Type
 
