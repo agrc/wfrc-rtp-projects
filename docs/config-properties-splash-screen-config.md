@@ -16,13 +16,13 @@ Whether the splash screen is enabled
 
 `enabled`
 
-*   is required
+* is required
 
-*   Type: `boolean` ([Enabled](config-properties-splash-screen-config-properties-enabled.md))
+* Type: `boolean` ([Enabled](config-properties-splash-screen-config-properties-enabled.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config-properties-enabled.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen/properties/enabled")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config-properties-enabled.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen/properties/enabled")
 
 ### enabled Type
 
@@ -34,13 +34,13 @@ The title of the splash screen
 
 `title`
 
-*   is optional
+* is optional
 
-*   Type: `string` ([Title](config-properties-splash-screen-config-properties-title.md))
+* Type: `string` ([Title](config-properties-splash-screen-config-properties-title.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config-properties-title.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen/properties/title")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config-properties-title.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen/properties/title")
 
 ### title Type
 
@@ -52,13 +52,13 @@ The content of the splash screen
 
 `content`
 
-*   is optional
+* is optional
 
-*   Type: `string` ([Content](config-properties-splash-screen-config-properties-content.md))
+* Type: `string` ([Content](config-properties-splash-screen-config-properties-content.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config-properties-content.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen/properties/content")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-splash-screen-config-properties-content.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/splashScreen/properties/content")
 
 ### content Type
 

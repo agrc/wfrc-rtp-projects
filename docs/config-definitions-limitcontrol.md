@@ -17,13 +17,13 @@
 
 `field`
 
-*   is required
+* is required
 
-*   Type: `string` ([Field](config-definitions-limitcontrol-properties-field.md))
+* Type: `string` ([Field](config-definitions-limitcontrol-properties-field.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/field")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-field.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/field")
 
 ### field Type
 
@@ -35,13 +35,13 @@
 
 `labels`
 
-*   is required
+* is required
 
-*   Type: `string[]`
+* Type: `string[]`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/labels")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-label.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/labels")
 
 ### labels Type
 
@@ -53,13 +53,13 @@
 
 `values`
 
-*   is required
+* is required
 
-*   Type: `string[]`
+* Type: `string[]`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/values")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-values.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/values")
 
 ### values Type
 
@@ -71,13 +71,13 @@ The modes that this control should be enabled for
 
 `modes`
 
-*   is required
+* is required
 
-*   Type: `string[]`
+* Type: `string[]`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/modes")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-limitcontrol-properties-modes.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/definitions/limitControl/properties/modes")
 
 ### modes Type
 
