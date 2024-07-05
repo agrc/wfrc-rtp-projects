@@ -20,13 +20,13 @@
 
 `comment`
 
-*   is required
+* is required
 
-*   Type: `string` ([Comment](config-properties-project-information-widget-config-properties-field-names-properties-comment.md))
+* Type: `string` ([Comment](config-properties-project-information-widget-config-properties-field-names-properties-comment.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-comment.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/comment")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-comment.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/comment")
 
 ### comment Type
 
@@ -38,13 +38,13 @@
 
 `commentDt`
 
-*   is required
+* is required
 
-*   Type: `string` ([Comment Date](config-properties-project-information-widget-config-properties-field-names-properties-comment-date.md))
+* Type: `string` ([Comment Date](config-properties-project-information-widget-config-properties-field-names-properties-comment-date.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-comment-date.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/commentDt")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-comment-date.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/commentDt")
 
 ### commentDt Type
 
@@ -56,13 +56,13 @@
 
 `globalId`
 
-*   is required
+* is required
 
-*   Type: `string` ([Global ID](config-properties-project-information-widget-config-properties-field-names-properties-global-id.md))
+* Type: `string` ([Global ID](config-properties-project-information-widget-config-properties-field-names-properties-global-id.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-global-id.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/globalId")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-global-id.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/globalId")
 
 ### globalId Type
 
@@ -74,13 +74,13 @@
 
 `guid`
 
-*   is required
+* is required
 
-*   Type: `string` ([GUID](config-properties-project-information-widget-config-properties-field-names-properties-guid.md))
+* Type: `string` ([GUID](config-properties-project-information-widget-config-properties-field-names-properties-guid.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-guid.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/guid")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-guid.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/guid")
 
 ### guid Type
 
@@ -92,13 +92,13 @@
 
 `personCont`
 
-*   is required
+* is required
 
-*   Type: `string` ([Person Contact](config-properties-project-information-widget-config-properties-field-names-properties-person-contact.md))
+* Type: `string` ([Person Contact](config-properties-project-information-widget-config-properties-field-names-properties-person-contact.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-person-contact.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/personCont")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-person-contact.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/personCont")
 
 ### personCont Type
 
@@ -110,13 +110,13 @@
 
 `personName`
 
-*   is required
+* is required
 
-*   Type: `string` ([Person Name](config-properties-project-information-widget-config-properties-field-names-properties-person-name.md))
+* Type: `string` ([Person Name](config-properties-project-information-widget-config-properties-field-names-properties-person-name.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-person-name.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/personName")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-person-name.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/personName")
 
 ### personName Type
 
@@ -128,13 +128,13 @@
 
 `personOrg`
 
-*   is required
+* is required
 
-*   Type: `string` ([Person Organization](config-properties-project-information-widget-config-properties-field-names-properties-person-organization.md))
+* Type: `string` ([Person Organization](config-properties-project-information-widget-config-properties-field-names-properties-person-organization.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-person-organization.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/personOrg")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names-properties-person-organization.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames/properties/personOrg")
 
 ### personOrg Type
 

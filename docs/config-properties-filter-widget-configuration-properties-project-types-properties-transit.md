@@ -14,13 +14,13 @@ Additional properties are allowed, as long as they follow this schema:
 
 
 
-*   is optional
+* is optional
 
-*   Type: `object` ([Project Type](config-definitions-project-type.md))
+* Type: `object` ([Project Type](config-definitions-project-type.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/transit/additionalProperties")
+* defined in: [WFRC RTP Projects Application Configuration](config-definitions-project-type.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/projectTypes/properties/transit/additionalProperties")
 
 ### additionalProperties Type
 
