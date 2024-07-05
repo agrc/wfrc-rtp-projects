@@ -18,13 +18,13 @@ The URL to the feature service endpoint for the comments table
 
 `commentsTableUrl`
 
-*   is required
+* is required
 
-*   Type: `string` ([Comments Table URL](config-properties-project-information-widget-config-properties-comments-table-url.md))
+* Type: `string` ([Comments Table URL](config-properties-project-information-widget-config-properties-comments-table-url.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-table-url.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/commentsTableUrl")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-comments-table-url.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/commentsTableUrl")
 
 ### commentsTableUrl Type
 
@@ -36,13 +36,13 @@ An object that contains the field names for the comments table
 
 `fieldNames`
 
-*   is required
+* is required
 
-*   Type: `object` ([Field Names](config-properties-project-information-widget-config-properties-field-names.md))
+* Type: `object` ([Field Names](config-properties-project-information-widget-config-properties-field-names.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-field-names.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/fieldNames")
 
 ### fieldNames Type
 
@@ -54,13 +54,13 @@ Controls the visibility of the entire comments widget (existing comments and new
 
 `showComments`
 
-*   is required
+* is required
 
-*   Type: `boolean` ([Show the comments widget](config-properties-project-information-widget-config-properties-show-the-comments-widget.md))
+* Type: `boolean` ([Show the comments widget](config-properties-project-information-widget-config-properties-show-the-comments-widget.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-show-the-comments-widget.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/showComments")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-show-the-comments-widget.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/showComments")
 
 ### showComments Type
 
@@ -72,13 +72,13 @@ Controls the visibility of the new comment form. Existing comments will be shown
 
 `newCommentsEnabled`
 
-*   is required
+* is required
 
-*   Type: `boolean` ([New Comments Enabled](config-properties-project-information-widget-config-properties-new-comments-enabled.md))
+* Type: `boolean` ([New Comments Enabled](config-properties-project-information-widget-config-properties-new-comments-enabled.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/newCommentsEnabled")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/newCommentsEnabled")
 
 ### newCommentsEnabled Type
 
@@ -90,13 +90,13 @@ The date after which the new comment form will hidden. Existing comments will st
 
 `newCommentsEnabledUntil`
 
-*   is required
+* is required
 
-*   Type: `string` ([New Comments Enabled Until](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md))
+* Type: `string` ([New Comments Enabled Until](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/newCommentsEnabledUntil")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-project-information-widget-config-properties-new-comments-enabled-until.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/projectInformation/properties/newCommentsEnabledUntil")
 
 ### newCommentsEnabledUntil Type
 

@@ -15,13 +15,13 @@
 
 `mode`
 
-*   is required
+* is required
 
-*   Type: `object` ([Mode](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode.md))
+* Type: `object` ([Mode](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-mode.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/mode")
 
 ### mode Type
 
@@ -33,13 +33,13 @@
 
 `phase`
 
-*   is required
+* is required
 
-*   Type: `object` ([Phase](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase.md))
+* Type: `object` ([Phase](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase")
 
 ### phase Type
 

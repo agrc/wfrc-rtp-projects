@@ -17,13 +17,13 @@
 
 `one`
 
-*   is required
+* is required
 
-*   Type: `string` ([One](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-one.md))
+* Type: `string` ([One](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-one.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-one.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/one")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-one.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/one")
 
 ### one Type
 
@@ -35,13 +35,13 @@
 
 `two`
 
-*   is required
+* is required
 
-*   Type: `string` ([Two](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-two.md))
+* Type: `string` ([Two](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-two.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-two.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/two")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-two.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/two")
 
 ### two Type
 
@@ -53,13 +53,13 @@
 
 `three`
 
-*   is required
+* is required
 
-*   Type: `string` ([Three](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-three.md))
+* Type: `string` ([Three](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-three.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-three.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/three")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-three.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/three")
 
 ### three Type
 
@@ -71,13 +71,13 @@
 
 `unfunded`
 
-*   is required
+* is required
 
-*   Type: `string` ([Unfunded](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-unfunded.md))
+* Type: `string` ([Unfunded](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-unfunded.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-unfunded.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/unfunded")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-symbol-values-properties-phase-properties-unfunded.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/symbolValues/properties/phase/properties/unfunded")
 
 ### unfunded Type
 

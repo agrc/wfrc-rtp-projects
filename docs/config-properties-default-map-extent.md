@@ -16,13 +16,13 @@
 
 `x`
 
-*   is required
+* is required
 
-*   Type: `number`
+* Type: `number`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent-properties-x.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent/properties/x")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent-properties-x.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent/properties/x")
 
 ### x Type
 
@@ -34,13 +34,13 @@
 
 `y`
 
-*   is required
+* is required
 
-*   Type: `number`
+* Type: `number`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent-properties-y.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent/properties/y")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent-properties-y.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent/properties/y")
 
 ### y Type
 
@@ -52,13 +52,13 @@
 
 `scale`
 
-*   is required
+* is required
 
-*   Type: `number`
+* Type: `number`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent-properties-scale.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent/properties/scale")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-default-map-extent-properties-scale.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/defaultExtent/properties/scale")
 
 ### scale Type
 

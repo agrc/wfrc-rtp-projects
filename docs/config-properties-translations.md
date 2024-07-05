@@ -15,13 +15,13 @@
 
 `en`
 
-*   is required
+* is required
 
-*   Type: `object` ([English](config-properties-translations-properties-english.md))
+* Type: `object` ([English](config-properties-translations-properties-english.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-properties-english.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/properties/en")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-properties-english.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/properties/en")
 
 ### en Type
 
@@ -33,13 +33,13 @@ Additional properties are allowed, as long as they follow this schema:
 
 
 
-*   is optional
+* is optional
 
-*   Type: `object` ([Details](config-properties-translations-additionalproperties.md))
+* Type: `object` ([Details](config-properties-translations-additionalproperties.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/additionalProperties")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-translations-additionalproperties.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/translations/additionalProperties")
 
 ### additionalProperties Type
 

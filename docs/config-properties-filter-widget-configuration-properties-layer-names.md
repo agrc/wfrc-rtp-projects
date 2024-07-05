@@ -17,13 +17,13 @@
 
 `modeLines`
 
-*   is required
+* is required
 
-*   Type: `string` ([Mode Lines](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md))
+* Type: `string` ([Mode Lines](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modeLines")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modeLines")
 
 ### modeLines Type
 
@@ -35,13 +35,13 @@
 
 `modePoints`
 
-*   is required
+* is required
 
-*   Type: `string` ([Mode Points](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md))
+* Type: `string` ([Mode Points](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modePoints")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-mode-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/modePoints")
 
 ### modePoints Type
 
@@ -53,13 +53,13 @@
 
 `phaseLines`
 
-*   is required
+* is required
 
-*   Type: `string` ([Phase Lines](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md))
+* Type: `string` ([Phase Lines](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phaseLines")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-lines.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phaseLines")
 
 ### phaseLines Type
 
@@ -71,13 +71,13 @@
 
 `phasePoints`
 
-*   is required
+* is required
 
-*   Type: `string` ([Phase Points](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md))
+* Type: `string` ([Phase Points](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md))
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phasePoints")
+* defined in: [WFRC RTP Projects Application Configuration](config-properties-filter-widget-configuration-properties-layer-names-properties-phase-points.md "https://wfrc.org/rtp-2023-adopted-map/config.schema.json#/properties/filter/properties/layerNames/properties/phasePoints")
 
 ### phasePoints Type
 
