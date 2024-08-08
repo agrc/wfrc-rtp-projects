@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.3.5](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.3...v5.3.5) (2024-08-08)
+
+
+### Bug Fixes
+
+* app version log ([f52b925](https://github.com/agrc/wfrc-rtp-projects/commit/f52b925ff181bf657a12a00db075821306edbdfa))
+* update about content ([8333106](https://github.com/agrc/wfrc-rtp-projects/commit/8333106a69926f229220c00cd4ac91cdebfae77c))
+* use new value for attribute style for web api ([870072b](https://github.com/agrc/wfrc-rtp-projects/commit/870072be4ad4d772ba3c708db5d162042400a14c))
+
+
+### Dependencies
+
+* one final Q1 bump ([596810f](https://github.com/agrc/wfrc-rtp-projects/commit/596810fbb25adeda4b5cb820d142e35898c41e6d))
+* Q1 dependency bumps 🌲 ([1bfe22a](https://github.com/agrc/wfrc-rtp-projects/commit/1bfe22a57c892770802700a903e69dc960e22780))
+* storybook v7 -&gt; v8 ([d201ef0](https://github.com/agrc/wfrc-rtp-projects/commit/d201ef032e7496339896c9bdec720730bc443dea))
+
+
+### Documentation
+
+* update config docs ([a4f2f40](https://github.com/agrc/wfrc-rtp-projects/commit/a4f2f40974f7f6ab0877ac6378a567f5c91d744d))
+
 ## [5.3.4](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.3...v5.3.4) (2024-07-05)
 
 
