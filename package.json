@@ -1,6 +1,6 @@
 {
   "name": "wfrc-rtp-projects",
-  "version": "5.3.6-0",
+  "version": "5.3.6",
   "private": true,
   "type": "module",
   "scripts": {
