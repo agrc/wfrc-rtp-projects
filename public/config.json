@@ -114,9 +114,9 @@
           "points": "improvement_type = 'Station'",
           "lines": null
         },
-        "Mobility Hub": {
-          "points": "improvement_type = 'Transit Hub'",
-          "lines": null
+        "Mobility Hub / Zone": {
+          "points": "improvement_type = 'Transit Hub' OR improvement_type = 'Fixed-Guideway Innovative Mobility Zone'",
+          "lines": "improvement_type = 'Transit Hub' OR improvement_type = 'Local Bus' OR improvement_type = 'Fixed-Guideway Innovative Mobility Zone'"
         },
         "Park & Ride": {
           "points": "improvement_type = 'Park & Ride'",
@@ -134,7 +134,7 @@
         },
         "On-street, Protected": {
           "points": null,
-          "lines": "bike_type_text = 'General Cycle Track' OR bike_type_text = 'Protected Bike Lane'"
+          "lines": "bike_type_text = 'General Cycle Track' OR bike_type_text = 'Protected Bike Lane' OR improvement_type = 'Future Study Needed'"
         },
         "On-street, Bike Lane": {
           "points": null,
@@ -233,7 +233,7 @@
   "splashScreen": {
     "enabled": true,
     "title": "WFRC RTP Projects Map (2023-2050)",
-    "content": "<div>This map shows the Adopted 2023 Regional Transportation Plan (RTP).<br /><br />For project questions, contact the <a href=\"https://wfrc.org/contact/staff-directory/#longrange\" target=\"_blank\">Long-Range Planning Group</a> at WFRC.<br />For map questions, contact the <a href=\"https://wfrc.org/contact-sarah-lawless/\" target=\"_blank\">Analytics Group</a> at WFRC.</div>"
+    "content": "<div>This map shows the Adopted 2023 Regional Transportation Plan (RTP) including Amendment 1 (May 25, 2024).<br /><br />For project questions, contact the <a href=\"https://wfrc.org/contact/staff-directory/#longrange\" target=\"_blank\">Long-Range Planning Group</a> at WFRC.<br />For map questions, contact the <a href=\"https://wfrc.org/contact-sarah-lawless/\" target=\"_blank\">Analytics Group</a> at WFRC.</div>"
   },
   "translations": {
     "en": {
