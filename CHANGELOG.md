@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.3.6-0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.5...v5.3.6-0) (2024-08-15)
+
+
+### Bug Fixes
+
+* update config from production ([cf4c13d](https://github.com/agrc/wfrc-rtp-projects/commit/cf4c13d82e6fc9135aadf7e2e88e9058e942d2d9))
+
+
+### Styles
+
+* add margin to details to avoid cutting off content ([07d9c5a](https://github.com/agrc/wfrc-rtp-projects/commit/07d9c5aaa32a25ac00dc0d7648597bb66bade4b7))
+
 ## [5.3.5](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.3...v5.3.5) (2024-08-08)
 
 
