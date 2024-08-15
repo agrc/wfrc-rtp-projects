@@ -2,6 +2,7 @@ $border: solid 1px gray;
 $padding: 14px;
 
 .details {
+  margin: 0 0.25rem 0 0.25rem;
   &:first-child {
     border-top: $border;
   }
