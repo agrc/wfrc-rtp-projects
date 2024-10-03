@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.8](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.7...v5.3.8) (2024-10-03)
+
+
+### Bug Fixes
+
+* give deploy permissions to write to the newly created tag ([a9509e9](https://github.com/agrc/wfrc-rtp-projects/commit/a9509e9596f759081ae8c2ca521d9dbc83192565))
+
 ## [5.3.7](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.6...v5.3.7) (2024-10-03)
 
 
