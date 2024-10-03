@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.3.7](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.6...v5.3.7) (2024-10-03)
+
+
+### Dependencies
+
+* bump the npm_and_yarn group with 2 updates ([4bef066](https://github.com/agrc/wfrc-rtp-projects/commit/4bef0660d1e51a825c92786a5954cd79e64ddb29))
+* FY25Q2 dependency updates 🌲 ([ca4eeb2](https://github.com/agrc/wfrc-rtp-projects/commit/ca4eeb2adba3741f9c17c4265e1fc1d8835846d1))
+
 ## [5.3.6](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.6...v5.3.6) (2024-08-15)
 
 
