@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.9](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.8...v5.3.9) (2025-01-09)
+
+
+### Dependencies
+
+* FY25 Q3 dependency bumps 🌲 ([85fd941](https://github.com/agrc/wfrc-rtp-projects/commit/85fd94141104cdcabdd36a839ba70eb7aab27356))
+
 ## [5.3.9-0](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.8...v5.3.9-0) (2025-01-08)
 
 
