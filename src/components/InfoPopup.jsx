@@ -17,8 +17,8 @@ export default function InfoPopup({ content, className, style }) {
   };
 
   return (
-    <span tabIndex="0" ref={setUp} className={className} style={style}>
-      <FontAwesomeIcon icon={faCircleQuestion} />
+    <span ref={setUp} className={className} style={style}>
+      <FontAwesomeIcon tabIndex="0" icon={faCircleQuestion} />
     </span>
   );
 }

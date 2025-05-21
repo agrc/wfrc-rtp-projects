@@ -31,8 +31,8 @@ export default function MapWidget({
     height: isAlone
       ? '100%'
       : position === 0
-      ? `calc(50% + ${resize}px - ${bufferForResizeHandle})`
-      : `calc(50% - ${resize}px - ${bufferForResizeHandle})`,
+        ? `calc(50% + ${resize}px - ${bufferForResizeHandle})`
+        : `calc(50% - ${resize}px - ${bufferForResizeHandle})`,
   };
   const buttonDiv = useRef();
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function MapWidget({
     const buttonDivRef = buttonDiv.current;
 
     return () => {
-      mapView && mapView.ui.remove(buttonDivRef);
+      if (mapView) mapView.ui.remove(buttonDivRef);
     };
   }, [buttonDiv, mapView]);
 
@@ -64,6 +64,7 @@ export default function MapWidget({
   return (
     <>
       <MapWidgetContext.Provider value={{ updateScrollbar }}>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div className="map-widget-button esri-widget--button" ref={buttonDiv} onClick={toggle} title={name}>
           <FontAwesomeIcon icon={icon} />
         </div>

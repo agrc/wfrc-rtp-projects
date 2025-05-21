@@ -28,7 +28,7 @@ export const getLayersInMap = async (map) => {
     layerNameLookup[layer.title] = layer;
 
     await layer.when();
-    layer.sublayers && getSublayers(layer);
+    if (layer.sublayers) getSublayers(layer);
   }
 
   Object.keys(layerNameLookup).forEach((layerName) => {
@@ -101,7 +101,7 @@ export const getSymbol = (layer, value) => {
   }
 
   throw new Error(
-    `Could not find symbol in layer: "${layer.layer.title}" for value: "${value}" in field: "${layer.layer.renderer.field}"!`
+    `Could not find symbol in layer: "${layer.layer.title}" for value: "${value}" in field: "${layer.layer.renderer.field}"!`,
   );
 };
 

@@ -77,7 +77,7 @@ function App() {
           scale: config.defaultExtent.scale,
         }),
       }),
-      'top-left'
+      'top-left',
     );
 
     config.layerSelector.baseLayers = config.layerSelector.baseLayers.map((layer) => {
@@ -146,14 +146,14 @@ function App() {
           });
       }
     },
-    [displayedZoomGraphic, mapView]
+    [displayedZoomGraphic, mapView],
   );
 
   useEffect(() => {
     if (zoomToGraphic) {
       const { graphic, level, preserve } = zoomToGraphic;
 
-      graphic &&
+      if (graphic)
         zoomTo({
           target: graphic,
           zoom: level,
@@ -209,7 +209,7 @@ function App() {
         setGraphic(null);
       }
     },
-    [graphic, highlight, mapView]
+    [graphic, highlight, mapView],
   );
 
   const initialSelectedGraphicLoaded = useRef(false);
@@ -262,7 +262,7 @@ function App() {
               scale: Math.round(mapView.scale),
             });
           }
-        }, 100)
+        }, 100),
       );
     }
   }, [highlightGraphic, mapView, setUrlState]);
