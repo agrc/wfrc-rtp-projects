@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.3.10](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.9...v5.3.10) (2025-05-21)
+
+
+### Dependencies
+
+* bump npm dependencies 🌲 ([4b5d65d](https://github.com/agrc/wfrc-rtp-projects/commit/4b5d65d62fc7e809a20688e3e1944b69162ed611))
+* bump the npm_and_yarn group across 1 directory with 2 updates ([32e2d92](https://github.com/agrc/wfrc-rtp-projects/commit/32e2d926697bf9e2306e7006b79c474069bd8776))
+* **dev:** bump vite from 6.0.7 to 6.0.9 in the npm_and_yarn group ([829b75b](https://github.com/agrc/wfrc-rtp-projects/commit/829b75be6e7daeece8ace7160d676d2c6fb46dfe))
+
 ## [5.3.9](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.8...v5.3.9) (2025-01-09)
 
 
