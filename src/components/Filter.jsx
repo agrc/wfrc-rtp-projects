@@ -52,7 +52,7 @@ export default function Filter({ mapView, state, dispatch }) {
         console.log(
           `${layers[layerKey].layer.title} filter updated to: \n${
             where ? formatDialect(where, { dialect: sqlite }) : where
-          }`
+          }`,
         );
       }
     }

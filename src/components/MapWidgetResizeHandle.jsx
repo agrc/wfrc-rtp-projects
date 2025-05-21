@@ -29,7 +29,7 @@ export default function MapWidgetResizeHandle({ onResize, show }) {
         ref={ref}
         className={clsx(
           'bg-light align-items-center justify-content-center rounded border position-absolute w-50 opacity-75',
-          isHovering && 'opacity-100'
+          isHovering && 'opacity-100',
         )}
         style={style}
         onMouseEnter={() => setIsHovering(true)}

@@ -1,0 +1,7 @@
+.vscode
+/data
+/dist
+/public/assets
+/scripts
+CHANGELOG.md
+docs/
