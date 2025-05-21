@@ -1,13 +1,13 @@
+@use 'variables';
 @import 'bootstrap';
 
-@import './variables.scss';
 @import '../node_modules/@ugrc/layer-selector/src/LayerSelector.css';
 
 .title {
   h4 {
     font-family: Montserrat, Arial, sans-serif;
   }
-  color: $highlightColor;
+  color: variables.$highlightColor;
 }
 
 .about-content {
