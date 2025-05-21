@@ -73,7 +73,7 @@ SimpleControls.propTypes = {
       point: PropTypes.object,
       value: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-    })
+    }),
   ),
   dispatch: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,

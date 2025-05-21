@@ -26,7 +26,7 @@ export function getQuery(state, geometryType, projectConfig) {
       selectedProjectTypeInfos = transit.map((name) => projectConfig.filter.projectTypes.transit[name]);
     } else if (mode == projectConfig.filter.symbolValues.mode.activeTransportation) {
       selectedProjectTypeInfos = activeTransportation.map(
-        (name) => projectConfig.filter.projectTypes.activeTransportation[name]
+        (name) => projectConfig.filter.projectTypes.activeTransportation[name],
       );
     }
 
@@ -231,7 +231,7 @@ export default function useFilterReducer() {
   });
   const [state, dispatch] = useImmerReducer(
     reducer,
-    urlState && Object.keys(urlState).length === Object.keys(initialState).length ? urlState : initialState
+    urlState && Object.keys(urlState).length === Object.keys(initialState).length ? urlState : initialState,
   );
 
   useEffect(() => {

@@ -1,61 +1,168 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.7px Arial; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.7px Arial; color: #000000; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {text-decoration: underline ; font-kerning: none; color: #0000e9}
-    span.s3 {text-decoration: underline ; font-kerning: none; color: #0e24b2; -webkit-text-stroke: 0px #0e24b2}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">This map displays the roadway, transit, and active transportation projects included in the 2023 - 2050 Regional Transportation Plan (RTP) for the <a href="https://wfrc.org/maps-data/wfrc-area-maps/#wfrc_mpo"><span class="s2">metropolitan planning organization (MPO) jurisdiction of the Wasatch Front Regional Council (WFRC)</span></a>.<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">The RTP and its accompanying list of transportation projects are updated every four years, considering input from transportation agencies, local government, other regional stakeholders, and the general public. Modifications to the RTP may be made within the 4-year update cycle through Council-adopted amendments. More information about the RTP planning and adoption process can be accessed from the <a href="https://wfrc.org/vision-plans/regional-transportation-plan/2023-2050-regional-transportation-plan/"><span class="s3">RTP website</span></a> and within the <a href="https://wfrc.org/VisionPlans/RegionalTransportationPlan/2023_2050Plan/2023RTP.pdf"><span class="s3">RTP document</span></a>.</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><b>What can you do with this map?</b></span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">The RTP Projects web map allows users to explore projects by their location, transportation project mode/type, anticipated project timing (i.e. phasing), and costs of planned projects. Projects are shown geographically on the map as line and point features.</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">The map's default <b>basic project filter</b> allows users to color projects on the map by either the projects’ <i>Transportation Mode</i> or the projects’ <i>Phase Years</i>. You can also filter the map to show just selected modes or phases – for example all Transit Projects in Phase 1 of the plan. Clicking on a project line or point will open a project information window with more information about the project(s) found at that geographic location.</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">The <b>advanced project filter</b>, accessed by clicking the arrowhead at the bottom of the basic filter, provides an expanded set of criteria to control what is displayed on the map. Filter options include project subtypes for each mode, project cost ranges, fiscally constrained or needs-based phasing, and project jurisdiction (f.ex. UDOT or local government ownership).</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><b>Save or share the project map you are looking at:</b></span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">Anytime you pan or zoom the map, or customize how the projects are displayed on the map, your choices are updated as parameters within the maps's URL that is shown in your browser's location (web address) bar. This means you can bookmark the map or copy/paste the URL into an email and when the map is reopened from that saved URL, you or others will see what you were looking at when the URL was saved or copied.</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><b>Change the map background or add in additional context:</b></span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">The base map selector tool – which looks like a club sandwich on the left side of the map – allows you to change the base map shown under the projects or to turn on a layer of additional transit projects from UTA's 5 year service plan. (note: your choices from the base map selector tool are not preserved in the URL parameters)</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<p class="p3"><span class="s1"><br>
-</span></p>
-</body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <title></title>
+    <meta name="Generator" content="Cocoa HTML Writer" />
+    <meta name="CocoaVersion" content="2113.6" />
+    <style type="text/css">
+      p.p1 {
+        margin: 0px 0px 0px 0px;
+        font: 14.7px Arial;
+        color: #000000;
+        -webkit-text-stroke: #000000;
+      }
+      p.p2 {
+        margin: 0px 0px 0px 0px;
+        font: 14.7px Arial;
+        color: #000000;
+        -webkit-text-stroke: #000000;
+        min-height: 16px;
+      }
+      p.p3 {
+        margin: 0px 0px 0px 0px;
+        font: 12px Times;
+        color: #000000;
+        -webkit-text-stroke: #000000;
+      }
+      span.s1 {
+        font-kerning: none;
+      }
+      span.s2 {
+        text-decoration: underline;
+        font-kerning: none;
+        color: #0000e9;
+      }
+      span.s3 {
+        text-decoration: underline;
+        font-kerning: none;
+        color: #0e24b2;
+        -webkit-text-stroke: 0px #0e24b2;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="p1">
+      <span class="s1"
+        >This map displays the roadway, transit, and active transportation projects included in the 2023 - 2050 Regional
+        Transportation Plan (RTP) for the
+        <a href="https://wfrc.org/maps-data/wfrc-area-maps/#wfrc_mpo"
+          ><span class="s2"
+            >metropolitan planning organization (MPO) jurisdiction of the Wasatch Front Regional Council (WFRC)</span
+          ></a
+        >.<span class="Apple-converted-space"> </span></span
+      >
+    </p>
+    <p class="p2"><span class="s1"></span><br /></p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"
+        >The RTP and its accompanying list of transportation projects are updated every four years, considering input
+        from transportation agencies, local government, other regional stakeholders, and the general public.
+        Modifications to the RTP may be made within the 4-year update cycle through Council-adopted amendments. More
+        information about the RTP planning and adoption process can be accessed from the
+        <a href="https://wfrc.org/vision-plans/regional-transportation-plan/2023-2050-regional-transportation-plan/"
+          ><span class="s3">RTP website</span></a
+        >
+        and within the
+        <a href="https://wfrc.org/VisionPlans/RegionalTransportationPlan/2023_2050Plan/2023RTP.pdf"
+          ><span class="s3">RTP document</span></a
+        >.</span
+      >
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"><b>What can you do with this map?</b></span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"
+        >The RTP Projects web map allows users to explore projects by their location, transportation project mode/type,
+        anticipated project timing (i.e. phasing), and costs of planned projects. Projects are shown geographically on
+        the map as line and point features.</span
+      >
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"
+        >The map's default <b>basic project filter</b> allows users to color projects on the map by either the projects’
+        <i>Transportation Mode</i> or the projects’ <i>Phase Years</i>. You can also filter the map to show just
+        selected modes or phases – for example all Transit Projects in Phase 1 of the plan. Clicking on a project line
+        or point will open a project information window with more information about the project(s) found at that
+        geographic location.</span
+      >
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"
+        >The <b>advanced project filter</b>, accessed by clicking the arrowhead at the bottom of the basic filter,
+        provides an expanded set of criteria to control what is displayed on the map. Filter options include project
+        subtypes for each mode, project cost ranges, fiscally constrained or needs-based phasing, and project
+        jurisdiction (f.ex. UDOT or local government ownership).</span
+      >
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"><b>Save or share the project map you are looking at:</b></span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"
+        >Anytime you pan or zoom the map, or customize how the projects are displayed on the map, your choices are
+        updated as parameters within the maps's URL that is shown in your browser's location (web address) bar. This
+        means you can bookmark the map or copy/paste the URL into an email and when the map is reopened from that saved
+        URL, you or others will see what you were looking at when the URL was saved or copied.</span
+      >
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"><b>Change the map background or add in additional context:</b></span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p1">
+      <span class="s1"
+        >The base map selector tool – which looks like a club sandwich on the left side of the map – allows you to
+        change the base map shown under the projects or to turn on a layer of additional transit projects from UTA's 5
+        year service plan. (note: your choices from the base map selector tool are not preserved in the URL
+        parameters)</span
+      >
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+    <p class="p3">
+      <span class="s1"><br /> </span>
+    </p>
+  </body>
 </html>
