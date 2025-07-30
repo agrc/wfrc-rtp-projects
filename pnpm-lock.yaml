@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@arcgis/core':
-        specifier: ^4.33.9
-        version: 4.33.9
+        specifier: ^4.33.10
+        version: 4.33.10
       '@fortawesome/free-solid-svg-icons':
         specifier: ^6.7.2
         version: 6.7.2
@@ -22,7 +22,7 @@ importers:
         version: 5.83.0(react@19.1.0)
       '@ugrc/layer-selector':
         specifier: ^6.4.0
-        version: 6.4.0(@arcgis/core@4.33.9)(prop-types@15.8.1)(react@19.1.0)
+        version: 6.4.0(@arcgis/core@4.33.10)(prop-types@15.8.1)(react@19.1.0)
       '@ugrc/utilities':
         specifier: ^3.0.4
         version: 3.0.4(react@19.1.0)
@@ -78,8 +78,8 @@ importers:
         specifier: ^7.60.0
         version: 7.60.0(react@19.1.0)
       react-i18next:
-        specifier: ^15.6.0
-        version: 15.6.0(i18next@25.3.2(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)
+        specifier: ^15.6.1
+        version: 15.6.1(i18next@25.3.2(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)
       react-number-format:
         specifier: ^5.4.4
         version: 5.4.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -189,8 +189,8 @@ packages:
   '@arcgis/components-utils@4.33.12':
     resolution: {integrity: sha512-B3cISRLbWEfTTYyjwLR5M5CT38fq6EerAeV8h+nYZMu7Zijy8rWrFLpDXGmDu9eD+KaWZG74Zq065UQv3nhWtg==}
 
-  '@arcgis/core@4.33.9':
-    resolution: {integrity: sha512-I6O43kuo53MhDl9ACcc+RFa//vol650XoFjmo6lwqga47lFMULZfHkh5tf9UCEVu8RXPaeQGb2mrrZhXJk6a7Q==}
+  '@arcgis/core@4.33.10':
+    resolution: {integrity: sha512-UsF2y9NjhE5wTsiBO54ZMnaDvWu4fqIkZanBM0Dde/01rkp+RXmCHR+xzhbsvT4A52JbjbASn6466uMhQeoX9w==}
 
   '@arcgis/lumina@4.33.12':
     resolution: {integrity: sha512-KSkL9AfZX6R6OyxTesa7QLIYedtX2Cje4+9PbcZY5R/txiqGHeunnF842r/xuuNGWrp0L6hQI9zCKCaZkPqzPg==}
@@ -2808,8 +2808,8 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
-  react-i18next@15.6.0:
-    resolution: {integrity: sha512-W135dB0rDfiFmbMipC17nOhGdttO5mzH8BivY+2ybsQBbXvxWIwl3cmeH3T9d+YPBSJu/ouyJKFJTtkK7rJofw==}
+  react-i18next@15.6.1:
+    resolution: {integrity: sha512-uGrzSsOUUe2sDBG/+FJq2J1MM+Y4368/QW8OLEKSFvnDflHBbZhSd1u3UkW0Z06rMhZmnB/AQrhCpYfE5/5XNg==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
@@ -3594,7 +3594,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@arcgis/core@4.33.9':
+  '@arcgis/core@4.33.10':
     dependencies:
       '@esri/arcgis-html-sanitizer': 4.1.0
       '@esri/calcite-components': 3.2.1
@@ -4486,16 +4486,16 @@ snapshots:
       - supports-color
       - typescript
 
-  '@ugrc/layer-selector@6.4.0(@arcgis/core@4.33.9)(prop-types@15.8.1)(react@19.1.0)':
+  '@ugrc/layer-selector@6.4.0(@arcgis/core@4.33.10)(prop-types@15.8.1)(react@19.1.0)':
     dependencies:
-      '@arcgis/core': 4.33.9
+      '@arcgis/core': 4.33.10
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 19.1.0
 
   '@ugrc/utilities@3.0.4(react@19.1.0)':
     dependencies:
-      '@arcgis/core': 4.33.9
+      '@arcgis/core': 4.33.10
       ky: 1.8.2
       react: 19.1.0
 
@@ -6601,7 +6601,7 @@ snapshots:
     dependencies:
       react: 19.1.0
 
-  react-i18next@15.6.0(i18next@25.3.2(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3):
+  react-i18next@15.6.1(i18next@25.3.2(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3):
     dependencies:
       '@babel/runtime': 7.28.2
       html-parse-stringify: 3.0.1
