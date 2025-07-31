@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.3.11](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.10...v5.3.11) (2025-07-31)
+
+
+### Dependencies
+
+* bump esbuild from 0.24.2 to 0.25.5 in the npm_and_yarn group ([6841421](https://github.com/agrc/wfrc-rtp-projects/commit/6841421122267ccef784aaf16e4208c33d882707))
+* bump the safe-dependencies group across 1 directory with 23 updates ([19a739c](https://github.com/agrc/wfrc-rtp-projects/commit/19a739cc07daf4d961741e1ad383dce514e4b903))
+* bump the safe-dependencies group with 2 updates ([7c61fb9](https://github.com/agrc/wfrc-rtp-projects/commit/7c61fb97a6e752d234088b4efb9d015a890a6faf))
+
 ## [5.3.10](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.9...v5.3.10) (2025-05-21)
 
 
