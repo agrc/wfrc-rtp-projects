@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.12](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.11...v5.3.12) (2025-08-01)
+
+
+### Dependencies
+
+* bump the safe-dependencies group with 2 updates ([a0ddfd7](https://github.com/agrc/wfrc-rtp-projects/commit/a0ddfd7ad6b2e05492dcec50476ede24b12cb49d))
+
 ## [5.3.11](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.10...v5.3.11) (2025-07-31)
 
 
