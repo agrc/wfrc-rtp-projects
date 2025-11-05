@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.3.13](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.12...v5.3.13) (2025-11-05)
+
+
+### Dependencies
+
+* bump the major-dependencies group across 1 directory with 5 updates ([fc530da](https://github.com/agrc/wfrc-rtp-projects/commit/fc530da32ebb5961bf15a73f4c5c645f9b49ab94))
+* bump the safe-dependencies group across 1 directory with 27 updates ([6f0ae9f](https://github.com/agrc/wfrc-rtp-projects/commit/6f0ae9f19d8317a82bb9a62353bd32fba30feea4))
+* **dev:** bump vite in the npm_and_yarn group across 1 directory ([0961c6c](https://github.com/agrc/wfrc-rtp-projects/commit/0961c6cbcc6a080c3f9e2cd0a14d761ba78840f0))
+
 ## [5.3.12](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.11...v5.3.12) (2025-08-01)
 
 
