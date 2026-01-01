@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: ⬇️ Set up code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           show-progress: false
 
@@ -74,7 +74,7 @@ jobs:
     if: github.event.release.prerelease == false
     steps:
       - name: ⬇️ Set up code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           show-progress: false
 
