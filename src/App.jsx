@@ -9,7 +9,6 @@ import Home from '@arcgis/core/widgets/Home';
 import { faCircleQuestion, faFilter, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import LayerSelector from '@ugrc/layer-selector';
 import debounce from 'lodash.debounce';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Button, Collapse } from 'reactstrap';
@@ -25,6 +24,7 @@ import SplashScreen from './components/SplashScreen';
 import useFilterReducer from './hooks/useFilterReducer';
 import config from './services/config';
 import { useSpecialTranslation } from './services/i18n';
+import LayerSelector from './vendor/layer-selector/LayerSelector';
 
 const queryClient = new QueryClient();
 

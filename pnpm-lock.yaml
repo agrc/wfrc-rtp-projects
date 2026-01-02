@@ -20,9 +20,6 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.90.5
         version: 5.90.5(react@19.2.0)
-      '@ugrc/layer-selector':
-        specifier: ^6.4.0
-        version: 6.4.0(@arcgis/core@4.34.2(@lit/context@1.1.6))(prop-types@15.8.1)(react@19.2.0)
       '@ugrc/utilities':
         specifier: ^3.1.1
         version: 3.1.1(@lit/context@1.1.6)(react@19.2.0)
@@ -1211,13 +1208,6 @@ packages:
     resolution: {integrity: sha512-pwB/wQCEV3dFp2lBG6yCXAa0JbRyfwUPk7NX4pJs6TOVgMVnfS3ESAyu6CTdA0Y5uJMJc775feTJOkkqBW86vw==}
     peerDependencies:
       eslint: '>=9'
-
-  '@ugrc/layer-selector@6.4.0':
-    resolution: {integrity: sha512-6sqzvQOfaQL01yHGUxByJ7eYcdrxyOPwudVuJLfG7xYOJsRuHRhrwwzRwQpjgobU89Sy4XDqmueFkxgHgu2dzg==}
-    peerDependencies:
-      '@arcgis/core': ^4.20.0
-      prop-types: ^15.8.1
-      react: '>=16.8.0'
 
   '@ugrc/utilities@3.1.1':
     resolution: {integrity: sha512-wUaVtR/uFpFTATijbywBSnb6N79wCyTirdvHgZUmfO/G1pCA1VdJkRafCQuhMfgas6ZhVQHpLA4Vg7VEa5TK2Q==}
@@ -5022,13 +5012,6 @@ snapshots:
       - storybook
       - supports-color
       - typescript
-
-  '@ugrc/layer-selector@6.4.0(@arcgis/core@4.34.2(@lit/context@1.1.6))(prop-types@15.8.1)(react@19.2.0)':
-    dependencies:
-      '@arcgis/core': 4.34.2(@lit/context@1.1.6)
-      clsx: 2.1.1
-      prop-types: 15.8.1
-      react: 19.2.0
 
   '@ugrc/utilities@3.1.1(@lit/context@1.1.6)(react@19.2.0)':
     dependencies:
