@@ -65,7 +65,7 @@
         },
         "HOT Lane Additions": {
           "points": null,
-          "lines": "plan_id = 'R-S-136'"
+          "lines": "plan_id = 'R-D-50' OR plan_id = 'R-S-4' OR plan_id = 'R-S-5' OR plan_id = 'R-S-149'"
         },
         "Interchange": {
           "points": "improvement_type = 'Upgrade Interchange'",
@@ -130,7 +130,7 @@
       "activeTransportation": {
         "Multiuse Pathway": {
           "points": null,
-          "lines": "bike_type_text = 'Parallel Bikeway Paved' OR bike_type_text = 'Parallel Bikeway Unpaved' OR bike_type_text = 'Shared Use Path' OR bike_type_text = 'Trail'"
+          "lines": "bike_type_text = 'Parallel Bikeway Paved' OR bike_type_text = 'Parallel Bikeway Unpaved' OR bike_type_text = 'Shared Use Path' OR bike_type_text = 'Trail' or bike_type_text = 'Sidepath'"
         },
         "On-street, Protected": {
           "points": null,
@@ -142,7 +142,7 @@
         },
         "Signed Route/Sharrow": {
           "points": null,
-          "lines": "bike_type_text = 'General Shared Roadway' OR bike_type_text = 'Marked Shared Roadway' OR bike_type_text = 'Shoulder Bikeway' OR bike_type_text = 'Unknown Category' OR bike_type_text = 'Bicycle Boulevard' OR bike_type_text = 'Shared Lane'"
+          "lines": "bike_type_text = 'General Shared Roadway' OR bike_type_text = 'Marked Shared Roadway' OR bike_type_text = 'Shoulder Bikeway' OR bike_type_text = 'Unknown Category' OR bike_type_text = 'Bicycle Boulevard' OR bike_type_text = 'Shared Lane' OR bike_type_text = 'Neighborhood Byway'"
         },
         "Over/Underpass (AT)": {
           "points": "bike_type_text = 'Overpass' OR bike_type_text = 'Underground Crossing' OR bike_type_text = 'Grade Separated Crossing' OR bike_type_text = 'Overhead Crossing'",
@@ -233,7 +233,7 @@
   "splashScreen": {
     "enabled": true,
     "title": "WFRC RTP Projects Map (2023-2050)",
-    "content": "<div>This map shows the Adopted 2023 Regional Transportation Plan (RTP) including Amendment 1 (May 25, 2024).<br /><br />For project questions, contact the <a href=\"https://wfrc.org/contact/staff-directory/#longrange\" target=\"_blank\">Long-Range Planning Group</a> at WFRC.<br />For map questions, contact the <a href=\"https://wfrc.org/contact-sarah-lawless/\" target=\"_blank\">Analytics Group</a> at WFRC.</div>"
+    "content": "<div>This map shows the Adopted 2023 Regional Transportation Plan (RTP) including Amendment 1 (May 2024), Amendment 2 (August 2024), and Amendment 3 (May 2025).<br /><br />For project questions, contact the <a href=\"https://wfrc.org/contact/staff-directory/#longrange\" target=\"_blank\">Long-Range Planning Group</a> at WFRC.<br />For map questions, contact the <a href=\"https://wfrc.org/contact-sarah-lawless/\" target=\"_blank\">Analytics Group</a> at WFRC.</div>"
   },
   "translations": {
     "en": {
