@@ -1,7 +1,7 @@
 @use 'variables';
 @import 'bootstrap';
 
-@import '../node_modules/@ugrc/layer-selector/src/LayerSelector.css';
+@import './vendor/layer-selector/LayerSelector.css';
 
 .title {
   h4 {
