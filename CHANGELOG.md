@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.3.14](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.13...v5.3.14) (2026-01-06)
+
+
+### Bug Fixes
+
+* remove deprecated sass import directive ([a16136b](https://github.com/agrc/wfrc-rtp-projects/commit/a16136bf3d93635d96fb3bb4719eb2759ab1ae7d))
+* vendor layer selector ([7f3b06f](https://github.com/agrc/wfrc-rtp-projects/commit/7f3b06f7b15ebe692c76325bfb255226aed49915))
+
 ## [5.3.13](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.12...v5.3.13) (2025-11-05)
 
 
