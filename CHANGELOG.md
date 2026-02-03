@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.3.15](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.14...v5.3.15) (2026-02-03)
+
+
+### Dependencies
+
+* bump npm dependencies 🌲 ([5cd6cc1](https://github.com/agrc/wfrc-rtp-projects/commit/5cd6cc1e88c197df81109dcf48373fb07acc3093))
+* bump react-i18next ([8812a26](https://github.com/agrc/wfrc-rtp-projects/commit/8812a26522fb86d65382bc6c391c800a43c2252c))
+* bump the safe-dependencies group across 1 directory with 21 updates ([ade2f91](https://github.com/agrc/wfrc-rtp-projects/commit/ade2f91fddaf31b8511bff0eca6e2f7c5950ef99))
+
 ## [5.3.14](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.13...v5.3.14) (2026-01-06)
 
 
