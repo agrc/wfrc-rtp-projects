@@ -19,6 +19,11 @@ jobs:
       url: https://wfrc-rtp.dev.utah.gov
 
     steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v6
+        with:
+          show-progress: false
+
       - name: 🚀 Deploy
         uses: agrc/firebase-website-deploy-composite-action@v2
         with:
