@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.16](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.15...v5.3.16) (2026-02-17)
+
+
+### Dependencies
+
+* **dev:** bump happy-dom from 20.5.0 to 20.6.1 ([23df12f](https://github.com/agrc/wfrc-rtp-projects/commit/23df12fe3c893ef5eb1338d0b6eacf22c14560c7))
+
 ## [5.3.15](https://github.com/agrc/wfrc-rtp-projects/compare/v5.3.14...v5.3.15) (2026-02-03)
 
 
